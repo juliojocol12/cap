@@ -49,8 +49,7 @@
                                             <td>{{$infante->FechaEgreso}}</td>
                                             <td>{{$infante->TipoSanguineo}}</td>
                                             <td>{{$infante->DatosFamiliares_idDatosFamiliar}}</td>
-                                            <td>{{$infante->DatosPersonalesPacientes}}</td>
-                                            
+                                            <td>{{$infante->DatosPersonalesPacientes}}</td>                                            
                                         </tr>
                                     @endforeach
                                 </tbody>

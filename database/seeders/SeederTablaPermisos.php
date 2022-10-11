@@ -30,6 +30,12 @@ class SeederTablaPermisos extends Seeder
             'crear-infante',
             'editar-infante',
             'borrar-infante',
+
+            //tabla vacunacion
+            'ver-vacunacion',
+            'crear-vacunacion',
+            'editar-vacunacion',
+            'borrar-vacunacion',
         ];
         foreach($permisos as $permiso){
             Permission::create(['name'=>$permiso]);

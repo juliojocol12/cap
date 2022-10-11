@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Infante;
+use App\Models\DatosPersonalesPaciente;
 use Illuminate\Http\Request;
 
 class InfanteController extends Controller
@@ -22,8 +23,10 @@ class InfanteController extends Controller
     public function index()
     {
         //
+        $datospersonalespacientes = DatosPersonalesPaciente::all();
         $infantes = Infante::paginate(10);
-        return view('infantes.index', compact('infantes'));
+        return view('infantes.index', compact('infantes','datospersonalespacientes'));
+        
     }
 
     /**
@@ -58,7 +61,8 @@ class InfanteController extends Controller
             'Observaciones',
             'FechaEgreso',
             'TipoSanguineo',
-            'DatosFamiliares_idDatosFamiliares' => 'required',
+            'DatosPersonalesPacientes_id' => 'required',
+            'DatosFamiliares_id' => 'required',
         ]);
 
         Infante::create($request->all());

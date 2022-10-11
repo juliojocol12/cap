@@ -108,19 +108,19 @@
                                     </div>
                                 </div>
 
+                                {{--
+
                                 <div class="col-xs-12 col-sm-12 col-md-1">
                                     <div class="form-group">
                                         <label for="">Nombres</label>
-                                        {!! Form::text('Nombres', null, array('class'=>'form-control')) !!}
+                                        <select name="DatosFamiliares_idDatosFamiliar">
+                                            @foreach($datospersonalespacientes as $datospersonalespaciente)
+                                            <option value="{{ $datospersonalespaciente->idDatosPersonalesPaciente }}">{{ $datospersonalespaciente->NombresPaciente }} {{ $datospersonalespaciente->ApellidosPaciente }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <label for="name">Roles</label>
-                                        {!! Form::select('roles[]', $roles,[], array('class'=>'form-control')) !!}
-                                    </div>
-                                </div>
+                                --}}
 
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
