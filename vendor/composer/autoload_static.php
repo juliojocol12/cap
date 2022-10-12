@@ -560,6 +560,7 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
         'App\\Models\\DatosFamiliares' => __DIR__ . '/../..' . '/app/Models/DatosFamiliares.php',
         'App\\Models\\DatosPersonalesPaciente' => __DIR__ . '/../..' . '/app/Models/DatosPersonalesPaciente.php',
         'App\\Models\\Infante' => __DIR__ . '/../..' . '/app/Models/Infante.php',
+        'App\\Models\\Personal' => __DIR__ . '/../..' . '/app/Models/Personal.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
