@@ -32,4 +32,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('roles', RolController::class);
     Route::resource('usuarios', UsuarioController::class);
     Route::resource('infantes', InfanteController::class);
+    Route::resource('vacunas', InfanteController::class);
+    //Route::resource('examenes', InfanteController::class);
+    Route::resource('citas', InfanteController::class);
+    Route::resource('examenes', \App\Http\Controllers\ExameneController::class);
+    Route::resource('establecimiento', \App\Http\Controllers\EstablecimientoController::class);
 });
