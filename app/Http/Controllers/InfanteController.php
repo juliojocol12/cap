@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Infante;
 use App\Models\DatosPersonalesPaciente;
+use App\Models\DatosFamiliare;
 use Illuminate\Http\Request;
 
 class InfanteController extends Controller
@@ -23,9 +24,8 @@ class InfanteController extends Controller
     public function index()
     {
         //
-        $datospersonalespacientes = DatosPersonalesPaciente::all();
         $infantes = Infante::paginate(10);
-        return view('infantes.index', compact('infantes','datospersonalespacientes'));
+        return view('infantes.index', compact('infantes'));
         
     }
 
@@ -37,7 +37,15 @@ class InfanteController extends Controller
     public function create()
     {
         //
-        return view ('infantes.crear');
+        $datospacientes = DatosPersonalesPaciente::all();
+        $datosfamiliares = DatosFamiliare::all();
+
+        //$datospacientes  = DatosPersonalesPaciente::pluck('NombresPaciente', 'idDatosPersonalesPacientes')->all();
+        //$datosfamiliares  = DatosFamiliare::pluck('NombresFamiliar', 'idDatosFamiliares')->all();
+
+        return view ('infantes.crear')->with('datospacientes',$datospacientes)->with('datosfamiliares',$datosfamiliares);
+        
+
     }
 
     /**
@@ -47,9 +55,8 @@ class InfanteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-        request()->validate([
+    {                
+        $this->validate($request,[
             'Nombres' => 'required',
             'Apellidos' => 'required',
             'Genero' => 'required',
@@ -64,18 +71,22 @@ class InfanteController extends Controller
             'DatosPersonalesPacientes_id' => 'required',
             'DatosFamiliares_id' => 'required',
         ]);
-
+        
         Infante::create($request->all());
+
         return redirect()->route('infantes.index');
+
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Infante  $infante
+     * 
+     * @param  int  $idInfantes
      * @return \Illuminate\Http\Response
      */
-    public function show(Infante $infante)
+    public function show($idInfantes)
     {
         //
     }
@@ -84,29 +95,46 @@ class InfanteController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Infante  $infante
+     * 
+     * @param  int  $idInfantes
      * @return \Illuminate\Http\Response
      */
-    public function edit(Infante $infante)
+    public function edit($idInfantes)
     {
-        //
-        return view('infantes.editar', compact('infante'));
+        $infante = Infante::find($idInfantes);
+        //$datospacientes  = DatosPersonalesPaciente::pluck('NombresPaciente', 'idDatosPersonalesPacientes')->all();
+        //$datosfamiliares  = DatosFamiliare::pluck('NombresFamiliar', 'idDatosFamiliares')->all();
+        //$infanteDatosPaciente = $infante->datospacientes->pluck('NombresPaciente', 'idDatosPersonalesPacientes')->all();
+        //$infanteDatosFamiliar = $infante->datosfamiliares->pluck('NombresFamiliar', 'idDatosFamiliares')->all();
+        //$infanteDatosPaciente = $infante->datospacientes->pluck('DatosPersonalesPacientes_id', 'idDatosPersonalesPacientes')->all();
+        //$infanteDatosFamiliar = $infante->datosfamiliares->pluck('DatosPersonalesPacientes_id', 'idDatosFamiliares')->all();
+        //return view('infantes.editar', compact('infante', 'datospacientes', 'datosfamiliares', 'infanteDatosPaciente', 'infanteDatosFamiliar'));
+        //return view('infantes.editar', compact('infante', 'datospacientes', 'datosfamiliares'));
+
+        //$datospacientes = DatosPersonalesPaciente::all();
+        //$datosfamiliares = DatosFamiliare::all();
+
+        return view ('infantes.editar', compact('infante'));
+        
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * 
+     * @param  int  $idInfantes
      * @param  \App\Models\Infante  $infante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Infante $infante)
+    public function update(Request $request, $idInfantes)
     {
-        //
+        
         request()->validate([
-            'Nombres' => 'required',
-            'Apellidos' => 'required',
-            'Genero' => 'required',
-            'FechaNacimiento' => 'required',
+            'Nombres',
+            'Apellidos',
+            'Genero' ,
+            'FechaNacimiento',
             'HoraNaciemiento',
             'PesoLB' => 'required',
             'PesoOnz' => 'required',
@@ -114,11 +142,13 @@ class InfanteController extends Controller
             'Observaciones',
             'FechaEgreso',
             'TipoSanguineo',
-            'DatosFamiliares_idDatosFamiliares' => 'required',
-            'DatosFamiliares_idDatosFamiliares' => 'required'
+            'DatosPersonalesPacientes_id',
+            'DatosFamiliares_id' => 'required'
 
         ]);
-        $infante->update($request->all());
+        $input = $request->all();
+        $infante = Infante::find($idInfantes);
+        $infante->update($input);
         return redirect()->route('infantes.index');
     }
 
@@ -126,12 +156,14 @@ class InfanteController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Infante  $infante
+     * 
+     * @param  int  $idInfantes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Infante $infante)
+    public function destroy($idInfantes)
     {
         //
-        $infante->delete();
+        Infante::find($idInfantes)->delete();
         return redirect()->route('infantes.index');
     }
 }

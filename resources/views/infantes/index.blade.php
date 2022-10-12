@@ -13,7 +13,7 @@
                             
                             <a class="btn btn-warning" href="{{ route('infantes.create') }}">Ingresar Infante</a>
 
-                            <table class="table table-striped mt-2">
+                            <table class="table  table-striped table-bordered mt-2">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
                                     <th style="color:#fff;">Nombres</th>
@@ -48,8 +48,14 @@
                                             <td>{{$infante->Observaciones}}</td>
                                             <td>{{$infante->FechaEgreso}}</td>
                                             <td>{{$infante->TipoSanguineo}}</td>
-                                            <td>{{$infante->DatosFamiliares_idDatosFamiliar}}</td>
-                                            <td>{{$infante->DatosPersonalesPacientes}}</td>                                            
+                                            <td>{{$infante->DatosPersonalesPacientes_id}}</td>
+                                            <td>{{$infante->DatosFamiliares_id}}</td>
+                                            <td>
+                                                <a class="btn btn-info" href="{{ route('infantes.edit', $infante->idInfantes) }}">Editar</a>
+                                                {!! Form::open(['method'=> 'DELETE', 'route'=> ['infantes.destroy', $infante->idInfantes], 'style'=>'display:inline' ]) !!}
+                                                    {!! Form::submit('Borrar', ['class'=>'btn btn-danger']) !!}
+                                                {!! Form::close() !!}
+                                            </td>                      
                                         </tr>
                                     @endforeach
                                 </tbody>

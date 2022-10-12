@@ -28,28 +28,28 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <label for="name">Nombre</label>
-                                        {!! Form::text('name', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('name', null, array('class'=>'form-control', 'pattern'=>'[a-z]+', 'maxlength'=>'20', 'placeholder'=>'ingrese el nombre de usuario')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <label for="name">Email</label>
-                                        {!! Form::text('email', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('email', null, array('class'=>'form-control', 'size'=>'64', 'maxlength'=>'191', 'pattern'=>'[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$', 'placeholder'=>'ingrese una direccion de correo')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <label for="name">Contraseña</label>
-                                        {!! Form::password('password', array('class'=>'form-control')) !!}
+                                        {!! Form::password('password', array('class'=>'form-control', 'pattern'=>'?=.*[a-z])(?=.*[A-Z]', 'maxlength'=>'12', 'placeholder'=>'ingrese la contraseña')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <label for="name">Confirmar contraseña</label>
-                                        {!! Form::password('confirm-password', array('class'=>'form-control')) !!}
+                                        {!! Form::password('confirm-password', array('class'=>'form-control', 'maxlength'=>'12',    'placeholder'=>'vuelva a ingresar la contraseña')) !!}
                                     </div>
                                 </div>
 
