@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DatosPersonalesPaciente;
+use App\Models\datospersonalespaciente;
 use Illuminate\Http\Request;
 
-class DatosPersonalesPacienteController extends Controller
+class DatospersonalespacienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class DatosPersonalesPacienteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\DatosPersonalesPaciente  $datosPersonalesPaciente
+     * @param  \App\Models\datospersonalespaciente  $datospersonalespaciente
      * @return \Illuminate\Http\Response
      */
-    public function show(DatosPersonalesPaciente $datosPersonalesPaciente)
+    public function show(datospersonalespaciente $datospersonalespaciente)
     {
         //
     }
@@ -52,10 +52,10 @@ class DatosPersonalesPacienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\DatosPersonalesPaciente  $datosPersonalesPaciente
+     * @param  \App\Models\datospersonalespaciente  $datospersonalespaciente
      * @return \Illuminate\Http\Response
      */
-    public function edit(DatosPersonalesPaciente $datosPersonalesPaciente)
+    public function edit(datospersonalespaciente $datospersonalespaciente)
     {
         //
     }
@@ -64,10 +64,10 @@ class DatosPersonalesPacienteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DatosPersonalesPaciente  $datosPersonalesPaciente
+     * @param  \App\Models\datospersonalespaciente  $datospersonalespaciente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DatosPersonalesPaciente $datosPersonalesPaciente)
+    public function update(Request $request, datospersonalespaciente $datospersonalespaciente)
     {
         //
     }
@@ -75,10 +75,10 @@ class DatosPersonalesPacienteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\DatosPersonalesPaciente  $datosPersonalesPaciente
+     * @param  \App\Models\datospersonalespaciente  $datospersonalespaciente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DatosPersonalesPaciente $datosPersonalesPaciente)
+    public function destroy(datospersonalespaciente $datospersonalespaciente)
     {
         //
     }

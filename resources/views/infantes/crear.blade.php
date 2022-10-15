@@ -28,7 +28,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Nombres</label>
-                                        {!! Form::text('Nombres', null, array('class'=>'form-control', 'placeholder'=>'Ingrese los nombres del infante', 'pattern'=>'[A-Za-z]+[ ]+[A-Za-z]{5,45}')) !!}
+                                        {!! Form::text('Nombres', null, array('class'=>'form-control', 'placeholder'=>'Ingrese los nombres del infante', )) !!}
                                     </div>
                                        
                                 </div>

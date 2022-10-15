@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DatosFamiliare;
+use App\Models\datosfamiliare;
 use Illuminate\Http\Request;
 
-class DatosFamiliareController extends Controller
+class DatosfamiliareController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class DatosFamiliareController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\DatosFamiliare  $datosFamiliare
+     * @param  \App\Models\datosfamiliare  $datosfamiliare
      * @return \Illuminate\Http\Response
      */
-    public function show(DatosFamiliare $datosFamiliare)
+    public function show(datosfamiliare $datosfamiliare)
     {
         //
     }
@@ -52,10 +52,10 @@ class DatosFamiliareController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\DatosFamiliare  $datosFamiliare
+     * @param  \App\Models\datosfamiliare  $datosfamiliare
      * @return \Illuminate\Http\Response
      */
-    public function edit(DatosFamiliare $datosFamiliare)
+    public function edit(datosfamiliare $datosfamiliare)
     {
         //
     }
@@ -64,10 +64,10 @@ class DatosFamiliareController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DatosFamiliare  $datosFamiliare
+     * @param  \App\Models\datosfamiliare  $datosfamiliare
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DatosFamiliare $datosFamiliare)
+    public function update(Request $request, datosfamiliare $datosfamiliare)
     {
         //
     }
@@ -75,10 +75,10 @@ class DatosFamiliareController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\DatosFamiliare  $datosFamiliare
+     * @param  \App\Models\datosfamiliare  $datosfamiliare
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DatosFamiliare $datosFamiliare)
+    public function destroy(datosfamiliare $datosfamiliare)
     {
         //
     }

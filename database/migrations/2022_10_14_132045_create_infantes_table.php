@@ -29,8 +29,8 @@ class CreateInfantesTable extends Migration
             $table->unsignedInteger('DatosPersonalesPacientes_id');
             $table->unsignedInteger('DatosFamiliares_id');
             
-            $table->foreign('DatosPersonalesPacientes_id')->references('idDatosPersonalesPacientes')->on('datos_personales_pacientes');
-            $table->foreign('DatosFamiliares_id')->references('idDatosFamiliares')->on('datos_familiares');
+            $table->foreign('DatosPersonalesPacientes_id')->references('idDatosPersonalesPacientes')->on('datospersonalespacientes');
+            $table->foreign('DatosFamiliares_id')->references('idDatosFamiliares')->on('datosfamiliares');
             
             $table->timestamps();
         });

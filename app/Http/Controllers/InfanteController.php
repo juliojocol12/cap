@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Infante;
-use App\Models\DatosPersonalesPaciente;
-use App\Models\DatosFamiliare;
+use App\Models\infante;
+use App\Models\datospersonalespaciente;
+use App\Models\datosfamiliare;
 use Illuminate\Http\Request;
 
 class InfanteController extends Controller
@@ -26,7 +26,6 @@ class InfanteController extends Controller
         //
         $infantes = Infante::paginate(10);
         return view('infantes.index', compact('infantes'));
-        
     }
 
     /**
@@ -37,15 +36,13 @@ class InfanteController extends Controller
     public function create()
     {
         //
-        $datospacientes = DatosPersonalesPaciente::all();
-        $datosfamiliares = DatosFamiliare::all();
+        $datospacientes = datospersonalespaciente::all();
+        $datosfamiliares = datosfamiliare::all();
 
         //$datospacientes  = DatosPersonalesPaciente::pluck('NombresPaciente', 'idDatosPersonalesPacientes')->all();
         //$datosfamiliares  = DatosFamiliare::pluck('NombresFamiliar', 'idDatosFamiliares')->all();
 
         return view ('infantes.crear')->with('datospacientes',$datospacientes)->with('datosfamiliares',$datosfamiliares);
-        
-
     }
 
     /**
@@ -55,7 +52,8 @@ class InfanteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {                
+    {
+        //
         $this->validate($request,[
             'Nombres' => 'required',
             'Apellidos' => 'required',
@@ -75,14 +73,12 @@ class InfanteController extends Controller
         Infante::create($request->all());
 
         return redirect()->route('infantes.index');
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Infante  $infante
-     * 
+     * @param  \App\Models\infante  $infante
      * @param  int  $idInfantes
      * @return \Illuminate\Http\Response
      */
@@ -94,42 +90,29 @@ class InfanteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Infante  $infante
-     * 
+     * @param  \App\Models\infante  $infante
      * @param  int  $idInfantes
      * @return \Illuminate\Http\Response
      */
     public function edit($idInfantes)
     {
+        //
         $infante = Infante::find($idInfantes);
-        //$datospacientes  = DatosPersonalesPaciente::pluck('NombresPaciente', 'idDatosPersonalesPacientes')->all();
-        //$datosfamiliares  = DatosFamiliare::pluck('NombresFamiliar', 'idDatosFamiliares')->all();
-        //$infanteDatosPaciente = $infante->datospacientes->pluck('NombresPaciente', 'idDatosPersonalesPacientes')->all();
-        //$infanteDatosFamiliar = $infante->datosfamiliares->pluck('NombresFamiliar', 'idDatosFamiliares')->all();
-        //$infanteDatosPaciente = $infante->datospacientes->pluck('DatosPersonalesPacientes_id', 'idDatosPersonalesPacientes')->all();
-        //$infanteDatosFamiliar = $infante->datosfamiliares->pluck('DatosPersonalesPacientes_id', 'idDatosFamiliares')->all();
-        //return view('infantes.editar', compact('infante', 'datospacientes', 'datosfamiliares', 'infanteDatosPaciente', 'infanteDatosFamiliar'));
-        //return view('infantes.editar', compact('infante', 'datospacientes', 'datosfamiliares'));
-
-        //$datospacientes = DatosPersonalesPaciente::all();
-        //$datosfamiliares = DatosFamiliare::all();
 
         return view ('infantes.editar', compact('infante'));
-        
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * 
      * @param  int  $idInfantes
-     * @param  \App\Models\Infante  $infante
+     * @param  \App\Models\infante  $infante
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $idInfantes)
     {
-        
+        //
         request()->validate([
             'Nombres',
             'Apellidos',
@@ -155,12 +138,11 @@ class InfanteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Infante  $infante
-     * 
-     * @param  int  $idInfantes
+     * @param  \App\Models\infante  $infante
      * @return \Illuminate\Http\Response
+     * @param  int  $idInfantes
      */
-    public function destroy($idInfantes)
+    public function destroy(infante $infante)
     {
         //
         Infante::find($idInfantes)->delete();
