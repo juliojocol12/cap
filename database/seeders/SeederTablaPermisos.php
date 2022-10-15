@@ -36,6 +36,12 @@ class SeederTablaPermisos extends Seeder
             'crear-infante',
             'editar-infante',
             'borrar-infante',
+
+            //tabla personal
+            'ver-personal',
+            'crear-personal',
+            'editar-personal',
+            'borrar-personal',
         ];
         foreach($permisos as $permiso){
             Permission::create(['name'=>$permiso]);

@@ -11,5 +11,8 @@
     <a class="nav-link" href="/infantes">
         <i class=" fas fa-child"></i><span>Infantes</span>
     </a>
+    <a class="nav-link" href="/personal">
+        <i class=" fas fa-address-card"></i><span>Personal</span>
+    </a>
 
 </li>
