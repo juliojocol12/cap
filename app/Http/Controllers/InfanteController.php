@@ -24,7 +24,7 @@ class InfanteController extends Controller
     public function index()
     {
         //
-        $infantes = Infante::paginate(10);
+        $infantes = infante::paginate(10);
         return view('infantes.index', compact('infantes'));
     }
 
@@ -70,7 +70,7 @@ class InfanteController extends Controller
             'DatosFamiliares_id' => 'required',
         ]);
         
-        Infante::create($request->all());
+        infante::create($request->all());
 
         return redirect()->route('infantes.index');
     }
@@ -78,7 +78,8 @@ class InfanteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\infante  $infante
+     * @param  \App\Models\infante  $infant
+     * 
      * @param  int  $idInfantes
      * @return \Illuminate\Http\Response
      */
@@ -90,24 +91,26 @@ class InfanteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\infante  $infante
+     * @param  \App\Models\infante  $infant
+     * 
      * @param  int  $idInfantes
      * @return \Illuminate\Http\Response
      */
     public function edit($idInfantes)
     {
         //
-        $infante = Infante::find($idInfantes);
+        $infant = infante::find($idInfantes);
 
-        return view ('infantes.editar', compact('infante'));
+        return view ('infantes.editar', compact('infant'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+    
      * @param  int  $idInfantes
-     * @param  \App\Models\infante  $infante
+     * @param  \App\Models\infante  $infant
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $idInfantes)
@@ -130,22 +133,20 @@ class InfanteController extends Controller
 
         ]);
         $input = $request->all();
-        $infante = Infante::find($idInfantes);
-        $infante->update($input);
+        $infant = infante::find($idInfantes);
+        $infant->update($input);
         return redirect()->route('infantes.index');
     }
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\infante  $infante
-     * @return \Illuminate\Http\Response
      * @param  int  $idInfantes
+     * @return \Illuminate\Http\Response
      */
-    public function destroy(infante $infante)
+    public function destroy($idInfantes)
     {
         //
-        Infante::find($idInfantes)->delete();
+        infante::find($idInfantes)->delete();
         return redirect()->route('infantes.index');
     }
 }

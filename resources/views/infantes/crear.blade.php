@@ -111,11 +111,18 @@
 
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
-                                        <label for="">Datos de Madre</label>
-                                        {{--{!! Form::text('DatosPersonalesPacientes_id', null, array('class'=>'form-control', 'placeholder'=>'Observaciones durante el nacimiento')) !!}
-                                        {!! Form::select('DatosPersonalesPacientes_id[]', $datospacientes,[], array('class'=>'form-control')) !!} 
-                                        --}}    
-                                        
+                                        <label for="filtroCUI" class="form-label">Datos de Madre</label>
+                                        <input class="form-control" list="filtroCUIs" name="filtroCUI" id="filtroCUI" placeholder="ingrese el cui">
+                                        <datalist id="filtroCUIs">
+                                            @foreach($datospacientes as $cuipaciente)
+                                            <option value="{{$cuipaciente->CUI }}"> {{ $cuipaciente->CUI }} </option>
+                                            @endforeach
+                                        </datalist>
+                                        if($datospacientes = $datospacientes)
+                                            <label for="" class="form-label"> {{ $nombrepacient->ApellidosPaciente}}</label>
+                                        elseif
+                                        <input class="form-control" list="filtroCUIs" name="filtroCUI" id="filtroCUI" placeholder="ingrese el cui">
+
                                         <select class="form-control" name="DatosPersonalesPacientes_id">
                                             @foreach($datospacientes as $nombrepacient)
                                             <option value="{{$nombrepacient->idDatosPersonalesPacientes }}">{{ $nombrepacient->NombresPaciente}} {{ $nombrepacient->ApellidosPaciente}} </option>

@@ -24,7 +24,7 @@
                             </div>
                             @endif
 
-                            {!! Form::model($infante, ['method' => 'PATCH', 'route'=> ['infantes.update', $infante->idInfantes ]]) !!}
+                            {!! Form::model($infant, ['method' => 'PATCH', 'route'=> ['infantes.update', $infant->idInfantes ]]) !!}
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
