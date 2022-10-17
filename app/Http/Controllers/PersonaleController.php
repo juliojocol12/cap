@@ -45,15 +45,15 @@ class PersonaleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'Nombre' => 'required',
-            'CUI' => 'required',
-            'Telefono' => 'required',
-            'Direccion' => 'required',
-            'Cargo' => 'required',
+            'Nombre' => 'required|max:45|TextoRule1',
+            'CUI' => 'required|max:15|NumeroRule',
+            'Telefono' => 'required|max:15|NumeroRule',
+            'Direccion' => 'required|max:45',
+            'Cargo' => 'required|max:30|TextoRule1',
             'FechaNacimiento' => 'required',
-            'NivelAcademico' ,
-            'CorreoElectronico' ,
-            'Observaciones' ,
+            'NivelAcademico' => 'max:30|TextoRule2',
+            'CorreoElectronico' => 'max:20|CorreoRule2|Unique:personales',
+            'Observaciones' => 'max:50',
         ]);
     
         personale::create($request->all());
@@ -96,15 +96,15 @@ class PersonaleController extends Controller
     public function update(Request $request, $idPersonal)
     {
         request()->validate([
-            'Nombre' => 'required',
-            'CUI' => 'required',
-            'Telefono' => 'required',
-            'Direccion' => 'required',
-            'Cargo' => 'required',
+            'Nombre' => 'required|max:45|TextoRule1',
+            'CUI' => 'required|max:15|NumeroRule',
+            'Telefono' => 'required|max:15|NumeroRule',
+            'Direccion' => 'required|max:45',
+            'Cargo' => 'required|max:30|TextoRule1',
             'FechaNacimiento' => 'required',
-            'NivelAcademico' ,
-            'CorreoElectronico' ,
-            'Observaciones' ,
+            'NivelAcademico' => 'max:30|TextoRule2',
+            'CorreoElectronico' => 'max:20|CorreoRule2|Unique:personals',
+            'Observaciones' => 'max:50',
         ]);
     
         $input = $request->all();
