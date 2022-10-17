@@ -43,6 +43,14 @@ class AppServiceProvider extends ServiceProvider
             return preg_match('/^[0-9]+$/',$value);
         });
 
+        Validator::extend('NumeroRule2', function ($attribute, $value, $parameters) {
+            if($value == null)
+            {
+                return true;
+            }
+            return preg_match('/^[0-9]+$/',$value);
+        });
+
         Validator::extend('CorreoRule1', function ($attribute, $value, $parameters) {
             return preg_match('/^[^@]+@[^@]+\.[a-zA-Z]{2,}+$/',$value);
         });
@@ -60,6 +68,14 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Validator::extend('DecimalRule', function ($attribute, $value, $parameters) {
+            return preg_match('/^[0-9]{3}+[.]+[0-9]{2}+$/',$value);
+        });
+
+        Validator::extend('DecimalRule2', function ($attribute, $value, $parameters) {
+            if($value == null)
+            {
+                return true;
+            }
             return preg_match('/^[0-9]{3}+[.]+[0-9]{2}+$/',$value);
         });
 
