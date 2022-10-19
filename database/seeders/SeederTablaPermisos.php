@@ -42,6 +42,36 @@ class SeederTablaPermisos extends Seeder
             'crear-personal',
             'editar-personal',
             'borrar-personal',
+
+            //tabla primercontrolpostparto
+            'ver-primercontrolpostparto',
+            'crear-primercontrolpostparto',
+            'editar-primercontrolpostparto',
+            'borrar-primercontrolpostparto',
+
+            //tabla conductapostparto
+            'ver-conductapostparto',
+            'crear-conductapostparto',
+            'editar-conductapostparto',
+            'borrar-conductapostparto',
+
+            //tabla padecimientoinfate
+            'ver-padecimientoinfate',
+            'crear-padecimientoinfate',
+            'editar-padecimientoinfate',
+            'borrar-padecimientoinfate',
+
+            //tabla clasificacionposparto
+            'ver-clasificacionposparto',
+            'crear-clasificacionposparto',
+            'editar-clasificacionposparto',
+            'borrar-clasificacionposparto',
+
+            //tabla conserjeriaposparto
+            'ver-conserjeriaposparto',
+            'crear-conserjeriaposparto',
+            'editar-conserjeriaposparto',
+            'borrar-conserjeriaposparto',
         ];
         foreach($permisos as $permiso){
             Permission::create(['name'=>$permiso]);

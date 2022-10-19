@@ -3,10 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\padecimientoinfante;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class PadecimientoinfanteController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:ver-padecimientoinfate | crear-padecimientoinfate | editar-padecimientoinfate | borrar-padecimientoinfate', ['only'=>['index']]);
+         $this->middleware('permission:crear-padecimientoinfate', ['only' => ['create','store']]);
+         $this->middleware('permission:editar-padecimientoinfate', ['only' => ['edit','update']]);
+         $this->middleware('permission:borrar-padecimientoinfate', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,8 @@ class PadecimientoinfanteController extends Controller
      */
     public function index()
     {
-        //
+        $padecimientoinfantes = padecimientoinfante::paginate(10);
+        return view('padecimientoinfante.index',compact('padecimientoinfantes'));
     }
 
     /**
@@ -24,7 +33,8 @@ class PadecimientoinfanteController extends Controller
      */
     public function create()
     {
-        //
+        return view('padecimientoinfante.crear');
+    
     }
 
     /**
@@ -35,7 +45,15 @@ class PadecimientoinfanteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'TipoControl' => 'required|max:45|TextoRule3',
+            'FechaControl' => 'required',
+            'DescripcionControl' => 'required|max:45',
+        ]);
+    
+        padecimientoinfante::create($request->all());
+    
+        return redirect()->route('padecimientoinfante.index'); 
     }
 
     /**
@@ -53,33 +71,47 @@ class PadecimientoinfanteController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\padecimientoinfante  $padecimientoinfante
+     * @param  int  $idPadecimientoInfantes
      * @return \Illuminate\Http\Response
      */
-    public function edit(padecimientoinfante $padecimientoinfante)
+    public function edit($idPadecimientoInfantes)
     {
-        //
+        $padecimientoinfante = padecimientoinfante::find($idPadecimientoInfantes);
+        return view('padecimientoinfante.editar', compact('padecimientoinfante'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  int  $idPadecimientoInfantes
      * @param  \App\Models\padecimientoinfante  $padecimientoinfante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, padecimientoinfante $padecimientoinfante)
+    public function update(Request $request, $idPadecimientoInfantes)
     {
-        //
+        $this->validate($request,[
+            'TipoControl' => 'required|max:45|TextoRule3',
+            'FechaControl' => 'required',
+            'DescripcionControl' => 'required|max:45',
+        ]);
+
+        $input = $request->all();
+        $padecimientoinfante = padecimientoinfante::find($idPadecimientoInfantes);
+        $padecimientoinfante->update($input);
+        return redirect()->route('padecimientoinfante.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\padecimientoinfante  $padecimientoinfante
+     * @param  int  $idPadecimientoInfantes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(padecimientoinfante $padecimientoinfante)
+    public function destroy($idPadecimientoInfantes)
     {
-        //
+        padecimientoinfante::find($idPadecimientoInfantes)->delete();
+        return redirect()->route('padecimientoinfante.index');
     }
 }

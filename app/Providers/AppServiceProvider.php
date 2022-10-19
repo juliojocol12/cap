@@ -39,6 +39,18 @@ class AppServiceProvider extends ServiceProvider
             return preg_match('/^[ a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/',$value);
         });
 
+        Validator::extend('TextoRule3', function ($attribute, $value, $parameters) {
+            return preg_match('/^[0-9a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/',$value);
+        });
+
+        Validator::extend('TextoRule4', function ($attribute, $value, $parameters) {
+            if($value == null)
+            {
+                return true;
+            }
+            return preg_match('/^[0-9a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/',$value);
+        });
+
         Validator::extend('NumeroRule', function ($attribute, $value, $parameters) {
             return preg_match('/^[0-9]+$/',$value);
         });

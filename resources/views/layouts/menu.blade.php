@@ -14,5 +14,20 @@
     <a class="nav-link" href="/personal">
         <i class=" fas fa-address-card"></i><span>Personal</span>
     </a>
+    <a class="nav-link" href="/primercontrolpostparto">
+        <i class=" fa fa-receipt"></i><span>Primer Control Postparto</span>
+    </a>
+    <a class="nav-link" href="/conductaposparto">
+        <i class=" fa fa-receipt"></i><span>Conducta Posparto</span>
+    </a>
+    <a class="nav-link" href="/padecimientoinfante">
+        <i class=" fa fa-receipt"></i><span>Padecimiento Infante</span>
+    </a>
+    <a class="nav-link" href="/clasificacionposparto">
+        <i class=" fa fa-receipt"></i><span>Clasificacion Posparto</span>
+    </a>
+    <a class="nav-link" href="/conserjeriaposparto">
+        <i class=" fa fa-receipt"></i><span>Consejeria Posparto</span>
+    </a>
 
 </li>

@@ -21,6 +21,8 @@ return [
     'numero_rule2' => 'El campo :attribute solo acepta números.',
     'texto_rule1' => 'El campo :attribute solo acepta letras.',
     'texto_rule2' => 'El campo :attribute solo acepta letras.',
+    'texto_rule3' => 'El campo :attribute solo acepta letras y numeros.',
+    'texto_rule4' => 'El campo :attribute solo acepta letras y numeros.',
     'accepted' => 'The :attribute must be accepted.',
     'accepted_if' => 'The :attribute must be accepted when :other is :value.',
     'active_url' => 'The :attribute is not a valid URL.',

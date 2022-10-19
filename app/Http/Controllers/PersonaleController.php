@@ -120,7 +120,7 @@ class PersonaleController extends Controller
      * @param  int  $idPersonal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(personale $personale)
+    public function destroy($idPersonal)
     {
         personale::find($idPersonal)->delete();
         return redirect()->route('personal.index');

@@ -3,10 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\consejeriaposparto;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ConsejeriapospartoController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:ver-conserjeriaposparto | crear-conserjeriaposparto | editar-conserjeriaposparto | borrar-conserjeriaposparto', ['only'=>['index']]);
+         $this->middleware('permission:crear-conserjeriaposparto', ['only' => ['create','store']]);
+         $this->middleware('permission:editar-conserjeriaposparto', ['only' => ['edit','update']]);
+         $this->middleware('permission:borrar-conserjeriaposparto', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,8 @@ class ConsejeriapospartoController extends Controller
      */
     public function index()
     {
-        //
+        $conserjeriapospartos = consejeriaposparto::paginate(10);
+        return view('conserjeriaposparto.index',compact('conserjeriapospartos'));
     }
 
     /**
@@ -24,7 +33,7 @@ class ConsejeriapospartoController extends Controller
      */
     public function create()
     {
-        //
+        return view('conserjeriaposparto.crear');
     }
 
     /**
@@ -35,7 +44,17 @@ class ConsejeriapospartoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'LactanciaMaternaExclusiva' => 'required|max:30|TextoRule1',
+            'PlanificacionFamiliarPosparto' => 'required|max:30|TextoRule1',
+            'AlimentacionMadreLactante' => 'required|max:30|TextoRule1',
+            'LactanciaMaternaVIH' => 'required|max:30|TextoRule1',
+            'MujerVIH' => 'required|max:30|TextoRule1',
+        ]);
+    
+        consejeriaposparto::create($request->all());
+    
+        return redirect()->route('conserjeriaposparto.index');
     }
 
     /**
@@ -53,33 +72,49 @@ class ConsejeriapospartoController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\consejeriaposparto  $consejeriaposparto
+     * @param  int  $idConsejeriaPospartos
      * @return \Illuminate\Http\Response
      */
-    public function edit(consejeriaposparto $consejeriaposparto)
+    public function edit($idConsejeriaPospartos)
     {
-        //
+        $consejeriaposparto = consejeriaposparto::find($idConsejeriaPospartos);
+        return view('conserjeriaposparto.editar', compact('consejeriaposparto'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  int  $idConsejeriaPospartos
      * @param  \App\Models\consejeriaposparto  $consejeriaposparto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, consejeriaposparto $consejeriaposparto)
+    public function update(Request $request, $idConsejeriaPospartos)
     {
-        //
+        $this->validate($request,[
+            'LactanciaMaternaExclusiva' => 'required|max:30|TextoRule1',
+            'PlanificacionFamiliarPosparto' => 'required|max:30|TextoRule1',
+            'AlimentacionMadreLactante' => 'required|max:30|TextoRule1',
+            'LactanciaMaternaVIH' => 'required|max:30|TextoRule1',
+            'MujerVIH' => 'required|max:30|TextoRule1',
+        ]);
+
+        $input = $request->all();
+        $consejeriaposparto = consejeriaposparto::find($idConsejeriaPospartos);
+        $consejeriaposparto->update($input);
+        return redirect()->route('conserjeriaposparto.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\consejeriaposparto  $consejeriaposparto
+     * @param  int  $idConsejeriaPospartos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(consejeriaposparto $consejeriaposparto)
+    public function destroy($idConsejeriaPospartos)
     {
-        //
+        consejeriaposparto::find($idConsejeriaPospartos)->delete();
+        return redirect()->route('conserjeriaposparto.index');
     }
 }
