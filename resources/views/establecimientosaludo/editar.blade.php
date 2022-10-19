@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Editar Padecimiento Infante</h3>
+            <h3 class="page__heading">Editar Personal</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -24,26 +24,33 @@
                             </div>
                             @endif
 
-                            {!! Form::model($padecimientoinfante, ['method' => 'PATCH', 'route'=> ['padecimientoinfante.update', $padecimientoinfante->idPadecimientoInfantes]]) !!}
+                            {!! Form::model($establecimientosaludo, ['method' => 'PATCH', 'route'=> ['establecimientosaludo.update', $establecimientosaludo->idEstablecimientoSaludos]]) !!}
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
-                                        <label for="name">Tipo Control</label>
-                                        {!! Form::text('TipoControl', null, array('class'=>'form-control'))!!}
+                                        <label for="name">Nombre</label>
+                                        {!! Form::text('Nombre', null, array('class'=>'form-control'))!!}
                                     </div>
                                 </div>
     
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
-                                        <label for="name">Fecha Control</label>
-                                        {!! Form::date('FechaControl', null, array('class'=>'form-control')) !!}
+                                        <label for="name">Direccion</label>
+                                        {!! Form::text('Direccion', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
     
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
-                                        <label for="name">Descripcion Control</label>
-                                        {!! Form::text('DescripcionControl', null, array('class'=>'form-control')) !!}
+                                        <label for="name">Comunidad</label>
+                                        {!! Form::text('Comunidad', null, array('class'=>'form-control')) !!}
+                                    </div>
+                                </div>
+    
+                                <div class="col-xs-12 col-sm-12 col-md-8">
+                                    <div class="form-group">
+                                        <label for="name">Puesto de Salud</label>
+                                        {!! Form::text('PuestoSalud', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
     

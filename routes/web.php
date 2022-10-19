@@ -12,6 +12,7 @@ use App\Http\Controllers\ConductapospartoController;
 use App\Http\Controllers\PadecimientoinfanteController;
 use App\Http\Controllers\ClasificacionpospartoController;
 use App\Http\Controllers\ConsejeriapospartoController;
+use App\Http\Controllers\EstablecimientosaludoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,4 +44,5 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('padecimientoinfante', PadecimientoinfanteController::class);
     Route::resource('clasificacionposparto', ClasificacionpospartoController::class);
     Route::resource('conserjeriaposparto', ConsejeriapospartoController::class);
+    Route::resource('establecimientosaludo', EstablecimientosaludoController::class);
 });

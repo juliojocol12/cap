@@ -72,6 +72,12 @@ class SeederTablaPermisos extends Seeder
             'crear-conserjeriaposparto',
             'editar-conserjeriaposparto',
             'borrar-conserjeriaposparto',
+
+            //tabla establecimientosaludo
+            'ver-establecimientosaludo',
+            'crear-establecimientosaludo',
+            'editar-establecimientosaludo',
+            'borrar-establecimientosaludo',
         ];
         foreach($permisos as $permiso){
             Permission::create(['name'=>$permiso]);

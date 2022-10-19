@@ -40,17 +40,26 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
-                                    <label for="name">Donde Atendio Parto</label>
-                                    {!! Form::text('DondeAtendioParto', null, array('class'=>'form-control')) !!}
+                                    <label for="">Donde Atendio Parto</label>
+                                    <select class="form-control" name="EstablecimientoSalud_id">
+                                        @foreach($Destablecimientos as $est)
+                                        <option value="{{$est->idEstablecimientoSaludos }}">{{ $est->Nombre}} </option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                            </div>
+                            </div> 
 
-                            <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
-                                    <label for="name">Quien Atendio Parto</label>
-                                    {!! Form::text('QuienAtendioParto', null, array('class'=>'form-control')) !!}
+                                    <label for="">Quien Atendio Parto</label>
+                                    <select class="form-control" name="Personal_id">
+                                        <option value="Usuario">{{\Illuminate\Support\Facades\Auth::user()->name}}</option>
+                                        @foreach($Dpersonales as $per)
+                                        <option value="{{$per->idPersonal }}">{{ $per->Nombre}} </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 

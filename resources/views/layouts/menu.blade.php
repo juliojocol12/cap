@@ -29,5 +29,8 @@
     <a class="nav-link" href="/conserjeriaposparto">
         <i class=" fa fa-receipt"></i><span>Consejeria Posparto</span>
     </a>
+    <a class="nav-link" href="/establecimientosaludo">
+        <i class=" fa fa-hospital"></i><span>Establecimiento de salud</span>
+    </a>
 
 </li>

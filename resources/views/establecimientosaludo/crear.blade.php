@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Ingreso de Conserjeria Postparto</h3>
+            <h3 class="page__heading">Ingreso de Establecimiento de Salud</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -23,40 +23,33 @@
                             </div>
                         @endif
 
-                        {!! Form::open(array('route'=>'conserjeriaposparto.store', 'method'=>'POST')) !!}
+                        {!! Form::open(array('route'=>'establecimientosaludo.store', 'method'=>'POST')) !!}
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="name">Lactancia Materna Exclusiva</label>
-                                    {!! Form::text('LactanciaMaternaExclusiva', null, array('class'=>'form-control'))!!}
+                                    <label for="name">Nombre</label>
+                                    {!! Form::text('Nombre', null, array('class'=>'form-control'))!!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="name">Planificacion Familiar Posparto</label>
-                                    {!! Form::text('PlanificacionFamiliarPosparto', null, array('class'=>'form-control')) !!}
+                                    <label for="name">Direccion</label>
+                                    {!! Form::text('Direccion', null, array('class'=>'form-control')) !!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="name">Alimentacion Madre Lactante</label>
-                                    {!! Form::text('AlimentacionMadreLactante', null, array('class'=>'form-control')) !!}
+                                    <label for="name">Comunidad</label>
+                                    {!! Form::text('Comunidad', null, array('class'=>'form-control')) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="col-xs-12 col-sm-12 col-md-8">
                                 <div class="form-group">
-                                    <label for="name">Lactancia Materna VIH</label>
-                                    {!! Form::text('LactanciaMaternaVIH', null, array('class'=>'form-control')) !!}
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-12 col-md-3">
-                                <div class="form-group">
-                                    <label for="name">Mujer VIH</label>
-                                    {!! Form::text('MujerVIH', null, array('class'=>'form-control')) !!}
+                                    <label for="name">Puesto de Salud</label>
+                                    {!! Form::text('PuestoSalud', null, array('class'=>'form-control')) !!}
                                 </div>
                             </div>
 

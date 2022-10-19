@@ -36,7 +36,7 @@ class PrimercontrolpostpartoController extends Controller
     public function create()
     {
         $Dpersonales = personale::all();
-        $Destablecimientos = establecimientosaludo::all();
+        $Destablecimientos = establecimientosaludo::select('idEstablecimientoSaludos','Nombre')->get();
         return view('primercontrolpostparto.crear')->with('Dpersonales',$Dpersonales)->with('Destablecimientos',$Destablecimientos);
     }
 
@@ -51,8 +51,8 @@ class PrimercontrolpostpartoController extends Controller
         $this->validate($request,[
             'NombreServicio' => 'required|max:45|TextoRule1',
             'DiasDespuesParto' => 'required|max:6|NumeroRule',
-            'DondeAtendioParto' => 'required|max:15|TextoRule1',
-            'QuienAtendioParto' => 'required|max:30|TextoRule1',
+            'DondeAtendioParto' => 'required|max:35',
+            'QuienAtendioParto' => 'required|max:35',
             'HeridaOperatoria' => 'required|max:45|TextoRule3',
             'InvolucionUterina' => 'required|max:25|TextoRule3',
             'PresionArterial' => 'required|max:20|TextoRule3',
@@ -61,7 +61,7 @@ class PrimercontrolpostpartoController extends Controller
             'ExamenMamas' => 'required|max:75|TextoRule1',
             'ExamenGinecologico' => 'required|max:300|TextoRule3',
             'LactanciaMaterna' => 'required|max:2|TextoRule1',
-            'PorqueNoLactanciaMaterna' => 'max:45|TextoRule3',
+            'PorqueNoLactanciaMaterna' => 'max:45|TextoRule4',
             'Diagnostico' => 'required|max:200|TextoRule3',
             'ConductaTratamiento' => 'required|max:200|TextoRule3',
         ]);
