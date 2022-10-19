@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class DatosfamiliareController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-datosfamiliare | crear-datosfamiliare | editar-datosfamiliare | borrar-datosfamiliare', ['only'=>['index']]);
+        $this->middleware('permission:crear-datosfamiliare', ['only'=>['create','store']]);
+        $this->middleware('permission:editar-datosfamiliare', ['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-datosfamiliare', ['only'=>['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +22,8 @@ class DatosfamiliareController extends Controller
     public function index()
     {
         //
+        $datosfamiliares = datosfamiliare::paginate(10);
+        return view('datosfamiliares.index', compact('datosfamiliares'));
     }
 
     /**
@@ -25,6 +34,7 @@ class DatosfamiliareController extends Controller
     public function create()
     {
         //
+        return view ('datosfamiliares.crear');
     }
 
     /**
@@ -36,15 +46,27 @@ class DatosfamiliareController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'NombresFamiliar' => 'required',
+            'ApellidosFamiliar' => 'required',
+            'CUI' => 'required',
+            'TelefonoFamiliar' => 'required',
+            'CelularFamiliar' => 'required',
+        ]);
+        
+        datosfamiliare::create($request->all());
+
+        return redirect()->route('datosfamiliares.index');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\datosfamiliare  $datosfamiliare
+     * @param  int  $idDatosFamiliares
      * @return \Illuminate\Http\Response
      */
-    public function show(datosfamiliare $datosfamiliare)
+    public function show($idDatosFamiliares)
     {
         //
     }
@@ -53,11 +75,15 @@ class DatosfamiliareController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\datosfamiliare  $datosfamiliare
+     * @param  int  $idDatosFamiliares
      * @return \Illuminate\Http\Response
      */
-    public function edit(datosfamiliare $datosfamiliare)
+    public function edit($idDatosFamiliares)
     {
         //
+        $datosfamiliare = datosfamiliare::find($idDatosFamiliares);
+
+        return view ('datosfamiliares.editar', compact('datosfamiliare'));
     }
 
     /**
@@ -65,11 +91,23 @@ class DatosfamiliareController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\datosfamiliare  $datosfamiliare
+     * @param  int  $idDatosFamiliares
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, datosfamiliare $datosfamiliare)
+    public function update(Request $request, $idDatosFamiliares)
     {
         //
+        $this->validate($request,[
+            'NombresFamiliar' => 'required',
+            'ApellidosFamiliar' => 'required',
+            'CUI' => 'required',
+            'TelefonoFamiliar' => 'required',
+            'CelularFamiliar' => 'required',
+        ]);
+        $input = $request->all();
+        $datosfamiliare = datosfamiliare::find($idDatosFamiliares);
+        $datosfamiliare->update($input);
+        return redirect()->route('datosfamiliares.index');
     }
 
     /**

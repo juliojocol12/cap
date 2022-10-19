@@ -13,10 +13,9 @@
                             
                             <a class="btn btn-warning" href="{{ route('infantes.create') }}">Ingresar Infante</a>
 
-                            <table class="table  table-striped table-bordered mt-2">
+                            <table class="table  table-striped table-bordered mt-5">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
-                                    <th style="color:#fff;">ID</th>
                                     <th style="color:#fff;">Nombres</th>
                                     <th style="color:#fff;">Apellidos</th>
                                     <th style="color:#fff;">Género</th>
@@ -38,7 +37,6 @@
                                     @foreach($infantes as $infant)
                                         <tr>
                                             <td style="display: none;">{{ $infant->idInfantes }}</td>
-                                            <td>{{$infant->idInfantes}}</td>
                                             <td>{{$infant->Nombres}}</td>
                                             <td>{{$infant->Apellidos}}</td>
                                             <td>{{$infant->Genero}}</td>
@@ -50,13 +48,17 @@
                                             <td>{{$infant->Observaciones}}</td>
                                             <td>{{$infant->FechaEgreso}}</td>
                                             <td>{{$infant->TipoSanguineo}}</td>
-                                            <td>{{$infant->DatosPersonalesPacientes_id}}</td>
-                                            <td>{{$infant->DatosFamiliares_id}}</td>
+                                            <td>{{$infant->datospersonalespacientes->NombresPaciente}} {{$infant->datospersonalespacientes->ApellidosPaciente}}</td>
+                                            <td>{{$infant->datosfamiliares->NombresFamiliar}} {{$infant->datosfamiliares->ApellidosFamiliar}}</td>
                                             <td>
+                                                
                                                 <a class="btn btn-info" href="{{ route('infantes.edit', $infant->idInfantes) }}">Editar</a>
                                                 {!! Form::open(['method'=> 'DELETE', 'route'=> ['infantes.destroy', $infant->idInfantes], 'style'=>'display:inline' ]) !!}
-                                                    {!! Form::submit('Borrar', ['class'=>'btn btn-danger']) !!}
+                                                    <input type="submit" onclick="return confirm ('¿Desea eliminar la información {{ $infant->Nombres }} {{ $infant->Apellidos }} ?')" class="btn btn-danger" value="Borrar">
                                                 {!! Form::close() !!}
+                                                
+
+                                                </form>
                                             </td>                      
                                         </tr>
                                     @endforeach

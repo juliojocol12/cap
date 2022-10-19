@@ -29,35 +29,35 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Nombre</label>
-                                        {!! Form::text('Nombres', null, array('class'=>'form-control', 'disabled'=>'disabled')) !!}
+                                        {!! Form::text('Nombres', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Apellidos</label>
-                                        {!! Form::text('Apellidos', null, array('class'=>'form-control', 'disabled'=>'disabled')) !!}
+                                        {!! Form::text('Apellidos', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Género</label>
-                                        {!! Form::text('Genero',  null, array('class'=>'form-control', 'disabled'=>'disabled')) !!}
+                                        {!! Form::text('Genero',  null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Fecha de Nacimiento</label>
-                                        {!! Form::text('FechaNacimiento',  null, array('class'=>'form-control', 'disabled'=>'disabled')) !!}
+                                        {!! Form::text('FechaNacimiento',  null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Hora de Naciemiento</label>
-                                        {!! Form::text('HoraNaciemiento',  null, array('class'=>'form-control', 'disabled'=>'disabled')) !!}
+                                        {!! Form::text('HoraNaciemiento',  null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
@@ -85,7 +85,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Fecha de Egreso</label>
-                                        {!! Form::text('FechaEgreso',  null, array('class'=>'form-control', 'disabled'=>'disabled')) !!}
+                                        {!! Form::text('FechaEgreso',  null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
@@ -107,19 +107,22 @@
                                     <div class="form-group">
                                         
                                     <label for="name">Datos de la madre</label>
-                                        {!! Form::text('DatosPersonalesPacientes_id',  null, array('class'=>'form-control', 'disabled'=>'disabled')) !!}
+                                        {!! Form::text('NombresPaciente',  null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                     <label for="name">Datos de Familiar</label>
-                                        {!! Form::text('DatosFamiliares_id',  null, array('class'=>'form-control')) !!}
+                                        @foreach($datosfamiliares as $nombrefamily)
+                                        {!! Form::text('$nombrefamily->idDatosFamiliares',  null, array('class'=>'form-control')) !!}
+                                        @endforeach
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                                    <button type="submit" class="btn btn btn-danger" href="infantes.index">Cancelar</button>
                                 </div>
                             </div>
                             

@@ -6,6 +6,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\InfanteController;
+use App\Http\Controllers\PuebloController;
+use App\Http\Controllers\DatospersonalespacienteController;
+use App\Http\Controllers\DatosfamiliareController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +35,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('roles', RolController::class);
     Route::resource('usuarios', UsuarioController::class);
     Route::resource('infantes', InfanteController::class);
+    Route::resource('pueblos', PuebloController::class);
+    Route::resource('pacientes', DatospersonalespacienteController::class);
+    Route::resource('datosfamiliares', DatosfamiliareController::class);
 });

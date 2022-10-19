@@ -24,8 +24,17 @@ class InfanteController extends Controller
     public function index()
     {
         //
+        
         $infantes = infante::paginate(10);
         return view('infantes.index', compact('infantes'));
+
+    }
+        
+        /*
+        $datospacientes = datospersonalespaciente::all();
+        $datosfamiliares = datosfamiliare::all();
+        $infantes = infante::paginate(10);
+        return view('infantes.index', compact('infantes'))->with('datospacientes',$datospacientes)->with('datosfamiliares',$datosfamiliares);/*
     }
 
     /**
@@ -67,7 +76,7 @@ class InfanteController extends Controller
             'FechaEgreso',
             'TipoSanguineo',
             'DatosPersonalesPacientes_id' => 'required',
-            'DatosFamiliares_id' => 'required',
+            'idDatosFamiliares' => 'required',
         ]);
         
         infante::create($request->all());
@@ -100,8 +109,9 @@ class InfanteController extends Controller
     {
         //
         $infant = infante::find($idInfantes);
-
-        return view ('infantes.editar', compact('infant'));
+        $datospacientes = datospersonalespaciente::all();
+        $datosfamiliares = datosfamiliare::all();
+        return view ('infantes.editar', compact('infant'))->with('datospacientes',$datospacientes)->with('datosfamiliares',$datosfamiliares);
     }
 
     /**
@@ -129,7 +139,7 @@ class InfanteController extends Controller
             'FechaEgreso',
             'TipoSanguineo',
             'DatosPersonalesPacientes_id',
-            'DatosFamiliares_id' => 'required'
+            'idDatosFamiliares' => 'required'
 
         ]);
         $input = $request->all();
