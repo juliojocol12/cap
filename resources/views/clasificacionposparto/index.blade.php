@@ -16,7 +16,8 @@
                         <table class="table table-striped table-bordered mt-2">
                                 <thead style="background-color:#6777ef">                                     
                                     <th style="display: none;">ID</th>
-                                    <th style="color:#fff;">Problemas Detectados</th>                                                            
+                                    <th style="color:#fff;">Problemas Detectados</th>      
+                                    <th style="color:#fff;">Acciones</th>                                                      
                               </thead>
                               <tbody>
                             @foreach ($clasificacionpospartos as $clasificacionposparto)

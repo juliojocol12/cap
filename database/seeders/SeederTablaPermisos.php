@@ -37,6 +37,7 @@ class SeederTablaPermisos extends Seeder
             'editar-infante',
             'borrar-infante',
 
+<<<<<<< HEAD
             //tabla personal
             'ver-personal',
             'crear-personal',
@@ -78,6 +79,20 @@ class SeederTablaPermisos extends Seeder
             'crear-establecimientosaludo',
             'editar-establecimientosaludo',
             'borrar-establecimientosaludo',
+=======
+            //tabla pueblo
+            'ver-pueblo',
+            'crear-pueblo',
+            'editar-pueblo',
+            'borrar-pueblo',
+            
+            //tabla datospersonalespaciente
+            'ver-datospersonalespaciente',
+            'crear-datospersonalespaciente',
+            'editar-datospersonalespaciente',
+            'borrar-datospersonalespaciente',
+            
+>>>>>>> Jocol
         ];
         foreach($permisos as $permiso){
             Permission::create(['name'=>$permiso]);

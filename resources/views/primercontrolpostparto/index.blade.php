@@ -32,6 +32,7 @@
                                     <th style="color:#fff;">PorqueNoLactanciaMaterna</th>
                                     <th style="color:#fff;">Diagnostico</th>
                                     <th style="color:#fff;">ConductaTratamiento</th>
+                                    <th style="color:#fff;">Acciones</th>
                               </thead>
                               <tbody>
                             @foreach ($primercontrolpostpartos as $primercontrolpostparto)

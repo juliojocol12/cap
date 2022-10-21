@@ -13,7 +13,7 @@
                             
                             <a class="btn btn-warning" href="{{ route('infantes.create') }}">Ingresar Infante</a>
 
-                            <table class="table  table-striped table-bordered mt-2">
+                            <table class="table  table-striped table-bordered mt-5">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
                                     <th style="color:#fff;">Nombres</th>
@@ -34,27 +34,31 @@
                                 </thead>
                                 
                                 <tbody>
-                                    @foreach($infantes as $infante)
+                                    @foreach($infantes as $infant)
                                         <tr>
-                                            <td style="display: none;">{{ $infante->idInfantes }}</td>
-                                            <td>{{$infante->Nombres}}</td>
-                                            <td>{{$infante->Apellidos}}</td>
-                                            <td>{{$infante->Genero}}</td>
-                                            <td>{{$infante->FechaNacimiento}}</td>
-                                            <td>{{$infante->HoraNaciemiento}}</td>
-                                            <td>{{$infante->PesoLB}}</td>
-                                            <td>{{$infante->PesoOnz}}</td>
-                                            <td>{{$infante->Altura}}</td>
-                                            <td>{{$infante->Observaciones}}</td>
-                                            <td>{{$infante->FechaEgreso}}</td>
-                                            <td>{{$infante->TipoSanguineo}}</td>
-                                            <td>{{$infante->DatosPersonalesPacientes_id}}</td>
-                                            <td>{{$infante->DatosFamiliares_id}}</td>
+                                            <td style="display: none;">{{ $infant->idInfantes }}</td>
+                                            <td>{{$infant->Nombres}}</td>
+                                            <td>{{$infant->Apellidos}}</td>
+                                            <td>{{$infant->Genero}}</td>
+                                            <td>{{$infant->FechaNacimiento}}</td>
+                                            <td>{{$infant->HoraNaciemiento}}</td>
+                                            <td>{{$infant->PesoLB}}</td>
+                                            <td>{{$infant->PesoOnz}}</td>
+                                            <td>{{$infant->Altura}}</td>
+                                            <td>{{$infant->Observaciones}}</td>
+                                            <td>{{$infant->FechaEgreso}}</td>
+                                            <td>{{$infant->TipoSanguineo}}</td>
+                                            <td>{{$infant->datospersonalespacientes->NombresPaciente}} {{$infant->datospersonalespacientes->ApellidosPaciente}}</td>
+                                            <td>{{$infant->datosfamiliares->NombresFamiliar}} {{$infant->datosfamiliares->ApellidosFamiliar}}</td>
                                             <td>
-                                                <a class="btn btn-info" href="{{ route('infantes.edit', $infante->idInfantes) }}">Editar</a>
-                                                {!! Form::open(['method'=> 'DELETE', 'route'=> ['infantes.destroy', $infante->idInfantes], 'style'=>'display:inline' ]) !!}
-                                                    {!! Form::submit('Borrar', ['class'=>'btn btn-danger']) !!}
+                                                
+                                                <a class="btn btn-info" href="{{ route('infantes.edit', $infant->idInfantes) }}">Editar</a>
+                                                {!! Form::open(['method'=> 'DELETE', 'route'=> ['infantes.destroy', $infant->idInfantes], 'style'=>'display:inline' ]) !!}
+                                                    <input type="submit" onclick="return confirm ('¿Desea eliminar la información {{ $infant->Nombres }} {{ $infant->Apellidos }} ?')" class="btn btn-danger" value="Borrar">
                                                 {!! Form::close() !!}
+                                                
+
+                                                </form>
                                             </td>                      
                                         </tr>
                                     @endforeach

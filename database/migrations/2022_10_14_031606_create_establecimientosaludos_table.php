@@ -17,8 +17,8 @@ class CreateEstablecimientosaludosTable extends Migration
             $table->increments('idEstablecimientoSaludos');
             $table->string('Nombre',45);
             $table->string('Direccion',60);
-            $table->string('Comunidad',15);
-            $table->string('PuestoSalud',10);
+            $table->string('Comunidad',30);
+            $table->string('PuestoSalud',30);
             $table->timestamps();
         });
     }

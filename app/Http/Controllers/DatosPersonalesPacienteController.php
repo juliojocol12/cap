@@ -3,10 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\datospersonalespaciente;
+use App\Models\pueblo;
 use Illuminate\Http\Request;
 
 class DatospersonalespacienteController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-datospersonalespaciente | crear-datospersonalespaciente | editar-datospersonalespaciente | borrar-datospersonalespaciente', ['only'=>['index']]);
+        $this->middleware('permission:crear-datospersonalespaciente', ['only'=>['create','store']]);
+        $this->middleware('permission:editar-datospersonalespaciente', ['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-datospersonalespaciente', ['only'=>['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,8 @@ class DatospersonalespacienteController extends Controller
      */
     public function index()
     {
-        //
+        $datospersonalespacientes = datospersonalespaciente::paginate(10);
+        return view('pacientes.index', compact('datospersonalespacientes'));
     }
 
     /**
@@ -24,7 +33,8 @@ class DatospersonalespacienteController extends Controller
      */
     public function create()
     {
-        //
+        $pueblos = pueblo::select('idPueblo','Nombre')->get();
+        return view ('pacientes.crear')->with('pueblos',$pueblos);
     }
 
     /**
@@ -35,7 +45,26 @@ class DatospersonalespacienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $this->validate($request,[
+            'NombresPaciente' => 'required',
+            'ApellidosPaciente' => 'required',
+            'FechaNaciemientoPaciente' => 'required',
+            'CUI' => 'required|Unique:datospersonalespacientes',
+            'ProfesionOficio' => 'required',
+            'Domicilio' => 'required',
+            'Telefono',
+            'Celular',
+            'EstadoCivil' => 'required',
+            'Peso' => 'required',
+            'TipoSanguineo' => 'required',
+            'MedicamentosActualmente',
+            'Migrante',
+            'pueblo_id'=> 'required',
+        ]);
+        
+        datospersonalespaciente::create($request->all());
+        return redirect()->route('pacientes.index');
     }
 
     /**
@@ -43,10 +72,12 @@ class DatospersonalespacienteController extends Controller
      *
      * @param  \App\Models\datospersonalespaciente  $datospersonalespaciente
      * @return \Illuminate\Http\Response
+     * @param  int  $idDatosPersonalesPacientes
      */
-    public function show(datospersonalespaciente $datospersonalespaciente)
+    public function show($idDatosPersonalesPacientes)
     {
-        //
+        $pacientes = datospersonalespaciente::find($idDatosPersonalesPacientes);
+        return view ('pacientes.read')-with('pacientes',$pacientes);
     }
 
     /**
@@ -54,10 +85,18 @@ class DatospersonalespacienteController extends Controller
      *
      * @param  \App\Models\datospersonalespaciente  $datospersonalespaciente
      * @return \Illuminate\Http\Response
+     * @param  int  $idDatosPersonalesPacientes
      */
-    public function edit(datospersonalespaciente $datospersonalespaciente)
+    public function edit($idDatosPersonalesPacientes)
     {
-        //
+        /*
+        $paciente = datospersonalespaciente::find($datospersonalespaciente);
+        return view ('pacientes.editar', compact('paciente'));
+        */
+        $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
+        $pueblos = pueblo::select('idPueblo','Nombre')->get();
+        //return view ('pacientes.editar')->with('paciente',$paciente)->with('pueblos',$pueblos);
+        return view ('pacientes.editar', compact('paciente'))->with('pueblos',$pueblos);
     }
 
     /**
@@ -66,10 +105,37 @@ class DatospersonalespacienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\datospersonalespaciente  $datospersonalespaciente
      * @return \Illuminate\Http\Response
+     * @param  int  $idDatosPersonalesPacientes
      */
-    public function update(Request $request, datospersonalespaciente $datospersonalespaciente)
+    public function update(Request $request, $idDatosPersonalesPacientes)
     {
-        //
+        /*
+        request()->validate([
+            'NombresPaciente' => 'required',
+            'ApellidosPaciente' => 'required',
+            'FechaNaciemientoPaciente' => 'required',
+            'CUI',
+            'ProfesionOficio' => 'required',
+            'Domicilio' => 'required',
+            'Telefono',
+            'Celular',
+            'EstadoCivil' => 'required',
+            'Peso' => 'required',
+            'TipoSanguineo' => 'required',
+            'MedicamentosActualmente',
+            'Migrante',
+            'pueblo_id'=> 'required',
+        ]);
+
+        $input = $request->all();
+        $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
+        $paciente->update($input);
+        return redirect()->route('pacientes.index');
+*/
+        $datos = $request->all();
+        $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
+        $paciente->update($datos);
+        return redirect()->route('pacientes.index');
     }
 
     /**
@@ -77,9 +143,11 @@ class DatospersonalespacienteController extends Controller
      *
      * @param  \App\Models\datospersonalespaciente  $datospersonalespaciente
      * @return \Illuminate\Http\Response
+     * @param  int  $idDatosPersonalesPacientes
      */
-    public function destroy(datospersonalespaciente $datospersonalespaciente)
+    public function destroy($idDatosPersonalesPacientes)
     {
-        //
+        datospersonalespaciente::find($idDatosPersonalesPacientes)->delete();
+        return redirect()->route('pacientes.index');
     }
 }

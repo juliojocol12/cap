@@ -19,7 +19,8 @@
                                     <th style="color:#fff;">SulfatoFerroso</th>
                                     <th style="color:#fff;">AcidoFolico</th>                                    
                                     <th style="color:#fff;">VacuncacionTdapMadre</th>
-                                    <th style="color:#fff;">Medicamento</th>                                                              
+                                    <th style="color:#fff;">Medicamento</th>        
+                                    <th style="color:#fff;">Acciones</th>                                                      
                               </thead>
                               <tbody>
                             @foreach ($conductapostpartos as $conductapostparto)

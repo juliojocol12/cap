@@ -25,7 +25,7 @@
 
                             {!! Form::open(array('route'=>'infantes.store', 'method'=>'POST')) !!}
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="">Nombres</label>
                                         {!! Form::text('Nombres', null, array('class'=>'form-control', 'placeholder'=>'Ingrese los nombres del infante', )) !!}
@@ -33,7 +33,7 @@
                                        
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="">Apellidos</label>
                                         {!! Form::text('Apellidos', null, array('class'=>'form-control', 'placeholder'=>'Ingrese los apellidos del infante')) !!}
@@ -66,24 +66,32 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-1">
-                                    <div class="form-group" align='center'>
+                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <div class="form-group">
                                         <label for="">Peso en Libras</label>
                                         {!! Form::text('PesoLB', null, array('class'=>'form-control', 'placeholder'=>'Peso en libras', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-1" align='center'>
+                                <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">Peso en Onzas</label>
                                         {!! Form::text('PesoOnz', null, array('class'=>'form-control', 'placeholder'=>'Peso en onzas', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-1" align='center'>
+                                <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">Altura</label>
                                         {!! Form::text('Altura', null, array('class'=>'form-control', 'placeholder'=>'Altura en cm', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-8">
+                                    <div class="form-group">
+                                        <label for="">Observaciones</label>
+                                        
+                                        {!! Form::textarea('Observaciones', null, array('class'=>'form-control', 'placeholder'=>'Observaciones durante el nacimiento')) !!}
                                     </div>
                                 </div>
 
@@ -94,41 +102,38 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-1" align='center'>
+                                <div class="col-xs-12 col-sm-12 col-md-2" >
                                     <div class="form-group">
                                         <label for="">Tipo de Sangre</label>
                                         {!! Form::text('TipoSanguineo', null, array('class'=>'form-control', 'placeholder'=>'Ingrese el tipo de sangre')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-8">
-                                    <div class="form-group">
-                                        <label for="">Observaciones</label>
-                                        
-                                        {!! Form::text('Observaciones', null, array('class'=>'form-control', 'placeholder'=>'Observaciones durante el nacimiento')) !!}
-                                    </div>
-                                </div>
+                                
 
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
-                                        <label for="">Datos de Madre</label>
-                                        {{--{!! Form::text('DatosPersonalesPacientes_id', null, array('class'=>'form-control', 'placeholder'=>'Observaciones durante el nacimiento')) !!}
-                                        {!! Form::select('DatosPersonalesPacientes_id[]', $datospacientes,[], array('class'=>'form-control')) !!} 
-                                        --}}    
-                                        
-                                        <select class="form-control" name="DatosPersonalesPacientes_id">
-                                            @foreach($datospacientes as $nombrepacient)
-                                            <option value="{{$nombrepacient->idDatosPersonalesPacientes }}">{{ $nombrepacient->NombresPaciente}} {{ $nombrepacient->ApellidosPaciente}} </option>
+                                        <label for="" value="DatosPersonalesPacientes_id">Datos de Madre</label>
+                                        <input class="form-control" list="filtroCUIPacientes" id="filtroCUIPaciente" placeholder="ingrese el cui">
+                                        <datalist id="filtroCUIPacientes">
+                                            @foreach($datospacientes as $cuipaciente)
+                                            <option value="{{$cuipaciente->idDatosPersonalesPacientes}}, {{$cuipaciente->CUI}}"> </option>
+                                            
                                             @endforeach
-                                        </select>
+                                        </datalist>
                                         
+                                        {{--<label value="{{$nombrepacient->idDatosPersonalesPacientes }} ">{{ $nombrepacient->NombresPaciente}}</label>
+                                        --}}
+                                        <input class="form-control" type="text">
                                     </div>
                                 </div>
                                 
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
-                                        <label for="">Datos de un Familiar</label>                            
-                                        <select class="form-control" name="DatosFamiliares_id">
+                                        <label >Datos de un Familiar</label>
+                                        
+                            
+                                        <select class="form-control" name="idDatosFamiliares">
                                             @foreach($datosfamiliares as $nombrefamily)
                                             <option value="{{$nombrefamily->idDatosFamiliares}}">{{ $nombrefamily->NombresFamiliar}} {{$nombrefamily->ApellidosFamiliar}} </option>
                                             @endforeach
@@ -139,6 +144,7 @@
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <button type="submit" class="btn btn btn-danger" href="infantes.index">Cancelar</button>
                                 </div>
                                 
                             </div>

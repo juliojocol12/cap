@@ -6,6 +6,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\InfanteController;
+use App\Http\Controllers\PuebloController;
+use App\Http\Controllers\DatospersonalespacienteController;
+use App\Http\Controllers\DatosfamiliareController;
+
 use App\Http\Controllers\PersonaleController;
 use App\Http\Controllers\PrimercontrolpostpartoController;
 use App\Http\Controllers\ConductapospartoController;
@@ -45,4 +49,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('clasificacionposparto', ClasificacionpospartoController::class);
     Route::resource('conserjeriaposparto', ConsejeriapospartoController::class);
     Route::resource('establecimientosaludo', EstablecimientosaludoController::class);
+    Route::resource('pueblos', PuebloController::class);
+    Route::resource('pacientes', DatospersonalespacienteController::class);
+    Route::resource('datosfamiliares', DatosfamiliareController::class);
 });

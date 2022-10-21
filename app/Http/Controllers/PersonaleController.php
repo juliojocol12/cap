@@ -46,7 +46,7 @@ class PersonaleController extends Controller
     {
         $this->validate($request,[
             'Nombre' => 'required|max:45|TextoRule1',
-            'CUI' => 'required|max:15|NumeroRule',
+            'CUI' => 'required|max:15|NumeroRule|Unique:personales',
             'Telefono' => 'required|max:15|NumeroRule',
             'Direccion' => 'required|max:45',
             'Cargo' => 'required|max:30|TextoRule1',
@@ -103,7 +103,7 @@ class PersonaleController extends Controller
             'Cargo' => 'required|max:30|TextoRule1',
             'FechaNacimiento' => 'required',
             'NivelAcademico' => 'max:30|TextoRule2',
-            'CorreoElectronico' => 'max:20|CorreoRule2|Unique:personals',
+            'CorreoElectronico' => 'max:20|CorreoRule2',
             'Observaciones' => 'max:50',
         ]);
     

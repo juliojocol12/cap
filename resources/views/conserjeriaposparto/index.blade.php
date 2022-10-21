@@ -20,7 +20,8 @@
                                     <th style="color:#fff;">Planificacion Familiar Posparto</th>                                    
                                     <th style="color:#fff;">Alimentacion Madre Lactante</th>
                                     <th style="color:#fff;">Lactancia Materna VIH</th>        
-                                    <th style="color:#fff;">Mujer VIH</th>                                                      
+                                    <th style="color:#fff;">Mujer VIH</th>      
+                                    <th style="color:#fff;">Acciones</th>                                                
                               </thead>
                               <tbody>
                             @foreach ($conserjeriapospartos as $conserjeriaposparto)

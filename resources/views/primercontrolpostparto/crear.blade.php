@@ -43,7 +43,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
                                     <label for="">Donde Atendio Parto</label>
-                                    <select class="form-control" name="EstablecimientoSalud_id">
+                                    <select class="form-control" name="DondeAtendioParto">
                                         @foreach($Destablecimientos as $est)
                                         <option value="{{$est->idEstablecimientoSaludos }}">{{ $est->Nombre}} </option>
                                         @endforeach
@@ -54,7 +54,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
                                     <label for="">Quien Atendio Parto</label>
-                                    <select class="form-control" name="Personal_id">
+                                    <select class="form-control" name="QuienAtendioParto">
                                         <option value="Usuario">{{\Illuminate\Support\Facades\Auth::user()->name}}</option>
                                         @foreach($Dpersonales as $per)
                                         <option value="{{$per->idPersonal }}">{{ $per->Nombre}} </option>

@@ -19,7 +19,8 @@
                                     <th style="display: none;">ID</th>
                                     <th style="color:#fff;">Tipo Control</th>
                                     <th style="color:#fff;">Fecha Control</th>                                    
-                                    <th style="color:#fff;">Descripcion Control</th>                                                               
+                                    <th style="color:#fff;">Descripcion Control</th>        
+                                    <th style="color:#fff;">Acciones</th>                                                       
                               </thead>
                               <tbody>
                             @foreach ($padecimientoinfantes as $padecimientoinfante)

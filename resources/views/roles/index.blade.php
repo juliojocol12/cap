@@ -30,7 +30,7 @@
                                                 @endcan()
                                                 @can('borrar-rol')
                                                 {!! Form::open(['method'=> 'DELETE', 'route'=> ['roles.destroy', $role->id], 'style'=>'display:inline' ]) !!}
-                                                    {!! Form::submit('Borrar', ['class'=>'btn btn-danger']) !!}
+                                                    <input type="submit" onclick="return confirm ('¿Desea eliminar la información?')" class="btn btn-danger" value="Borrar">
                                                 {!! Form::close() !!}
                                                 @endcan()
                                             </td>

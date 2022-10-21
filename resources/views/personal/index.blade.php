@@ -25,7 +25,8 @@
                                     <th style="color:#fff;">FechaNacimiento</th>  
                                     <th style="color:#fff;">NivelAcademico</th>
                                     <th style="color:#fff;">CorreoElectronico</th> 
-                                    <th style="color:#fff;">Observaciones</th>                                                                
+                                    <th style="color:#fff;">Observaciones</th>    
+                                    <th style="color:#fff;">Acciones</th>                                                            
                               </thead>
                               <tbody>
                             @foreach ($personales as $personal)

@@ -5,7 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
+
 use Validator;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
+        //
         Validator::extend('TextoRule1', function ($attribute, $value, $parameters) {
             return preg_match('/^[ a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/',$value);
         });
@@ -90,9 +92,15 @@ class AppServiceProvider extends ServiceProvider
             }
             return preg_match('/^[0-9]{3}+[.]+[0-9]{2}+$/',$value);
         });
+        Validator::extend('UsuarioRule1', function ($attribute, $value, $parameters) {
+            return preg_match('/^[ a-z]+$/',$value);;
+        });
+        Validator::extend('ContraseñaRule', function ($attribute, $value, $parameters) {
+            return preg_match('/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}+$/',$value);
+        });
 
 
         Schema::defaultStringlength(191);
         Paginator::useBootstrap();
-    }
+    }    
 }

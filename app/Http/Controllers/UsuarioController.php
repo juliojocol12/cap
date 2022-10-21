@@ -56,9 +56,9 @@ class UsuarioController extends Controller
     {
         //
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
+            'name' => 'required|UsuarioRule1|max:45',
+            'email' => 'required|email|unique:users,email|CorreoRule1|max:20',
+            'password' => 'required|same:confirm-password|max:12|ContraseñaRule',
             'roles' => 'required',
         ]);
 

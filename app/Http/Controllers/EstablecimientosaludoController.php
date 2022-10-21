@@ -47,8 +47,8 @@ class EstablecimientosaludoController extends Controller
         $this->validate($request,[
             'Nombre' => 'required|max:45|TextoRule1',
             'Direccion' => 'required|max:60',
-            'Comunidad' => 'required|max:15|TextoRule1',
-            'PuestoSalud' => 'required|max:10|TextoRule1',
+            'Comunidad' => 'required|max:30|TextoRule1',
+            'PuestoSalud' => 'required|max:30|TextoRule1',
         ]);
     
         establecimientosaludo::create($request->all());
@@ -93,8 +93,8 @@ class EstablecimientosaludoController extends Controller
         $this->validate($request,[
             'Nombre' => 'required|max:45|TextoRule1',
             'Direccion' => 'required|max:60',
-            'Comunidad' => 'required|max:15|TextoRule1',
-            'PuestoSalud' => 'required|max:10|TextoRule1',
+            'Comunidad' => 'required|max:30|TextoRule1',
+            'PuestoSalud' => 'required|max:30|TextoRule1',
         ]);
 
         $input = $request->all();

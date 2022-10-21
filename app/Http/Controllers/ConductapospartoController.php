@@ -45,10 +45,10 @@ class ConductapospartoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'SulfatoFerroso' => 'required|max:25|TestoRule3',
-            'AcidoFolico' => 'required|max:25|TestoRule3',
-            'VacuncacionTdapMadre' => 'required|max:20|TestoRule3',
-            'Medicamento' => 'required|max:45|TestoRule3',
+            'SulfatoFerroso' => 'required|max:25|TextoRule3',
+            'AcidoFolico' => 'required|max:25|TextoRule3',
+            'VacuncacionTdapMadre' => 'required|max:20|TextoRule3',
+            'Medicamento' => 'required|max:45|TextoRule3',
         ]);
     
         conductaposparto::create($request->all());
@@ -91,10 +91,10 @@ class ConductapospartoController extends Controller
     public function update(Request $request, $idConductaPospartos)
     {
         request()->validate([
-            'SulfatoFerroso' => 'required|max:25|TestoRule3',
-            'AcidoFolico' => 'required|max:25|TestoRule3',
-            'VacuncacionTdapMadre' => 'required|max:20|TestoRule3',
-            'Medicamento' => 'required|max:45|TestoRule3',
+            'SulfatoFerroso' => 'required|max:25|TextoRule3',
+            'AcidoFolico' => 'required|max:25|TextoRule3',
+            'VacuncacionTdapMadre' => 'required|max:20|TextoRule3',
+            'Medicamento' => 'required|max:45|TextoRule3',
         ]);
     
         $input = $request->all();

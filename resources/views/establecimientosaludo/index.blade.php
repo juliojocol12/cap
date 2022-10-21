@@ -20,7 +20,8 @@
                                     <th style="color:#fff;">Nombre</th>
                                     <th style="color:#fff;">Direccion</th>                                    
                                     <th style="color:#fff;">Comunidad</th>
-                                    <th style="color:#fff;">Puesto de Salud</th>                                                              
+                                    <th style="color:#fff;">Puesto de Salud</th>        
+                                    <th style="color:#fff;">Acciones</th>                                                      
                               </thead>
                               <tbody>
                             @foreach ($establecimientosaludos as $establecimientosaludo)

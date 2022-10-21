@@ -3,13 +3,15 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Alta de usuarios</h3>
+            <h3 class="page__heading">Editar datos de familiar</h3>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
+
+                            {{-- Validacion para ingreso de campos --}}
                             @if($errors->any())
                             <div class="alert alert-dark alert-dismissible fade show" role="alert">
                                 <strong>¡Revise los campos!</strong>
@@ -22,49 +24,56 @@
                             </div>
                             @endif
 
-                            {!! Form::open(array('route'=>'usuarios.store', 'method'=>'POST')) !!}
+                            {!! Form::model($datosfamiliare, ['method' => 'PATCH', 'route'=> ['datosfamiliares.update', $datosfamiliare->idDatosFamiliares ]]) !!}
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Nombre</label>
-                                        {!! Form::text('name', null, array('class'=>'form-control', 'placeholder'=>'ingrese el nombre de usuario')) !!}
+                                        {!! Form::text('NombresFamiliar', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
-                                        <label for="name">Email</label>
-                                        {!! Form::text('email', null, array('class'=>'form-control', 'placeholder'=>'ingrese una direccion de correo')) !!}
+                                        <label for="">Apellidos</label>
+                                        {!! Form::text('ApellidosFamiliar', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="name">Contraseña</label>
-                                        {!! Form::password('password', array('class'=>'form-control', 'placeholder'=>'ingrese la contraseña')) !!}
+                                        <label for="name">CUI</label>
+                                        {!! Form::text('CUI',  null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="name">Confirmar contraseña</label>
-                                        {!! Form::password('confirm-password', array('class'=>'form-control', 'placeholder'=>'vuelva a ingresar la contraseña')) !!}
+                                        <label for="name">Telefono</label>
+                                        {!! Form::text('TelefonoFamiliar',  null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="name">Roles</label>
-                                        {!! Form::select('roles[]', $roles,[], array('class'=>'form-control')) !!}
+                                        <label for="name">Celular</label>
+                                        {!! Form::text('CelularFamiliar',  null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
+
                                 <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                                    <button type="submit" class="btn btn btn-danger" href="datosfamiliares.index">Cancelar</button>
                                 </div>
-                                
                             </div>
-                            {!! Form::close() !!}                    
+                            
+                            {!! Form::close() !!}
+
+
+                            
+
+                            
                         </div>
                     </div>
                 </div>
