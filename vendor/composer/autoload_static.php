@@ -120,6 +120,7 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
             'League\\Flysystem\\' => 17,
             'League\\Config\\' => 14,
             'League\\CommonMark\\' => 18,
+            'Laraveles\\Spanish\\' => 18,
             'Laravel\\Ui\\' => 11,
             'Laravel\\Tinker\\' => 15,
             'Laravel\\SerializableClosure\\' => 28,
@@ -383,6 +384,10 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
         array (
             0 => __DIR__ . '/..' . '/league/commonmark/src',
         ),
+        'Laraveles\\Spanish\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laraveles/spanish/src',
+        ),
         'Laravel\\Ui\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/ui/src',
@@ -551,10 +556,9 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
         'App\\Http\\Controllers\\ConductapospartoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ConductapospartoController.php',
         'App\\Http\\Controllers\\ConsejeriapospartoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ConsejeriapospartoController.php',
         'App\\Http\\Controllers\\ConserjeriaController' => __DIR__ . '/../..' . '/app/Http/Controllers/ConserjeriaController.php',
+        'App\\Http\\Controllers\\ControleController' => __DIR__ . '/../..' . '/app/Http/Controllers/ControleController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\ControlpospartoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ControlpospartoController.php',
-        'App\\Http\\Controllers\\DatosfamiliareController' => __DIR__ . '/../..' . '/app/Http/Controllers/DatosfamiliareController.php',
-        'App\\Http\\Controllers\\DatospersonalespacienteController' => __DIR__ . '/../..' . '/app/Http/Controllers/DatospersonalespacienteController.php',
         'App\\Http\\Controllers\\EstablecimientosaludoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EstablecimientosaludoController.php',
         'App\\Http\\Controllers\\EvanutricioncontroleController' => __DIR__ . '/../..' . '/app/Http/Controllers/EvanutricioncontroleController.php',
         'App\\Http\\Controllers\\EvanutriconunoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EvanutriconunoController.php',
@@ -604,8 +608,6 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
         'App\\Models\\conserjeria' => __DIR__ . '/../..' . '/app/Models/conserjeria.php',
         'App\\Models\\controle' => __DIR__ . '/../..' . '/app/Models/controle.php',
         'App\\Models\\controlposparto' => __DIR__ . '/../..' . '/app/Models/controlposparto.php',
-        'App\\Models\\datosfamiliare' => __DIR__ . '/../..' . '/app/Models/datosfamiliare.php',
-        'App\\Models\\datospersonalespaciente' => __DIR__ . '/../..' . '/app/Models/datospersonalespaciente.php',
         'App\\Models\\establecimientosaludo' => __DIR__ . '/../..' . '/app/Models/establecimientosaludo.php',
         'App\\Models\\evanutricioncontrole' => __DIR__ . '/../..' . '/app/Models/evanutricioncontrole.php',
         'App\\Models\\evanutriconuno' => __DIR__ . '/../..' . '/app/Models/evanutriconuno.php',
@@ -616,7 +618,6 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
         'App\\Models\\examenobstretico' => __DIR__ . '/../..' . '/app/Models/examenobstretico.php',
         'App\\Models\\fcevaluacionposparto' => __DIR__ . '/../..' . '/app/Models/fcevaluacionposparto.php',
         'App\\Models\\fcprenatalpostparto' => __DIR__ . '/../..' . '/app/Models/fcprenatalpostparto.php',
-        'App\\Models\\infante' => __DIR__ . '/../..' . '/app/Models/infante.php',
         'App\\Models\\otroscontrolesob' => __DIR__ . '/../..' . '/app/Models/otroscontrolesob.php',
         'App\\Models\\padecimientoinfante' => __DIR__ . '/../..' . '/app/Models/padecimientoinfante.php',
         'App\\Models\\padecimientopaciente' => __DIR__ . '/../..' . '/app/Models/padecimientopaciente.php',
@@ -2847,6 +2848,8 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
         'Laravel\\Ui\\Presets\\Vue' => __DIR__ . '/..' . '/laravel/ui/src/Presets/Vue.php',
         'Laravel\\Ui\\UiCommand' => __DIR__ . '/..' . '/laravel/ui/src/UiCommand.php',
         'Laravel\\Ui\\UiServiceProvider' => __DIR__ . '/..' . '/laravel/ui/src/UiServiceProvider.php',
+        'Laraveles\\Spanish\\Commands\\InstallLang' => __DIR__ . '/..' . '/laraveles/spanish/src/Commands/InstallLang.php',
+        'Laraveles\\Spanish\\SpanishServiceProvider' => __DIR__ . '/..' . '/laraveles/spanish/src/SpanishServiceProvider.php',
         'League\\CommonMark\\CommonMarkConverter' => __DIR__ . '/..' . '/league/commonmark/src/CommonMarkConverter.php',
         'League\\CommonMark\\ConverterInterface' => __DIR__ . '/..' . '/league/commonmark/src/ConverterInterface.php',
         'League\\CommonMark\\Delimiter\\Delimiter' => __DIR__ . '/..' . '/league/commonmark/src/Delimiter/Delimiter.php',
