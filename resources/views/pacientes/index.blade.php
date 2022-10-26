@@ -13,6 +13,22 @@
                             
                             <a class="btn btn-warning" href="{{ route('pacientes.create') }}">Nuevo</a>
 
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <form action="{{ route('pacientes.index') }}" method="GET">
+                                        <div class="form-row">
+                                            <div class="col-sm-4 my-1">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el CUI para buscar">
+                                            </div>
+                                            <div class="col-sm-4 my-1">
+                                                <input type="submit" class="btn btn-primary" value="Buscar">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+
                             <table class="table table-striped table-bordered table-responsive mt-2">
                                 <thead style="background-color: #6777ef;">
                                     <th style="color:#fff;">Nombres</th>
@@ -34,6 +50,11 @@
                             
                                 
                                 <tbody>
+                                    @if(count($datospersonalespacientes)<=0)
+                                        <tr>
+                                            <td colspan="8">No hay resultados</td>
+                                        </tr>
+                                    @else
                                     @foreach($datospersonalespacientes as $paciente)
                                         <tr "table-active">
                                       
@@ -59,6 +80,7 @@
                                             </td>                                    
                                         </tr>
                                     @endforeach
+                                    @endif
                                 </tbody>
 
                             </table>

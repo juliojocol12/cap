@@ -84,6 +84,7 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
             'Spatie\\Permission\\' => 18,
+            'Spatie\\ModelStatus\\' => 19,
         ),
         'R' => 
         array (
@@ -310,6 +311,10 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
         'Spatie\\Permission\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/laravel-permission/src',
+        ),
+        'Spatie\\ModelStatus\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-model-status/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -4744,6 +4749,12 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
         'SebastianBergmann\\Type\\UnknownType' => __DIR__ . '/..' . '/sebastian/type/src/type/UnknownType.php',
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/type/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Spatie\\ModelStatus\\Events\\StatusUpdated' => __DIR__ . '/..' . '/spatie/laravel-model-status/src/Events/StatusUpdated.php',
+        'Spatie\\ModelStatus\\Exceptions\\InvalidStatus' => __DIR__ . '/..' . '/spatie/laravel-model-status/src/Exceptions/InvalidStatus.php',
+        'Spatie\\ModelStatus\\Exceptions\\InvalidStatusModel' => __DIR__ . '/..' . '/spatie/laravel-model-status/src/Exceptions/InvalidStatusModel.php',
+        'Spatie\\ModelStatus\\HasStatuses' => __DIR__ . '/..' . '/spatie/laravel-model-status/src/HasStatuses.php',
+        'Spatie\\ModelStatus\\ModelStatusServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-model-status/src/ModelStatusServiceProvider.php',
+        'Spatie\\ModelStatus\\Status' => __DIR__ . '/..' . '/spatie/laravel-model-status/src/Status.php',
         'Spatie\\Permission\\Commands\\CacheReset' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CacheReset.php',
         'Spatie\\Permission\\Commands\\CreatePermission' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CreatePermission.php',
         'Spatie\\Permission\\Commands\\CreateRole' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CreateRole.php',

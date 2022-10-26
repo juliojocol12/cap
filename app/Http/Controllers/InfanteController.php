@@ -42,16 +42,20 @@ class InfanteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        
         $datospacientes = datospersonalespaciente::all();
         $datosfamiliares = datosfamiliare::all();
+        
+/*
+        $texto = trim($request->get('texto'));
+        $datospacientefiltro = datospersonalespaciente::all()->where('CUI','LIKE','%'.$texto.'%');
+        $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','CUI')->where('CUI','LIKE','%'.$texto.'%')->paginate(10);
+*/
+        //return view ('infantes.crear', compact('datospersonalespacientes','datospacientefiltro','texto'))->with('datosfamiliares',$datosfamiliares);
 
-        //$datospacientes  = DatosPersonalesPaciente::pluck('NombresPaciente', 'idDatosPersonalesPacientes')->all();
-        //$datosfamiliares  = DatosFamiliare::pluck('NombresFamiliar', 'idDatosFamiliares')->all();
-
-        return view ('infantes.crear')->with('datospacientes',$datospacientes)->with('datosfamiliares',$datosfamiliares);
+        return view ('infantes.crear')->with('datosfamiliares',$datosfamiliares)->with('datospacientes',$datospacientes);
     }
 
     /**
@@ -64,19 +68,20 @@ class InfanteController extends Controller
     {
         //
         $this->validate($request,[
-            'Nombres' => 'required',
-            'Apellidos' => 'required',
-            'Genero' => 'required',
+            'Nombres' => 'required | TextoRule1',
+            'Apellidos' => 'required | TextoRule1',
+            'Genero' => 'required | TextoRule1',
             'FechaNacimiento' => 'required',
             'HoraNaciemiento',
-            'PesoLB' => 'required',
-            'PesoOnz' => 'required',
-            'Altura' => 'required',
+            'PesoLB' => 'required | DecimalRule',
+            'PesoOnz' => 'required| DecimalRule',
+            'Altura' => 'required | DecimalRule',
             'Observaciones',
             'FechaEgreso',
             'TipoSanguineo',
-            'DatosPersonalesPacientes_id' => 'required',
-            'idDatosFamiliares' => 'required',
+            'DatosPersonalesPacientes_id' => 'required | NumeroRule',
+            'idDatosFamiliares' => 'required| NumeroRule',
+            'Parentesco' => 'required | TextoRule1'
         ]);
         
         infante::create($request->all());
@@ -127,19 +132,20 @@ class InfanteController extends Controller
     {
         //
         request()->validate([
-            'Nombres',
-            'Apellidos',
-            'Genero' ,
-            'FechaNacimiento',
+            'Nombres' => 'required | TextoRule1',
+            'Apellidos' => 'required | TextoRule1',
+            'Genero' => 'required | TextoRule1',
+            'FechaNacimiento' => 'required',
             'HoraNaciemiento',
-            'PesoLB' => 'required',
-            'PesoOnz' => 'required',
-            'Altura' => 'required',
+            'PesoLB' => 'required | DecimalRule',
+            'PesoOnz' => 'required| DecimalRule',
+            'Altura' => 'required | DecimalRule',
             'Observaciones',
             'FechaEgreso',
             'TipoSanguineo',
-            'DatosPersonalesPacientes_id',
-            'idDatosFamiliares' => 'required'
+            'DatosPersonalesPacientes_id' => 'required | NumeroRule',
+            'idDatosFamiliares' => 'required| NumeroRule',
+            'Parentesco' => 'required | TextoRule1'
 
         ]);
         $input = $request->all();
@@ -157,6 +163,6 @@ class InfanteController extends Controller
     {
         //
         infante::find($idInfantes)->delete();
-        return redirect()->route('infantes.index');
+        return redirect()->route('infantes.index')->with('status');
     }
 }

@@ -16,7 +16,7 @@
     </a>
 
     <a class="nav-link" href="/pacientes">
-        <i class=" fas fa-solid fa-child"></i><span>Pacientes</span>
+        <i class=" fas fa-solid fa-person-pregnant"></i><span>Pacientes</span>
     </a>
 
     <a class="nav-link" href="/datosfamiliares">

@@ -122,7 +122,7 @@
                                         <label for="" value="pueblo_id">Pueblo</label>
                                         <select class="form-control" name="pueblo_id">
                                             @foreach($pueblos as $pue)
-                                            <option value="{{$pue->idPueblo}}" placeholder="Seleccione un valor">{{ $pue->Nombre}} </option>
+                                            <option value="{{$pue->idPueblo}}" >{{ $pue->Nombre}} </option>
                                             @endforeach
                                         </select>
                                     </div>

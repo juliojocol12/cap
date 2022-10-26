@@ -6,14 +6,19 @@
             <h3 class="page__heading">Infantes</h3>
         </div>
         <div class="section-body">
-            <div class="row">
-                <div class="col-lg-12">
+            <div class="row row-responsive">
+                <div class="col-lg-12 col-responsive">
                     <div class="card">
                         <div class="card-body">
                             
-                            <a class="btn btn-warning" href="{{ route('infantes.create') }}">Nuevo</a>
+                            <a class="btn btn-warning" href="{{ route('infantes.create') }}">Ingresar Infante</a>
+                            @if(session('status'))
+                                <div class="alert alert-success mt-4">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
 
-                            <table class="table  table-striped table-bordered table-responsive mt-2">
+                            <table class="table  table-striped table-bordered mt-5">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
                                     <th style="color:#fff;">Nombres</th>
@@ -51,16 +56,15 @@
                                             <td>{{$infant->datospersonalespacientes->NombresPaciente}} {{$infant->datospersonalespacientes->ApellidosPaciente}}</td>
                                             <td>{{$infant->datosfamiliares->NombresFamiliar}} {{$infant->datosfamiliares->ApellidosFamiliar}}</td>
                                             <td>
-                                                
                                                 <a class="btn btn-info" href="{{ route('infantes.edit', $infant->idInfantes) }}">Editar</a>
-                                                {!! Form::open(['method'=> 'DELETE', 'route'=> ['infantes.destroy', $infant->idInfantes], 'style'=>'display:inline' ]) !!}
-                                                    <input type="submit" onclick="return confirm ('¿Desea eliminar la información {{ $infant->Nombres }} {{ $infant->Apellidos }} ?')" class="btn btn-danger" value="Borrar">
-                                                {!! Form::close() !!}
                                                 
+                                                <!-- Button trigger modal -->
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$infant->idInfantes}}">Eliminar</button>
 
                                                 </form>
                                             </td>                      
                                         </tr>
+                                        @include('infantes.delete')
                                     @endforeach
                                 </tbody>
 
@@ -76,5 +80,6 @@
                 </div>
             </div>
         </div>
+        
     </section>
 @endsection

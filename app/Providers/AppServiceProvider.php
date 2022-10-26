@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
+    { 
         //
         Validator::extend('TextoRule1', function ($attribute, $value, $parameters) {
             return preg_match('/^[ a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/',$value);

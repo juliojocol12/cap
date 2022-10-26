@@ -15,7 +15,7 @@ class CreatePueblosTable extends Migration
     {
         Schema::create('pueblos', function (Blueprint $table) {
             $table->increments('idPueblo');
-            $table->string('Nombre',15);
+            $table->string('Nombre',15)->unique();
             $table->timestamps();
         });
     }

@@ -980,6 +980,15 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'spatie/laravel-model-status' => array(
+            'pretty_version' => '1.10.2',
+            'version' => '1.10.2.0',
+            'reference' => '6f9ec8fa41abdce3ec35cc5a2debd564d096d30c',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../spatie/laravel-model-status',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'spatie/laravel-permission' => array(
             'pretty_version' => '5.5.5',
             'version' => '5.5.5.0',
