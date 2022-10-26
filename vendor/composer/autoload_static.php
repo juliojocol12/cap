@@ -84,6 +84,7 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
             'Spatie\\Permission\\' => 18,
+            'Spatie\\ModelStatus\\' => 19,
         ),
         'R' => 
         array (
@@ -309,6 +310,10 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
         'Spatie\\Permission\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/laravel-permission/src',
+        ),
+        'Spatie\\ModelStatus\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-model-status/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -551,10 +556,9 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
         'App\\Http\\Controllers\\ConductapospartoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ConductapospartoController.php',
         'App\\Http\\Controllers\\ConsejeriapospartoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ConsejeriapospartoController.php',
         'App\\Http\\Controllers\\ConserjeriaController' => __DIR__ . '/../..' . '/app/Http/Controllers/ConserjeriaController.php',
+        'App\\Http\\Controllers\\ControleController' => __DIR__ . '/../..' . '/app/Http/Controllers/ControleController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\ControlpospartoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ControlpospartoController.php',
-        'App\\Http\\Controllers\\DatosfamiliareController' => __DIR__ . '/../..' . '/app/Http/Controllers/DatosfamiliareController.php',
-        'App\\Http\\Controllers\\DatospersonalespacienteController' => __DIR__ . '/../..' . '/app/Http/Controllers/DatospersonalespacienteController.php',
         'App\\Http\\Controllers\\EstablecimientosaludoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EstablecimientosaludoController.php',
         'App\\Http\\Controllers\\EvanutricioncontroleController' => __DIR__ . '/../..' . '/app/Http/Controllers/EvanutricioncontroleController.php',
         'App\\Http\\Controllers\\EvanutriconunoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EvanutriconunoController.php',
@@ -604,8 +608,6 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
         'App\\Models\\conserjeria' => __DIR__ . '/../..' . '/app/Models/conserjeria.php',
         'App\\Models\\controle' => __DIR__ . '/../..' . '/app/Models/controle.php',
         'App\\Models\\controlposparto' => __DIR__ . '/../..' . '/app/Models/controlposparto.php',
-        'App\\Models\\datosfamiliare' => __DIR__ . '/../..' . '/app/Models/datosfamiliare.php',
-        'App\\Models\\datospersonalespaciente' => __DIR__ . '/../..' . '/app/Models/datospersonalespaciente.php',
         'App\\Models\\establecimientosaludo' => __DIR__ . '/../..' . '/app/Models/establecimientosaludo.php',
         'App\\Models\\evanutricioncontrole' => __DIR__ . '/../..' . '/app/Models/evanutricioncontrole.php',
         'App\\Models\\evanutriconuno' => __DIR__ . '/../..' . '/app/Models/evanutriconuno.php',
@@ -616,7 +618,6 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
         'App\\Models\\examenobstretico' => __DIR__ . '/../..' . '/app/Models/examenobstretico.php',
         'App\\Models\\fcevaluacionposparto' => __DIR__ . '/../..' . '/app/Models/fcevaluacionposparto.php',
         'App\\Models\\fcprenatalpostparto' => __DIR__ . '/../..' . '/app/Models/fcprenatalpostparto.php',
-        'App\\Models\\infante' => __DIR__ . '/../..' . '/app/Models/infante.php',
         'App\\Models\\otroscontrolesob' => __DIR__ . '/../..' . '/app/Models/otroscontrolesob.php',
         'App\\Models\\padecimientoinfante' => __DIR__ . '/../..' . '/app/Models/padecimientoinfante.php',
         'App\\Models\\padecimientopaciente' => __DIR__ . '/../..' . '/app/Models/padecimientopaciente.php',
@@ -4741,6 +4742,12 @@ class ComposerStaticInit19f3f4526039c715206abbec287f47ba
         'SebastianBergmann\\Type\\UnknownType' => __DIR__ . '/..' . '/sebastian/type/src/type/UnknownType.php',
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/type/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Spatie\\ModelStatus\\Events\\StatusUpdated' => __DIR__ . '/..' . '/spatie/laravel-model-status/src/Events/StatusUpdated.php',
+        'Spatie\\ModelStatus\\Exceptions\\InvalidStatus' => __DIR__ . '/..' . '/spatie/laravel-model-status/src/Exceptions/InvalidStatus.php',
+        'Spatie\\ModelStatus\\Exceptions\\InvalidStatusModel' => __DIR__ . '/..' . '/spatie/laravel-model-status/src/Exceptions/InvalidStatusModel.php',
+        'Spatie\\ModelStatus\\HasStatuses' => __DIR__ . '/..' . '/spatie/laravel-model-status/src/HasStatuses.php',
+        'Spatie\\ModelStatus\\ModelStatusServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-model-status/src/ModelStatusServiceProvider.php',
+        'Spatie\\ModelStatus\\Status' => __DIR__ . '/..' . '/spatie/laravel-model-status/src/Status.php',
         'Spatie\\Permission\\Commands\\CacheReset' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CacheReset.php',
         'Spatie\\Permission\\Commands\\CreatePermission' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CreatePermission.php',
         'Spatie\\Permission\\Commands\\CreateRole' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CreateRole.php',

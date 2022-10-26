@@ -42,16 +42,20 @@ class InfanteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        
         $datospacientes = datospersonalespaciente::all();
         $datosfamiliares = datosfamiliare::all();
+        
+/*
+        $texto = trim($request->get('texto'));
+        $datospacientefiltro = datospersonalespaciente::all()->where('CUI','LIKE','%'.$texto.'%');
+        $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','CUI')->where('CUI','LIKE','%'.$texto.'%')->paginate(10);
+*/
+        //return view ('infantes.crear', compact('datospersonalespacientes','datospacientefiltro','texto'))->with('datosfamiliares',$datosfamiliares);
 
-        //$datospacientes  = DatosPersonalesPaciente::pluck('NombresPaciente', 'idDatosPersonalesPacientes')->all();
-        //$datosfamiliares  = DatosFamiliare::pluck('NombresFamiliar', 'idDatosFamiliares')->all();
-
-        return view ('infantes.crear')->with('datospacientes',$datospacientes)->with('datosfamiliares',$datosfamiliares);
+        return view ('infantes.crear')->with('datosfamiliares',$datosfamiliares)->with('datospacientes',$datospacientes);
     }
 
     /**
@@ -77,6 +81,7 @@ class InfanteController extends Controller
             'TipoSanguineo',
             'DatosPersonalesPacientes_id' => 'required',
             'idDatosFamiliares' => 'required',
+            //'Parentesco' => 'required'
         ]);
         
         infante::create($request->all());
@@ -139,7 +144,8 @@ class InfanteController extends Controller
             'FechaEgreso',
             'TipoSanguineo',
             'DatosPersonalesPacientes_id',
-            'idDatosFamiliares' => 'required'
+            'idDatosFamiliares' => 'required',
+            //'Parentesco' => 'required'
 
         ]);
         $input = $request->all();
@@ -157,6 +163,6 @@ class InfanteController extends Controller
     {
         //
         infante::find($idInfantes)->delete();
-        return redirect()->route('infantes.index');
+        return redirect()->route('infantes.index')->with('status');
     }
 }

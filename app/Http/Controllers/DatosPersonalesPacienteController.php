@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\datospersonalespaciente;
 use App\Models\pueblo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DatospersonalespacienteController extends Controller
 {
@@ -20,12 +21,15 @@ class DatospersonalespacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $datospersonalespacientes = datospersonalespaciente::paginate(10);
-        return view('pacientes.index', compact('datospersonalespacientes'));
-    }
+        $texto = trim($request->get('texto'));
+        $datospacientefiltro = datospersonalespaciente::all()->where('CUI','LIKE','%'.$texto.'%');
 
+        $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente','CUI','ProfesionOficio','Domicilio','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Migrante','pueblo_id')->where('CUI','LIKE','%'.$texto.'%')->orwhere('NombresPaciente','LIKE','%'.$texto.'%')->orwhere('ApellidosPaciente','LIKE','%'.$texto.'%')->paginate(10);
+        return view('pacientes.index', compact('datospersonalespacientes','datospacientefiltro','texto'));
+    }
+ 
     /**
      * Show the form for creating a new resource.
      *
@@ -148,6 +152,6 @@ class DatospersonalespacienteController extends Controller
     public function destroy($idDatosPersonalesPacientes)
     {
         datospersonalespaciente::find($idDatosPersonalesPacientes)->delete();
-        return redirect()->route('pacientes.index');
+        return redirect()->route('pacientes.index')->with('status');
     }
 }

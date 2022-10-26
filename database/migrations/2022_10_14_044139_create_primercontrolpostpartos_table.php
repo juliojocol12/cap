@@ -16,14 +16,20 @@ class CreatePrimercontrolpostpartosTable extends Migration
         Schema::create('primercontrolpostpartos', function (Blueprint $table) {
             $table->increments("idPrimerControlPostpartos");
             
-            $table->unsignedInteger('EstablecimientoSalud_id');
-            $table->foreign('EstablecimientoSalud_id')->references('idEstablecimientoSaludos')->on('establecimientosaludos');
+            
 
 
             $table->string("NombreServicio",45);
             $table->string("DiasDespuesParto",6);
-            $table->string("DondeAtendioParto",15);
+
+            $table->unsignedInteger('EstablecimientoSalud_id');
+            $table->foreign('EstablecimientoSalud_id')->references('idEstablecimientoSaludos')->on('establecimientosaludos');
+
             $table->string("QuienAtendioParto",30);
+
+            $table->unsignedInteger('Personal_idD');
+            $table->foreign('Personal_idD')->references('idPersonal')->on('personales');
+
             $table->string("HeridaOperatoria",45);
             $table->string("InvolucionUterina",25);
             $table->String("PresionArterial",20);
@@ -38,6 +44,7 @@ class CreatePrimercontrolpostpartosTable extends Migration
 			
 			$table->unsignedInteger('Personal_id');
             $table->foreign('Personal_id')->references('idPersonal')->on('personales');
+
             $table->timestamps();
         });
     }
