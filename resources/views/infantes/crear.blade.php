@@ -6,8 +6,8 @@
             <h3 class="page__heading">Ingreso de infantes</h3>
         </div>
         <div class="section-body">
-            <div class="row">
-                <div class="col-lg-12">
+            <div class="row row-responsive">
+                <div class="col-lg-12 col-responsive">
                     <div class="card">
                         <div class="card-body">
                             {{-- Validacion para ingreso de campos --}}
@@ -25,7 +25,7 @@
 
                             {!! Form::open(array('route'=>'infantes.store', 'method'=>'POST')) !!}
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Nombres</label>
                                         {!! Form::text('Nombres', null, array('class'=>'form-control', 'placeholder'=>'Ingrese los nombres del infante', )) !!}
@@ -33,7 +33,7 @@
                                        
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Apellidos</label>
                                         {!! Form::text('Apellidos', null, array('class'=>'form-control', 'placeholder'=>'Ingrese los apellidos del infante')) !!}
@@ -41,7 +41,7 @@
                                 </div>
 
 
-                                <div class="col-xs-1 col-sm-12 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="Genero">Género</label>
                                         <select class="form-control" name="Genero">
@@ -52,57 +52,56 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Fecha de Nacimiento</label>
                                         {!! Form::date('FechaNacimiento', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Hora de Naciemiento</label>
                                         {!! Form::time('HoraNaciemiento', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Peso en Libras</label>
                                         {!! Form::text('PesoLB', null, array('class'=>'form-control', 'placeholder'=>'Peso en libras', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Peso en Onzas</label>
                                         {!! Form::text('PesoOnz', null, array('class'=>'form-control', 'placeholder'=>'Peso en onzas', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Altura</label>
                                         {!! Form::text('Altura', null, array('class'=>'form-control', 'placeholder'=>'Altura en cm', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-8">
+                                <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Observaciones</label>
-                                        
-                                        {!! Form::textarea('Observaciones', null, array('class'=>'form-control', 'placeholder'=>'Observaciones durante el nacimiento')) !!}
+                                        <label for="">Observaciones</label> <br> 
+                                        {!! Form::textarea('Observaciones', null, array('style'=>'background:#FCFCFC;height:90px;width:400px;border-color:#E3E3E3','placeholder'=>'Observaciones durante el nacimiento'))!!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Fecha de Egreso</label>
                                         {!! Form::date('FechaEgreso', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-2" >
+                                <div class="col-xs-6 col-sm-6 col-md-2" >
                                     <div class="form-group">
                                         <label for="">Tipo de Sangre</label>
                                         {!! Form::text('TipoSanguineo', null, array('class'=>'form-control', 'placeholder'=>'Ingrese el tipo de sangre')) !!}
@@ -111,7 +110,7 @@
 
                                 
 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-6 col-sm-6 col-md-5">
                                     <div class="form-group">
                                         <label for="" value="DatosPersonalesPacientes_id">Datos de Madre</label>
                                         <input class="form-control" list="filtroCUIPacientes" id="filtroCUIPaciente" placeholder="ingrese el cui">
@@ -128,7 +127,7 @@
                                     </div>
                                 </div>
                                 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-6 col-sm-6 col-md-5">
                                     <div class="form-group">
                                         <label >Datos de un Familiar</label>
                                         

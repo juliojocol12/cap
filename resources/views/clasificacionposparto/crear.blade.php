@@ -25,10 +25,10 @@
 
                         {!! Form::open(array('route'=>'clasificacionposparto.store', 'method'=>'POST')) !!}
                         <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="col-xs-6 col-sm-9 col-md-3">
                                 <div class="form-group">
                                     <label for="name">Problemas Detectados</label>
-                                    {!! Form::textarea('ProblemasDetectados', null, array('class'=>'form-control'))!!}
+                                    {!! Form::textarea('ProblemasDetectados', null, array('style'=>'background:#FCFCFC;height:90px;border-color:#E3E3E3'))!!}
                                 </div>
                             </div>
 

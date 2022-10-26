@@ -11,9 +11,9 @@
                     <div class="card">
                         <div class="card-body">
                             
-                            <a class="btn btn-warning" href="{{ route('pueblos.create') }}">Ingresar Pueblo</a>
+                            <a class="btn btn-warning" href="{{ route('pueblos.create') }}">Nuevo</a>
 
-                            <table class="table table-striped mt-2">
+                            <table class="table  table-striped table-bordered table-responsive mt-2">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
                                     <th style="color:#fff;">Nombre</th>
@@ -26,9 +26,11 @@
                                             <td>{{$pueblo->Nombre}}</td>
                                             <td>
                                                 <a class="btn btn-info" href="{{ route('pueblos.edit', $pueblo->idPueblo) }}">Editar</a>
+
                                                 {!! Form::open(['method'=> 'DELETE', 'route'=> ['pueblos.destroy', $pueblo->idPueblo], 'style'=>'display:inline' ]) !!}
-                                                <input type="submit" onclick="return confirm ('¿Desea eliminar la información?')" class="btn btn-danger" value="Borrar">
+                                                    {!! Form::submit('Borrar', ['class'=>'btn btn-danger']) !!}
                                                 {!! Form::close() !!}
+
                                             </td>
                                                                                   
                                         </tr>

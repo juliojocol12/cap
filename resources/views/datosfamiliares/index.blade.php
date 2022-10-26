@@ -11,9 +11,9 @@
                     <div class="card">
                         <div class="card-body">
                             
-                            <a class="btn btn-warning" href="{{ route('datosfamiliares.create') }}">Ingresar Datos de familiares</a>
+                            <a class="btn btn-warning" href="{{ route('datosfamiliares.create') }}">Nuevo</a>
 
-                            <table class="table  table-striped table-bordered mt-5">
+                            <table class="table  table-striped table-bordered table-responsive mt-2">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
                                     <th style="color:#fff;">Nombres</th>

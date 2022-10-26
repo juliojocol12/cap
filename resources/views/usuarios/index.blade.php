@@ -11,9 +11,9 @@
                     <div class="card">
                         <div class="card-body">
                             
-                            <a class="btn btn-warning" href="{{ route('usuarios.create') }}">Ingresar Usuario</a>
+                            <a class="btn btn-warning" href="{{ route('usuarios.create') }}">Nuevo</a>
 
-                            <table class="table table-striped mt-2">
+                            <table class="table  table-striped table-bordered table-responsive mt-2">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
                                     <th style="color:#fff;">Nombre</th>
@@ -36,9 +36,37 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-info" href="{{ route('usuarios.edit', $usuario->id) }}">Editar</a>
-                                                {!! Form::open(['method'=> 'DELETE', 'route'=> ['usuarios.destroy', $usuario->id], 'style'=>'display:inline' ]) !!}
-                                                <input type="submit" onclick="return confirm ('¿Desea eliminar la información?')" class="btn btn-danger" value="Borrar">
-                                                {!! Form::close() !!}
+                                                <a class="btn btn-danger" data-toggle="modal" data-target="#deleteUsuario{{$usuario->id}}">Eliminar</a>
+
+                                               
+                                                <div class="modal fade" data-backdrop="false" id="deleteUsuario{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Eliminar Usuario?</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+
+                                                            <div class="modal-body">
+                                                                <form action="{{route('usuarios.update', $usuario)}}" method="POST">
+                                                                    {{ csrf_field()}} {{ method_field('PUT')}}
+
+                                                                    {{$usuario->name}}
+
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn btn-info">Confirmar</button>
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                                    </div>
+                                                                    
+                                                                </form>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </td>
                                         </tr>
                                     @endforeach

@@ -25,28 +25,28 @@
 
                         {!! Form::open(array('route'=>'establecimientosaludo.store', 'method'=>'POST')) !!}
                         <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="col-xs-6 col-sm-6 col-md-3">
                                 <div class="form-group">
                                     <label for="name">Nombre</label>
                                     {!! Form::text('Nombre', null, array('class'=>'form-control'))!!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="col-xs-6 col-sm-6 col-md-3">
                                 <div class="form-group">
                                     <label for="name">Direccion</label>
                                     {!! Form::text('Direccion', null, array('class'=>'form-control')) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="col-xs-6 col-sm-6 col-md-3">
                                 <div class="form-group">
                                     <label for="name">Comunidad</label>
                                     {!! Form::text('Comunidad', null, array('class'=>'form-control')) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-8">
+                            <div class="col-xs-6 col-sm-6 col-md-5">
                                 <div class="form-group">
                                     <label for="name">Puesto de Salud</label>
                                     {!! Form::text('PuestoSalud', null, array('class'=>'form-control')) !!}

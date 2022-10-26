@@ -83,8 +83,8 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
-                                    <label for="name">Observaciones</label>
-                                    {!! Form::textarea('Observaciones', null, array('class'=>'form-control')) !!}
+                                    <label for="name">Observaciones</label><br>
+                                    {!! Form::textarea('Observaciones', null, array('style'=>'background:#FCFCFC;height:90px;width:400px;border-color:#E3E3E3'))!!}
                                 </div>
                             </div>
 
