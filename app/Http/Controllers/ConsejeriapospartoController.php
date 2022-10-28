@@ -45,11 +45,11 @@ class ConsejeriapospartoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'LactanciaMaternaExclusiva' => 'required|max:30|TextoRule1',
-            'PlanificacionFamiliarPosparto' => 'required|max:30|TextoRule1',
-            'AlimentacionMadreLactante' => 'required|max:30|TextoRule1',
-            'LactanciaMaternaVIH' => 'required|max:30|TextoRule1',
-            'MujerVIH' => 'required|max:30|TextoRule1',
+            'LactanciaMaternaExclusiva' => 'required|TextoRule1',
+            'PlanificacionFamiliarPosparto' => 'required|TextoRule1',
+            'AlimentacionMadreLactante' => 'required|TextoRule1',
+            'LactanciaMaternaVIH' => 'required|TextoRule1',
+            'MujerVIH' => 'required|TextoRule1',
         ]);
     
         consejeriaposparto::create($request->all());
@@ -92,11 +92,11 @@ class ConsejeriapospartoController extends Controller
     public function update(Request $request, $idConsejeriaPospartos)
     {
         $this->validate($request,[
-            'LactanciaMaternaExclusiva' => 'required|max:30|TextoRule1',
-            'PlanificacionFamiliarPosparto' => 'required|max:30|TextoRule1',
-            'AlimentacionMadreLactante' => 'required|max:30|TextoRule1',
-            'LactanciaMaternaVIH' => 'required|max:30|TextoRule1',
-            'MujerVIH' => 'required|max:30|TextoRule1',
+            'LactanciaMaternaExclusiva' => 'required|TextoRule1',
+            'PlanificacionFamiliarPosparto' => 'required|TextoRule1',
+            'AlimentacionMadreLactante' => 'required|TextoRule1',
+            'LactanciaMaternaVIH' => 'required|TextoRule1',
+            'MujerVIH' => 'required|TextoRule1',
         ]);
 
         $input = $request->all();

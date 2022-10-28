@@ -29,35 +29,35 @@
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="name">Lactancia Materna Exclusiva</label>
-                                        {!! Form::text('LactanciaMaternaExclusiva', null, array('class'=>'form-control'))!!}
+                                        {!! Form::text('LactanciaMaternaExclusiva', null, array('class'=>'form-control','maxlength'=>'30'))!!}
                                     </div>
                                 </div>
     
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="name">Planificacion Familiar Posparto</label>
-                                        {!! Form::text('PlanificacionFamiliarPosparto', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('PlanificacionFamiliarPosparto', null, array('class'=>'form-control','maxlength'=>'30')) !!}
                                     </div>
                                 </div>
     
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="name">Alimentacion Madre Lactante</label>
-                                        {!! Form::text('AlimentacionMadreLactante', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('AlimentacionMadreLactante', null, array('class'=>'form-control','maxlength'=>'30')) !!}
                                     </div>
                                 </div>
     
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="name">Lactancia Materna VIH</label>
-                                        {!! Form::text('LactanciaMaternaVIH', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('LactanciaMaternaVIH', null, array('class'=>'form-control','maxlength'=>'30')) !!}
                                     </div>
                                 </div>
     
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="name">Mujer VIH</label>
-                                        {!! Form::text('MujerVIH', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('MujerVIH', null, array('class'=>'form-control','maxlength'=>'30')) !!}
                                     </div>
                                 </div>
     

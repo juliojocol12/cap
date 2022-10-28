@@ -27,21 +27,21 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <label for="name">Nombre</label>
-                                        {!! Form::text('name', null, array('class'=>'form-control', 'placeholder'=>'ingrese el nombre de usuario')) !!}
+                                        {!! Form::text('name', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'ingrese el nombre de usuario')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <label for="name">Email</label>
-                                        {!! Form::text('email', null, array('class'=>'form-control', 'placeholder'=>'ingrese una direccion de correo')) !!}
+                                        {!! Form::text('email', null, array('class'=>'form-control','maxlength'=>'20','placeholder'=>'ingrese una direccion de correo')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <label for="name">Contraseña</label>
-                                        {!! Form::password('password', array('class'=>'form-control', 'placeholder'=>'ingrese la contraseña')) !!}
+                                        {!! Form::password('password', array('class'=>'form-control', 'maxlength'=>'12','placeholder'=>'ingrese la contraseña')) !!}
                                     </div>
                                 </div>
 

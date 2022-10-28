@@ -45,7 +45,7 @@ class ClasificacionpospartoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'ProblemasDetectados' => 'required|max:100|TextoRule3',
+            'ProblemasDetectados' => 'required|TextoRule3',
         ]);
     
         clasificacionposparto::create($request->all());
@@ -88,7 +88,7 @@ class ClasificacionpospartoController extends Controller
     public function update(Request $request, $idClasificacionPospartos)
     {
         request()->validate([
-            'ProblemasDetectados' => 'required|max:100|TextoRule3',
+            'ProblemasDetectados' => 'required|TextoRule3',
         ]);
     
         $input = $request->all();

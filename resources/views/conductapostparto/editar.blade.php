@@ -29,35 +29,34 @@
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="name">Sulfato Ferroso</label>
-                                        {!! Form::text('SulfatoFerroso', null, array('class'=>'form-control'))!!}
+                                        {!! Form::text('SulfatoFerroso', null, array('class'=>'form-control','maxlength'=>'25'))!!}
                                     </div>
                                 </div>
     
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="name">AcidoFolico</label>
-                                        {!! Form::text('AcidoFolico', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('AcidoFolico', null, array('class'=>'form-control','maxlength'=>'25')) !!}
                                     </div>
                                 </div>
     
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="name">VacuncacionTdapMadre</label>
-                                        {!! Form::text('VacuncacionTdapMadre', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('VacuncacionTdapMadre', null, array('class'=>'form-control','maxlength'=>'20')) !!}
                                     </div>
                                 </div>
     
                                 <div class="col-xs-12 col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="name">Medicamento</label>
-                                        {!! Form::text('Medicamento', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('Medicamento', null, array('class'=>'form-control','maxlength'=>'45')) !!}
                                     </div>
                                 </div>
     
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <button type="submit" class="btn btn-primary">Guardar</button>
                                 </div>
-                                
                             </div>
                             
                             {!! Form::close() !!}                        

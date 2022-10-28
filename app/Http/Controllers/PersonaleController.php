@@ -45,15 +45,15 @@ class PersonaleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'Nombre' => 'required|max:45|TextoRule1',
-            'CUI' => 'required|max:15|NumeroRule|Unique:personales',
-            'Telefono' => 'required|max:15|NumeroRule',
-            'Direccion' => 'required|max:45',
-            'Cargo' => 'required|max:30|TextoRule1',
+            'Nombre' => 'required|TextoRule1',
+            'CUI' => 'required|NumeroRule|Unique:personales',
+            'Telefono' => 'required|NumeroRule',
+            'Direccion' => 'required',
+            'Cargo' => 'required|TextoRule1',
             'FechaNacimiento' => 'required',
-            'NivelAcademico' => 'max:30|TextoRule2',
-            'CorreoElectronico' => 'max:20|CorreoRule2|Unique:personales',
-            'Observaciones' => 'max:50',
+            'NivelAcademico' => 'TextoRule2',
+            'CorreoElectronico' => 'CorreoRule2|Unique:personales',
+            'Observaciones',
         ]);
     
         personale::create($request->all());
@@ -96,15 +96,15 @@ class PersonaleController extends Controller
     public function update(Request $request, $idPersonal)
     {
         request()->validate([
-            'Nombre' => 'required|max:45|TextoRule1',
-            'CUI' => 'required|max:15|NumeroRule',
-            'Telefono' => 'required|max:15|NumeroRule',
-            'Direccion' => 'required|max:45',
-            'Cargo' => 'required|max:30|TextoRule1',
+            'Nombre' => 'required|TextoRule1',
+            'CUI' => 'required|NumeroRule|Unique:personales',
+            'Telefono' => 'required|NumeroRule',
+            'Direccion' => 'required',
+            'Cargo' => 'required|TextoRule1',
             'FechaNacimiento' => 'required',
-            'NivelAcademico' => 'max:30|TextoRule2',
-            'CorreoElectronico' => 'max:20|CorreoRule2',
-            'Observaciones' => 'max:50',
+            'NivelAcademico' => 'TextoRule2',
+            'CorreoElectronico' => 'CorreoRule2|Unique:personales',
+            'Observaciones',
         ]);
     
         $input = $request->all();

@@ -28,7 +28,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Nombres</label>
-                                        {!! Form::text('NombresFamiliar', null, array('class'=>'form-control', 'placeholder'=>'Ingrese los nombres del familiar', )) !!}
+                                        {!! Form::text('NombresFamiliar', null, array('class'=>'form-control','maxlength'=>'25', 'placeholder'=>'Ingrese los nombres del familiar', )) !!}
                                     </div>
                                        
                                 </div>
@@ -36,28 +36,28 @@
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Apellidos</label>
-                                        {!! Form::text('ApellidosFamiliar', null, array('class'=>'form-control', 'placeholder'=>'Ingrese los apellidos del familiar')) !!}
+                                        {!! Form::text('ApellidosFamiliar', null, array('class'=>'form-control','maxlength'=>'25', 'placeholder'=>'Ingrese los apellidos del familiar')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">CUI</label>
-                                        {!! Form::text('CUI', null, array('class'=>'form-control', 'placeholder'=>'Ingrese el CUI')) !!}
+                                        {!! Form::text('CUI', null, array('class'=>'form-control','maxlength'=>'15', 'placeholder'=>'Ingrese el CUI')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="">Número de Telefono</label>
-                                        {!! Form::text('TelefonoFamiliar', null, array('class'=>'form-control', 'placeholder'=>'Número de Telefono')) !!}
+                                        {!! Form::text('TelefonoFamiliar', null, array('class'=>'form-control','maxlength'=>'12', 'placeholder'=>'Número de Telefono')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="">Número de Celular</label>
-                                        {!! Form::text('CelularFamiliar', null, array('class'=>'form-control', 'placeholder'=>'Número de Celular')) !!}
+                                        {!! Form::text('CelularFamiliar', null, array('class'=>'form-control','maxlength'=>'12', 'placeholder'=>'Número de Celular')) !!}
                                     </div>
                                 </div>
 

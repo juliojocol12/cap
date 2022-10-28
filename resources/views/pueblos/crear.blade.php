@@ -28,7 +28,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Nombre</label>
-                                        {!! Form::text('Nombre', null, array('class'=>'form-control', 'placeholder'=>'Ingrese el nombre del pueblo', 'data-maxlength'=>"25")) !!}
+                                        {!! Form::text('Nombre', null, array('class'=>'form-control', 'placeholder'=>'Ingrese el nombre del pueblo', 'maxlength'=>"15")) !!}
                                     </div>
                                        
                                 </div>

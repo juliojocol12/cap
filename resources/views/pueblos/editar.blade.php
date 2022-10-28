@@ -29,7 +29,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Nombre</label>
-                                        {!! Form::text('Nombre', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('Nombre', null, array('class'=>'form-control','maxlength'=>"15")) !!}
                                     </div>
                                 </div>
 

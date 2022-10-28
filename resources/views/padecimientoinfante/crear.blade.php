@@ -28,7 +28,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="name">Tipo Control</label>
-                                    {!! Form::text('TipoControl', null, array('class'=>'form-control'))!!}
+                                    {!! Form::text('TipoControl', null, array('class'=>'form-control','maxlength'=>'45'))!!}
                                 </div>
                             </div>
 
@@ -42,7 +42,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="name">Descripcion Control</label>
-                                    {!! Form::text('DescripcionControl', null, array('class'=>'form-control')) !!}
+                                    {!! Form::text('DescripcionControl', null, array('class'=>'form-control','maxlength'=>'45')) !!}
                                 </div>
                             </div>
 

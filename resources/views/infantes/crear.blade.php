@@ -28,7 +28,7 @@
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Nombres</label>
-                                        {!! Form::text('Nombres', null, array('class'=>'form-control', 'placeholder'=>'Ingrese los nombres del infante', )) !!}
+                                        {!! Form::text('Nombres', null, array('class'=>'form-control','maxlength'=>'25','placeholder'=>'Ingrese los nombres del infante', )) !!}
                                     </div>
                                        
                                 </div>
@@ -36,7 +36,7 @@
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Apellidos</label>
-                                        {!! Form::text('Apellidos', null, array('class'=>'form-control', 'placeholder'=>'Ingrese los apellidos del infante')) !!}
+                                        {!! Form::text('Apellidos', null, array('class'=>'form-control','maxlength'=>'25','placeholder'=>'Ingrese los apellidos del infante')) !!}
                                     </div>
                                 </div>
 
@@ -44,7 +44,7 @@
                                 <div class="col-xs-1 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="Genero">Género</label>
-                                        <select class="form-control" name="Genero">
+                                        <select class="form-control" name="Genero" maxlength="45">
                                         <option selected>Seleccione el genero</option>
                                         <option value="Masculino">Masculino</option>
                                         <option value="Femenino">Femenino</option>
@@ -62,35 +62,35 @@
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Hora de Naciemiento</label>
-                                        {!! Form::time('HoraNaciemiento', null, array('class'=>'form-control')) !!}
+                                        {!! Form::time('HoraNaciemiento', null, array('class'=>'form-control','maxlength'=>'5')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Peso en Libras</label>
-                                        {!! Form::text('PesoLB', null, array('class'=>'form-control', 'placeholder'=>'Peso en libras', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
+                                        {!! Form::text('PesoLB', null, array('class'=>'form-control','maxlength'=>'5','placeholder'=>'Peso en libras', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Peso en Onzas</label>
-                                        {!! Form::text('PesoOnz', null, array('class'=>'form-control', 'placeholder'=>'Peso en onzas', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
+                                        {!! Form::text('PesoOnz', null, array('class'=>'form-control','maxlength'=>'5','placeholder'=>'Peso en onzas', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Altura</label>
-                                        {!! Form::text('Altura', null, array('class'=>'form-control', 'placeholder'=>'Altura en cm', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
+                                        {!! Form::text('Altura', null, array('class'=>'form-control','maxlength'=>'5','placeholder'=>'Altura en cm', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
                                         <label for="">Observaciones</label> <br> 
-                                        {!! Form::textarea('Observaciones', null, array('style'=>'background:#FCFCFC;height:90px;width:400px;border-color:#E3E3E3','placeholder'=>'Observaciones durante el nacimiento'))!!}
+                                        {!! Form::textarea('Observaciones', null, array('style'=>'background:#FCFCFC;height:90px;width:400px;border-color:#E3E3E3','maxlength'=>'45','placeholder'=>'Observaciones durante el nacimiento'))!!}
                                     </div>
                                 </div>
 
@@ -104,7 +104,7 @@
                                 <div class="col-xs-6 col-sm-6 col-md-2" >
                                     <div class="form-group">
                                         <label for="">Tipo de Sangre</label>
-                                        {!! Form::text('TipoSanguineo', null, array('class'=>'form-control', 'placeholder'=>'Ingrese el tipo de sangre')) !!}
+                                        {!! Form::text('TipoSanguineo', null, array('class'=>'form-control','maxlength'=>'5','placeholder'=>'Ingrese el tipo de sangre')) !!}
                                     </div>
                                 </div>
 

@@ -45,10 +45,10 @@ class EstablecimientosaludoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'Nombre' => 'required|max:45|TextoRule1',
-            'Direccion' => 'required|max:60',
-            'Comunidad' => 'required|max:30|TextoRule1',
-            'PuestoSalud' => 'required|max:30|TextoRule1',
+            'Nombre' => 'required|TextoRule1',
+            'Direccion' => 'required',
+            'Comunidad' => 'required|TextoRule1',
+            'PuestoSalud' => 'required|TextoRule1',
         ]);
     
         establecimientosaludo::create($request->all());
@@ -91,10 +91,10 @@ class EstablecimientosaludoController extends Controller
     public function update(Request $request, $idEstablecimientoSaludos)
     {
         $this->validate($request,[
-            'Nombre' => 'required|max:45|TextoRule1',
-            'Direccion' => 'required|max:60',
-            'Comunidad' => 'required|max:30|TextoRule1',
-            'PuestoSalud' => 'required|max:30|TextoRule1',
+            'Nombre' => 'required|TextoRule1',
+            'Direccion' => 'required',
+            'Comunidad' => 'required|TextoRule1',
+            'PuestoSalud' => 'required|TextoRule1',
         ]);
 
         $input = $request->all();

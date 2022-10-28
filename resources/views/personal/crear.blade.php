@@ -28,35 +28,35 @@
                             <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="name">Nombre</label>
-                                    {!! Form::text('Nombre', null, array('class'=>'form-control', 'placeholder'=>'Ingrese el nombre completo'))!!}
+                                    {!! Form::text('Nombre', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Ingrese el nombre completo'))!!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="name">CUI</label>
-                                    {!! Form::text('CUI', null, array('class'=>'form-control')) !!}
+                                    {!! Form::text('CUI', null, array('class'=>'form-control','maxlength'=>'15')) !!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="name">Telefono</label>
-                                    {!! Form::text('Telefono', null, array('class'=>'form-control')) !!}
+                                    {!! Form::text('Telefono', null, array('class'=>'form-control','maxlength'=>'15')) !!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-8">
                                 <div class="form-group">
                                     <label for="name">Direccion</label>
-                                    {!! Form::text('Direccion', null, array('class'=>'form-control')) !!}
+                                    {!! Form::text('Direccion', null, array('class'=>'form-control','maxlength'=>'45')) !!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="name">Cargo</label>
-                                    {!! Form::text('Cargo', null, array('class'=>'form-control','placeholder'=>'Ingrese el cargo que desempeña')) !!}
+                                    {!! Form::text('Cargo', null, array('class'=>'form-control','maxlength'=>'30','placeholder'=>'Ingrese el cargo que desempeña')) !!}
                                 </div>
                             </div>
 
@@ -70,21 +70,21 @@
                             <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="name">Nivel Academico</label>
-                                    {!! Form::text('NivelAcademico', null, array('class'=>'form-control')) !!}
+                                    {!! Form::text('NivelAcademico', null, array('class'=>'form-control','maxlength'=>'30')) !!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="name">Correo Electronico</label>
-                                    {!! Form::text('CorreoElectronico', null, array('class'=>'form-control')) !!}
+                                    {!! Form::text('CorreoElectronico', null, array('class'=>'form-control','maxlength'=>'20')) !!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="name">Observaciones</label><br>
-                                    {!! Form::textarea('Observaciones', null, array('style'=>'background:#FCFCFC;height:90px;width:400px;border-color:#E3E3E3'))!!}
+                                    {!! Form::textarea('Observaciones', null, array('style'=>'background:#FCFCFC;height:90px;width:400px;border-color:#E3E3E3','maxlength'=>'50'))!!}
                                 </div>
                             </div>
 

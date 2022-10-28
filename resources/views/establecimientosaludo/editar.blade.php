@@ -29,28 +29,28 @@
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="name">Nombre</label>
-                                        {!! Form::text('Nombre', null, array('class'=>'form-control'))!!}
+                                        {!! Form::text('Nombre', null, array('class'=>'form-control','maxlength'=>'45'))!!}
                                     </div>
                                 </div>
     
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="name">Direccion</label>
-                                        {!! Form::text('Direccion', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('Direccion', null, array('class'=>'form-control','maxlength'=>'60')) !!}
                                     </div>
                                 </div>
     
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="name">Comunidad</label>
-                                        {!! Form::text('Comunidad', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('Comunidad', null, array('class'=>'form-control','maxlength'=>'30')) !!}
                                     </div>
                                 </div>
     
                                 <div class="col-xs-6 col-sm-6 col-md-5">
                                     <div class="form-group">
                                         <label for="name">Puesto de Salud</label>
-                                        {!! Form::text('PuestoSalud', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('PuestoSalud', null, array('class'=>'form-control','maxlength'=>'30')) !!}
                                     </div>
                                 </div>
     

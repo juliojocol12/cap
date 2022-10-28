@@ -64,14 +64,14 @@ class InfanteController extends Controller
     {
         //
         $this->validate($request,[
-            'Nombres' => 'required',
-            'Apellidos' => 'required',
-            'Genero' => 'required',
+            'Nombres' => 'required|TextoRule1',
+            'Apellidos' => 'required|TextoRule1',
+            'Genero' => 'required|TextoRule1',
             'FechaNacimiento' => 'required',
             'HoraNaciemiento',
-            'PesoLB' => 'required',
-            'PesoOnz' => 'required',
-            'Altura' => 'required',
+            'PesoLB' => 'required||DecimalRule',
+            'PesoOnz' => 'required||DecimalRule',
+            'Altura' => 'required||DecimalRule',
             'Observaciones',
             'FechaEgreso',
             'TipoSanguineo',
@@ -127,20 +127,19 @@ class InfanteController extends Controller
     {
         //
         request()->validate([
-            'Nombres',
-            'Apellidos',
-            'Genero' ,
-            'FechaNacimiento',
+            'Nombres' => 'required|TextoRule1',
+            'Apellidos' => 'required|TextoRule1',
+            'Genero' => 'required|TextoRule1',
+            'FechaNacimiento' => 'required',
             'HoraNaciemiento',
-            'PesoLB' => 'required',
-            'PesoOnz' => 'required',
-            'Altura' => 'required',
+            'PesoLB' => 'required||DecimalRule',
+            'PesoOnz' => 'required||DecimalRule',
+            'Altura' => 'required||DecimalRule',
             'Observaciones',
             'FechaEgreso',
             'TipoSanguineo',
-            'DatosPersonalesPacientes_id',
-            'idDatosFamiliares' => 'required'
-
+            'DatosPersonalesPacientes_id' => 'required',
+            'idDatosFamiliares' => 'required',
         ]);
         $input = $request->all();
         $infant = infante::find($idInfantes);
