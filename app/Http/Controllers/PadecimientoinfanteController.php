@@ -46,9 +46,9 @@ class PadecimientoinfanteController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'TipoControl' => 'required|max:45|TextoRule3',
+            'TipoControl' => 'required|TextoRule3',
             'FechaControl' => 'required',
-            'DescripcionControl' => 'required|max:45',
+            'DescripcionControl' => 'required',
         ]);
     
         padecimientoinfante::create($request->all());

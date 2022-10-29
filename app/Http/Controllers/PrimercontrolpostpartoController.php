@@ -49,21 +49,21 @@ class PrimercontrolpostpartoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'NombreServicio' => 'required|max:45|TextoRule1',
-            'DiasDespuesParto' => 'required|max:6|NumeroRule',
-            'DondeAtendioParto' => 'required|max:35',
-            'QuienAtendioParto' => 'required|max:35',
-            'HeridaOperatoria' => 'required|max:45|TextoRule3',
-            'InvolucionUterina' => 'required|max:25|TextoRule3',
-            'PresionArterial' => 'required|max:20|TextoRule3',
-            'FrecuenciaCardiaca' => 'required|max:20|TextoRule3',
-            'Temperatura' => 'required|max:10|TextoRule3',
-            'ExamenMamas' => 'required|max:75|TextoRule1',
-            'ExamenGinecologico' => 'required|max:300|TextoRule3',
-            'LactanciaMaterna' => 'required|max:2|TextoRule1',
-            'PorqueNoLactanciaMaterna' => 'max:45|TextoRule4',
-            'Diagnostico' => 'required|max:200|TextoRule3',
-            'ConductaTratamiento' => 'required|max:200|TextoRule3',
+            'NombreServicio' => 'required|TextoRule1',
+            'DiasDespuesParto' => 'required|NumeroRule',
+            'DondeAtendioParto' => 'required',
+            'QuienAtendioParto' => 'required',
+            'HeridaOperatoria' => 'required|TextoRule3',
+            'InvolucionUterina' => 'required|TextoRule3',
+            'PresionArterial' => 'required|TextoRule3',
+            'FrecuenciaCardiaca' => 'required|TextoRule3',
+            'Temperatura' => 'required|TextoRule3',
+            'ExamenMamas' => 'required|TextoRule1',
+            'ExamenGinecologico' => 'required|TextoRule3',
+            'LactanciaMaterna' => 'required|TextoRule1',
+            'PorqueNoLactanciaMaterna' => 'TextoRule4',
+            'Diagnostico' => 'required|TextoRule3',
+            'ConductaTratamiento' => 'required|TextoRule3',
         ]);
     
         primercontrolpostparto::create($request->all());
@@ -106,21 +106,21 @@ class PrimercontrolpostpartoController extends Controller
     public function update(Request $request, $idPrimerControlPostpartos)
     {
         $this->validate($request,[
-            'NombreServicio' => 'required|max:45|TextoRule1',
-            'DiasDespuesParto' => 'required|max:6|NumeroRule',
-            'DondeAtendioParto' => 'required|max:15|TextoRule1',
-            'QuienAtendioParto' => 'required|max:30|TextoRule1',
-            'HeridaOperatoria' => 'required|max:45|TextoRule3',
-            'InvolucionUterina' => 'required|max:25|TextoRule3',
-            'PresionArterial' => 'required|max:20|TextoRule3',
-            'FrecuenciaCardiaca' => 'required|max:20|TextoRule3',
-            'Temperatura' => 'required|max:10|TextoRule3',
-            'ExamenMamas' => 'required|max:75|TextoRule1',
-            'ExamenGinecologico' => 'required|max:300|TextoRule3',
-            'LactanciaMaterna' => 'required|max:2|TextoRule1',
-            'PorqueNoLactanciaMaterna' => 'max:45|TextoRule3',
-            'Diagnostico' => 'required|max:200|TextoRule3',
-            'ConductaTratamiento' => 'required|max:200|TextoRule3',
+            'NombreServicio' => 'required|TextoRule1',
+            'DiasDespuesParto' => 'required|NumeroRule',
+            'DondeAtendioParto' => 'required',
+            'QuienAtendioParto' => 'required',
+            'HeridaOperatoria' => 'required|TextoRule3',
+            'InvolucionUterina' => 'required|TextoRule3',
+            'PresionArterial' => 'required|TextoRule3',
+            'FrecuenciaCardiaca' => 'required|TextoRule3',
+            'Temperatura' => 'required|TextoRule3',
+            'ExamenMamas' => 'required|TextoRule1',
+            'ExamenGinecologico' => 'required|TextoRule3',
+            'LactanciaMaterna' => 'required|TextoRule1',
+            'PorqueNoLactanciaMaterna' => 'TextoRule4',
+            'Diagnostico' => 'required|TextoRule3',
+            'ConductaTratamiento' => 'required|TextoRule3',
         ]);
 
         $input = $request->all();

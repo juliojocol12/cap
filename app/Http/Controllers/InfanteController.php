@@ -68,20 +68,19 @@ class InfanteController extends Controller
     {
         //
         $this->validate($request,[
-            'Nombres' => 'required | TextoRule1',
-            'Apellidos' => 'required | TextoRule1',
-            'Genero' => 'required | TextoRule1',
+            'Nombres' => 'required|TextoRule1',
+            'Apellidos' => 'required|TextoRule1',
+            'Genero' => 'required|TextoRule1',
             'FechaNacimiento' => 'required',
             'HoraNaciemiento',
-            'PesoLB' => 'required | DecimalRule',
-            'PesoOnz' => 'required| DecimalRule',
-            'Altura' => 'required | DecimalRule',
+            'PesoLB' => 'required||DecimalRule',
+            'PesoOnz' => 'required||DecimalRule',
+            'Altura' => 'required||DecimalRule',
             'Observaciones',
             'FechaEgreso',
             'TipoSanguineo',
-            'DatosPersonalesPacientes_id' => 'required | NumeroRule',
-            'idDatosFamiliares' => 'required| NumeroRule',
-            'Parentesco' => 'required | TextoRule1'
+            'DatosPersonalesPacientes_id' => 'required',
+            'idDatosFamiliares' => 'required',
         ]);
         
         infante::create($request->all());
@@ -132,20 +131,19 @@ class InfanteController extends Controller
     {
         //
         request()->validate([
-            'Nombres' => 'required | TextoRule1',
-            'Apellidos' => 'required | TextoRule1',
-            'Genero' => 'required | TextoRule1',
+            'Nombres' => 'required|TextoRule1',
+            'Apellidos' => 'required|TextoRule1',
+            'Genero' => 'required|TextoRule1',
             'FechaNacimiento' => 'required',
             'HoraNaciemiento',
-            'PesoLB' => 'required | DecimalRule',
-            'PesoOnz' => 'required| DecimalRule',
-            'Altura' => 'required | DecimalRule',
+            'PesoLB' => 'required||DecimalRule',
+            'PesoOnz' => 'required||DecimalRule',
+            'Altura' => 'required||DecimalRule',
             'Observaciones',
             'FechaEgreso',
             'TipoSanguineo',
-            'DatosPersonalesPacientes_id' => 'required | NumeroRule',
-            'idDatosFamiliares' => 'required| NumeroRule',
-            'Parentesco' => 'required | TextoRule1'
+            'DatosPersonalesPacientes_id' => 'required',
+            'idDatosFamiliares' => 'required',
 
         ]);
         $input = $request->all();

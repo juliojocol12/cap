@@ -14,7 +14,7 @@
             
                         <a class="btn btn-warning" href="{{ route('personal.create') }}">Nuevo</a>
             
-                        <table class="table  table-striped table-bordered table-responsive mt-2">
+                        <table class="table table-striped table-bordered mt-2">
                                 <thead style="background-color:#6777ef">                                     
                                     <th style="display: none;">ID</th>
                                     <th style="color:#fff;">Nombre</th>
@@ -25,8 +25,8 @@
                                     <th style="color:#fff;">FechaNacimiento</th>  
                                     <th style="color:#fff;">NivelAcademico</th>
                                     <th style="color:#fff;">CorreoElectronico</th> 
-                                    <th style="color:#fff;">Observaciones</th>    
-                                    <th style="color:#fff;">Acciones</th>                                                            
+                                    <th style="color:#fff;">Observaciones</th>  
+                                    <th style="color:#fff;">Acciones</th>                                                              
                               </thead>
                               <tbody>
                             @foreach ($personales as $personal)

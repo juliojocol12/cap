@@ -26,44 +26,46 @@
 
                             {!! Form::model($datosfamiliare, ['method' => 'PATCH', 'route'=> ['datosfamiliares.update', $datosfamiliare->idDatosFamiliares ]]) !!}
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
-                                        <label for="name">Nombre</label>
-                                        {!! Form::text('NombresFamiliar', null, array('class'=>'form-control')) !!}
+                                        <label for="">Nombres</label>
+                                        {!! Form::text('NombresFamiliar', null, array('class'=>'form-control','maxlength'=>'25', 'placeholder'=>'Ingrese los nombres del familiar', )) !!}
                                     </div>
+                                       
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Apellidos</label>
-                                        {!! Form::text('ApellidosFamiliar', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('ApellidosFamiliar', null, array('class'=>'form-control','maxlength'=>'25', 'placeholder'=>'Ingrese los apellidos del familiar')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
-                                        <label for="name">CUI</label>
-                                        {!! Form::text('CUI',  null, array('class'=>'form-control')) !!}
+                                        <label for="">CUI</label>
+                                        {!! Form::text('CUI', null, array('class'=>'form-control','maxlength'=>'15', 'placeholder'=>'Ingrese el CUI')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
-                                        <label for="name">Telefono</label>
-                                        {!! Form::text('TelefonoFamiliar',  null, array('class'=>'form-control')) !!}
+                                        <label for="">Número de Telefono</label>
+                                        {!! Form::text('TelefonoFamiliar', null, array('class'=>'form-control','maxlength'=>'12', 'placeholder'=>'Número de Telefono')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
-                                        <label for="name">Celular</label>
-                                        {!! Form::text('CelularFamiliar',  null, array('class'=>'form-control')) !!}
+                                        <label for="">Número de Celular</label>
+                                        {!! Form::text('CelularFamiliar', null, array('class'=>'form-control','maxlength'=>'12', 'placeholder'=>'Número de Celular')) !!}
                                     </div>
                                 </div>
+
 
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
                                     <button type="submit" class="btn btn btn-danger" href="datosfamiliares.index">Cancelar</button>
                                 </div>
                             </div>

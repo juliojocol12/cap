@@ -47,11 +47,11 @@ class DatosfamiliareController extends Controller
     {
         //
         $this->validate($request,[
-            'NombresFamiliar' => 'required | TextoRule1',
-            'ApellidosFamiliar' => 'required | TextoRule1',
+            'NombresFamiliar' => 'required|TextoRule1',
+            'ApellidosFamiliar' => 'required|TextoRule1',
             'CUI' => 'required|Unique:datosfamiliares|NumeroRule',
-            'TelefonoFamiliar' => 'required | NumeroRule',
-            'CelularFamiliar' => 'required | NumeroRule',
+            'TelefonoFamiliar' => 'required|NumeroRule',
+            'CelularFamiliar' => 'required|NumeroRule',
         ]);
         
         datosfamiliare::create($request->all());
@@ -98,11 +98,11 @@ class DatosfamiliareController extends Controller
     {
         //
         $this->validate($request,[
-            'NombresFamiliar' => 'required | TextoRule1',
-            'ApellidosFamiliar' => 'required | TextoRule1',
+            'NombresFamiliar' => 'required|TextoRule1',
+            'ApellidosFamiliar' => 'required|TextoRule1',
             'CUI' => 'required|Unique:datosfamiliares|NumeroRule',
-            'TelefonoFamiliar' => 'required | NumeroRule',
-            'CelularFamiliar' => 'required | NumeroRule',
+            'TelefonoFamiliar' => 'required|NumeroRule',
+            'CelularFamiliar' => 'required|NumeroRule',
         ]);
         $input = $request->all();
         $datosfamiliare = datosfamiliare::find($idDatosFamiliares);
