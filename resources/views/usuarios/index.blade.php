@@ -36,11 +36,10 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-info" href="{{ route('usuarios.edit', $usuario->id) }}">Editar</a>
-                                                {!! Form::open(['method'=> 'DELETE', 'route'=> ['usuarios.destroy', $usuario->id], 'style'=>'display:inline' ]) !!}
-                                                    {!! Form::submit('Borrar', ['class'=>'btn btn-danger']) !!}
-                                                {!! Form::close() !!}
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$usuario->id}}">Eliminar</button>
                                             </td>
                                         </tr>
+                                        @include('usuarios.delete')
                                     @endforeach
                                 </tbody>
                             </table>

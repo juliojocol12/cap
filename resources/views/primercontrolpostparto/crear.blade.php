@@ -42,8 +42,9 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
-                                    <label for="">Donde Atendio Parto</label>
-                                    <select class="form-control" name="DondeAtendioParto" maxlength="35">
+                                    <label for="" value="EstablecimientoSalud_id">Donde Atendio Parto</label>
+                                    
+                                    <select class="form-control" name="EstablecimientoSalud_id" maxlength="35">
                                         @foreach($Destablecimientos as $est)
                                         <option value="{{$est->idEstablecimientoSaludos }}">{{ $est->Nombre}} </option>
                                         @endforeach
@@ -53,11 +54,12 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
-                                    <label for="">Quien Atendio Parto</label>
-                                    <select class="form-control" name="QuienAtendioParto" maxlength="35">
-                                        <option value="Usuario">{{\Illuminate\Support\Facades\Auth::user()->name}}</option>
+                                    <label for="" value="Personal_idD">Quien Atendio Parto</label>
+                  
+                                    <select class="form-control" name="Personal_idD" maxlength="35">
                                         @foreach($Dpersonales as $per)
-                                        <option value="{{$per->idPersonal }}">{{ $per->Nombre}} </option>
+                                        <option value="{{$per->idPersonal }}">
+                                            {{$per->Nombre}} </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -105,7 +107,6 @@
                                 </div>
                             </div>
 
-                            
                             <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
                                     <label for="name">Lactancia Materna</label>
@@ -138,6 +139,19 @@
                                 <div class="form-group">
                                     <label for="name">Conducta Tratamiento</label><br>
                                     {!! Form::textarea('ConductaTratamiento', null, array('style'=>'background:#FCFCFC;height:90px;width:470px;border-color:#E3E3E3','maxlength'=>'200'))!!}
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="form-group">
+                                    <label for="" value="Personal_id">Encargado de llenado</label>
+                  
+                                    <select class="form-control" name="Personal_id" maxlength="35">
+                                        @foreach($Dpersonales as $per)
+                                        <option value="{{$per->idPersonal }}">
+                                            {{$per->Nombre}} </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 

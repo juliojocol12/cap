@@ -115,6 +115,6 @@ class ConsejeriapospartoController extends Controller
     public function destroy($idConsejeriaPospartos)
     {
         consejeriaposparto::find($idConsejeriaPospartos)->delete();
-        return redirect()->route('conserjeriaposparto.index');
+        return redirect()->route('conserjeriaposparto.index')->with('status');
     }
 }

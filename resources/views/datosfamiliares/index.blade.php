@@ -39,9 +39,7 @@
                                             <td>
                                                 
                                                 <a class="btn btn-info" href="{{ route('datosfamiliares.edit', $datosfamiliare->idDatosFamiliares) }}">Editar</a>
-                                                {!! Form::open(['method'=> 'DELETE', 'route'=> ['datosfamiliares.destroy', $datosfamiliare->idDatosFamiliares], 'style'=>'display:inline' ]) !!}
-                                                    <input type="submit" onclick="return confirm ('¿Desea eliminar la información {{ $datosfamiliare->NombresFamiliar }} {{ $datosfamiliare->ApellidosFamiliar }} ?')" class="btn btn-danger" value="Borrar">
-                                                {!! Form::close() !!}
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$datosfamiliare->idDatosFamiliares}}">Eliminar</button>
                                                 
 
                                                 </form>

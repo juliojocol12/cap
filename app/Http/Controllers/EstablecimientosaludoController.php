@@ -113,6 +113,6 @@ class EstablecimientosaludoController extends Controller
     public function destroy($idEstablecimientoSaludos)
     {
         establecimientosaludo::find($idEstablecimientoSaludos)->delete();
-        return redirect()->route('establecimientosaludo.index');
+        return redirect()->route('establecimientosaludo.index')->with('status');
     }
 }

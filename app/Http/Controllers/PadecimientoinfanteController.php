@@ -112,6 +112,6 @@ class PadecimientoinfanteController extends Controller
     public function destroy($idPadecimientoInfantes)
     {
         padecimientoinfante::find($idPadecimientoInfantes)->delete();
-        return redirect()->route('padecimientoinfante.index');
+        return redirect()->route('padecimientoinfante.index')->with('status');
     }
 }

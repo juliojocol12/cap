@@ -29,12 +29,11 @@
                                                     <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Editar</a>
                                                 @endcan()
                                                 @can('borrar-rol')
-                                                {!! Form::open(['method'=> 'DELETE', 'route'=> ['roles.destroy', $role->id], 'style'=>'display:inline' ]) !!}
-                                                    <input type="submit" onclick="return confirm ('¿Desea eliminar la información?')" class="btn btn-danger" value="Borrar">
-                                                {!! Form::close() !!}
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$role->id}}">Eliminar</button>
                                                 @endcan()
                                             </td>
                                         </tr>
+                                    @include('roles.delete')
                                     @endforeach
                                 </tbody>
                             </table>

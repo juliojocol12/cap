@@ -74,11 +74,10 @@
                                             <td>{{$paciente->pueblos->Nombre}}</td>   
                                             <td>
                                                 <a class="btn btn-info" href="{{ route('pacientes.edit', $paciente->idDatosPersonalesPacientes) }}">Editar</a>
-                                                {!! Form::open(['method'=> 'DELETE', 'route'=> ['pacientes.destroy', $paciente->idDatosPersonalesPacientes], 'style'=>'display:inline' ]) !!}
-                                                    <input type="submit" onclick="return confirm ('¿Desea eliminar la información de {{ $paciente->NombresPaciente }} {{ $paciente->ApellidosPaciente }}?')" class="btn btn-danger" value="Borrar">
-                                                {!! Form::close() !!}
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$paciente->idDatosPersonalesPacientes}}">Eliminar</button>
                                             </td>                                    
                                         </tr>
+                                    @include('pacientes.delete')
                                     @endforeach
                                     @endif
                                 </tbody>

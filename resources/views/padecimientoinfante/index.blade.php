@@ -32,11 +32,10 @@
                                 <td>
                                     
                                     <a class="btn btn-info" href="{{ route('padecimientoinfante.edit', $padecimientoinfante->idPadecimientoInfantes) }}">Editar</a>
-                                    {!! Form::open(['method'=> 'DELETE', 'route'=> ['padecimientoinfante.destroy', $padecimientoinfante->idPadecimientoInfantes], 'style'=>'display:inline' ]) !!}
-                                                    {!! Form::submit('Borrar', ['class'=>'btn btn-danger']) !!}
-                                                {!! Form::close() !!}
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$padecimientoinfante->idPadecimientoInfantes}}">Eliminar</button>
                                             </td>                      
                                         </tr>
+                            @include('padecimientoinfante.delete')
                             @endforeach
                             </tbody>
                         </table>
