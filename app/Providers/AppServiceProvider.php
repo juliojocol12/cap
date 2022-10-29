@@ -63,7 +63,7 @@ class AppServiceProvider extends ServiceProvider
                 return true;
             }
             return preg_match('/^[0-9]+$/',$value);
-        });
+        }); 
 
         Validator::extend('CorreoRule1', function ($attribute, $value, $parameters) {
             return preg_match('/^[^@]+@[^@]+\.[a-zA-Z]{2,}+$/',$value);

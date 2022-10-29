@@ -51,10 +51,10 @@ class FcprenatalpostpartoController extends Controller
     {
         //
         $this->validate($request,[
-            'ExpedienteNo' ,
+            'ExpedienteNo' => 'require|NumeroRule',
             'Fecha',
-            'DatosPersonalesPacientes_id',
-            'EstablecimientoSalud_id' ,
+            'DatosPersonalesPacientes_id' => 'require|NumeroRule',
+            'EstablecimientoSalud_id' => 'require|NumeroRule',
             'HemorragiaVaginal',
             'DolordeCabeza',
             'VisionBorrosa',
@@ -63,9 +63,9 @@ class FcprenatalpostpartoController extends Controller
             'PresionArterial',
             'Fiebre',
             'PresentacionesFetales',
-            'RegistrodeReferencia',
+            'RegistrodeReferencia' => 'require|TextoRule3',
             'MotivoConsulta',
-            'HistoriaEnfermedadActual',
+            'HistoriaEnfermedadActual' => 'require|TextoRule3',
             'FechaUltimaRegla',
             'NoGestas',
             'Partos',
@@ -83,11 +83,11 @@ class FcprenatalpostpartoController extends Controller
             'PreEclampsia',
             'UltimoRNPesoCincolb',
             'UltimoRNPesoSietelb',
-            'DeteccionCancerCervix',
+            'DeteccionCancerCervix' => 'require|TextoRule1',
             'FechaDeteccionCancer',
             'ResultadoNormal',
             'MetodoPlanificacionFamiliar',
-            'CualMetodoPlanificacionF',
+            'CualMetodoPlanificacionF' => 'require|TextoRule1' ,
             'AsmaBronquial',
             'HipertensionArterial',
             'Cancer',
@@ -103,7 +103,7 @@ class FcprenatalpostpartoController extends Controller
             'InfeccionesUrinarias',
             'ViolenciaInrtraFamiliar',
             'TipoSangre',
-            'Quirurgicos',
+            'Quirurgicos' => 'require|TextoRule1',
             'Fuma',
             'BebidasAlcoholicas',
             'ConsumoDrogas',
@@ -111,7 +111,7 @@ class FcprenatalpostpartoController extends Controller
             'DosisVacuna',
             'FechaUltimaDosis',
             'SR',
-            'OtrosAntecedentes',
+            'OtrosAntecedentes' => 'require|TextoRule3',
         ]);
         
         fcprenatalpostparto::create($request->all());
