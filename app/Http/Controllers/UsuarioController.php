@@ -109,8 +109,8 @@ class UsuarioController extends Controller
         //
         $this->validate($request, [
             'name' => 'required|UsuarioRule1|max:45|unique:users,name',
-            'email' => 'required|email|unique:users,email|CorreoRule1|max:20'.$id,
-            'password' => 'required|same:confirm-password|max:12|ContraseñaRule',
+            'email' => 'email|CorreoRule1|max:20'.$id,
+            'password' => 'max:12|ContraseñaRule',
             'roles' => 'required',
         ]);
 

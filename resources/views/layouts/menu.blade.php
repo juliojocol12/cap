@@ -19,6 +19,10 @@
         <i class=" fas fa-solid fa-person-pregnant"></i><span>Pacientes</span>
     </a>
 
+    <a class="nav-link" href="/fcprenatalpostpartos">
+        <i class=" fas fa-solid fa-person-pregnant"></i><span>Ficha clinica</span>
+    </a>
+    
     <a class="nav-link" href="/datosfamiliares">
         <i class=" fas fa-solid fa-child"></i><span>Datos Familiares</span>
     </a>

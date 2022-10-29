@@ -17,6 +17,7 @@ use App\Http\Controllers\PadecimientoinfanteController;
 use App\Http\Controllers\ClasificacionpospartoController;
 use App\Http\Controllers\ConsejeriapospartoController;
 use App\Http\Controllers\EstablecimientosaludoController;
+use App\Http\Controllers\FcprenatalpostpartoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,4 +53,5 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('pueblos', PuebloController::class);
     Route::resource('pacientes', DatospersonalespacienteController::class);
     Route::resource('datosfamiliares', DatosfamiliareController::class);
+    Route::resource('fcprenatalpostpartos', FcprenatalpostpartoController::class);
 });

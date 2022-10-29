@@ -25,8 +25,6 @@ class CreatePrimercontrolpostpartosTable extends Migration
             $table->unsignedInteger('EstablecimientoSalud_id');
             $table->foreign('EstablecimientoSalud_id')->references('idEstablecimientoSaludos')->on('establecimientosaludos');
 
-            $table->string("QuienAtendioParto",30);
-
             $table->unsignedInteger('Personal_idD');
             $table->foreign('Personal_idD')->references('idPersonal')->on('personales');
 
