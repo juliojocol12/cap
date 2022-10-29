@@ -26,8 +26,8 @@ class CreateDatospersonalespacientesTable extends Migration
             $table->string('EstadoCivil',7);
             $table->decimal('Peso',5, 2);
             $table->string('TipoSanguineo',5);
-            $table->string('MedicamentosActualmente',7);
-            $table->string('Migrante',45);
+            $table->string('MedicamentosActualmente',100);
+            $table->string('Migrante',2);
             $table->unsignedInteger('pueblo_id');
             $table->foreign('pueblo_id')->references('idPueblo')->on('pueblos');
 

@@ -26,11 +26,10 @@
 
                             {!! Form::model($paciente, [ 'method' => 'PATCH', 'route'=> ['pacientes.update', $paciente->idDatosPersonalesPacientes]]) !!}
                             <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Nombres</label>
-                                        {!! Form::text('NombresPaciente', null, array('class'=>'form-control', 'data-maxlength'=>"25")) !!}
-                                        
+                                        {!! Form::text('NombresPaciente', null, array('class'=>'form-control','maxlength'=>'25','placeholder'=>'Ingrese los nombres del paciente')) !!}
                                     </div>
                                        
                                 </div>
@@ -38,7 +37,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Apellidos</label>
-                                        {!! Form::text('ApellidosPaciente', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('ApellidosPaciente', null, array('class'=>'form-control','maxlength'=>'25','placeholder'=>'Ingrese los apellidos del paciente',)) !!}
                                     </div>
                                 </div>
 
@@ -52,83 +51,95 @@
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">DPI</label>
-                                        {!! Form::text('CUI', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('CUI', null, array('class'=>'form-control', 'maxlength'=>'15')) !!}
                                     </div>
                                 </div>   
 
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Profesión u Oficio</label>
-                                        {!! Form::text('ProfesionOficio', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('ProfesionOficio', null, array('class'=>'form-control', 'maxlength'=>'25')) !!}
                                     </div>
                                 </div> 
 
                                                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Domicilio</label>
-                                        {!! Form::text('Domicilio', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('Domicilio', null, array('class'=>'form-control', 'maxlength'=>'45')) !!}
                                     </div>
                                 </div>   
 
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Telefono</label>
-                                        {!! Form::text('Telefono', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('Telefono', null, array('class'=>'form-control', 'maxlength'=>'15')) !!}
                                     </div>
                                 </div>     
 
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Celular</label>
-                                        {!! Form::text('Celular', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('Celular', null, array('class'=>'form-control','maxlength'=>'15')) !!}
                                     </div>
                                 </div>        
 
                                                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Estado Civil</label>
-                                        {!! Form::text('EstadoCivil', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('EstadoCivil', null, array('class'=>'form-control','maxlength'=>'7')) !!}
                                     </div>
                                 </div>     
 
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Peso</label>
-                                        {!! Form::text('Peso', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('Peso', null, array('class'=>'form-control','maxlength'=>'5','placeholder'=>'Ingrese peso en libras')) !!}
                                     </div>
                                 </div>   
 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Tipo Sanguineo</label>
-                                        {!! Form::text('TipoSanguineo', null, array('class'=>'form-control')) !!}
+                                        <label for="">Tipo de Sangre</label>
+                                        <select class="form-control" name="TipoSanguineo">
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
+                                        </select>
                                     </div>
                                 </div>
                             
                                 <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Medicamentos actualmente</label>
-                                        {!! Form::text('MedicamentosActualmente', null, array('class'=>'form-control')) !!}
+                                        {!! Form::text('MedicamentosActualmente', null, array('class'=>'form-control','maxlength'=>'100', 'placeholder'=>'Ingrese los Medicamentos actuales del paciente')) !!}
                                     </div>
                                 </div>   
 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Migrante</label>
-                                        {!! Form::text('Migrante', null, array('class'=>'form-control')) !!}
-                                    </div>
-                                </div>  
-
-                                <div class="col-xs-12 col-sm-12 col-md-5">
-                                    <div class="form-group">
-                                        <label for="">Pueblo</label>
-                                        {!! Form::select ('pueblo_id', $pueblos->pluck('Nombre', 'idPueblo')->all(), $paciente->pueblo_id, array('class'=>'form-control'))  !!}
+                                        <select class="form-control" name="Migrante">
+                                        <option value="A+">SI</option>
+                                        <option value="A-">NO</option>
                                         </select>
-                                        
-
                                     </div>
                                 </div>
 
+                                <div class="col-xs-12 col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <label for="" value="pueblo_id">Pueblo</label>
+                                        <select class="form-control" name="pueblo_id">
+                                            @foreach($pueblos as $pue)
+                                            <option value="{{$pue->idPueblo}}" >{{ $pue->Nombre}} </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <button type="submit" class="btn btn-primary">Guardar</button>
@@ -136,11 +147,7 @@
                             </div>
                             
                             {!! Form::close() !!}
-
-
-                            
-
-                            
+   
                         </div>
                     </div>
                 </div>

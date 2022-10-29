@@ -42,14 +42,14 @@
                                 <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="name">Donde Atendio Parto</label>
-                                        {!! Form::text('DondeAtendioParto', null, array('class'=>'form-control','maxlength'=>'35')) !!}
+                                        {!! Form::text('EstablecimientoSalud_id', null, array('class'=>'form-control','maxlength'=>'35')) !!}
                                     </div>
                                 </div>
     
                                 <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="name">Quien Atendio Parto</label>
-                                        {!! Form::text('QuienAtendioParto', null, array('class'=>'form-control','maxlength'=>'35')) !!}
+                                        {!! Form::text('Personal_idD', null, array('class'=>'form-control','maxlength'=>'35')) !!}
                                     </div>
                                 </div>
     
@@ -127,6 +127,13 @@
                                     <div class="form-group">
                                         <label for="name">Conducta Tratamiento</label><br>
                                         {!! Form::textarea('ConductaTratamiento', null, array('style'=>'background:#FCFCFC;height:90px;width:470px;border-color:#E3E3E3','maxlength'=>'200'))!!}
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <div class="form-group">
+                                        <label for="name">Encargado de llenado</label>
+                                        {!! Form::text('Personal_id', null, array('class'=>'form-control','maxlength'=>'35')) !!}
                                     </div>
                                 </div>
     

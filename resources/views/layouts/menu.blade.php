@@ -12,31 +12,31 @@
         <i class=" fas fa-solid fa-child"></i><span>Infantes</span>
     </a>
     <a class="nav-link" href="/pueblos">
-        <i class=" fas fa-solid fa-child"></i><span>Pueblos</span>
+        <i class=" fa fa-users"></i><span>Pueblos</span>
     </a>
 
     <a class="nav-link" href="/pacientes">
-        <i class=" fas fa-solid fa-person-pregnant"></i><span>Pacientes</span>
+        <i class=" fa fa-female"></i><span>Pacientes</span>
     </a>
 
     <a class="nav-link" href="/fcprenatalpostpartos">
-        <i class=" fas fa-solid fa-person-pregnant"></i><span>Ficha clinica</span>
+        <i class=" fa fa-id-card"></i><span>Ficha clinica</span>
     </a>
     
     <a class="nav-link" href="/datosfamiliares">
-        <i class=" fas fa-solid fa-child"></i><span>Datos Familiares</span>
+        <i class=" fa fa-users"></i><span>Datos Familiares</span>
     </a>
     <a class="nav-link" href="/personal">
-        <i class=" fas fa-solid fa-child"></i><span>Personal</span>
+        <i class=" fa fa-user-md"></i><span>Personal</span>
     </a>
     <a class="nav-link" href="/primercontrolpostparto">
-        <i class=" fa fa-receipt"></i><span>Primer Control Postparto</span>
+        <i class=" fa fa-columns"></i><span>Primer Control Postparto</span>
     </a>
     <a class="nav-link" href="/conductaposparto">
         <i class=" fa fa-receipt"></i><span>Conducta Posparto</span>
     </a>
     <a class="nav-link" href="/padecimientoinfante">
-        <i class=" fa fa-receipt"></i><span>Padecimiento Infante</span>
+        <i class=" fa fa-thermometer-quarter"></i><span>Padecimiento Infante</span>
     </a>
     <a class="nav-link" href="/clasificacionposparto">
         <i class=" fa fa-receipt"></i><span>Clasificacion Posparto</span>

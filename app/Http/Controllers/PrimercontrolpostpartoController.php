@@ -33,10 +33,11 @@ class PrimercontrolpostpartoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $Dpersonales = personale::all();
-        $Destablecimientos = establecimientosaludo::select('idEstablecimientoSaludos','Nombre')->get();
+        $Destablecimientos = establecimientosaludo::all();
+
         return view('primercontrolpostparto.crear')->with('Dpersonales',$Dpersonales)->with('Destablecimientos',$Destablecimientos);
     }
 
@@ -51,8 +52,8 @@ class PrimercontrolpostpartoController extends Controller
         $this->validate($request,[
             'NombreServicio' => 'required|TextoRule1',
             'DiasDespuesParto' => 'required|NumeroRule',
-            'DondeAtendioParto' => 'required',
-            'QuienAtendioParto' => 'required',
+            'EstablecimientoSalud_id' => 'required',
+            'Personal_idD' => 'required',
             'HeridaOperatoria' => 'required|TextoRule3',
             'InvolucionUterina' => 'required|TextoRule3',
             'PresionArterial' => 'required|TextoRule3',
@@ -64,6 +65,7 @@ class PrimercontrolpostpartoController extends Controller
             'PorqueNoLactanciaMaterna' => 'TextoRule4',
             'Diagnostico' => 'required|TextoRule3',
             'ConductaTratamiento' => 'required|TextoRule3',
+            'Personal_id' => 'required',
         ]);
     
         primercontrolpostparto::create($request->all());
@@ -136,9 +138,9 @@ class PrimercontrolpostpartoController extends Controller
      * @param  int  $idPrimerControlPostpartos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(primercontrolpostparto $primercontrolpostparto)
+    public function destroy($idPrimerControlPostpartos)
     {
         primercontrolpostparto::find($idPrimerControlPostpartos)->delete();
-        return redirect()->route('primercontrolpostparto.index');
+        return redirect()->route('primercontrolpostparto.index')->with('status');
     }
 }

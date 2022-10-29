@@ -107,6 +107,6 @@ class ClasificacionpospartoController extends Controller
     public function destroy($idClasificacionPospartos)
     {
         clasificacionposparto::find($idClasificacionPospartos)->delete();
-        return redirect()->route('clasificacionposparto.index');
+        return redirect()->route('clasificacionposparto.index')->with('status');
     }
 }

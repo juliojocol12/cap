@@ -27,11 +27,10 @@
                                 <td>
                                     
                                     <a class="btn btn-info" href="{{ route('clasificacionposparto.edit', $clasificacionposparto->idClasificacionPospartos) }}">Editar</a>
-                                    {!! Form::open(['method'=> 'DELETE', 'route'=> ['clasificacionposparto.destroy', $clasificacionposparto->idClasificacionPospartos], 'style'=>'display:inline' ]) !!}
-                                                    {!! Form::submit('Borrar', ['class'=>'btn btn-danger']) !!}
-                                                {!! Form::close() !!}
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$clasificacionposparto->idClasificacionPospartos}}">Eliminar</button>
                                             </td>                      
                                         </tr>
+                            @include('clasificacionposparto.delete')
                             @endforeach
                             </tbody>
                         </table>

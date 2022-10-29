@@ -113,6 +113,6 @@ class ConductapospartoController extends Controller
     public function destroy($idConductaPospartos)
     {
         conductaposparto::find($idConductaPospartos)->delete();
-        return redirect()->route('conductaposparto.index');
+        return redirect()->route('conductaposparto.index')->with('status');
     }
 }

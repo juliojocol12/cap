@@ -32,6 +32,7 @@
                                     <th style="color:#fff;">PorqueNoLactanciaMaterna</th>
                                     <th style="color:#fff;">Diagnostico</th>
                                     <th style="color:#fff;">ConductaTratamiento</th>
+                                    <th style="color:#fff;">Encargadollenado</th>
                                     <th style="color:#fff;">Acciones</th>
                               </thead>
                               <tbody>
@@ -40,8 +41,8 @@
                                 <td style="display: none;">{{ $primercontrolpostparto->idPrimerControlPostpartos }}</td>                                
                                 <td>{{ $primercontrolpostparto->NombreServicio }}</td>
                                 <td>{{ $primercontrolpostparto->DiasDespuesParto }}</td>
-                                <td>{{ $primercontrolpostparto->DondeAtendioParto }}</td>
-                                <td>{{ $primercontrolpostparto->QuienAtendioParto }}</td>
+                                <td>{{ $primercontrolpostparto->EstablecimientoSalud_id}}</td>
+                                <td>{{ $primercontrolpostparto->Personal_idD }}</td>
                                 <td>{{ $primercontrolpostparto->HeridaOperatoria }}</td>
                                 <td>{{ $primercontrolpostparto->InvolucionUterina }}</td>
                                 <td>{{ $primercontrolpostparto->PresionArterial }}</td>
@@ -53,14 +54,14 @@
                                 <td>{{ $primercontrolpostparto->PorqueNoLactanciaMaterna }}</td>
                                 <td>{{ $primercontrolpostparto->Diagnostico }}</td>
                                 <td>{{ $primercontrolpostparto->ConductaTratamiento }}</td>
+                                <td>{{ $primercontrolpostparto->Personal_id }}</td>
                                 <td>
                                     
                                     <a class="btn btn-info" href="{{ route('primercontrolpostparto.edit', $primercontrolpostparto->idPrimerControlPostpartos) }}">Editar</a>
-                                    {!! Form::open(['method'=> 'DELETE', 'route'=> ['primercontrolpostparto.destroy', $primercontrolpostparto->idPrimerControlPostpartos], 'style'=>'display:inline' ]) !!}
-                                                    {!! Form::submit('Borrar', ['class'=>'btn btn-danger']) !!}
-                                                {!! Form::close() !!}
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$primercontrolpostparto->idPrimerControlPostpartos}}">Eliminar</button>
                                             </td>                      
                                         </tr>
+                            @include('primercontrolpostparto.delete')
                             @endforeach
                             </tbody>
                         </table>

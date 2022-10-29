@@ -10,8 +10,18 @@ class primercontrolpostparto extends Model
     use HasFactory;
     protected $table = 'primercontrolpostpartos';
     protected $primaryKey = 'idPrimerControlPostpartos';
-    protected $fillable = ['NombreServicio','EstablecimientoSalud_id','DiasDespuesParto','DondeAtendioParto','QuienAtendioParto',
+    protected $fillable = ['NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Personal_idD',
     'HeridaOperatoria','InvolucionUterina','PresionArterial','FrecuenciaCardiaca','Temperatura',
     'ExamenMamas','ExamenGinecologico','LactanciaMaterna','PorqueNoLactanciaMaterna','Diagnostico',
-    'ConductaTratamiento','Personal_id'];
+    'ConductaTratamiento','Personal_id',];
+
+    public function establecimientosaludos()
+    {
+        return $this->belongsTo('App\Models\establecimientosaludo', 'EstablecimientoSalud_id', 'idEstablecimientoSaludos');
+    }
+
+    public function personales()
+    {
+        return $this->belongsTo('App\Models\personale', 'Personal_idD','Personal_id', 'idPersonal');
+    }
 }

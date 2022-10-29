@@ -141,6 +141,6 @@ class UsuarioController extends Controller
     {
         //
         User::find($id)->delete();
-        return redirect()->route('usuarios.index');
+        return redirect()->route('usuarios.index')->with('status');
     }
 }
