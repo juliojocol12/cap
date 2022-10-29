@@ -111,7 +111,7 @@ class FcprenatalpostpartoController extends Controller
             'DosisVacuna',
             'FechaUltimaDosis',
             'SR',
-            'OtrosAntecedentes' => 'require|TextoRule3',
+            'OtrosAntecedentes' => 'require|TextoRule1',
         ]);
         
         fcprenatalpostparto::create($request->all());
@@ -134,11 +134,17 @@ class FcprenatalpostpartoController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\fcprenatalpostparto  $fcprenatalpostparto
+     * @param  int  $idFCPrenatalPostpartos
      * @return \Illuminate\Http\Response
      */
-    public function edit(fcprenatalpostparto $fcprenatalpostparto)
+    public function edit($idFCPrenatalPostpartos)
     {
         //
+        $fcprenatalpostparto = fcprenatalpostparto::find($idFCPrenatalPostpartos);
+
+        $datospacientes = datospersonalespaciente::all();
+        $establecimientosaludos = establecimientosaludo::all();
+        return view ('fcprenatalpostpartos.editar', compact('fcprenatalpostparto'))->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes);
     }
 
     /**
@@ -146,11 +152,80 @@ class FcprenatalpostpartoController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\fcprenatalpostparto  $fcprenatalpostparto
+     *  @param  int  $idFCPrenatalPostpartos     * 
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, fcprenatalpostparto $fcprenatalpostparto)
+    public function update(Request $request, $idFCPrenatalPostpartos)
     {
         //
+        request()->validate([
+            'ExpedienteNo' => 'require | NumeroRule',
+            'Fecha',
+            'DatosPersonalesPacientes_id' => 'require | NumeroRule',
+            'EstablecimientoSalud_id' => 'require|NumeroRule',
+            'HemorragiaVaginal',
+            'DolordeCabeza',
+            'VisionBorrosa',
+            'Convulsion',
+            'DolorAbdominal',
+            'PresionArterial',
+            'Fiebre',
+            'PresentacionesFetales',
+            'RegistrodeReferencia' => 'require|TextoRule3',
+            'MotivoConsulta',
+            'HistoriaEnfermedadActual' => 'require|TextoRule3',
+            'FechaUltimaRegla',
+            'NoGestas',
+            'Partos',
+            'Aborto',
+            'AbortoConsecutivo',
+            'NoLIU',
+            'NacidosVivos',
+            'NacidosMuertos',
+            'HijosVivos',
+            'HijosMuertos',
+            'NoCesareas',
+            'EmbarazoMultiples',
+            'FechaUltimoParto',
+            'NacidosAntesOchoMeses',
+            'PreEclampsia',
+            'UltimoRNPesoCincolb',
+            'UltimoRNPesoSietelb',
+            'DeteccionCancerCervix' => 'require|TextoRule1',
+            'FechaDeteccionCancer',
+            'ResultadoNormal',
+            'MetodoPlanificacionFamiliar',
+            'CualMetodoPlanificacionF' => 'require|TextoRule1' ,
+            'AsmaBronquial',
+            'HipertensionArterial',
+            'Cancer',
+            'ITS',
+            'Chagas',
+            'TomaMedicamentos',
+            'TrastornoPiscoSocial',
+            'ViolenciaGenero',
+            'Diabetes',
+            'Cardiopatia',
+            'Tuberculosis',
+            'Neuropatia',
+            'InfeccionesUrinarias',
+            'ViolenciaInrtraFamiliar',
+            'TipoSangre',
+            'Quirurgicos' => 'require|TextoRule1',
+            'Fuma',
+            'BebidasAlcoholicas',
+            'ConsumoDrogas',
+            'AntecedentesVacunas',
+            'DosisVacuna',
+            'FechaUltimaDosis',
+            'SR',
+            'OtrosAntecedentes' => 'require|TextoRule1',
+        ]);
+        $input = $request->all();
+        $fcprenatalpostparto = infante::find($idFCPrenatalPostpartos);
+        $fcprenatalpostparto->update($input);
+        return redirect()->route('fcprenatalpostpartos.index');
+
     }
 
     /**

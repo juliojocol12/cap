@@ -109,7 +109,7 @@ class InfanteController extends Controller
      * @param  int  $idInfantes
      * @return \Illuminate\Http\Response
      */
-    public function edit($idInfantes)
+    public function edit($idInfantes)  
     {
         //
         $infant = infante::find($idInfantes);
