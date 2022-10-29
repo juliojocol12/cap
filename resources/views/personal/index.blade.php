@@ -29,27 +29,26 @@
                                     <th style="color:#fff;">Acciones</th>                                                              
                               </thead>
                               <tbody>
-                            @foreach ($personales as $personal)
-                            <tr>
-                                <td style="display: none;">{{ $personal->idPersonal }}</td>                                
-                                <td>{{ $personal->Nombre }}</td>
-                                <td>{{ $personal->CUI }}</td>
-                                <td>{{ $personal->Telefono }}</td>
-                                <td>{{ $personal->Direccion }}</td>
-                                <td>{{ $personal->Cargo }}</td>
-                                <td>{{ $personal->FechaNacimiento }}</td>
-                                <td>{{ $personal->NivelAcademico }}</td>
-                                <td>{{ $personal->CorreoElectronico }}</td>
-                                <td>{{ $personal->Observaciones }}</td>
-                                <td>
-                                    
-                                    <a class="btn btn-info" href="{{ route('personal.edit', $personal->idPersonal) }}">Editar</a>
-                                    {!! Form::open(['method'=> 'DELETE', 'route'=> ['personal.destroy', $personal->idPersonal], 'style'=>'display:inline' ]) !!}
-                                                    {!! Form::submit('Borrar', ['class'=>'btn btn-danger']) !!}
-                                                {!! Form::close() !!}
-                                            </td>                      
-                                        </tr>
-                            @endforeach
+                                @foreach ($personales as $personal)
+                                <tr>
+                                    <td style="display: none;">{{ $personal->idPersonal }}</td>                                
+                                    <td>{{ $personal->Nombre }}</td>
+                                    <td>{{ $personal->CUI }}</td>
+                                    <td>{{ $personal->Telefono }}</td>
+                                    <td>{{ $personal->Direccion }}</td>
+                                    <td>{{ $personal->Cargo }}</td>
+                                    <td>{{ $personal->FechaNacimiento }}</td>
+                                    <td>{{ $personal->NivelAcademico }}</td>
+                                    <td>{{ $personal->CorreoElectronico }}</td>
+                                    <td>{{ $personal->Observaciones }}</td>
+                                    <td>
+                                        
+                                        <a class="btn btn-info" href="{{ route('personal.edit', $personal->idPersonal) }}">Editar</a>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$personal->idPersonal}}">Eliminar</button>
+                                    </td>                      
+                                </tr>
+                                @include('personal.delete')
+                                @endforeach
                             </tbody>
                         </table>
 

@@ -105,13 +105,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-3">
-                                <div class="form-group">
-                                    <label for="name">Examen Ginecologico</label>
-                                    {!! Form::textarea('ExamenGinecologico', null, array('style'=>'background:#FCFCFC;height:90px;width:470px;border-color:#E3E3E3','maxlength'=>'300'))!!}
-                                </div>
-                            </div>
-
+                            
                             <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
                                     <label for="name">Lactancia Materna</label>
@@ -123,6 +117,13 @@
                                 <div class="form-group">
                                     <label for="name">Porque No Lactancia Materna</label>
                                     {!! Form::text('PorqueNoLactanciaMaterna', null, array('class'=>'form-control','maxlength'=>'45')) !!}
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="name">Examen Ginecologico</label>
+                                    {!! Form::textarea('ExamenGinecologico', null, array('style'=>'background:#FCFCFC;height:90px;width:470px;border-color:#E3E3E3','maxlength'=>'300'))!!}
                                 </div>
                             </div>
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\fcprenatalpostparto;
+use App\Models\datospersonalespaciente;
+use App\Models\establecimientosaludo;
 use Illuminate\Http\Request;
 
 class FcprenatalpostpartoController extends Controller
@@ -34,7 +36,9 @@ class FcprenatalpostpartoController extends Controller
     public function create()
     {
         //
-        return view ('fcprenatalpostpartos.crear');
+        $datospacientes = datospersonalespaciente::all();
+        $establecimientosaludos = establecimientosaludo::all();
+        return view ('fcprenatalpostpartos.crear')->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes);
     }
 
     /**
@@ -46,6 +50,73 @@ class FcprenatalpostpartoController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'ExpedienteNo' ,
+            'Fecha',
+            'DatosPersonalesPacientes_id',
+            'EstablecimientoSalud_id' ,
+            'HemorragiaVaginal',
+            'DolordeCabeza',
+            'VisionBorrosa',
+            'Convulsion',
+            'DolorAbdominal',
+            'PresionArterial',
+            'Fiebre',
+            'PresentacionesFetales',
+            'RegistrodeReferencia',
+            'MotivoConsulta',
+            'HistoriaEnfermedadActual',
+            'FechaUltimaRegla',
+            'NoGestas',
+            'Partos',
+            'Aborto',
+            'AbortoConsecutivo',
+            'NoLIU',
+            'NacidosVivos',
+            'NacidosMuertos',
+            'HijosVivos',
+            'HijosMuertos',
+            'NoCesareas',
+            'EmbarazoMultiples',
+            'FechaUltimoParto',
+            'NacidosAntesOchoMeses',
+            'PreEclampsia',
+            'UltimoRNPesoCincolb',
+            'UltimoRNPesoSietelb',
+            'DeteccionCancerCervix',
+            'FechaDeteccionCancer',
+            'ResultadoNormal',
+            'MetodoPlanificacionFamiliar',
+            'CualMetodoPlanificacionF',
+            'AsmaBronquial',
+            'HipertensionArterial',
+            'Cancer',
+            'ITS',
+            'Chagas',
+            'TomaMedicamentos',
+            'TrastornoPiscoSocial',
+            'ViolenciaGenero',
+            'Diabetes',
+            'Cardiopatia',
+            'Tuberculosis',
+            'Neuropatia',
+            'InfeccionesUrinarias',
+            'ViolenciaInrtraFamiliar',
+            'TipoSangre',
+            'Quirurgicos',
+            'Fuma',
+            'BebidasAlcoholicas',
+            'ConsumoDrogas',
+            'AntecedentesVacunas',
+            'DosisVacuna',
+            'FechaUltimaDosis',
+            'SR',
+            'OtrosAntecedentes',
+        ]);
+        
+        fcprenatalpostparto::create($request->all());
+
+        return redirect()->route('fcprenatalpostpartos.index');
     }
 
     /**
@@ -86,10 +157,13 @@ class FcprenatalpostpartoController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\fcprenatalpostparto  $fcprenatalpostparto
+     * @param  int  $idFCPrenatalPostpartos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(fcprenatalpostparto $fcprenatalpostparto)
+    public function destroy($idFCPrenatalPostpartos)
     {
         //
+        fcprenatalpostparto::find($idFCPrenatalPostpartos)->delete();
+        return redirect()->route('fcprenatalpostpartos.index')->with('status');
     }
 }

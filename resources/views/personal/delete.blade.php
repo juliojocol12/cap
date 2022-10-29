@@ -1,7 +1,7 @@
 <!-- Modal -->
-<div class="modal fade" data-backdrop="false" data-keyboard="false" id="modal-delete-ficha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" data-backdrop="false" data-keyboard="false" id="modal-delete-{{$personal->idPersonal}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <form action="{{ route('fcprenatalpostpartos.destroy', $fcprenatalpostparto->idFCPrenatalPostpartos) }}" method="post">
+    <form action="{{ route('personal.destroy', $personal->idPersonal) }}" method="post">
     @csrf
     @method('DELETE')
 
@@ -13,7 +13,7 @@
         </button>
       </div>
       <div class="modal-body">
-      ¿Desea eliminar el registro de ?
+      ¿Desea eliminar el registro de {{ $personal->Nombre }} {{ $personal->CUI }}?
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-danger" value="Si">

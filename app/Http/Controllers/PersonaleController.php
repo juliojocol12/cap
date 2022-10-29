@@ -123,6 +123,6 @@ class PersonaleController extends Controller
     public function destroy($idPersonal)
     {
         personale::find($idPersonal)->delete();
-        return redirect()->route('personal.index');
+        return redirect()->route('personal.index')->with('status');
     }
 }

@@ -61,7 +61,7 @@
                                     </div>
                                 </div> 
 
-                                                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="">Domicilio</label>
                                         {!! Form::text('Domicilio', null, array('class'=>'form-control', 'placeholder'=>'Ingrese los apellidos del infante')) !!}

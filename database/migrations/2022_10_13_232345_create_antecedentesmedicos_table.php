@@ -30,7 +30,7 @@ class CreateAntecedentesmedicosTable extends Migration
             $table->string('InfeccionesUrinarias',2)->nullable();
             $table->string('ViolenciaInrtraFamiliar',2)->nullable();
             $table->string('TipoSangre',5)->nullable();
-            $table->string('Quirurgicos',45)->nullable();
+            $table->string('Quirurgicos',45);
             $table->string('Fuma',2)->nullable();
             $table->string('BebidasAlcoholicas',2)->nullable();
             $table->string('ConsumoDrogas',2)->nullable();

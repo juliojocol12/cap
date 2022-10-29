@@ -18,7 +18,7 @@
                                 </div>
                             @endif
 
-                            <table class="table  table-striped table-bordered mt-5">
+                            <table class="table  table-striped table-bordered mt-5 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
                                     <th style="color:#fff;">Nombres</th>
@@ -34,6 +34,7 @@
                                     <th style="color:#fff;">Tipo Sanguineo</th>
                                     <th style="color:#fff;">Datos de la mamá</th>
                                     <th style="color:#fff;">Datos de familiares</th>
+                                    <th style="color:#fff;">Parentesco</th>
 
                                     <th style="color:#fff;">Acciones</th>
                                 </thead>
@@ -55,14 +56,14 @@
                                             <td>{{$infant->TipoSanguineo}}</td>
                                             <td>{{$infant->datospersonalespacientes->NombresPaciente}} {{$infant->datospersonalespacientes->ApellidosPaciente}}</td>
                                             <td>{{$infant->datosfamiliares->NombresFamiliar}} {{$infant->datosfamiliares->ApellidosFamiliar}}</td>
+                                            <td>{{$infant->Parentesco}}</td>
                                             <td>
                                                 <a class="btn btn-info" href="{{ route('infantes.edit', $infant->idInfantes) }}">Editar</a>
                                                 
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$infant->idInfantes}}">Eliminar</button>
 
-                                                </form>
-                                            </td>                      
+                                            </td>
                                         </tr>
                                         @include('infantes.delete')
                                     @endforeach

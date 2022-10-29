@@ -82,7 +82,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Validator::extend('DecimalRule', function ($attribute, $value, $parameters) {
-            return preg_match('/^[0-9]([.,][0-9]{1,3})?$/',$value);
+            return preg_match('/^0?(100|0?\d\d|0?0?\d)\.?(\d?){7}$/',$value);
         });
 
         Validator::extend('DecimalRule2', function ($attribute, $value, $parameters) {
@@ -90,7 +90,7 @@ class AppServiceProvider extends ServiceProvider
             {
                 return true;
             }
-            return preg_match('/^[0-9]([.,][0-9]{1,3})?$/',$value);
+            return preg_match('/^0?(100|0?\d\d|0?0?\d)\.?(\d?){7}$/',$value);
         });
         Validator::extend('UsuarioRule1', function ($attribute, $value, $parameters) {
             return preg_match('/^[ a-z]+$/',$value);;
