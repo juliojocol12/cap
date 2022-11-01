@@ -6,13 +6,18 @@
             <h3 class="page__heading">Primer Control Postparto</h3>
         </div>
         <div class="section-body">
-            <div class="row">
-                <div class="col-lg-12">
+            <div class="row row-responsive">
+                <div class="col-lg-12 col-responsive">
                     <div class="card">
                         <div class="card-body">
                 
             
                         <a class="btn btn-warning" href="{{ route('primercontrolpostparto.create') }}">Nuevo</a>
+                        @if(session('status'))
+                                <div class="alert alert-success mt-4">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
             
                         <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color:#6777ef">                                     
@@ -41,8 +46,8 @@
                                 <td style="display: none;">{{ $primercontrolpostparto->idPrimerControlPostpartos }}</td>                                
                                 <td>{{ $primercontrolpostparto->NombreServicio }}</td>
                                 <td>{{ $primercontrolpostparto->DiasDespuesParto }}</td>
-                                <td>{{ $primercontrolpostparto->EstablecimientoSalud_id}}</td>
-                                <td>{{ $primercontrolpostparto->Personal_idD }}</td>
+                                <td>{{ $primercontrolpostparto->establecimientosaludos->Nombre}}</td>
+                                <td>{{ $primercontrolpostparto->personales->Nombre }}</td>
                                 <td>{{ $primercontrolpostparto->HeridaOperatoria }}</td>
                                 <td>{{ $primercontrolpostparto->InvolucionUterina }}</td>
                                 <td>{{ $primercontrolpostparto->PresionArterial }}</td>
@@ -54,7 +59,7 @@
                                 <td>{{ $primercontrolpostparto->PorqueNoLactanciaMaterna }}</td>
                                 <td>{{ $primercontrolpostparto->Diagnostico }}</td>
                                 <td>{{ $primercontrolpostparto->ConductaTratamiento }}</td>
-                                <td>{{ $primercontrolpostparto->Personal_id }}</td>
+                                <td>{{ $primercontrolpostparto->personales->Nombre }}</td>
                                 <td>
                                     
                                     <a class="btn btn-info" href="{{ route('primercontrolpostparto.edit', $primercontrolpostparto->idPrimerControlPostpartos) }}">Editar</a>

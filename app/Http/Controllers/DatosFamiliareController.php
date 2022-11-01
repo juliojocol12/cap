@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\datosfamiliare;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class DatosfamiliareController extends Controller
 {
@@ -98,8 +99,24 @@ class DatosfamiliareController extends Controller
      */
     public function update(Request $request, $idDatosFamiliares)
     {
-        //
+        try {
+            if ('CUI' === 'CUI') {
         $this->validate($request,[
+            'NombresFamiliar' => 'required|TextoRule1',
+            'ApellidosFamiliar' => 'required|TextoRule1',
+            'CUI' => 'required|NumeroRule',
+            'TelefonoFamiliar' => 'required|NumeroRule',
+            'CelularFamiliar' => 'required|NumeroRule',
+        ]);
+    }
+        $input = $request->all();
+        $datosfamiliare = datosfamiliare::find($idDatosFamiliares);
+        $datosfamiliare->update($input);
+        return redirect()->route('datosfamiliares.index');
+
+    } catch (\Throwable $th) {
+        Log::debug($th -> getMessage());
+       return $this->validate($request,[
             'NombresFamiliar' => 'required|TextoRule1',
             'ApellidosFamiliar' => 'required|TextoRule1',
             'CUI' => 'required|Unique:datosfamiliares|NumeroRule',
@@ -111,6 +128,7 @@ class DatosfamiliareController extends Controller
         $datosfamiliare->update($input);
         return redirect()->route('datosfamiliares.index');
     }
+}
 
     /**
      * Remove the specified resource from storage.

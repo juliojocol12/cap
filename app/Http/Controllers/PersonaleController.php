@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\personale;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PersonaleController extends Controller
 {
@@ -95,6 +96,8 @@ class PersonaleController extends Controller
      */
     public function update(Request $request, $idPersonal)
     {
+        try {
+            if ('CUI' === 'CUI') {
         request()->validate([
             'Nombre' => 'required|TextoRule1',
             'CUI' => 'required|NumeroRule|Unique:personales',
@@ -106,12 +109,32 @@ class PersonaleController extends Controller
             'CorreoElectronico' => 'CorreoRule2|Unique:personales',
             'Observaciones',
         ]);
+    }
     
         $input = $request->all();
         $personal = personale::find($idPersonal);
         $personal->update($input);
         return redirect()->route('personal.index');
+
+    } catch (\Throwable $th) {
+        Log::debug($th -> getMessage());
+        return request()->validate([
+            'Nombre' => 'required|TextoRule1',
+            'CUI' => 'required|NumeroRule|Unique:personales',
+            'Telefono' => 'required|NumeroRule',
+            'Direccion' => 'required',
+            'Cargo' => 'required|TextoRule1',
+            'FechaNacimiento' => 'required',
+            'NivelAcademico' => 'TextoRule2',
+            'CorreoElectronico' => 'CorreoRule2|Unique:personales',
+            'Observaciones',
+        ]);
+        $input = $request->all();
+        $personal = personale::find($idPersonal);
+        $personal->update($input);
+        return redirect()->route('personal.index');
     }
+}
 
     /**
      * Remove the specified resource from storage.

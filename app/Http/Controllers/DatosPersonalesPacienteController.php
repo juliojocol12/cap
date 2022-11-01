@@ -6,6 +6,7 @@ use App\Models\datospersonalespaciente;
 use App\Models\pueblo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class DatospersonalespacienteController extends Controller
 {
@@ -114,11 +115,39 @@ class DatospersonalespacienteController extends Controller
      */
     public function update(Request $request, $idDatosPersonalesPacientes)
     {
-            request()->validate([
+        
+        try {
+            if ('CUI' === 'CUI') {
+                request()->validate([
+                    'NombresPaciente' => 'required|TextoRule1',
+                    'ApellidosPaciente' => 'required|TextoRule1',
+                    'FechaNaciemientoPaciente' => 'required',
+                    'CUI' => 'required|NumeroRule',
+                    'ProfesionOficio' => 'required|TextoRule1',
+                    'Domicilio' => 'required',
+                    'Telefono|NumeroRule',
+                    'Celular|NumeroRule',
+                    'EstadoCivil' => 'required|TextoRule1',
+                    'Peso' => 'required|DecimalRule',
+                    'TipoSanguineo' => 'required',
+                    'MedicamentosActualmente',
+                    'Migrante',
+                    'pueblo_id'=> 'required',
+                ]);
+            } 
+            
+            $datos = $request->all();
+            $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
+            $paciente->update($datos);
+            return redirect()->route('pacientes.index');
+
+        } catch (\Throwable $th) {
+            Log::debug($th -> getMessage());
+            return request()->validate([
                 'NombresPaciente' => 'required|TextoRule1',
                 'ApellidosPaciente' => 'required|TextoRule1',
                 'FechaNaciemientoPaciente' => 'required',
-                'CUI' => 'required|NumeroRule',
+                'CUI' => 'required|NumeroRule|Unique:datospersonalespacientes',
                 'ProfesionOficio' => 'required|TextoRule1',
                 'Domicilio' => 'required',
                 'Telefono|NumeroRule',
@@ -130,11 +159,11 @@ class DatospersonalespacienteController extends Controller
                 'Migrante',
                 'pueblo_id'=> 'required',
             ]);
-        
-        $datos = $request->all();
-        $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
-        $paciente->update($datos);
-        return redirect()->route('pacientes.index');
+            $datos = $request->all();
+            $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
+            $paciente->update($datos);
+            return redirect()->route('pacientes.index');
+        }
     }
 
     /**

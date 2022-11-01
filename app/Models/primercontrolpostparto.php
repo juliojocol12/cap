@@ -22,6 +22,11 @@ class primercontrolpostparto extends Model
 
     public function personales()
     {
+        return $this->belongsTo('App\Models\personale', 'Personal_id','Personal_id', 'idPersonal');
+    }
+
+    public function personalesD()
+    {
         return $this->belongsTo('App\Models\personale', 'Personal_idD','Personal_id', 'idPersonal');
     }
 }
