@@ -11,27 +11,21 @@
                     <div class="card">
                         <div class="card-body">
                             
-                            <a class="btn btn-warning" href="{{ route('infantes.create') }}">Ingresar Infante</a>
                             @if(session('status'))
                                 <div class="alert alert-success mt-4">
                                     {{ session('status') }}
                                 </div>
                             @endif
 
-                            <table class="table  table-striped table-bordered mt-5 table-responsive">
+                                                        
+                            <a class="btn btn-warning" href="{{ route('infantes.create') }}">Ingresar Infante</a>
+
+                            
+                            <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
                                     <th style="color:#fff;">Nombres</th>
                                     <th style="color:#fff;">Apellidos</th>
-                                    <th style="color:#fff;">Género</th>
-                                    <th style="color:#fff;">Fecha de Nacimiento</th>
-                                    <th style="color:#fff;">Hora de Naciemiento</th>
-                                    <th style="color:#fff;">Peso en Libras</th>
-                                    <th style="color:#fff;">Peso en Onzas</th>
-                                    <th style="color:#fff;">Altura</th>
-                                    <th style="color:#fff;">Observaciones</th>
-                                    <th style="color:#fff;">Fecha de Egreso</th>
-                                    <th style="color:#fff;">Tipo Sanguineo</th>
                                     <th style="color:#fff;">Datos de la mamá</th>
                                     <th style="color:#fff;">Datos de familiares</th>
                                     <th style="color:#fff;">Parentesco</th>
@@ -45,20 +39,12 @@
                                             <td style="display: none;">{{ $infant->idInfantes }}</td>
                                             <td>{{$infant->Nombres}}</td>
                                             <td>{{$infant->Apellidos}}</td>
-                                            <td>{{$infant->Genero}}</td>
-                                            <td>{{$infant->FechaNacimiento}}</td>
-                                            <td>{{$infant->HoraNaciemiento}}</td>
-                                            <td>{{$infant->PesoLB}}</td>
-                                            <td>{{$infant->PesoOnz}}</td>
-                                            <td>{{$infant->Altura}}</td>
-                                            <td>{{$infant->Observaciones}}</td>
-                                            <td>{{$infant->FechaEgreso}}</td>
-                                            <td>{{$infant->TipoSanguineo}}</td>
-                                            <td>{{$infant->datospersonalespacientes->NombresPaciente}} {{$infant->datospersonalespacientes->ApellidosPaciente}}</td>
+                                            <td>{{$infant->NombresPaciente}} {{$infant->datospersonalespacientes->ApellidosPaciente}}</td>
                                             <td>{{$infant->datosfamiliares->NombresFamiliar}} {{$infant->datosfamiliares->ApellidosFamiliar}}</td>
                                             <td>{{$infant->Parentesco}}</td>
                                             <td>
-                                                <a class="btn btn-info" href="{{ route('infantes.edit', $infant->idInfantes) }}">Editar</a>
+                                                <a class="btn btn-success mr-3" href="{{ route('infantes.show',  $infant->idInfantes) }}">Mostar</a>
+                                                <a class="btn btn-info mr-3" href="{{ route('infantes.edit', $infant->idInfantes) }}">Editar</a>
                                                 
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$infant->idInfantes}}">Eliminar</button>

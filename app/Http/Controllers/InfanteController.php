@@ -99,6 +99,10 @@ class InfanteController extends Controller
     public function show($idInfantes)
     {
         //
+        $infant = infante::find($idInfantes);
+        $datospersonalespacientes = datospersonalespaciente::all();
+        $datosfamiliares = datosfamiliare::all();
+        return view ('infantes.show', compact('infant'))->with('datospersonalespacientes',$datospersonalespacientes)->with('datosfamiliares',$datosfamiliares);
     }
 
     /**

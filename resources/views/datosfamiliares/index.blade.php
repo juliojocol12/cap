@@ -13,7 +13,7 @@
                             
                             <a class="btn btn-warning" href="{{ route('datosfamiliares.create') }}">Nuevo</a>
 
-                            <table class="table  table-striped table-bordered table-responsive mt-2">
+                            <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
                                     <th style="color:#fff;">Nombres</th>
@@ -37,9 +37,9 @@
                                             <td>{{$datosfamiliare->CelularFamiliar}}</td>
                                             
                                             <td>
-                                                
-                                                <a class="btn btn-info" href="{{ route('datosfamiliares.edit', $datosfamiliare->idDatosFamiliares) }}">Editar</a>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$datosfamiliare->idDatosFamiliares}}">Eliminar</button>
+                                            <a class="btn btn-success mr-3" href="{{ route('datosfamiliares.show',  $datosfamiliare->idDatosFamiliares) }}">Mostar</a>
+                                                <a class="btn btn-info mr-3" href="{{ route('datosfamiliares.edit', $datosfamiliare->idDatosFamiliares) }}">Editar</a>
+                                                <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-{{$datosfamiliare->idDatosFamiliares}}">Eliminar</button>
                                                 
 
                                                 </form>

@@ -14,7 +14,7 @@ class infante extends Model
 
     public function datospersonalespacientes()
     {
-        return $this->belongsTo('App\Models\datospersonalespaciente', 'DatosPersonalesPacientes_id', 'idDatosPersonalesPacientes');
+        return $this->belongsTo('App\Models\DatosPersonalesPaciente', 'DatosPersonalesPacientes_id', 'idDatosPersonalesPacientes');
     }
     public function datosfamiliares()
     {

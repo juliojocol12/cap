@@ -24,10 +24,11 @@ class DatospersonalespacienteController extends Controller
     public function index(Request $request)
     {
         $texto = trim($request->get('texto'));
-        $datospacientefiltro = datospersonalespaciente::all()->where('CUI','LIKE','%'.$texto.'%');
 
-        $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente','CUI','ProfesionOficio','Domicilio','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Migrante','pueblo_id')->where('CUI','LIKE','%'.$texto.'%')->orwhere('NombresPaciente','LIKE','%'.$texto.'%')->orwhere('ApellidosPaciente','LIKE','%'.$texto.'%')->paginate(10);
-        return view('pacientes.index', compact('datospersonalespacientes','datospacientefiltro','texto'));
+        $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente','CUI','ProfesionOficio','Domicilio','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Migrante','Nombre')
+        ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+        ->where('CUI','LIKE','%'.$texto.'%')->paginate(10);
+        return view('pacientes.index', compact('datospersonalespacientes','texto'));
     }
  
     /**
@@ -81,7 +82,8 @@ class DatospersonalespacienteController extends Controller
     public function show($idDatosPersonalesPacientes)
     {
         $pacientes = datospersonalespaciente::find($idDatosPersonalesPacientes);
-        return view ('pacientes.read')-with('pacientes',$pacientes);
+        $pueblos = pueblo::select('idPueblo','Nombre')->get();
+        return view ('pacientes.show', compact('pacientes'))->with('pueblos',$pueblos);
     }
 
     /**
@@ -99,7 +101,6 @@ class DatospersonalespacienteController extends Controller
         */
         $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
         $pueblos = pueblo::select('idPueblo','Nombre')->get();
-        //return view ('pacientes.editar')->with('paciente',$paciente)->with('pueblos',$pueblos);
         return view ('pacientes.editar', compact('paciente'))->with('pueblos',$pueblos);
     }
 
@@ -113,23 +114,23 @@ class DatospersonalespacienteController extends Controller
      */
     public function update(Request $request, $idDatosPersonalesPacientes)
     {
+            request()->validate([
+                'NombresPaciente' => 'required|TextoRule1',
+                'ApellidosPaciente' => 'required|TextoRule1',
+                'FechaNaciemientoPaciente' => 'required',
+                'CUI' => 'required|NumeroRule',
+                'ProfesionOficio' => 'required|TextoRule1',
+                'Domicilio' => 'required',
+                'Telefono|NumeroRule',
+                'Celular|NumeroRule',
+                'EstadoCivil' => 'required|TextoRule1',
+                'Peso' => 'required|DecimalRule',
+                'TipoSanguineo' => 'required',
+                'MedicamentosActualmente',
+                'Migrante',
+                'pueblo_id'=> 'required',
+            ]);
         
-        request()->validate([
-            'NombresPaciente' => 'required|TextoRule1',
-            'ApellidosPaciente' => 'required|TextoRule1',
-            'FechaNaciemientoPaciente' => 'required',
-            'CUI' => 'required|NumeroRule|Unique:datospersonalespacientes',
-            'ProfesionOficio' => 'required|TextoRule1',
-            'Domicilio' => 'required',
-            'Telefono|NumeroRule',
-            'Celular|NumeroRule',
-            'EstadoCivil' => 'required|TextoRule1',
-            'Peso' => 'required|DecimalRule',
-            'TipoSanguineo' => 'required',
-            'MedicamentosActualmente',
-            'Migrante',
-            'pueblo_id'=> 'required',
-        ]);
         $datos = $request->all();
         $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
         $paciente->update($datos);

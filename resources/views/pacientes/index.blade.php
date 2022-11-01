@@ -10,6 +10,12 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
+
+                            @if(session('status'))
+                                <div class="alert alert-success mt-4">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
                             
                             <a class="btn btn-warning" href="{{ route('pacientes.create') }}">Nuevo</a>
 
@@ -29,21 +35,13 @@
 
                             </div>
 
-                            <table class="table table-striped table-bordered table-responsive mt-2">
+                            <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="color:#fff;">Nombres</th>
                                     <th style="color:#fff;">Apellidos</th>
-                                    <th style="color:#fff;">Fecha de Nacimiento</th>
-                                    <th style="color:#fff;">CUI</th>
-                                    <th style="color:#fff;">Profesión</th>
-                                    <th style="color:#fff;">Domicilio</th>
+                                    <th style="color:#fff;">DPI</th>
                                     <th style="color:#fff;">Telefono</th>
                                     <th style="color:#fff;">Celular</th>
-                                    <th style="color:#fff;">Estado Civil</th>
-                                    <th style="color:#fff;">Peso</th>
-                                    <th style="color:#fff;">Tipo Sanguineo</th>
-                                    <th style="color:#fff;">Medicamentos</th>
-                                    <th style="color:#fff;">Migrante</th>
                                     <th style="color:#fff;">Pueblo</th>
                                     <th style="color:#fff;">Acciones</th>
                                 </thead>
@@ -60,21 +58,14 @@
                                       
                                             <td>{{$paciente->NombresPaciente}}</td>
                                             <td>{{$paciente->ApellidosPaciente}}</td> 
-                                            <td>{{$paciente->FechaNaciemientoPaciente}}</td> 
                                             <td>{{$paciente->CUI}}</td> 
-                                            <td>{{$paciente->ProfesionOficio}}</td> 
-                                            <td>{{$paciente->Domicilio}}</td> 
                                             <td>{{$paciente->Telefono}}</td> 
                                             <td>{{$paciente->Celular}}</td> 
-                                            <td>{{$paciente->EstadoCivil}}</td> 
-                                            <td>{{$paciente->Peso}}</td> 
-                                            <td>{{$paciente->TipoSanguineo}}</td> 
-                                            <td>{{$paciente->MedicamentosActualmente}}</td> 
-                                            <td>{{$paciente->Migrante}}</td> 
-                                            <td>{{$paciente->pueblos->Nombre}}</td>   
+                                            <td>{{$paciente->Nombre}}</td> 
                                             <td>
-                                                <a class="btn btn-info" href="{{ route('pacientes.edit', $paciente->idDatosPersonalesPacientes) }}">Editar</a>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$paciente->idDatosPersonalesPacientes}}">Eliminar</button>
+                                                <a class="btn btn-success mr-3" href="{{ route('pacientes.show', $paciente->idDatosPersonalesPacientes) }}">Mostar</a>
+                                                <a href="{{ route('pacientes.edit', $paciente->idDatosPersonalesPacientes) }}" class="btn btn-info mr-3">Editar</a>
+                                                <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-{{$paciente->idDatosPersonalesPacientes}}">Eliminar</button>
                                             </td>                                    
                                         </tr>
                                     @include('pacientes.delete')

@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Editar infantes</h3>
+            <h3 class="page__heading">Editar datos de {{$infant->Nombres}} {{$infant->Apellidos}}</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -43,16 +43,8 @@
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="name">Género</label>
-                                        {!! Form::text('Genero',  null, array('class'=>'form-control')) !!}
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-4">
-                                    <div class="form-group">
                                         <label for="Genero">Género</label>
                                         <select class="form-control" name="Genero" maxlength="45">
-                                        <option selected>Seleccione el genero</option>
                                         <option value="Masculino">Masculino</option>
                                         <option value="Femenino">Femenino</option>
                                         </select>

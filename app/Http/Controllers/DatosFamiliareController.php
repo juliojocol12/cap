@@ -69,6 +69,8 @@ class DatosfamiliareController extends Controller
     public function show($idDatosFamiliares)
     {
         //
+        $datosfamiliare = datosfamiliare::find($idDatosFamiliares);
+        return view ('datosfamiliares.show', compact('datosfamiliare'));
     }
 
     /**

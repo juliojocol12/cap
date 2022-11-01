@@ -21,17 +21,32 @@ class FcprenatalpostpartoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $texto = trim($request->get('texto'));
+
+        $fcprenatalpostpartos = fcprenatalpostparto::select('idFCPrenatalPostpartos','ExpedienteNo','Fecha',
+        'NombresPaciente','ApellidosPaciente','CUI','idDatosPersonalesPacientes','EstablecimientoSalud_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterial','Fiebre','PresentacionesFetales','RegistrodeReferencia','MotivoConsulta','HistoriaEnfermedadActual','FechaUltimaRegla','NoGestas','Partos','Aborto','AbortoConsecutivo','NoLIU','NacidosVivos','NacidosMuertos','HijosVivos','HijosMuertos','NoCesareas','EmbarazoMultiples','FechaUltimoParto','NacidosAntesOchoMeses','PreEclampsia','UltimoRNPesoCincolb','UltimoRNPesoSietelb','DeteccionCancerCervix','FechaDeteccionCancer','ResultadoNormal','MetodoPlanificacionFamiliar','CualMetodoPlanificacionF','AsmaBronquial','HipertensionArterial','Cancer','ITS','Chagas','TomaMedicamentos','TrastornoPiscoSocial','ViolenciaGenero','Diabetes','Cardiopatia','Tuberculosis','Neuropatia','InfeccionesUrinarias','ViolenciaInrtraFamiliar','TipoSangre','Quirurgicos','Fuma','BebidasAlcoholicas','ConsumoDrogas','AntecedentesVacunas','DosisVacuna','FechaUltimaDosis','SR','OtrosAntecedentes',)
+        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcprenatalpostpartos.DatosPersonalesPacientes_id')
+        ->where('CUI','LIKE','%'.$texto.'%')
+        ->paginate(10);
+        return view('fcprenatalpostpartos.index', compact('fcprenatalpostpartos','texto'));
+
+
+
+/*
         $fcprenatalpostpartos = fcprenatalpostparto::paginate(10);
-        return view('fcprenatalpostpartos.index', compact('fcprenatalpostpartos'));
+        return view('fcprenatalpostpartos.index', compact('fcprenatalpostpartos'));*/
+
     }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
+     * 
+     * @param  int  $idDatosPersonalesPacientes
      */
     public function create()
     {
@@ -51,10 +66,10 @@ class FcprenatalpostpartoController extends Controller
     {
         //
         $this->validate($request,[
-            'ExpedienteNo' => 'require|NumeroRule',
+            'ExpedienteNo' => 'required|NumeroRule',
             'Fecha',
-            'DatosPersonalesPacientes_id' => 'require|NumeroRule',
-            'EstablecimientoSalud_id' => 'require|NumeroRule',
+            'DatosPersonalesPacientes_id' => 'required|NumeroRule',
+            'EstablecimientoSalud_id' => 'required|NumeroRule',
             'HemorragiaVaginal',
             'DolordeCabeza',
             'VisionBorrosa',
@@ -63,9 +78,9 @@ class FcprenatalpostpartoController extends Controller
             'PresionArterial',
             'Fiebre',
             'PresentacionesFetales',
-            'RegistrodeReferencia' => 'require|TextoRule3',
+            'RegistrodeReferencia' => 'required|TextoRule3',
             'MotivoConsulta',
-            'HistoriaEnfermedadActual' => 'require|TextoRule3',
+            'HistoriaEnfermedadActual' => 'required|TextoRule3',
             'FechaUltimaRegla',
             'NoGestas',
             'Partos',
@@ -83,11 +98,11 @@ class FcprenatalpostpartoController extends Controller
             'PreEclampsia',
             'UltimoRNPesoCincolb',
             'UltimoRNPesoSietelb',
-            'DeteccionCancerCervix' => 'require|TextoRule1',
+            'DeteccionCancerCervix' => 'required|TextoRule1',
             'FechaDeteccionCancer',
             'ResultadoNormal',
             'MetodoPlanificacionFamiliar',
-            'CualMetodoPlanificacionF' => 'require|TextoRule1' ,
+            'CualMetodoPlanificacionF' => 'required|TextoRule1' ,
             'AsmaBronquial',
             'HipertensionArterial',
             'Cancer',
@@ -103,7 +118,7 @@ class FcprenatalpostpartoController extends Controller
             'InfeccionesUrinarias',
             'ViolenciaInrtraFamiliar',
             'TipoSangre',
-            'Quirurgicos' => 'require|TextoRule1',
+            'Quirurgicos' => 'required|TextoRule1',
             'Fuma',
             'BebidasAlcoholicas',
             'ConsumoDrogas',
@@ -111,7 +126,7 @@ class FcprenatalpostpartoController extends Controller
             'DosisVacuna',
             'FechaUltimaDosis',
             'SR',
-            'OtrosAntecedentes' => 'require|TextoRule1',
+            'OtrosAntecedentes' => 'required|TextoRule1',
         ]);
         
         fcprenatalpostparto::create($request->all());
@@ -123,11 +138,17 @@ class FcprenatalpostpartoController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\fcprenatalpostparto  $fcprenatalpostparto
+     * @param  int  $idFCPrenatalPostpartos
      * @return \Illuminate\Http\Response
      */
-    public function show(fcprenatalpostparto $fcprenatalpostparto)
+    public function show($idFCPrenatalPostpartos)
     {
         //
+        $fcprenatalpostparto = fcprenatalpostparto::find($idFCPrenatalPostpartos);
+
+        $datospacientes = datospersonalespaciente::all();
+        $establecimientosaludos = establecimientosaludo::all();
+        return view ('fcprenatalpostpartos.show', compact('fcprenatalpostparto'))->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes);
     }
 
     /**
@@ -159,10 +180,10 @@ class FcprenatalpostpartoController extends Controller
     {
         //
         request()->validate([
-            'ExpedienteNo' => 'require | NumeroRule',
+            'ExpedienteNo' => 'required | NumeroRule',
             'Fecha',
-            'DatosPersonalesPacientes_id' => 'require | NumeroRule',
-            'EstablecimientoSalud_id' => 'require|NumeroRule',
+            'DatosPersonalesPacientes_id' => 'required | NumeroRule',
+            'EstablecimientoSalud_id' => 'required|NumeroRule',
             'HemorragiaVaginal',
             'DolordeCabeza',
             'VisionBorrosa',
@@ -171,9 +192,9 @@ class FcprenatalpostpartoController extends Controller
             'PresionArterial',
             'Fiebre',
             'PresentacionesFetales',
-            'RegistrodeReferencia' => 'require|TextoRule3',
+            'RegistrodeReferencia' => 'required|TextoRule3',
             'MotivoConsulta',
-            'HistoriaEnfermedadActual' => 'require|TextoRule3',
+            'HistoriaEnfermedadActual' => 'required|TextoRule3',
             'FechaUltimaRegla',
             'NoGestas',
             'Partos',
@@ -191,11 +212,11 @@ class FcprenatalpostpartoController extends Controller
             'PreEclampsia',
             'UltimoRNPesoCincolb',
             'UltimoRNPesoSietelb',
-            'DeteccionCancerCervix' => 'require|TextoRule1',
+            'DeteccionCancerCervix' => 'required|TextoRule1',
             'FechaDeteccionCancer',
             'ResultadoNormal',
             'MetodoPlanificacionFamiliar',
-            'CualMetodoPlanificacionF' => 'require|TextoRule1' ,
+            'CualMetodoPlanificacionF' => 'required|TextoRule1' ,
             'AsmaBronquial',
             'HipertensionArterial',
             'Cancer',
@@ -211,7 +232,7 @@ class FcprenatalpostpartoController extends Controller
             'InfeccionesUrinarias',
             'ViolenciaInrtraFamiliar',
             'TipoSangre',
-            'Quirurgicos' => 'require|TextoRule1',
+            'Quirurgicos' => 'required|TextoRule1',
             'Fuma',
             'BebidasAlcoholicas',
             'ConsumoDrogas',
@@ -219,10 +240,10 @@ class FcprenatalpostpartoController extends Controller
             'DosisVacuna',
             'FechaUltimaDosis',
             'SR',
-            'OtrosAntecedentes' => 'require|TextoRule1',
+            'OtrosAntecedentes' => 'required|TextoRule1',
         ]);
         $input = $request->all();
-        $fcprenatalpostparto = infante::find($idFCPrenatalPostpartos);
+        $fcprenatalpostparto = fcprenatalpostparto::find($idFCPrenatalPostpartos);
         $fcprenatalpostparto->update($input);
         return redirect()->route('fcprenatalpostpartos.index');
 

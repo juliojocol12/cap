@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Editar puebloes</h3>
+            <h3 class="page__heading">Editar datos de {{$pueblo->Nombre}}</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -29,7 +29,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Nombre</label>
-                                        {!! Form::text('Nombre', null, array('class'=>'form-control','maxlength'=>"15")) !!}
+                                        {!! Form::text('Nombre', null, array('class'=>'form-control','maxlength'=>"15",'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
