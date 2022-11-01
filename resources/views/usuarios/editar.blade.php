@@ -62,7 +62,7 @@
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <button type="submit" class="btn btn-primary">Actualizar</button>
                                 </div>
                             </div>
                             

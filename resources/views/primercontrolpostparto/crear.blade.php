@@ -79,7 +79,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-1">
+                            <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
                                     <label for="name">Presion Arterial</label>
                                     {!! Form::text('PresionArterial', null, array('class'=>'form-control','maxlength'=>'20')) !!}
@@ -93,7 +93,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-1">
+                            <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
                                     <label for="name">Temperatura</label>
                                     {!! Form::text('Temperatura', null, array('class'=>'form-control','maxlength'=>'10')) !!}
@@ -124,21 +124,21 @@
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="name">Examen Ginecologico</label>
-                                    {!! Form::textarea('ExamenGinecologico', null, array('style'=>'background:#FCFCFC;height:90px;width:470px;border-color:#E3E3E3','maxlength'=>'300'))!!}
+                                    {!! Form::textarea('ExamenGinecologico', null, array('style'=>'background:#FCFCFC;height:90px;width:410px;border-color:#E3E3E3','maxlength'=>'300'))!!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="name">Diagnostico</label><br>
-                                    {!! Form::textarea('Diagnostico', null, array('style'=>'background:#FCFCFC;height:90px;width:470px;border-color:#E3E3E3','maxlength'=>'200'))!!}                  
+                                    {!! Form::textarea('Diagnostico', null, array('style'=>'background:#FCFCFC;height:90px;width:410px;border-color:#E3E3E3','maxlength'=>'200'))!!}                  
                                 </div>
                             </div>
                                 
-                            <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="name">Conducta Tratamiento</label><br>
-                                    {!! Form::textarea('ConductaTratamiento', null, array('style'=>'background:#FCFCFC;height:90px;width:470px;border-color:#E3E3E3','maxlength'=>'200'))!!}
+                                    {!! Form::textarea('ConductaTratamiento', null, array('style'=>'background:#FCFCFC;height:90px;width:410px;border-color:#E3E3E3','maxlength'=>'200'))!!}
                                 </div>
                             </div>
 

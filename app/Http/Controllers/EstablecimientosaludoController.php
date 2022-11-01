@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\establecimientosaludo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class EstablecimientosaludoController extends Controller
 {
@@ -45,7 +46,7 @@ class EstablecimientosaludoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'Nombre' => 'required|TextoRule1',
+            'Nombre' => 'required|TextoRule1|Unique:establecimientosaludos',
             'Direccion' => 'required',
             'Comunidad' => 'required|TextoRule1',
             'PuestoSalud' => 'required|TextoRule1',
@@ -90,18 +91,34 @@ class EstablecimientosaludoController extends Controller
      */
     public function update(Request $request, $idEstablecimientoSaludos)
     {
-        $this->validate($request,[
-            'Nombre' => 'required|TextoRule1',
-            'Direccion' => 'required',
-            'Comunidad' => 'required|TextoRule1',
-            'PuestoSalud' => 'required|TextoRule1',
-        ]);
-
+        try {
+            if ('CUI' === 'CUI') {
+                $this->validate($request,[
+                    'Nombre' => 'required|TextoRule1',
+                    'Direccion' => 'required',
+                    'Comunidad' => 'required|TextoRule1',
+                    'PuestoSalud' => 'required|TextoRule1',
+                ]);
+            }
         $input = $request->all();
         $establecimientosaludo = establecimientosaludo::find($idEstablecimientoSaludos);
         $establecimientosaludo->update($input);
         return redirect()->route('establecimientosaludo.index');
+
+        } catch (\Throwable $th) {
+            Log::debug($th -> getMessage());
+            return $this->validate($request,[
+                'Nombre' => 'required|TextoRule1|Unique:establecimientosaludos',
+                'Direccion' => 'required',
+                'Comunidad' => 'required|TextoRule1',
+                'PuestoSalud' => 'required|TextoRule1',
+            ]);
+            $input = $request->all();
+            $establecimientosaludo = establecimientosaludo::find($idEstablecimientoSaludos);
+            $establecimientosaludo->update($input);
+            return redirect()->route('establecimientosaludo.index');
     }
+}
 
     /**
      * Remove the specified resource from storage.

@@ -25,7 +25,8 @@ class PrimercontrolpostpartoController extends Controller
     public function index()
     {
         $primercontrolpostpartos = primercontrolpostparto::paginate(10);
-        return view('primercontrolpostparto.index',compact('primercontrolpostpartos'));
+        $personales = primercontrolpostparto::all();
+        return view('primercontrolpostparto.index',compact('primercontrolpostpartos'))->with('$personales',personales);
     }
 
     /**
