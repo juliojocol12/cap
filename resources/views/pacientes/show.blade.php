@@ -116,7 +116,7 @@
                             <a href="{{ route('pacientes.index') }}" class="btn btn-success mr-3">Volver</a>
                             <a href="{{ route('pacientes.edit', $pacientes->idDatosPersonalesPacientes) }}" class="btn btn-info mr-3">Editar</a>
                             <a href="{{ route('fcprenatalpostpartos.create') }}" class="btn btn-primary mr-3">Ingresar ficha clinica</a>
-                            <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-primary mr-3">Ver ficha clinica</a>
+                            <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-primary mr-3">Ver ficha clinica</a> 
                         </div>
                     </div>
                 </div>

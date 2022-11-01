@@ -123,7 +123,7 @@
                                     <div class="form-group">
                                         <label for="">Migrante</label>
                                         <select class="form-control" name="Migrante">
-                                        <option value="Si+">Si</option>
+                                        <option value="Si">Si</option>
                                         <option value="No-">No</option>
                                         </select>
                                     </div>

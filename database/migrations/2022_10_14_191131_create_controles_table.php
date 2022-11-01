@@ -15,48 +15,110 @@ class CreateControlesTable extends Migration
     {
         Schema::create('controles', function (Blueprint $table) {
             $table->increments('idControles');
-            $table->string('NoControl',15);
+            $table->string('NoControl',15); 
             $table->string('SemanasEmbarazo',5);
             $table->date('FechaVisita');
 
             $table->unsignedInteger('DatosPersonalesPacientes_id');
             $table->foreign('DatosPersonalesPacientes_id')->references('idDatosPersonalesPacientes')->on('datospersonalespacientes');
 
-            $table->unsignedInteger('ExamenFisicoEmbarazadas_id');
-            $table->foreign('ExamenFisicoEmbarazadas_id')->references('idExamenFisicoEmbarazadas')->on('examenfisicoembarazadas');
+            $table->unsignedInteger('FCPrenatalPostparto_id');
+            $table->foreign('FCPrenatalPostparto_id')->references('idFCPrenatalPostpartos')->on('fcprenatalpostpartos');
 
-            $table->unsignedInteger('SignosSintomasPeligros_id');
-            $table->foreign('SignosSintomasPeligros_id')->references('idSignosSintomasPeligros')->on('signossintomaspeligros');
+            $table->date('FechaPosibleParto');
+            $table->string('CircuferenciaBrazo',5)->nullable();
 
-            $table->unsignedInteger('SignosVitales_id');
-            $table->foreign('SignosVitales_id')->references('idSignosVitales')->on('signosvitales');
+            $table->string('EvaluacionInicialRapida',2);
+            $table->string('DescripcionEvaluacion',150)->nullable();
 
-            $table->unsignedInteger('EvaNutriConUnos_id');
-            $table->foreign('EvaNutriConUnos_id')->references('idEvaNutriConUnos')->on('evanutriconunos');
+            $table->string('PresionArterial', 20);
+            $table->string('Temperatura', 10);
+            $table->string('RespiracionPorMinuto', 20);
+            $table->string('FrecuenciaCardiacaMaternal', 20);
 
-            $table->unsignedInteger('EvaluacionNutricionControles_id');
-            $table->foreign('EvaluacionNutricionControles_id')->references('idEvaNutricionControles')->on('evanutricioncontroles');
+            $table->decimal('Pesolb',5,2);
+            $table->string('Talla',5)->nullable();
+            $table->string('CMB',5)->nullable();
+            $table->string('Diagnostico',45)->nullable();
+            $table->string('IMC_Diagnostico',45)->nullable();
+            $table->string('Accionesicm',45)->nullable();
 
-            $table->unsignedInteger('ExamenGeneral_id');
-            $table->foreign('ExamenGeneral_id')->references('idExamenGenerales')->on('examengenerales');
+            $table->string('GananciaPeso',15)->nullable();
+            $table->string('Accionesganancia',150)->nullable();
 
-            $table->unsignedInteger('ExamenObstreticos_id');
-            $table->foreign('ExamenObstreticos_id')->references('idExamenObstreticos')->on('examenobstreticos');
+            $table->string('Anemia',2);
+            $table->string('DescripcionAnemia',100)->nullable();
+            $table->String('ExamenCardioPulmonar',45)->nullable();
+            
+            $table->string('ExamenMamas', 2)->nullable();
+            $table->string('ObservacionAbdominal',25);
+            $table->string('AlturaUterina',45)->nullable();
+            $table->string('PresenciaMovimientoFetales',2)->nullable();
+            $table->string('FrecuenciaCardiacaFetal',45)->nullable();
+            $table->string('ManiobrasLeopold',45)->nullable();
 
-            $table->unsignedInteger('ExamenGinecologico_id');
-            $table->foreign('ExamenGinecologico_id')->references('idExamenGinecologicos')->on('examenginelogicos');
+            $table->string('TrazasSangreManchado',2);
+            $table->string('DescripcionTrazasSangreManchado',45)->nullable();
+            $table->string('EnfermedadesGinecologicos',2);
+            $table->string('DescripcionEnfermedadesGinecologicos',45)->nullable();
+            $table->string('FlujoVaginal',2);
+            
+            $table->string('PruebasEmbarazo', 2)->nullable();
+            $table->string('DecripcionPruebasEmbarazo', 45)->nullable();
+            $table->string('Hematologia', 2)->nullable();
+            $table->string('DescripcionHematologia', 45)->nullable();
+            $table->string('GrupoRH', 2)->nullable();
+            $table->string('DescripcionGrupoRH', 45)->nullable();
+            $table->string('Orina', 2);
+            $table->string('DescripcionOrina', 45)->nullable();
+            $table->string('Heces', 2)->nullable();
+            $table->string('DescirpcionHeces', 45)->nullable();
+            $table->string('GlicemiaAyunas', 2);
+            $table->string('DescripcionGlicemiaAyunas', 45)->nullable();
+            $table->string('VDLR', 2)->nullable();
+            $table->string('DescripcionVDLR', 45)->nullable();
+            $table->string('VIH', 2)->nullable();
+            $table->string('DescipcionVIH', 45)->nullable();
+            $table->string('TORCH', 2)->nullable();
+            $table->string('DescripcionTORCH', 45)->nullable();
+            $table->string('PapanicolaouIVAA', 2)->nullable();
+            $table->string('DescripcionPapanicolaouIVAA', 45)->nullable();
+            $table->string('HepatitisB', 2)->nullable();
+            $table->string('DescripcionHepatitisB', 45)->nullable();
+            $table->string('OtrosEstudios', 45);
+            
+            $table->string("SemanasEmbarazoFURAU",5);
+            $table->string("ProblemasDetectados",45)->nullable();
 
-            $table->unsignedInteger('ExamenesLaboratorio_id');
-            $table->foreign('ExamenesLaboratorio_id')->references('idExamenesLaboratorio')->on('exameneslaboratorios');
+            $table->string("SulfatoFerroso",30);
+            $table->string("AcidoFolico",30);
+            $table->string("VacunacionTdTdap",30);
+            $table->string("VacunacionInfluenza",30);
+            $table->string("OtrosTratamientos",30);
+            $table->string("Referencia",30);
 
-            $table->unsignedInteger('Clasificacion_id');
-            $table->foreign('Clasificacion_id')->references('idClasificacion')->on('clasificaciones');
-
-            $table->unsignedInteger('Conducta_id');
-            $table->foreign('Conducta_id')->references('idConductas')->on('conductas');
-
-            $table->unsignedInteger('Consejeria_id');
-            $table->foreign('Consejeria_id')->references('idConsejerias')->on('conserjerias');
+            
+            $table->string('AlimentacionEmbarazo',2);
+            $table->string('DescripcionAlimentacionEmbarazo',30)->nullable();
+            $table->string('CuidadosPersonales', 2);
+            $table->string('DescripcionCuidadosPersonales',30)->nullable();
+            $table->string('SintomasComunes', 2);
+            $table->string('DescipcionSintomasComunes',30)->nullable();
+            $table->string('SenalesPeligro', 2);
+            $table->string('DescripcionSenalesPeligro',30)->nullable();
+            $table->string('ConsejeriaPrePostVIH', 2);
+            $table->string('DescripcionConsejeriaPrePostVIH',30)->nullable();
+            $table->string('PlanParto', 2);
+            $table->string('DescrpcionPlanParto',30)->nullable();
+            $table->string('PlanEmergencia', 2);
+            $table->string('DescpcionPlanEmergencia',30)->nullable();
+            $table->string('LactanciaMaterna', 2);
+            $table->string('DescripcionLactanciaMaterna',30)->nullable();
+            $table->string('ViolenciaSexual', 2);
+            $table->string('DescipcionViolenciaSexual',30)->nullable();
+            $table->string('MetodosPlanificcion', 2);
+            $table->string('ImportanciaControlPos', 2);
+            $table->string('VacunacionRecienNacido', 2);
 
             $table->timestamps();
         });
