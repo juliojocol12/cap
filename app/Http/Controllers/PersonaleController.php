@@ -100,13 +100,13 @@ class PersonaleController extends Controller
             if ('CUI' === 'CUI') {
         request()->validate([
             'Nombre' => 'required|TextoRule1',
-            'CUI' => 'required|NumeroRule|Unique:personales',
+            'CUI' => 'required|NumeroRule',
             'Telefono' => 'required|NumeroRule',
             'Direccion' => 'required',
             'Cargo' => 'required|TextoRule1',
             'FechaNacimiento' => 'required',
             'NivelAcademico' => 'TextoRule2',
-            'CorreoElectronico' => 'CorreoRule2|Unique:personales',
+            'CorreoElectronico' => 'CorreoRule2',
             'Observaciones',
         ]);
     }
@@ -126,7 +126,7 @@ class PersonaleController extends Controller
             'Cargo' => 'required|TextoRule1',
             'FechaNacimiento' => 'required',
             'NivelAcademico' => 'TextoRule2',
-            'CorreoElectronico' => 'CorreoRule2|Unique:personales',
+            'CorreoElectronico' => 'CorreoRule2',
             'Observaciones',
         ]);
         $input = $request->all();

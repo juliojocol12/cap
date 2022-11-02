@@ -116,16 +116,12 @@
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group responsive" >
 
-                                        <label for="">Si refirio a la paciente registre manejo y estabilización</label>
-
+                                        <label for="">Si refirio a la paciente registre manejo y estabilización</label>    
                                         <div class="form-outline w-100 mb-4">
 
                                             <textarea class="form-control" id="RegistrodeReferencia" name="RegistrodeReferencia" style="height:90px" maxlength="190"></textarea>
 
-                                        </div>      
-
-                                    </div>                                      
-
+                                        </div>                                      
                                 </div>
 
 
