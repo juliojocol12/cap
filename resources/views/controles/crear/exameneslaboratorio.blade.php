@@ -30,8 +30,8 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Resultado de Hematología (Hemaglobina / Ht)</label>
-                                            {!! Form::text('DescripcionHematologia', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
+                                            <label for="">Resultado de Hematología </label>
+                                            {!! Form::text('DescripcionHematologia', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Hematologia (Hemaglobina / Ht)', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
 
@@ -62,8 +62,8 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Resultado de Orina (Bacteriuria y Proteinuria)</label>
-                                            {!! Form::text('DescripcionOrina', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
+                                            <label for="">Resultado de Orina</label>
+                                            {!! Form::text('DescripcionOrina', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'(Bacteriuria y Proteinuria)', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
 
@@ -102,7 +102,7 @@
                                     
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="VDLR">VDRL/RPR: Prueba de reargina plasmática rápida para sífilis</label>
+                                            <label for="VDLR">VDRL/RPR</label>
                                                 <select class="form-control" name="VDLR">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
@@ -112,7 +112,7 @@
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
                                             <label for="">Resultado de VDRL/RPR</label>
-                                            {!! Form::text('DescripcionVDLR', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
+                                            {!! Form::text('DescripcionVDLR', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Reargina plasmática para sífilis', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
 
@@ -182,10 +182,10 @@
                                     </div>
                                                 
 
-                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="col-xs-6 col-sm-6 col-md-5">
                                         <div class="form-group">
-                                            <label for="">Otros estudios complementarios (US), gota gruesa en zonas endémicas, si presenta fiebre</label>
-                                            {!! Form::text('OtrosEstudios', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
+                                            <label for="">Otros estudios complementarios</label>
+                                            {!! Form::text('OtrosEstudios', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'(US), gota gruesa en zonas endémicas, si presenta fiebre', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
 

@@ -28,7 +28,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Resultado de Hematología (Hemaglobina / Ht)</label>
+                                    <label for="">Resultado de Hematología</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$exameneslaboratorio->DescripcionHematologia}}" disabled>
                                     </div>                                       
                                 </div>
@@ -56,7 +56,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Resultado de Orina (Bacteriuria y Proteinuria)</label>
+                                    <label for="">Resultado de Orina</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$exameneslaboratorio->NacidosVivos}}" disabled>
                                     </div>                                       
                                 </div>
@@ -84,7 +84,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">VDRL/RPR: Prueba de reargina plasmática rápida para sífilis</label>
+                                    <label for="">VDRL/RPR</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$exameneslaboratorio->VDLR}}" disabled>
                                     </div>                                       
                                 </div>
@@ -154,7 +154,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Otros estudios complementarios (US), gota gruesa en zonas endémicas, si presenta fiebre</label>
+                                    <label for="">Otros estudios complementarios </label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$exameneslaboratorio->OtrosEstudios}}" disabled>
                                     </div>                                       
                                 </div>

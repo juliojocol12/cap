@@ -1,6 +1,6 @@
 <div class="card">
                         <div class="card-body">
-                            <h4 class="page__heading">CONSEJERIA</h4>
+                            <h4 class="page__heading">Consejeria</h4>
 
                             <h5 class="page__heading"></h5>
                             <div class="row ">
@@ -21,7 +21,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Cuidados Personales (promover el descanso, evitar uso alcohol y cigarro).</label>
+                                    <label for="">Cuidados Personales </label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$consejeria->CuidadosPersonales}}" disabled>
                                     </div>                                       
                                 </div>
