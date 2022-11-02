@@ -3,7 +3,7 @@
     <section class="section">
         
         <div class="section-header">
-            <h3 class="page__heading">INGRESO DE CONTROL PRENATAL Y/O POSPARTO</h3>
+            <h3 class="page__heading">Ingreso de Control Prenatal y/o Posparto</h3>
         </div>
         <div class="section-body">
         <div class="row row-responsive">
@@ -21,15 +21,21 @@
                             </div>
                             @endif
 
-                            {!! Form::open(array('route'=>'fcprenatalpostpartos.store', 'method'=>'POST')) !!}
+                            {!! Form::open(array('route'=>'controles.store', 'method'=>'POST')) !!}
+                    
+                            @include('controles.crear.examenfisicoembarazada')
+                            @include('controles.crear.signosysintomaspeligro')
+                            @include('controles.crear.signosvitales')
+                            @include('controles.crear.evaluacionnutricionalembarazada')
+                            @include('controles.crear.examengeneral')
+                            @include('controles.crear.examenobstetrico')
+                            @include('controles.crear.examenginecologico')
+
                     
 
-
-                    
-
-                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
                                     <button type="submit" class="btn btn-primary">Guardar</button>
-                                    <button type="submit" class="btn btn btn-danger" href="infantes.index">Cancelar</button>
+                                    <a href="{{ route('controles.index') }}" class="btn btn-danger mr-3">Volver</a>
                                 </div>
 
                     {!! Form::close() !!}

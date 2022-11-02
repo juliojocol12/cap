@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\controle;
 use App\Models\datospersonalespaciente;
-use App\Models\fcevaluacionposparto;
+use App\Models\fcprenatalpostparto;
 use Illuminate\Http\Request;
 
 class ControleController extends Controller
@@ -42,8 +42,8 @@ class ControleController extends Controller
     {
         //
         $datospacientes = datospersonalespaciente::all();
-        $fcevaluacionpospartos = fcevaluacionposparto::all();
-        return view ('controles.crear')->with('fcevaluacionpospartos',$fcevaluacionpospartos)->with('datospacientes',$datospacientes);
+        $fcprenatalpostparto = fcprenatalpostparto::all();
+        return view ('controles.crear')->with('fcprenatalpostparto',$fcprenatalpostparto)->with('datospacientes',$datospacientes);
     }
 
     /**
@@ -164,8 +164,8 @@ class ControleController extends Controller
         $controle = controle::find($idControles);
 
         $datospacientes = datospersonalespaciente::all();
-        $fcevaluacionpospartos = fcevaluacionposparto::all();
-        return view ('controles.show', compact('controle'))->with('fcevaluacionpospartos',$fcevaluacionpospartos)->with('datospacientes',$datospacientes);
+        $fcprenatalpostparto = fcprenatalpostparto::all();
+        return view ('controles.show', compact('controle'))->with('fcprenatalpostparto',$fcprenatalpostparto)->with('datospacientes',$datospacientes);
     }
 
     /**
