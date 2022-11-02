@@ -22,7 +22,7 @@
                             @endif
 
                             {!! Form::open(array('route'=>'controles.store', 'method'=>'POST')) !!}
-                    
+
                             @include('controles.crear.examenfisicoembarazada')
                             @include('controles.crear.signosysintomaspeligro')
                             @include('controles.crear.signosvitales')
@@ -30,6 +30,12 @@
                             @include('controles.crear.examengeneral')
                             @include('controles.crear.examenobstetrico')
                             @include('controles.crear.examenginecologico')
+                            @include('controles.crear.exameneslaboratorio')
+                            @include('controles.crear.clasificacion')
+                            @include('controles.crear.conducta')
+                            @include('controles.crear.consejeria')
+                    
+
 
                     
 

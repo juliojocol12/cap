@@ -1,12 +1,11 @@
 <div class="card">
-                        <div class="card-body">
-                        <h3 class="page__heading">Examenes de laboratorio o pruebas de gabinete</h3>
+                    <div class="card-body">
+                        <h3 class="page__heading">CONSEJERIA</h3>
                         <div class="row ">
-                                
-                                <div class="col-xs-1 col-sm-6 col-md-3">
-                                        <div class="form-group">
-                                            <label for="PruebasEmbarazo">Prueba de embarazo</label>
-                                                <select class="form-control" name="PruebasEmbarazo">
+                        <div class="col-xs-1 col-sm-6 col-md-3">
+                                     <div class="form-group">
+                                            <label for="AlimentacionEmbarazo">Alimentación sobre el embarazo</label>
+                                                <select class="form-control" name="AlimentacionEmbarazo">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
                                                 </select>
@@ -14,15 +13,15 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Resultado de prueba de embarazo</label>
-                                            {!! Form::text('DecripcionPruebasEmbarazo', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
+                                            <label for="">Descripción</label>
+                                            {!! Form::text('DescripcionAlimentacionEmbarazo', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
 
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="Hematologia">Hematología (Hemaglobina / Ht)</label>
-                                                <select class="form-control" name="Hematologia">
+                                            <label for="CuidadosPersonales">Cuidados Personales (promover el descanso, evitar uso alcohol y cigarro).</label>
+                                                <select class="form-control" name="CuidadosPersonales">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
                                                 </select>
@@ -30,15 +29,15 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Resultado de Hematología (Hemaglobina / Ht)</label>
-                                            {!! Form::text('DescripcionHematologia', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
+                                            <label for="">Descripción</label>
+                                            {!! Form::text('DescripcionCuidadosPersonales', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
 
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="GrupoRH">Grupo y Rh</label>
-                                                <select class="form-control" name="GrupoRH">
+                                            <label for="SintomasComunes">Síntomas comunes (acidez, estreñimiento, náuseas y vómitos, lumbalgia, varices, edema)</label>
+                                                <select class="form-control" name="SintomasComunes">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
                                                 </select>
@@ -46,15 +45,15 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Resultado de Grupo y Rh</label>
-                                            {!! Form::text('DescripcionGrupoRH', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
+                                            <label for="">Descripción</label>
+                                            {!! Form::text('DescipcionSintomasComunes', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
-
+                  
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="Orina">Orina (Bacteriuria y Proteinuria)</label>
-                                                <select class="form-control" name="Orina">
+                                            <label for="SenalesPeligro">Señales de peligro en el embarazo</label>
+                                                <select class="form-control" name="SenalesPeligro">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
                                                 </select>
@@ -62,81 +61,15 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Resultado de Orina (Bacteriuria y Proteinuria)</label>
-                                            {!! Form::text('DescripcionOrina', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
-                                        </div>                                       
-                                    </div>
-
-                                    <div class="col-xs-1 col-sm-6 col-md-3">
-                                        <div class="form-group">
-                                            <label for="Heces">Heces</label>
-                                                <select class="form-control" name="Heces">
-                                                    <option value="No">No</option>
-                                                    <option value="Si">Si</option>
-                                                </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-sm-6 col-md-3">
-                                        <div class="form-group">
-                                            <label for="">Resultado de Heces</label>
-                                            {!! Form::text('DescirpcionHeces', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
-                                        </div>                                       
-                                    </div>
-
-                                    <div class="col-xs-1 col-sm-6 col-md-3">
-                                        <div class="form-group">
-                                            <label for="GlicemiaAyunas">Glicemia en ayunas</label>
-                                                <select class="form-control" name="GlicemiaAyunas">
-                                                    <option value="No">No</option>
-                                                    <option value="Si">Si</option>
-                                                </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-sm-6 col-md-3">
-                                        <div class="form-group">
-                                            <label for="">Resultado de Glicemia en ayunas</label>
-                                            {!! Form::text('DescripcionGlicemiaAyunas', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
-                                        </div>                                       
-                                    </div>
-
-                                    
-                                    <div class="col-xs-1 col-sm-6 col-md-3">
-                                        <div class="form-group">
-                                            <label for="VDLR">VDRL/RPR: Prueba de reargina plasmática rápida para sífilis</label>
-                                                <select class="form-control" name="VDLR">
-                                                    <option value="No">No</option>
-                                                    <option value="Si">Si</option>
-                                                </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-sm-6 col-md-3">
-                                        <div class="form-group">
-                                            <label for="">Resultado de VDRL/RPR</label>
-                                            {!! Form::text('DescripcionVDLR', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
-                                        </div>                                       
-                                    </div>
-
-                                    <div class="col-xs-1 col-sm-6 col-md-3">
-                                        <div class="form-group">
-                                            <label for="VIH">VIH</label>
-                                                <select class="form-control" name="VIH">
-                                                    <option value="No">No</option>
-                                                    <option value="Si">Si</option>
-                                                </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-6 col-sm-6 col-md-3">
-                                        <div class="form-group">
-                                            <label for="">Resultado de VIH</label>
-                                            {!! Form::text('DescipcionVIH', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
+                                            <label for="">Descripción</label>
+                                            {!! Form::text('DescripcionSenalesPeligro', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>  
 
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="TORCH">TORCH</label>
-                                                <select class="form-control" name="TORCH">
+                                            <label for="ConsejeriaPrePostVIH">Consejería pre/pos prueba VIH</label>
+                                                <select class="form-control" name="ConsejeriaPrePostVIH">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
                                                 </select>
@@ -144,15 +77,47 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Resultado de TORCH</label>
-                                            {!! Form::text('DescripcionTORCH', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
+                                            <label for="">Descripción</label>
+                                            {!! Form::text('DescripcionConsejeriaPrePostVIH', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
                                         </div>                                       
+                                    </div> 
+
+                                    <div class="col-xs-1 col-sm-6 col-md-3">
+                                        <div class="form-group">
+                                            <label for="PlanParto">Plan de parto (ahorro, transporte, preparar insumos)</label>
+                                                <select class="form-control" name="PlanParto">
+                                                    <option value="No">No</option>
+                                                    <option value="Si">Si</option>
+                                                </select>
+                                        </div>
                                     </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <div class="form-group">
+                                            <label for="">Descripción</label>
+                                            {!! Form::text('DescrpcionPlanParto', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
+                                        </div>                                       
+                                    </div>   
+
+                                    <div class="col-xs-1 col-sm-6 col-md-3">
+                                        <div class="form-group">
+                                            <label for="PlanEmergencia">Plan de emergencia familiar y comunitario</label>
+                                                <select class="form-control" name="PlanEmergencia">
+                                                    <option value="No">No</option>
+                                                    <option value="Si">Si</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <div class="form-group">
+                                            <label for="">Descripción</label>
+                                            {!! Form::text('DescpcionPlanEmergencia', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
+                                        </div>                                       
+                                    </div>  
                                     
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="PapanicolaouIVAA">Papanicolaou/IVAA</label>
-                                                <select class="form-control" name="PapanicolaouIVAA">
+                                            <label for="LactanciaMaterna">Lactancia materna exclusiva/MELA</label>
+                                                <select class="form-control" name="LactanciaMaterna">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
                                                 </select>
@@ -160,15 +125,15 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Resultado de Papanicolaou/IVAA</label>
-                                            {!! Form::text('DescripcionPapanicolaouIVAA', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
+                                            <label for="">Descripción</label>
+                                            {!! Form::text('DescripcionLactanciaMaterna', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
                                         </div>                                       
-                                    </div>
-                                    
+                                    </div> 
+                                                                        
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="HepatitisB">Prueba rápida de Hepatitis B</label>
-                                                <select class="form-control" name="HepatitisB">
+                                            <label for="ViolenciaSexual">Violencia sexual (pareja y/o familiar)</label>
+                                                <select class="form-control" name="ViolenciaSexual">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
                                                 </select>
@@ -176,23 +141,41 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Resultado de Hepatitis B</label>
-                                            {!! Form::text('DescripcionHepatitisB', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
+                                            <label for="">Descripción</label>
+                                            {!! Form::text('DescipcionViolenciaSexual', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
                                         </div>                                       
+                                    </div> 
+
+                                    <div class="col-xs-1 col-sm-6 col-md-3">
+                                        <div class="form-group">
+                                            <label for="MetodosPlanificcion">Métodos de Planificación Familiar</label>
+                                                <select class="form-control" name="MetodosPlanificcion">
+                                                    <option value="No">No</option>
+                                                    <option value="Si">Si</option>
+                                                </select>
+                                        </div>
+                                    </div>
+            
+                                    <div class="col-xs-1 col-sm-6 col-md-3">
+                                        <div class="form-group">
+                                            <label for="ImportanciaControlPos">Importancia del control pos parto</label>
+                                                <select class="form-control" name="ImportanciaControlPos">
+                                                    <option value="No">No</option>
+                                                    <option value="Si">Si</option>
+                                                </select>
+                                        </div>
                                     </div>
                                                 
-
-                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Otros estudios complementarios (US), gota gruesa en zonas endémicas, si presenta fiebre</label>
-                                            {!! Form::text('OtrosEstudios', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
-                                        </div>                                       
-                                    </div>
-
-
-
+                                            <label for="VacunacionRecienNacido">Vacunación y cuidados del recién nacido/a</label>
+                                                <select class="form-control" name="VacunacionRecienNacido">
+                                                    <option value="No">No</option>
+                                                    <option value="Si">Si</option>
+                                                </select>
+                                        </div>
+                                    </div>                             
                                 
-                              
                         </div>
                     </div>
  </div>
