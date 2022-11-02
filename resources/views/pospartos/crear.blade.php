@@ -3,7 +3,7 @@
     <section class="section">
         
         <div class="section-header">
-            <h3 class="page__heading">INGRESO DE CONTROL PRENATAL Y/O POSPARTO</h3>
+            <h3 class="page__heading">INGRESO DE FICHA CLINICA POST PARTO</h3>
         </div>
         <div class="section-body">
         <div class="row row-responsive">
@@ -21,18 +21,16 @@
                             </div>
                             @endif
 
-                            {!! Form::open(array('route'=>'controles.store', 'method'=>'POST')) !!}
-
-                            @include('controles.crear.exameneslaboratorio')
+                    {!! Form::open(array('route'=>'pospartos.store', 'method'=>'POST')) !!}
                     
-
+                    @include('pospartos.crear.datospaciente')
 
                     
 
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                    <button type="submit" class="btn btn btn-danger" href="infantes.index">Cancelar</button>
-                                </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn btn-danger" href="posparto.index">Cancelar</button>
+                    </div>
 
                     {!! Form::close() !!}
 

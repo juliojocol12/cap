@@ -55,7 +55,7 @@
                     
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="page__heading">Datos de expediente</h4>
+                            <h4 class="page__heading">Datos de centro de atencion</h4>
                             <div class="row ">
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">

@@ -54,6 +54,8 @@
                                     </div>
                                 </div>
 
+                                
+
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="" value="EstablecimientoSalud_id">Establecimiento</label>

@@ -114,17 +114,29 @@
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-4">
-                                    <div class="form-group">
+                                    <div class="form-group responsive" >
+
                                         <label for="">Si refirio a la paciente registre manejo y estabilización</label>
-                                        {!! Form::textarea('RegistrodeReferencia', null, array('style'=>'background:#FCFCFC;height:90px;width:500px;border-color:#E3E3E3','maxlength'=>'190')) !!}
-                                    </div>                                       
+
+                                        <div class="form-outline w-100 mb-4">
+
+                                            <textarea class="form-control" id="RegistrodeReferencia" name="RegistrodeReferencia" style="height:90px" maxlength="190"></textarea>
+
+                                        </div>      
+
+                                    </div>                                      
+
                                 </div>
 
 
                                 <div class="col-xs-6 col-sm-6 col-md-4">
-                                    <div class="form-group">
+                                    <div class="form-group" responsive>
                                         <label for="">Historia de la enfermedad Actual</label>
-                                        {!! Form::textarea('HistoriaEnfermedadActual', null, array('style'=>'background:#FCFCFC;height:90px;width:500px;border-color:#E3E3E3','maxlength'=>'200')) !!}
+                                        <div class="form-outline w-100 mb-4">
+
+                                            <textarea class="form-control" id="HistoriaEnfermedadActual" name="HistoriaEnfermedadActual" style="height:90px" maxlength="190"></textarea>
+
+                                        </div>  
                                     </div>                                       
                                 </div>
 

@@ -26,6 +26,9 @@
     <a class="nav-link" href="/controles">
         <i class=" fa fa-id-card"></i><span>Controles</span>
     </a>
+    <a class="nav-link" href="/pospartos">
+        <i class=" fa fa-id-card"></i><span>Postparto</span>
+    </a>
     
     <a class="nav-link" href="/datosfamiliares">
         <i class=" fa fa-users"></i><span>Datos Familiares</span>

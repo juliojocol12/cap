@@ -20,13 +20,14 @@ class primercontrolpostparto extends Model
         return $this->belongsTo('App\Models\establecimientosaludo', 'EstablecimientoSalud_id', 'idEstablecimientoSaludos');
     }
 
-    public function personales()
+    public function personaless()
     {
-        return $this->belongsTo('App\Models\personale', 'Personal_id','Personal_id', 'idPersonal');
+        return $this->belongsTo('App\Models\personale', 'Personal_idD', 'idPersonal');
     }
 
-    public function personalesD()
+    public function personalesx()
     {
-        return $this->belongsTo('App\Models\personale', 'Personal_idD','Personal_id', 'idPersonal');
+        return $this->belongsTo('App\Models\personale', 'Personal_id', 'idPersonal');
     }
+
 }

@@ -47,7 +47,7 @@
                                 <td>{{ $primercontrolpostparto->NombreServicio }}</td>
                                 <td>{{ $primercontrolpostparto->DiasDespuesParto }}</td>
                                 <td>{{ $primercontrolpostparto->establecimientosaludos->Nombre}}</td>
-                                <td>{{ $primercontrolpostparto->personales->Nombre }}</td>
+                                <td>{{ $primercontrolpostparto->personaless->Nombre }}</td>
                                 <td>{{ $primercontrolpostparto->HeridaOperatoria }}</td>
                                 <td>{{ $primercontrolpostparto->InvolucionUterina }}</td>
                                 <td>{{ $primercontrolpostparto->PresionArterial }}</td>
@@ -59,7 +59,6 @@
                                 <td>{{ $primercontrolpostparto->PorqueNoLactanciaMaterna }}</td>
                                 <td>{{ $primercontrolpostparto->Diagnostico }}</td>
                                 <td>{{ $primercontrolpostparto->ConductaTratamiento }}</td>
-                                <td>{{ $primercontrolpostparto->personales->Nombre }}</td>
                                 <td>
                                     
                                     <a class="btn btn-info" href="{{ route('primercontrolpostparto.edit', $primercontrolpostparto->idPrimerControlPostpartos) }}">Editar</a>
