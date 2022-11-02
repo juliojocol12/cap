@@ -2,7 +2,7 @@
                         <div class="card-body">
                         <h3 class="page__heading">Antecedentes obstreticos</h3>
                         <div class="row ">
-                        <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-2">
                             
                                     <div class="form-group">
                                         <label for="">Fecha de la última regla</label>
@@ -177,9 +177,16 @@
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Cual</label>
-                                        {!! Form::textarea('CualMetodoPlanificacionF', null, array('style'=>'background:#FCFCFC;height:90px;width:400px;border-color:#E3E3E3','maxlength'=>'45')) !!}
+                                        <div class="form-outline w-100 mb-4">
+
+                                            <textarea class="form-control" id="CualMetodoPlanificacionF" name="CualMetodoPlanificacionF" style="height:60px; width: 100%; " maxlength="300" placeholder="Ingrese"></textarea>
+
+                                        </div>
                                     </div>                                       
                                 </div>
+
+
+                                
                                 </div>
                         </div>
                     </div>

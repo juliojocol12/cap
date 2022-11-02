@@ -50,11 +50,11 @@
                                             <option value="{{$idpaciente->idDatosPersonalesPacientes}}"> {{$idpaciente->CUI}}, {{$idpaciente->NombresPaciente}} {{$idpaciente->ApellidosPaciente}} </option>
                                             
                                             @endforeach
+
+                                            
                                         </datalist>
                                     </div>
                                 </div>
-
-                                
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
@@ -190,7 +190,10 @@
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
                                         <label for="">Si refirio a la paciente registre manejo y estabilización</label>
-                                        {!! Form::textarea('RegistrodeReferencia', null, array('style'=>'background:#FCFCFC;height:90px;width:500px;border-color:#E3E3E3','maxlength'=>'190')) !!}
+                                        
+                                        <div class="form-outline w-100 mb-4">
+                                            <textarea class="form-control" id="RegistrodeReferencia" name="RegistrodeReferencia"  value="RegistrodeReferencia" style="height:60px; width: 100%; " maxlength="190">{{$fcprenatalpostparto->RegistrodeReferencia}}</textarea>
+                                        </div>
                                     </div>                                       
                                 </div>
 
@@ -198,7 +201,9 @@
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
                                         <label for="">Historia de la enfermedad Actual</label>
-                                        {!! Form::textarea('HistoriaEnfermedadActual', null, array('style'=>'background:#FCFCFC;height:90px;width:500px;border-color:#E3E3E3','maxlength'=>'200')) !!}
+                                        <div class="form-outline w-100 mb-4">
+                                            <textarea class="form-control" id="HistoriaEnfermedadActual" name="HistoriaEnfermedadActual"  value="HistoriaEnfermedadActual" style="height:60px; width: 100%; " maxlength="200">{{$fcprenatalpostparto->HistoriaEnfermedadActual}}</textarea>
+                                        </div>                                        
                                     </div>                                       
                                 </div>
 
@@ -373,7 +378,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="MetodoPlanificacionFamiliar">Utilizo algún método de planificación familiar</label>
                                         <select class="form-control" name="MetodoPlanificacionFamiliar">
@@ -386,7 +391,9 @@
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Cual</label>
-                                        {!! Form::textarea('CualMetodoPlanificacionF', null, array('style'=>'background:#FCFCFC;height:90px;width:400px;border-color:#E3E3E3','maxlength'=>'45')) !!}
+                                        <div class="form-outline w-100 mb-4">
+                                            <textarea class="form-control" id="CualMetodoPlanificacionF" name="CualMetodoPlanificacionF"  value="CualMetodoPlanificacionF" style="height:60px; width: 100%; " maxlength="45">{{$fcprenatalpostparto->CualMetodoPlanificacionF}}</textarea>
+                                        </div> 
                                     </div>                                       
                                 </div>
                                 </div>
@@ -617,31 +624,34 @@
                                     </div>
                                 </div>                                
                                 
-                                <div class="row ">
                                     
-                                <div class="col-xs-6 col-sm-6 col-md-5">
+                                <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
                                         <label for="">Quirurgicos</label>
-                                        {!! Form::textarea('Quirurgicos', null, array('style'=>'background:#FCFCFC;height:90px;width:500px;border-color:#E3E3E3','maxlength'=>'45')) !!}
+                                        <div class="form-outline w-100 mb-4">
+                                            <textarea class="form-control" id="Quirurgicos" name="Quirurgicos"  value="Quirurgicos" style="height:60px; width: 100%; " maxlength="45">{{$fcprenatalpostparto->Quirurgicos}}</textarea>
+                                        </div>
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-5 col-responsive">
+                                <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
                                         <label for="">Otros Antecedentes</label>
-                                        {!! Form::textarea('OtrosAntecedentes', null, array('style'=>'background:#FCFCFC;height:90px;width:500px;border-color:#E3E3E3','maxlength'=>'75', 'overflow'=>'auto', 'position'=> 'relative')) !!}
+                                        <div class="form-outline w-100 mb-4">
+                                            <textarea class="form-control" id="OtrosAntecedentes" name="OtrosAntecedentes"  value="OtrosAntecedentes" style="height:60px; width: 100%; " maxlength="45">{{$fcprenatalpostparto->OtrosAntecedentes}}</textarea>
+                                        </div>
                                     </div>      
                                 </div>
 
-                                    
-                                </div>  
+                                     
                                 </div>
                         </div>
                     </div>
+
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <button type="submit" class="btn btn-primary">Actualizar</button>
-                                    <button type="submit" class="btn btn btn-danger" href="infantes.index">Cancelar</button>
-                                </div>
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                        <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-danger mr-3">Cancelar</a>
+                    </div>
 
                     {!! Form::close() !!}
 

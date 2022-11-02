@@ -32,13 +32,6 @@ class FcprenatalpostpartoController extends Controller
         ->where('CUI','LIKE','%'.$texto.'%')
         ->paginate(10);
         return view('fcprenatalpostpartos.index', compact('fcprenatalpostpartos','texto'));
-
-
-
-/*
-        $fcprenatalpostpartos = fcprenatalpostparto::paginate(10);
-        return view('fcprenatalpostpartos.index', compact('fcprenatalpostpartos'));*/
-
     }
 
     /**

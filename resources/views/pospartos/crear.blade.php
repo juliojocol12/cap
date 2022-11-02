@@ -8,29 +8,36 @@
         <div class="section-body">
         <div class="row row-responsive">
                 <div class="col-lg-12 col-responsive">
-                {{-- Validacion para ingreso de campos --}}
-                            @if($errors->any())
-                            <div class="alert alert-dark alert-dismissible fade show" role="alert">
-                                <strong>¡Revise los campos!</strong>
-                                @foreach ($errors->all() as $error)
-                                    <span classs="badge badge-danger">{{$error}}</span>
-                                @endforeach
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            @endif
+                    {{-- Validacion para ingreso de campos --}}
+                    @if($errors->any())
+                    <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                        <strong>¡Revise los campos!</strong>
+                        @foreach ($errors->all() as $error)
+                            <span classs="badge badge-danger">{{$error}}</span>
+                        @endforeach
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @endif
 
                     {!! Form::open(array('route'=>'pospartos.store', 'method'=>'POST')) !!}
-                    
-                    @include('pospartos.crear.datospaciente')
+                        @include('pospartos.crear.datospaciente')
+
+                        @include('pospartos.crear.signossintomas')
+
+                        @include('pospartos.crear.refirio')
+
+                        @include('pospartos.crear.primer')
+
+                        @include('pospartos.crear.suplementacion')
 
                     
 
-                    <div class="col-xs-6 col-sm-6 col-md-6">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                        <button type="submit" class="btn btn btn-danger" href="posparto.index">Cancelar</button>
-                    </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn btn-danger" href="infantes.index">Cancelar</button>
+                        </div>
 
                     {!! Form::close() !!}
 

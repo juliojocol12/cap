@@ -51,6 +51,9 @@ class DatosfamiliareController extends Controller
             'NombresFamiliar' => 'required|TextoRule1',
             'ApellidosFamiliar' => 'required|TextoRule1',
             'CUI' => 'required|Unique:datosfamiliares|NumeroRule',
+            'EstadoCivil' => 'required|TextoRule1',
+            'ProfesionOficio' => 'required|TextoRule1',
+            'Domicilio' => 'required',
             'TelefonoFamiliar' => 'required|NumeroRule',
             'CelularFamiliar' => 'required|NumeroRule',
         ]);
@@ -105,6 +108,9 @@ class DatosfamiliareController extends Controller
             'NombresFamiliar' => 'required|TextoRule1',
             'ApellidosFamiliar' => 'required|TextoRule1',
             'CUI' => 'required|NumeroRule',
+            'EstadoCivil' => 'required|TextoRule1',
+            'ProfesionOficio' => 'required|TextoRule1',
+            'Domicilio' => 'required',
             'TelefonoFamiliar' => 'required|NumeroRule',
             'CelularFamiliar' => 'required|NumeroRule',
         ]);
@@ -120,6 +126,9 @@ class DatosfamiliareController extends Controller
             'NombresFamiliar' => 'required|TextoRule1',
             'ApellidosFamiliar' => 'required|TextoRule1',
             'CUI' => 'required|Unique:datosfamiliares|NumeroRule',
+            'EstadoCivil' => 'required|TextoRule1',
+            'ProfesionOficio' => 'required|TextoRule1',
+            'Domicilio' => 'required',
             'TelefonoFamiliar' => 'required|NumeroRule',
             'CelularFamiliar' => 'required|NumeroRule',
         ]);

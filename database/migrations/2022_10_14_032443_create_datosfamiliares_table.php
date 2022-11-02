@@ -18,6 +18,9 @@ class CreateDatosfamiliaresTable extends Migration
             $table->string('NombresFamiliar',25);
             $table->string('ApellidosFamiliar',25);
             $table->string('CUI', 15)->unique();
+            $table->string('EstadoCivil',7);
+            $table->string('ProfesionOficio',25);
+            $table->string('Domicilio',45);
             $table->string('TelefonoFamiliar',12)->nullable();
             $table->string('CelularFamiliar',12);
             $table->timestamps();

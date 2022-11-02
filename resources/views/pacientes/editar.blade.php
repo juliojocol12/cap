@@ -133,8 +133,28 @@
 
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Pueblo</label>
+                                        <label for="">Pueblo</label> 
                                         {!! Form::select ('pueblo_id', $pueblos->pluck('Nombre', 'idPueblo')->all(), $paciente->pueblo_id, array('class'=>'form-control'))  !!}
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="" value="idDatosFamiliares">Nombre del familiar</label>
+                                        <input class="form-control" list="filtroIdFamiliares" id="filtroIdFamiliare" name="idDatosFamiliares" placeholder="ingrese en número de expediente" autocomplete="off">                                        
+                                        <datalist id="filtroIdFamiliares" name="idDatosFamiliares">
+                                            @foreach($datosfamiliares as $idfamliar)
+                                                <option value="{{$idfamliar->idDatosFamiliares}}"> {{$idfamliar->CUI}}, {{$idfamliar->NombresFamiliar}}</option>                                            
+                                            @endforeach
+                                        </datalist>
+                                    </div>
+                                </div>
+
+                                
+                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                    <div class="form-group">
+                                        <label for="">Parentesco</label>
+                                        {!! Form::text('Parentesco', null, array('class'=>'form-control','maxlength'=>'20', 'placeholder'=>'Ingrese la relacion','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 

@@ -39,6 +39,18 @@
                                                 <td>{{$datosfamiliare->CUI}}</td>
                                             </tr>
                                             <tr>
+                                                <th scope="row" ">Estado Civil</th>
+                                                <td>{{$datosfamiliare->EstadoCivil}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" ">Profesion Oficio</th>
+                                                <td>{{$datosfamiliare->ProfesionOficio}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" ">Domicilio</th>
+                                                <td>{{$datosfamiliare->Domicilio}}</td>
+                                            </tr>
+                                            <tr>
                                                 <th scope="row" ">Telefono</th>
                                                 <td>{{$datosfamiliare->TelefonoFamiliar}}</td>
                                             </tr>

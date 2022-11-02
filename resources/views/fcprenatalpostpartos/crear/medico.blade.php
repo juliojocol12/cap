@@ -222,24 +222,29 @@
                                     </div>
                                 </div>                                
                                 
-                                <div class="row ">
-                                    
-                                <div class="col-xs-6 col-sm-6 col-md-5">
+                                <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
                                         <label for="">Quirurgicos</label>
-                                        {!! Form::textarea('Quirurgicos', null, array('style'=>'background:#FCFCFC;height:90px;width:500px;border-color:#E3E3E3','maxlength'=>'45')) !!}
+                                        <div class="form-outline w-100 mb-4">
+
+                                            <textarea class="form-control" id="Quirurgicos" name="Quirurgicos" style="height:60px; width: 100%; " maxlength="300" placeholder="Ingrese"></textarea>
+
+                                        </div>  
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-5 col-responsive">
+                                <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
                                         <label for="">Otros Antecedentes</label>
-                                        {!! Form::textarea('OtrosAntecedentes', null, array('style'=>'background:#FCFCFC;height:90px;width:500px;border-color:#E3E3E3','maxlength'=>'75', 'overflow'=>'auto', 'position'=> 'relative')) !!}
+                                        <div class="form-outline w-100 mb-4">
+
+                                            <textarea class="form-control" id="OtrosAntecedentes" name="OtrosAntecedentes" style="height:60px; width: 100%; " maxlength="300" placeholder="Ingrese"></textarea>
+
+                                        </div>
                                     </div>      
                                 </div>
 
                                     
-                                </div>  
                                 </div>
                         </div>
                     </div>

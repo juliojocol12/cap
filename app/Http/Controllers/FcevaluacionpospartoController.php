@@ -8,6 +8,8 @@ use App\Models\establecimientosaludo;
 use App\Models\fcprenatalpostparto;
 use App\Models\User;
 use App\Models\personale;
+use App\Models\Pueblo;
+use App\Models\Infante;
 use Illuminate\Http\Request;
 
 class FcevaluacionpospartoController extends Controller
@@ -51,9 +53,10 @@ class FcevaluacionpospartoController extends Controller
         $establecimientosaludos = establecimientosaludo::all();
         $fcprenatalpostpartos = fcprenatalpostparto::all();
         $usuarios = User::all();
-        $personaless = personale::all();
+        $personaless = personale::all()->where('Cargo','=','Doctor');
+        $infantes = Infante::all();
 
-        return view ('pospartos.crear')->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('fcprenatalpostpartos',$fcprenatalpostpartos)->with('usuarios',$usuarios)->with('personaless',$personaless);
+        return view ('pospartos.crear')->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('fcprenatalpostpartos',$fcprenatalpostpartos)->with('usuarios',$usuarios)->with('personaless',$personaless)->with('infantes',$infantes);
     }
 
     /**
@@ -65,28 +68,92 @@ class FcevaluacionpospartoController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'FCPrenatalPostparto_id' => 'required',
+            'FechaEvaluacionPosparto' => 'required',
+            'DatosPersonalesPacientes_id' => 'required',
+            'HemorragiaVaginal' => 'required',
+            'DolordeCabeza' => 'required',
+            'VisionBorrosa' => 'required',
+            'Convulsion' => 'required',
+            'DolorAbdominal' => 'required',
+            'PresionArterialSignos' => 'required',
+            'Fiebre' => 'required',
+            'Coagulos' => 'required',
+            'RegistroReferencia' => 'required|TextoRule3',
+            'NombreServicio' => 'required|TextoRule1',
+            'DiasDespuesParto' => 'required|NumeroRule',
+            'EstablecimientoSalud_id' => 'required',
+            'Infantes_id' => 'required',
+            'Personal_idD' => 'required',
+            'HeridaOperatoria' => 'required|TextoRule3',
+            'InvolucionUterina' => 'required|TextoRule3',
+            'PresionArterial' => 'required|TextoRule3',
+            'FrecuenciaCardiaca' => 'required|TextoRule3',
+            'Temperatura' => 'required|DecimalRule',
+            'ExamenMamas' => 'required|TextoRule3',
+            'ExamenGinecologico' => 'required|TextoRule3',
+            'LactanciaMaterna' => 'required',
+            'PorqueNoLactanciaMaterna' => 'TextoRule4',
+            'Diagnostico' => 'required|TextoRule3',
+            'ConductaTratamiento' => 'required|TextoRule3',
+            'Usuario_id' => 'required',
+            'SulfatoFerroso' => 'required',
+            'AcidoFolico' => 'required',
+            'OtroMedicamento' => 'required',
+            'Tdap' => 'required',
+            'ConsejeriaPF_Posparto' => 'required',
+            'ConsejeriaLactanciaAlimentacion' => 'required',
+            'ConsejeriaLactanciaMujerVIH' => 'required',
+            'ConsejeriaMujerVIH' => 'required',
+        ]);
+        
+        fcevaluacionposparto::create($request->all());
+
+        return redirect()->route('pospartos.index');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\fcevaluacionposparto  $fcevaluacionposparto
+     * @param  int idFCEvaluacionPosparto
      * @return \Illuminate\Http\Response
      */
-    public function show(fcevaluacionposparto $fcevaluacionposparto)
+    public function show($idFCEvaluacionPosparto)
     {
         //
+        $fcevaluacionposparto = fcevaluacionposparto::find($idFCEvaluacionPosparto);
+
+        $datospacientes = datospersonalespaciente::all();
+        $establecimientosaludos = establecimientosaludo::all();        
+        $fcprenatalpostpartos = fcprenatalpostparto::all();
+        $usuarios = User::all();
+        $pueblos = Pueblo::all();
+        $personaless = personale::all()->where('Cargo','=','Doctor');
+        $infantes = Infante::all();
+        return view ('pospartos.show', compact('fcevaluacionposparto'))->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('fcprenatalpostpartos',$fcprenatalpostpartos)->with('usuarios',$usuarios)->with('personaless',$personaless)->with('pueblos',$pueblos)->with('infantes',$infantes);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\fcevaluacionposparto  $fcevaluacionposparto
+     * @param  int idFCEvaluacionPosparto
      * @return \Illuminate\Http\Response
      */
-    public function edit(fcevaluacionposparto $fcevaluacionposparto)
+    public function edit($idFCEvaluacionPosparto)
     {
         //
+        $fcevaluacionposparto = fcevaluacionposparto::find($idFCEvaluacionPosparto);
+        $datospacientes = datospersonalespaciente::all();
+        $establecimientosaludos = establecimientosaludo::all();        
+        $fcprenatalpostpartos = fcprenatalpostparto::all();
+        $usuarios = User::all();
+        $pueblos = Pueblo::all();
+        $personaless = personale::all()->where('Cargo','=','Doctor');
+        $infantes = Infante::all();
+        return view ('pospartos.editar', compact('fcevaluacionposparto'))->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('fcprenatalpostpartos',$fcprenatalpostpartos)->with('usuarios',$usuarios)->with('personaless',$personaless)->with('pueblos',$pueblos)->with('infantes',$infantes);
     }
 
     /**
@@ -94,21 +161,68 @@ class FcevaluacionpospartoController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\fcevaluacionposparto  $fcevaluacionposparto
+     * @param  int idFCEvaluacionPosparto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, fcevaluacionposparto $fcevaluacionposparto)
+    public function update(Request $request, $idFCEvaluacionPosparto)
     {
         //
+        request()->validate([
+            'FCPrenatalPostparto_id' => 'required',
+            'FechaEvaluacionPosparto' => 'required',
+            'DatosPersonalesPacientes_id' => 'required',
+            'HemorragiaVaginal' => 'required',
+            'DolordeCabeza' => 'required',
+            'VisionBorrosa' => 'required',
+            'Convulsion' => 'required',
+            'DolorAbdominal' => 'required',
+            'PresionArterialSignos' => 'required',
+            'Fiebre' => 'required',
+            'Coagulos' => 'required',
+            'RegistroReferencia' => 'required|TextoRule3',
+            'NombreServicio' => 'required|TextoRule1',
+            'DiasDespuesParto' => 'required|NumeroRule',
+            'EstablecimientoSalud_id' => 'required',
+            'Infantes_id' => 'required',
+            'Personal_idD' => 'required',
+            'HeridaOperatoria' => 'required|TextoRule3',
+            'InvolucionUterina' => 'required|TextoRule3',
+            'PresionArterial' => 'required|TextoRule3',
+            'FrecuenciaCardiaca' => 'required|TextoRule3',
+            'Temperatura' => 'required|DecimalRule',
+            'ExamenMamas' => 'required|TextoRule3',
+            'ExamenGinecologico' => 'required|TextoRule3',
+            'LactanciaMaterna' => 'required',
+            'PorqueNoLactanciaMaterna' => 'TextoRule4',
+            'Diagnostico' => 'required|TextoRule3',
+            'ConductaTratamiento' => 'required|TextoRule3',
+            'Usuario_id' => 'required',
+            'SulfatoFerroso' => 'required',
+            'AcidoFolico' => 'required',
+            'OtroMedicamento' => 'required',
+            'Tdap' => 'required',
+            'ConsejeriaPF_Posparto' => 'required',
+            'ConsejeriaLactanciaAlimentacion' => 'required',
+            'ConsejeriaLactanciaMujerVIH' => 'required',
+            'ConsejeriaMujerVIH' => 'required',
+        ]);
+        $input = $request->all();
+        $fcevaluacionposparto = fcevaluacionposparto::find($idFCEvaluacionPosparto);
+        $fcevaluacionposparto->update($input);
+        return redirect()->route('pospartos.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\fcevaluacionposparto  $fcevaluacionposparto
+     * @param  int idFCEvaluacionPosparto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(fcevaluacionposparto $fcevaluacionposparto)
+    public function destroy($idFCEvaluacionPosparto)
     {
         //
+        fcevaluacionposparto::find($idFCEvaluacionPosparto)->delete();
+        return redirect()->route('pospartos.index')->with('status');
     }
 }

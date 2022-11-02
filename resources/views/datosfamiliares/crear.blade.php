@@ -47,6 +47,27 @@
                                     </div>
                                 </div>
 
+                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Estado Civil</label>
+                                        {!! Form::text('EstadoCivil', null, array('class'=>'form-control','maxlength'=>'7', 'placeholder'=>'Ingrese el estado civil')) !!}
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Profesion Oficio</label>
+                                        {!! Form::text('ProfesionOficio', null, array('class'=>'form-control','maxlength'=>'25', 'placeholder'=>'Ingrese la profesión')) !!}
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Domicilio</label>
+                                        {!! Form::text('Domicilio', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Ingrese el domicilio')) !!}
+                                    </div>
+                                </div>
+
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="">Número de Telefono</label>

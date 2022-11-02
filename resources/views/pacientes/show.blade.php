@@ -73,6 +73,15 @@
                                                 <th scope="row" ">Profesion</th>
                                                 <td>{{$pacientes->ProfesionOficio}}</td>
                                             </tr>
+                                            
+                                            <tr>
+                                                <th scope="row" ">Nombre de familiar</th>
+                                                <td>{{$pacientes->datosfamiliares->NombresFamiliar}} {{$pacientes->datosfamiliares->ApellidosFamiliar}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" ">Parentesco</th>
+                                                <td>{{$pacientes->Parentesco}}</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                     <h4 class="page__heading">Otros datos</h4>

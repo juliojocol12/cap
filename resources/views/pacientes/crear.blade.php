@@ -123,8 +123,8 @@
                                     <div class="form-group">
                                         <label for="">Migrante</label>
                                         <select class="form-control" name="Migrante">
+                                        <option value="No">No</option>
                                         <option value="Si">Si</option>
-                                        <option value="No-">No</option>
                                         </select>
                                     </div>
                                 </div>
@@ -140,9 +140,30 @@
                                     </div>
                                 </div>
 
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="" value="idDatosFamiliares">Nombre del familiar</label>
+                                        <input class="form-control" list="filtroIdFamiliares" id="filtroIdFamiliare" name="idDatosFamiliares" placeholder="ingrese en número de expediente" autocomplete="off">                                        
+                                        <datalist id="filtroIdFamiliares" name="idDatosFamiliares">
+                                            @foreach($datosfamiliares as $idfamliar)
+                                                <option value="{{$idfamliar->idDatosFamiliares}}"> {{$idfamliar->CUI}}, {{$idfamliar->NombresFamiliar}}</option>                                            
+                                            @endforeach
+                                        </datalist>
+                                    </div>
+                                </div>
+
+                                
+                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                    <div class="form-group">
+                                        <label for="">Parentesco</label>
+                                        {!! Form::text('Parentesco', null, array('class'=>'form-control','maxlength'=>'20', 'placeholder'=>'Ingrese la relacion','autocomplete'=>'off')) !!}
+                                    </div>
+                                </div>   
+
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <button type="submit" class="btn btn-primary">Guardar</button>
                                 </div>
+
                                 
                             </div>
                             {!! Form::close() !!}                    

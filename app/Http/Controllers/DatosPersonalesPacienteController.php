@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\datospersonalespaciente;
 use App\Models\pueblo;
+use App\Models\DatosFamiliare;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -40,7 +41,8 @@ class DatospersonalespacienteController extends Controller
     public function create()
     {
         $pueblos = pueblo::select('idPueblo','Nombre')->get();
-        return view ('pacientes.crear')->with('pueblos',$pueblos);
+        $datosfamiliares = DatosFamiliare::all();
+        return view ('pacientes.crear')->with('pueblos',$pueblos)->with('datosfamiliares',$datosfamiliares);
     }
 
     /**
@@ -67,6 +69,8 @@ class DatospersonalespacienteController extends Controller
             'MedicamentosActualmente',
             'Migrante',
             'pueblo_id'=> 'required',
+            'idDatosFamiliares',
+            'Parentesco' => 'required|TextoRule1',
         ]);
         
         datospersonalespaciente::create($request->all());
@@ -84,7 +88,8 @@ class DatospersonalespacienteController extends Controller
     {
         $pacientes = datospersonalespaciente::find($idDatosPersonalesPacientes);
         $pueblos = pueblo::select('idPueblo','Nombre')->get();
-        return view ('pacientes.show', compact('pacientes'))->with('pueblos',$pueblos);
+        $datosfamiliares = DatosFamiliare::all();
+        return view ('pacientes.show', compact('pacientes'))->with('pueblos',$pueblos)->with('datosfamiliares',$datosfamiliares);
     }
 
     /**
@@ -102,7 +107,8 @@ class DatospersonalespacienteController extends Controller
         */
         $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
         $pueblos = pueblo::select('idPueblo','Nombre')->get();
-        return view ('pacientes.editar', compact('paciente'))->with('pueblos',$pueblos);
+        $datosfamiliares = DatosFamiliare::all();
+        return view ('pacientes.editar', compact('paciente'))->with('pueblos',$pueblos)->with('datosfamiliares',$datosfamiliares);
     }
 
     /**
@@ -132,7 +138,9 @@ class DatospersonalespacienteController extends Controller
                     'TipoSanguineo' => 'required',
                     'MedicamentosActualmente',
                     'Migrante',
-                    'pueblo_id'=> 'required',
+                    'pueblo_id'=> 'required',                    
+                    'idDatosFamiliares',
+                    'Parentesco' => 'required|TextoRule1',
                 ]);
             } 
             
@@ -158,6 +166,8 @@ class DatospersonalespacienteController extends Controller
                 'MedicamentosActualmente',
                 'Migrante',
                 'pueblo_id'=> 'required',
+                'idDatosFamiliares',
+                'Parentesco' => 'required|TextoRule1',
             ]);
             $datos = $request->all();
             $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
