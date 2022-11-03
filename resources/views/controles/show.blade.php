@@ -21,6 +21,10 @@
                         </div>
                     @endif
 
+                    @include('controles.show.exameneslaboratorio'),
+                            @include('controles.show.clasificacion'),
+                            @include('controles.show.conducta'),
+                            @include('controles.show.consejeria'),
                     <a href="{{ route('controles.index') }}" class="btn btn-success mr-3">Volver</a>
                     <a href="{{ route('controles.edit', $controle->idControles) }}" class="btn btn-info mr-3">Editar</a>
                     
