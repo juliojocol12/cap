@@ -22,14 +22,16 @@
                             @endif
                     {!! Form::model($fcprenatalpostparto, ['method' => 'PATCH', 'route'=> ['fcprenatalpostpartos.update', $fcprenatalpostparto->idFCPrenatalPostpartos ]]) !!}
                     <div class="card">
-                        <div class="card-body">
-                            
+                        <div class="card-body">                            
                             <div class="row ">
+
+                            {{--
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Número de expediente</label>
                                         {!! Form::text('ExpedienteNo', null, array('class'=>'form-control','maxlength'=>'3', 'placeholder'=>'Ingrese el número', 'autocomplete'=>'off')) !!}
                                     </div>
+                                    --}}
                                        
                                 </div>
 

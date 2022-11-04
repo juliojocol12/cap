@@ -31,7 +31,7 @@
                                 <div class="col-xs-6 col-sm-6 col-md-1">
                                     <div class="form-group">
                                         <label for="">Expediente</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->ExpedienteNo}}" disabled>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->datospersonalespacientes->Numerodireccion}}" disabled>
                                     </div>                                       
                                 </div>
 

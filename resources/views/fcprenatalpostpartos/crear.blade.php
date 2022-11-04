@@ -26,20 +26,24 @@
                         <div class="card-body">
                             
                             <div class="row ">
-                                <div class="col-xs-6 col-sm-6 col-md-2">
-                                    <div class="form-group">
-                                        <label for="">Número de expediente</label>
-                                        {!! Form::text('ExpedienteNo', null, array('class'=>'form-control','maxlength'=>'3', 'placeholder'=>'Ingrese el número', 'autocomplete'=>'off')) !!}
-                                    </div>
-                                       
-                                </div>
+
+                                {{--
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Fecha</label>
-                                        {!! Form::date('Fecha', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
+                                        <label for="" value="ExpedienteNo">No de expediente</label>
+
+                                        <input class="form-control" list="filtroIDCasas" id="filtroIDCasa" name="ExpedienteNo" placeholder="ingrese el cui de la madre" autocomplete="off">                                        
+                                        <datalist id="filtroIDCasas" name="ExpedienteNo">
+                                            @foreach($datospacientes as $idpaciente)
+                                            <option value="{{$idpaciente->Numerodireccion}}"> {{$idpaciente->CUI}}, {{$idpaciente->NombresPaciente}} {{$idpaciente->ApellidosPaciente}} </option>
+                                            
+                                            @endforeach
+                                        </datalist>
                                     </div>
                                 </div>
+
+                                --}}
 
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
@@ -54,6 +58,13 @@
                                         </datalist>
                                     </div>
                                 </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Fecha</label>
+                                        {!! Form::date('Fecha', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
+                                    </div>
+                                </div>                                
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">

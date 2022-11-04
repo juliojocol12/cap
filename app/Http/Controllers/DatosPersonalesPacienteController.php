@@ -27,7 +27,7 @@ class DatospersonalespacienteController extends Controller
     {
         $texto = trim($request->get('texto'));
 
-        $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente','CUI','ProfesionOficio','Domicilio','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Migrante','Nombre')
+        $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente','CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion','Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Migrante','Nombre')
         ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
         ->where('CUI','LIKE','%'.$texto.'%')->paginate(10);
         return view('pacientes.index', compact('datospersonalespacientes','texto'));
@@ -60,7 +60,6 @@ class DatospersonalespacienteController extends Controller
             'FechaNaciemientoPaciente' => 'required',
             'CUI' => 'required|NumeroRule|Unique:datospersonalespacientes',
             'ProfesionOficio' => 'required|TextoRule1',
-            'Domicilio' => 'required',
             'Telefono|NumeroRule',
             'Celular|NumeroRule',
             'EstadoCivil' => 'required|TextoRule1',
@@ -71,6 +70,11 @@ class DatospersonalespacienteController extends Controller
             'pueblo_id'=> 'required',
             'idDatosFamiliares',
             'Parentesco' => 'required|TextoRule1',
+            'Descripciondireccion' => 'required|TextoRule3',
+            'Grupodireccion' => 'TextoRule4',
+            'Numerodireccion' => 'required',
+            'Zonadireccion' => 'required|NumeroRule',
+            'Municipiodep' => 'required',
         ]);
         
         datospersonalespaciente::create($request->all());
@@ -130,7 +134,6 @@ class DatospersonalespacienteController extends Controller
                     'FechaNaciemientoPaciente' => 'required',
                     'CUI' => 'required|NumeroRule',
                     'ProfesionOficio' => 'required|TextoRule1',
-                    'Domicilio' => 'required',
                     'Telefono|NumeroRule',
                     'Celular|NumeroRule',
                     'EstadoCivil' => 'required|TextoRule1',
@@ -141,6 +144,11 @@ class DatospersonalespacienteController extends Controller
                     'pueblo_id'=> 'required',                    
                     'idDatosFamiliares',
                     'Parentesco' => 'required|TextoRule1',
+                    'Descripciondireccion' => 'required|TextoRule3',
+                    'Grupodireccion' => 'TextoRule3',
+                    'Numerodireccion' => 'required',
+                    'Zonadireccion' => 'required|NumeroRule',
+                    'Municipiodep' => 'required',
                 ]);
             } 
             
@@ -157,7 +165,6 @@ class DatospersonalespacienteController extends Controller
                 'FechaNaciemientoPaciente' => 'required',
                 'CUI' => 'required|NumeroRule|Unique:datospersonalespacientes',
                 'ProfesionOficio' => 'required|TextoRule1',
-                'Domicilio' => 'required',
                 'Telefono|NumeroRule',
                 'Celular|NumeroRule',
                 'EstadoCivil' => 'required|TextoRule1',
@@ -168,6 +175,11 @@ class DatospersonalespacienteController extends Controller
                 'pueblo_id'=> 'required',
                 'idDatosFamiliares',
                 'Parentesco' => 'required|TextoRule1',
+                'Descripciondireccion' => 'required|TextoRule3',
+                'Grupodireccion' => 'TextoRule3',
+                'Numerodireccion' => 'required',
+                'Zonadireccion' => 'required|NumeroRule',
+                'Municipiodep' => 'required',
             ]);
             $datos = $request->all();
             $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);

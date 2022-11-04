@@ -115,13 +115,11 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group responsive" >
-
                                         <label for="">Si refirio a la paciente registre manejo y estabilización</label>    
                                         <div class="form-outline w-100 mb-4">
-
-                                            <textarea class="form-control" id="RegistrodeReferencia" name="RegistrodeReferencia" style="height:90px" maxlength="190"></textarea>
-
-                                        </div>                                      
+                                            <textarea class="form-control" id="RegistrodeReferencia" name="RegistrodeReferencia" style="height:60px; width: 100%; " maxlength="190"></textarea>
+                                        </div> 
+                                        </div>                                     
                                 </div>
 
 
@@ -129,9 +127,7 @@
                                     <div class="form-group" responsive>
                                         <label for="">Historia de la enfermedad Actual</label>
                                         <div class="form-outline w-100 mb-4">
-
-                                            <textarea class="form-control" id="HistoriaEnfermedadActual" name="HistoriaEnfermedadActual" style="height:90px" maxlength="190"></textarea>
-
+                                            <textarea class="form-control" id="HistoriaEnfermedadActual" name="HistoriaEnfermedadActual" style="height:60px; width: 100%; " maxlength="190"></textarea>
                                         </div>  
                                     </div>                                       
                                 </div>

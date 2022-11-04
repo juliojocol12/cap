@@ -41,63 +41,96 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">Fecha de nacimiento</label>
                                         {!! Form::date('FechaNaciemientoPaciente', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">DPI</label>
                                         {!! Form::text('CUI', null, array('class'=>'form-control', 'maxlength'=>'15','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>   
 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">Profesión u Oficio</label>
                                         {!! Form::text('ProfesionOficio', null, array('class'=>'form-control', 'maxlength'=>'25','autocomplete'=>'off')) !!}
                                     </div>
                                 </div> 
 
-                                                                <div class="col-xs-12 col-sm-12 col-md-5">
+
+
+                                <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
-                                        <label for="">Domicilio</label>
-                                        {!! Form::text('Domicilio', null, array('class'=>'form-control', 'maxlength'=>'45','autocomplete'=>'off')) !!}
+                                        <label for="">Descripción de la dirección</label>
+                                        {!! Form::text('Descripciondireccion', null, array('class'=>'form-control', 'maxlength'=>'45','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>   
 
+                                <div class="col-xs-12 col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">Grupo de la dirección</label>
+                                        {!! Form::text('Grupodireccion', null, array('class'=>'form-control', 'maxlength'=>'45','autocomplete'=>'off')) !!}
+                                    </div>
+                                </div>   
+
+                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Número de casa</label>
+                                        {!! Form::text('Numerodireccion', null, array('class'=>'form-control', 'maxlength'=>'45','autocomplete'=>'off')) !!}
+                                    </div>
+                                </div>   
+
+                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Zona</label>
+                                        {!! Form::text('Zonadireccion', null, array('class'=>'form-control', 'maxlength'=>'45','autocomplete'=>'off')) !!}
+                                    </div>
+                                </div>  
+                                
                                 <div class="col-xs-12 col-sm-12 col-md-5">
+                                    <div class="form-group">
+                                        <label for="">Lugar</label>
+                                        {!! Form::text('Municipiodep', null, array('class'=>'form-control', 'maxlength'=>'45','autocomplete'=>'off')) !!}
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">Telefono</label>
                                         {!! Form::text('Telefono', null, array('class'=>'form-control', 'maxlength'=>'15','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>     
 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">Celular</label>
                                         {!! Form::text('Celular', null, array('class'=>'form-control','maxlength'=>'15','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>        
 
-                                                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">Estado Civil</label>
                                         {!! Form::text('EstadoCivil', null, array('class'=>'form-control','maxlength'=>'7','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>     
 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">Peso</label>
                                         {!! Form::text('Peso', null, array('class'=>'form-control','maxlength'=>'5','placeholder'=>'Ingrese peso en libras','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>   
 
-                                <div class="col-xs-1 col-sm-6 col-md-3">
+                                <div class="col-xs-1 col-sm-6 col-md-1">
                                     <div class="form-group">
                                         <label for="">Tipo de Sangre</label>
                                         <select class="form-control" name="TipoSanguineo">
@@ -120,7 +153,7 @@
                                     </div>
                                 </div>   
 
-                                <div class="col-xs-1 col-sm-6 col-md-3">
+                                <div class="col-xs-1 col-sm-6 col-md-1">
                                     <div class="form-group">
                                         <label for="">Migrante</label>
                                         <select class="form-control" name="Migrante">                                            
@@ -131,7 +164,7 @@
                                 </div>
                             
 
-                                <div class="col-xs-12 col-sm-12 col-md-3">
+                                <div class="col-xs-12 col-sm-12 col-md-1">
                                     <div class="form-group">
                                         <label for="">Pueblo</label> 
                                         {!! Form::select ('pueblo_id', $pueblos->pluck('Nombre', 'idPueblo')->all(), $paciente->pueblo_id, array('class'=>'form-control'))  !!}
@@ -151,7 +184,7 @@
                                 </div>
 
                                 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">Parentesco</label>
                                         {!! Form::text('Parentesco', null, array('class'=>'form-control','maxlength'=>'20', 'placeholder'=>'Ingrese la relacion','autocomplete'=>'off')) !!}

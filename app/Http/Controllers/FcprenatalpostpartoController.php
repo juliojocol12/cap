@@ -26,10 +26,11 @@ class FcprenatalpostpartoController extends Controller
         //
         $texto = trim($request->get('texto'));
 
-        $fcprenatalpostpartos = fcprenatalpostparto::select('idFCPrenatalPostpartos','ExpedienteNo','Fecha',
-        'NombresPaciente','ApellidosPaciente','CUI','idDatosPersonalesPacientes','EstablecimientoSalud_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterial','Fiebre','PresentacionesFetales','RegistrodeReferencia','MotivoConsulta','HistoriaEnfermedadActual','FechaUltimaRegla','NoGestas','Partos','Aborto','AbortoConsecutivo','NoLIU','NacidosVivos','NacidosMuertos','HijosVivos','HijosMuertos','NoCesareas','EmbarazoMultiples','FechaUltimoParto','NacidosAntesOchoMeses','PreEclampsia','UltimoRNPesoCincolb','UltimoRNPesoSietelb','DeteccionCancerCervix','FechaDeteccionCancer','ResultadoNormal','MetodoPlanificacionFamiliar','CualMetodoPlanificacionF','AsmaBronquial','HipertensionArterial','Cancer','ITS','Chagas','TomaMedicamentos','TrastornoPiscoSocial','ViolenciaGenero','Diabetes','Cardiopatia','Tuberculosis','Neuropatia','InfeccionesUrinarias','ViolenciaInrtraFamiliar','TipoSangre','Quirurgicos','Fuma','BebidasAlcoholicas','ConsumoDrogas','AntecedentesVacunas','DosisVacuna','FechaUltimaDosis','SR','OtrosAntecedentes',)
+        $fcprenatalpostpartos = fcprenatalpostparto::select('idFCPrenatalPostpartos','Fecha',
+        'NombresPaciente','ApellidosPaciente','CUI','Numerodireccion','idDatosPersonalesPacientes','EstablecimientoSalud_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterial','Fiebre','PresentacionesFetales','RegistrodeReferencia','MotivoConsulta','HistoriaEnfermedadActual','FechaUltimaRegla','NoGestas','Partos','Aborto','AbortoConsecutivo','NoLIU','NacidosVivos','NacidosMuertos','HijosVivos','HijosMuertos','NoCesareas','EmbarazoMultiples','FechaUltimoParto','NacidosAntesOchoMeses','PreEclampsia','UltimoRNPesoCincolb','UltimoRNPesoSietelb','DeteccionCancerCervix','FechaDeteccionCancer','ResultadoNormal','MetodoPlanificacionFamiliar','CualMetodoPlanificacionF','AsmaBronquial','HipertensionArterial','Cancer','ITS','Chagas','TomaMedicamentos','TrastornoPiscoSocial','ViolenciaGenero','Diabetes','Cardiopatia','Tuberculosis','Neuropatia','InfeccionesUrinarias','ViolenciaInrtraFamiliar','TipoSangre','Quirurgicos','Fuma','BebidasAlcoholicas','ConsumoDrogas','AntecedentesVacunas','DosisVacuna','FechaUltimaDosis','SR','OtrosAntecedentes',)
         ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcprenatalpostpartos.DatosPersonalesPacientes_id')
         ->where('CUI','LIKE','%'.$texto.'%')
+        ->orwhere('Numerodireccion','LIKE','%'.$texto.'%')
         ->paginate(10);
         return view('fcprenatalpostpartos.index', compact('fcprenatalpostpartos','texto'));
     }
@@ -59,7 +60,6 @@ class FcprenatalpostpartoController extends Controller
     {
         //
         $this->validate($request,[
-            'ExpedienteNo' => 'required|NumeroRule',
             'Fecha',
             'DatosPersonalesPacientes_id' => 'required|NumeroRule',
             'EstablecimientoSalud_id' => 'required|NumeroRule',
@@ -173,7 +173,6 @@ class FcprenatalpostpartoController extends Controller
     {
         //
         request()->validate([
-            'ExpedienteNo' => 'required | NumeroRule',
             'Fecha',
             'DatosPersonalesPacientes_id' => 'required | NumeroRule',
             'EstablecimientoSalud_id' => 'required|NumeroRule',

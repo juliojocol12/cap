@@ -52,7 +52,7 @@
                                         <tr>
                                             <td style="display: none;">{{ $fcprenatalpostparto->idFCPrenatalPostpartos }}</td>
 
-                                            <td>{{$fcprenatalpostparto->ExpedienteNo}}</td>
+                                            <td>{{$fcprenatalpostparto->Numerodireccion}}</td>
                                             <td>{{$fcprenatalpostparto->Fecha}}</td>
 
                                             

@@ -13,6 +13,7 @@ class CreateDatospersonalespacientesTable extends Migration
      */
     public function up()
     {
+
         Schema::create('datospersonalespacientes', function (Blueprint $table) {
             $table->increments('idDatosPersonalesPacientes');
             $table->string('NombresPaciente',25);
@@ -20,7 +21,13 @@ class CreateDatospersonalespacientesTable extends Migration
             $table->date('FechaNaciemientoPaciente');
             $table->integer('CUI')->unique();
             $table->string('ProfesionOficio',25);
-            $table->string('Domicilio',45);
+            
+            $table->string('Descripciondireccion',60);
+            $table->string('Grupodireccion',20);
+            $table->string('Numerodireccion',10);
+            $table->string('Zonadireccion',3);
+            $table->string('Municipiodep',60);
+
             $table->integer('Telefono');
             $table->integer('Celular');
             $table->string('EstadoCivil',7);

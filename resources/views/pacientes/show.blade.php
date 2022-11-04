@@ -57,9 +57,30 @@
                                     <table class="table table-striped table-bordered table-responsive " >
                                         <tbody >   
                                             <tr>
-                                                <th scope="row" ">Domicilio</th>
-                                                <td>{{$pacientes->Domicilio}}</td>
+                                                <th scope="row" ">Descripcion direccion</th>
+                                                <td>{{$pacientes->Descripciondireccion}}</td>
                                             </tr>
+
+                                            <tr>
+                                                <th scope="row" ">Grupo direccion</th>
+                                                <td>{{$pacientes->Grupodireccion}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row" ">Número de casa</th>
+                                                <td>{{$pacientes->Numerodireccion}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row" ">Zona</th>
+                                                <td>{{$pacientes->Zonadireccion}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row" ">Lugar</th>
+                                                <td>{{$pacientes->Municipiodep}}</td>
+                                            </tr>
+
                                             <tr>
                                                 <th scope="row" ">Telefono</th>
                                                 <td>{{$pacientes->Telefono}}</td>

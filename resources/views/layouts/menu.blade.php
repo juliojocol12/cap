@@ -76,4 +76,8 @@
         <i class=" fa fa-hospital"></i><span>Establecimiento de salud</span>
     </a>
 
+    <a class="nav-link" href="/evento">
+        <i class=" fa fa-hospital"></i><span>Evento</span>
+    </a>
+
 </li>

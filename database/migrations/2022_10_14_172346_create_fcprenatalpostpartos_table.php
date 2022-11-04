@@ -15,7 +15,6 @@ class CreateFcprenatalpostpartosTable extends Migration
     {
         Schema::create('fcprenatalpostpartos', function (Blueprint $table) {
             $table->increments('idFCPrenatalPostpartos');
-            $table->string('ExpedienteNo',10);
             $table->date('Fecha');
             
             $table->unsignedInteger('DatosPersonalesPacientes_id');

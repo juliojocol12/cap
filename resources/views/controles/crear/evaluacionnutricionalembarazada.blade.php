@@ -6,7 +6,7 @@
             <div class="col-xs-6 col-sm-6 col-md-2">
                 <div class="form-group">
                     <label for="">Peso</label>
-                    {!! Form::text('Peso', null, array('class'=>'form-control','maxlength'=>'7', 'placeholder'=>'en lb', 'autocomplete'=>'off')) !!}
+                    {!! Form::text('Pesolb', null, array('class'=>'form-control','maxlength'=>'7', 'placeholder'=>'en lb', 'autocomplete'=>'off')) !!}
                 </div>                                       
             </div>
 

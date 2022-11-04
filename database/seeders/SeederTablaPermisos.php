@@ -42,42 +42,49 @@ class SeederTablaPermisos extends Seeder
             'crear-personal',
             'editar-personal',
             'borrar-personal',
-
-            //tabla primercontrolpostparto
-            'ver-primercontrolpostparto',
-            'crear-primercontrolpostparto',
-            'editar-primercontrolpostparto',
-            'borrar-primercontrolpostparto',
-
-            //tabla conductapostparto
-            'ver-conductapostparto',
-            'crear-conductapostparto',
-            'editar-conductapostparto',
-            'borrar-conductapostparto',
-
-            //tabla padecimientoinfate
-            'ver-padecimientoinfate',
-            'crear-padecimientoinfate',
-            'editar-padecimientoinfate',
-            'borrar-padecimientoinfate',
-
-            //tabla clasificacionposparto
-            'ver-clasificacionposparto',
-            'crear-clasificacionposparto',
-            'editar-clasificacionposparto',
-            'borrar-clasificacionposparto',
-
-            //tabla conserjeriaposparto
-            'ver-conserjeriaposparto',
-            'crear-conserjeriaposparto',
-            'editar-conserjeriaposparto',
-            'borrar-conserjeriaposparto',
+            
+            //tabla pueblo
+            'ver-pueblo',
+            'crear-pueblo',
+            'editar-pueblo',
+            'borrar-pueblo',
 
             //tabla establecimientosaludo
             'ver-establecimientosaludo',
             'crear-establecimientosaludo',
-            'editar-establecimientosaludo',
+            'editar-establecimientosaludo', 
             'borrar-establecimientosaludo',
+
+            //tabla datospersonalespaciente
+            'ver-datospersonalespaciente',
+            'crear-datospersonalespaciente',
+            'editar-datospersonalespaciente', 
+            'borrar-datospersonalespaciente',
+
+            //tabla datosfamiliares
+            'ver-datosfamiliare',
+            'crear-datosfamiliare',
+            'editar-datosfamiliare', 
+            'borrar-datosfamiliare',
+
+            //tabla fcprenatalpostparto
+            'ver-fcprenatalpostparto',
+            'crear-fcprenatalpostparto',
+            'editar-fcprenatalpostparto', 
+            'borrar-fcprenatalpostparto',
+
+            //tabla fcevaluacionposparto
+            'ver-fcevaluacionposparto',
+            'crear-fcevaluacionposparto',
+            'editar-fcevaluacionposparto', 
+            'borrar-fcevaluacionposparto',
+
+            //tabla controle
+            'ver-controle',
+            'crear-controle',
+            'editar-controle', 
+            'borrar-controle',
+
         ];
         foreach($permisos as $permiso){
             Permission::create(['name'=>$permiso]);
