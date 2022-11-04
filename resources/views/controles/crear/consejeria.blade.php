@@ -1,6 +1,6 @@
 <div class="card">
                     <div class="card-body">
-                        <h3 class="page__heading">CONSEJERIA</h3>
+                        <h3 class="page__heading">Consejeria</h3>
                         <div class="row ">
                         <div class="col-xs-1 col-sm-6 col-md-3">
                                      <div class="form-group">
@@ -14,13 +14,13 @@
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
                                             <label for="">Descripción</label>
-                                            {!! Form::text('DescripcionAlimentacionEmbarazo', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
+                                            {!! Form::text('DescripcionAlimentacionEmbarazo', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa alimentación aconsejada', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
 
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="CuidadosPersonales">Cuidados Personales (promover el descanso, evitar uso alcohol y cigarro).</label>
+                                            <label for="CuidadosPersonales">Cuidados Personales</label>
                                                 <select class="form-control" name="CuidadosPersonales">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
@@ -30,13 +30,13 @@
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
                                             <label for="">Descripción</label>
-                                            {!! Form::text('DescripcionCuidadosPersonales', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
+                                            {!! Form::text('DescripcionCuidadosPersonales', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Descanso, evitar uso alcohol y cigarro', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
 
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="SintomasComunes">Síntomas comunes (acidez, estreñimiento, náuseas y vómitos, lumbalgia, varices, edema)</label>
+                                            <label for="SintomasComunes">Síntomas comunes</label>
                                                 <select class="form-control" name="SintomasComunes">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
@@ -46,7 +46,7 @@
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
                                             <label for="">Descripción</label>
-                                            {!! Form::text('DescipcionSintomasComunes', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
+                                            {!! Form::text('DescipcionSintomasComunes', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Acidez, estreñimiento, náuseas...', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
                   
@@ -62,7 +62,7 @@
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
                                             <label for="">Descripción</label>
-                                            {!! Form::text('DescripcionSenalesPeligro', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
+                                            {!! Form::text('DescripcionSenalesPeligro', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa señales de peligro', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>  
 
@@ -78,13 +78,13 @@
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
                                             <label for="">Descripción</label>
-                                            {!! Form::text('DescripcionConsejeriaPrePostVIH', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
+                                            {!! Form::text('DescripcionConsejeriaPrePostVIH', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa pre/pos prueba VIH', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div> 
 
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="PlanParto">Plan de parto (ahorro, transporte, preparar insumos)</label>
+                                            <label for="PlanParto">Plan de parto </label>
                                                 <select class="form-control" name="PlanParto">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
@@ -94,7 +94,7 @@
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
                                             <label for="">Descripción</label>
-                                            {!! Form::text('DescrpcionPlanParto', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
+                                            {!! Form::text('DescrpcionPlanParto', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'(Ahorro, transporte, preparar insumos)', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>   
 
@@ -110,7 +110,7 @@
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
                                             <label for="">Descripción</label>
-                                            {!! Form::text('DescpcionPlanEmergencia', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
+                                            {!! Form::text('DescpcionPlanEmergencia', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa plan de emergencia', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>  
                                     
@@ -126,7 +126,7 @@
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
                                             <label for="">Descripción</label>
-                                            {!! Form::text('DescripcionLactanciaMaterna', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
+                                            {!! Form::text('DescripcionLactanciaMaterna', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa lactancia materna', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div> 
                                                                         
@@ -142,7 +142,7 @@
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
                                             <label for="">Descripción</label>
-                                            {!! Form::text('DescipcionViolenciaSexual', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa', 'autocomplete'=>'off')) !!}
+                                            {!! Form::text('DescipcionViolenciaSexual', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa situación', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div> 
 

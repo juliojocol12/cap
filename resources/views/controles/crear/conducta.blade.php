@@ -1,25 +1,25 @@
 <div class="card">
                         <div class="card-body">
-                        <h3 class="page__heading">CONDUCTA (Medicamentos indicados, anotar dosis de tratamiento. Anotar si se hizo referencia)</h3>
+                        <h3 class="page__heading">Conducta</h3>
                         <div class="row ">
                                 
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Sulfato Ferroso (anotar número de tabletas)</label>
+                                            <label for="">Sulfato Ferroso</label>
                                             {!! Form::text('SulfatoFerroso', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Ingrese número de tabletas', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
 
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Ácido Fólico (anotar número de tabletas)</label>
+                                            <label for="">Ácido Fólico</label>
                                             {!! Form::text('AcidoFolico', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Ingrese número de tabletas', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
                                     
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Vacunación de la madre (Td), (Tdap) anotar dosis que se administra</label>
+                                            <label for="">Vacunación de la madre (Td), (Tdap) </label>
                                             {!! Form::text('VacunacionTdTdap', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Ingrese la dosis que se administra', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>   
@@ -33,7 +33,7 @@
 
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Otros tratamientos (describir)</label>
+                                            <label for="">Otros tratamientos</label>
                                             {!! Form::text('OtrosTratamientos', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Describa otros tratamientos', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>   
