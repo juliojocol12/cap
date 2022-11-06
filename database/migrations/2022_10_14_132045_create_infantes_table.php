@@ -27,12 +27,12 @@ class CreateInfantesTable extends Migration
             $table->date('FechaEgreso')->nullable();
             $table->string('TipoSanguineo',5)->nullable();
             $table->unsignedInteger('DatosPersonalesPacientes_id');
-            $table->unsignedInteger('idDatosFamiliares');
-            $table->string('Parentesco',20)->nullable();
-            
             $table->foreign('DatosPersonalesPacientes_id')->references('idDatosPersonalesPacientes')->on('datospersonalespacientes');
-            $table->foreign('idDatosFamiliares')->references('idDatosFamiliares')->on('datosfamiliares');
             
+            $table->unsignedInteger('idDatosFamiliares');
+            $table->foreign('idDatosFamiliares')->references('idDatosFamiliares')->on('datosfamiliares');
+
+            $table->string('Parentesco',20)->nullable();
             $table->timestamps();
         });
     }

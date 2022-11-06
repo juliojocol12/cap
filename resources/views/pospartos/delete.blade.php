@@ -4,7 +4,7 @@
     <form action="{{ route('pospartos.destroy', $fcevaluacionposparto->idFCEvaluacionPosparto) }}" method="post">
     @csrf
     @method('DELETE')
-
+ 
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Eliminación de registros</h5>
@@ -13,7 +13,7 @@
         </button>
       </div>
       <div class="modal-body">
-      ¿Desea eliminar el registro de {{$fcevaluacionposparto->idFCEvaluacionPosparto}} ?
+      ¿Desea eliminar el registro de ficha clinica de {{$fcevaluacionposparto->NombresPaciente}} {{$fcevaluacionposparto->ApellidosPaciente}} de la fecha {{$fcevaluacionposparto->FechaEvaluacionPosparto}} ?
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-danger" value="Si">

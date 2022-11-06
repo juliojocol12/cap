@@ -21,10 +21,18 @@
                         </div>
                     @endif
 
+                    @include('controles.show.examenfisicoembarazada'),
+                    @include('controles.show.signosysintomaspeligro'),
+                    @include('controles.show.signosvitales'),
+                    @include('controles.show.evaluacionnutricionalembarazada'),
+                    @include('controles.show.examengeneral'),
+                    @include('controles.show.examenobstetrico'),
+                    @include('controles.show.examenginecologico'),
+
                     @include('controles.show.exameneslaboratorio'),
-                            @include('controles.show.clasificacion'),
-                            @include('controles.show.conducta'),
-                            @include('controles.show.consejeria'),
+                    @include('controles.show.clasificacion'),
+                    @include('controles.show.conducta'),
+                    @include('controles.show.consejeria'),
                     <a href="{{ route('controles.index') }}" class="btn btn-success mr-3">Volver</a>
                     <a href="{{ route('controles.edit', $controle->idControles) }}" class="btn btn-info mr-3">Editar</a>
                     

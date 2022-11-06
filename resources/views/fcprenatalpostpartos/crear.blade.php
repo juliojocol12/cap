@@ -47,7 +47,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="" value="DatosPersonalesPacientes_id">Datos de Madre</label>
+                                        <label for="" value="DatosPersonalesPacientes_id">Datos de Madre (*)</label>
 
                                         <input class="form-control" list="filtroIDPacientes" id="filtroIDPaciente" name="DatosPersonalesPacientes_id" placeholder="ingrese el cui de la madre" autocomplete="off">                                        
                                         <datalist id="filtroIDPacientes" name="DatosPersonalesPacientes_id">
@@ -61,14 +61,14 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Fecha</label>
+                                        <label for="">Fecha (*)</label>
                                         {!! Form::date('Fecha', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>                                
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="" value="EstablecimientoSalud_id">Establecimiento</label>
+                                        <label for="" value="EstablecimientoSalud_id">Establecimiento (*)</label>
                                         <select class="form-control" name="EstablecimientoSalud_id">
                                             @foreach($establecimientosaludos as $establecimiento)
                                             <option value="{{$establecimiento->idEstablecimientoSaludos}}" >{{ $establecimiento->Nombre}}, {{ $establecimiento->PuestoSalud}} </option>
@@ -90,10 +90,10 @@
                     
 
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                    <button type="submit" class="btn btn btn-danger" href="infantes.index">Cancelar</button>
-                                </div>
-
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Guardar</button>
+                        <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-danger mr-3">Volver</a>
+                    </div>
+                    @include('modal.guardar')
                     {!! Form::close() !!}
 
 

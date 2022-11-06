@@ -43,6 +43,7 @@ class ControleController extends Controller
         //
         $datospacientes = datospersonalespaciente::all();
         $fcprenatalpostparto = fcprenatalpostparto::all();
+        //$fcprenatalpostparto = fcprenatalpostparto::select('idFCPrenatalPostpartos','Fecha','NombresPaciente','ApellidosPaciente','CUI','EstablecimientoSalud_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa',)->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcprenatalpostpartos.DatosPersonalesPacientes_id');
         return view ('controles.crear')->with('fcprenatalpostparto',$fcprenatalpostparto)->with('datospacientes',$datospacientes);
     }
 

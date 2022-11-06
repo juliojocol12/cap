@@ -10,6 +10,5 @@ class personale extends Model
     use HasFactory;
     protected $table = 'personales';
     protected $primaryKey = 'idPersonal';
-    protected $fillable = ['Nombre','CUI','Telefono','Direccion',
-    'Cargo','FechaNacimiento','NivelAcademico','CorreoElectronico','Observaciones'];
+    protected $fillable = ['Nombre','CUI','Telefono','Direccion','Cargo','FechaNacimiento','NivelAcademico','CorreoElectronico','Observaciones'];
 }

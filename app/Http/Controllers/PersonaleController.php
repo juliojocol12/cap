@@ -21,10 +21,12 @@ class PersonaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $personales = personale::paginate(10);
-        return view('personal.index',compact('personales'));
+        $texto = trim($request->get('texto'));
+
+        $personales = personale::select('idPersonal','Nombre','CUI','Telefono','Direccion','Cargo','FechaNacimiento','NivelAcademico','CorreoElectronico','Observaciones')->where('Nombre','LIKE','%'.$texto.'%')->orwhere('Cargo','LIKE','%'.$texto.'%')->paginate(10);
+        return view('personal.index',compact('personales','texto'));
     }
 
     /**
@@ -98,23 +100,22 @@ class PersonaleController extends Controller
     {
         try {
             if ('CUI' === 'CUI') {
-        request()->validate([
-            'Nombre' => 'required|TextoRule1',
-            'CUI' => 'required|NumeroRule',
-            'Telefono' => 'required|NumeroRule',
-            'Direccion' => 'required',
-            'Cargo' => 'required|TextoRule1',
-            'FechaNacimiento' => 'required',
-            'NivelAcademico' => 'TextoRule2',
-            'CorreoElectronico' => 'CorreoRule2',
-            'Observaciones',
+                request()->validate([
+                'Nombre' => 'required|TextoRule1',
+                'CUI' => 'required|NumeroRule',
+                'Telefono' => 'required|NumeroRule',
+                'Direccion' => 'required',
+                'Cargo' => 'required|TextoRule1',
+                'FechaNacimiento' => 'required',
+                'NivelAcademico' => 'TextoRule2',
+                'CorreoElectronico' => 'CorreoRule2',
+                'Observaciones',
         ]);
-    }
-    
         $input = $request->all();
         $personal = personale::find($idPersonal);
         $personal->update($input);
         return redirect()->route('personal.index');
+    }
 
     } catch (\Throwable $th) {
         Log::debug($th -> getMessage());
@@ -132,7 +133,7 @@ class PersonaleController extends Controller
         $input = $request->all();
         $personal = personale::find($idPersonal);
         $personal->update($input);
-        return redirect()->route('personal.index');
+        return redirect()->route('personal.index');        
     }
 }
 

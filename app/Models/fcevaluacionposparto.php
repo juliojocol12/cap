@@ -13,7 +13,7 @@ class fcevaluacionposparto extends Model
     protected $fillable  = ['FCPrenatalPostparto_id','FechaEvaluacionPosparto','DatosPersonalesPacientes_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterialSignos','Fiebre','Coagulos','RegistroReferencia','NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Personal_idD',
     'HeridaOperatoria','InvolucionUterina','PresionArterial','FrecuenciaCardiaca','Temperatura',
     'ExamenMamas','ExamenGinecologico','LactanciaMaterna','PorqueNoLactanciaMaterna','Diagnostico',
-    'ConductaTratamiento','Usuario_id','SulfatoFerroso','AcidoFolico','OtroMedicamento','Tdap','ConsejeriaPF_Posparto','ConsejeriaLactanciaAlimentacion','ConsejeriaLactanciaMujerVIH','ConsejeriaMujerVIH','Infantes_id',];
+    'ConductaTratamiento','Usuario_id','SulfatoFerroso','AcidoFolico','OtroMedicamento','Tdap','ConsejeriaPF_Posparto','ConsejeriaLactanciaAlimentacion','ConsejeriaLactanciaMujerVIH','ConsejeriaMujerVIH',];
 
           
     public function datospersonalespacientes()
@@ -39,9 +39,5 @@ class fcevaluacionposparto extends Model
     public function personaless()
     {
         return $this->belongsTo('App\Models\personale', 'Personal_idD', 'idPersonal');
-    }
-    public function infantes()
-    {
-        return $this->belongsTo('App\Models\Infante', 'Infantes_id', 'idInfantes');
     }
 }

@@ -40,8 +40,6 @@ class CreateFcevaluacionpospartosTable extends Migration
             $table->unsignedInteger('EstablecimientoSalud_id');
             $table->foreign('EstablecimientoSalud_id')->references('idEstablecimientoSaludos')->on('establecimientosaludos');
             
-            $table->unsignedInteger('Infantes_id');
-            $table->foreign('Infantes_id')->references('idInfantes')->on('infantes');
 
             $table->unsignedInteger('Personal_idD');
             $table->foreign('Personal_idD')->references('idPersonal')->on('personales');

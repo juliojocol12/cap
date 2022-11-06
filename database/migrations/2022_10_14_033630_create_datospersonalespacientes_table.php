@@ -19,17 +19,17 @@ class CreateDatospersonalespacientesTable extends Migration
             $table->string('NombresPaciente',25);
             $table->string('ApellidosPaciente',25);
             $table->date('FechaNaciemientoPaciente');
-            $table->integer('CUI')->unique();
+            $table->string('CUI',15)->unique();
             $table->string('ProfesionOficio',25);
             
             $table->string('Descripciondireccion',60);
-            $table->string('Grupodireccion',20);
+            $table->string('Grupodireccion',20)->nullable();
             $table->string('Numerodireccion',10);
             $table->string('Zonadireccion',3);
             $table->string('Municipiodep',60);
 
-            $table->integer('Telefono');
-            $table->integer('Celular');
+            $table->string('Telefono',15);
+            $table->string('Celular',15);
             $table->string('EstadoCivil',7);
             $table->decimal('Peso',5, 2);
             $table->string('TipoSanguineo',5);
@@ -41,7 +41,7 @@ class CreateDatospersonalespacientesTable extends Migration
             $table->unsignedInteger('idDatosFamiliares');
             $table->foreign('idDatosFamiliares')->references('idDatosFamiliares')->on('datosfamiliares');
             
-            $table->string('Parentesco',20)->nullable();
+            $table->string('Parentesco',20);
 
             $table->timestamps();
         });

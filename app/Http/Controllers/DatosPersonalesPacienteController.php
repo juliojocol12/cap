@@ -66,9 +66,9 @@ class DatospersonalespacienteController extends Controller
             'Peso' => 'required|DecimalRule',
             'TipoSanguineo' => 'required',
             'MedicamentosActualmente',
-            'Migrante',
+            'Migrante' => 'required',
             'pueblo_id'=> 'required',
-            'idDatosFamiliares',
+            'idDatosFamiliares' => 'required',
             'Parentesco' => 'required|TextoRule1',
             'Descripciondireccion' => 'required|TextoRule3',
             'Grupodireccion' => 'TextoRule4',
@@ -140,22 +140,23 @@ class DatospersonalespacienteController extends Controller
                     'Peso' => 'required|DecimalRule',
                     'TipoSanguineo' => 'required',
                     'MedicamentosActualmente',
-                    'Migrante',
-                    'pueblo_id'=> 'required',                    
-                    'idDatosFamiliares',
+                    'Migrante' => 'required',
+                    'pueblo_id'=> 'required',
+                    'idDatosFamiliares' => 'required',
                     'Parentesco' => 'required|TextoRule1',
                     'Descripciondireccion' => 'required|TextoRule3',
-                    'Grupodireccion' => 'TextoRule3',
+                    'Grupodireccion' => 'TextoRule4',
                     'Numerodireccion' => 'required',
                     'Zonadireccion' => 'required|NumeroRule',
                     'Municipiodep' => 'required',
-                ]);
+                ]);  
+                $datos = $request->all();
+                $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
+                $paciente->update($datos);
+                return redirect()->route('pacientes.index');              
+                
             } 
             
-            $datos = $request->all();
-            $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
-            $paciente->update($datos);
-            return redirect()->route('pacientes.index');
 
         } catch (\Throwable $th) {
             Log::debug($th -> getMessage());
@@ -171,12 +172,12 @@ class DatospersonalespacienteController extends Controller
                 'Peso' => 'required|DecimalRule',
                 'TipoSanguineo' => 'required',
                 'MedicamentosActualmente',
-                'Migrante',
+                'Migrante' => 'required',
                 'pueblo_id'=> 'required',
-                'idDatosFamiliares',
+                'idDatosFamiliares' => 'required',
                 'Parentesco' => 'required|TextoRule1',
                 'Descripciondireccion' => 'required|TextoRule3',
-                'Grupodireccion' => 'TextoRule3',
+                'Grupodireccion' => 'TextoRule4',
                 'Numerodireccion' => 'required',
                 'Zonadireccion' => 'required|NumeroRule',
                 'Municipiodep' => 'required',

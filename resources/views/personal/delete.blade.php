@@ -13,7 +13,7 @@
         </button>
       </div>
       <div class="modal-body">
-      ¿Desea eliminar el registro de {{ $personal->Nombre }} {{ $personal->CUI }}?
+      ¿Desea eliminar el registro de {{ $personal->Nombre }}?
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-danger" value="Si">

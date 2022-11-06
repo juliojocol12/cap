@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+ 
 use App\Models\fcevaluacionposparto;
 use App\Models\datospersonalespaciente;
 use App\Models\establecimientosaludo;
@@ -31,12 +31,15 @@ class FcevaluacionpospartoController extends Controller
         //
         $texto = trim($request->get('texto'));
 
-        $fcevaluacionpospartos = fcevaluacionposparto::select('idFCEvaluacionPosparto','FCPrenatalPostparto_id','FechaEvaluacionPosparto','NombresPaciente','ApellidosPaciente','CUI','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterialSignos','Fiebre','Coagulos','RegistroReferencia','NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Personal_idD',
+        $fcevaluacionpospartos = fcevaluacionposparto::select('idFCEvaluacionPosparto','FCPrenatalPostparto_id','FechaEvaluacionPosparto','Numerodireccion','NombresPaciente','ApellidosPaciente','CUI','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterialSignos','Fiebre','Coagulos','RegistroReferencia','NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Personal_idD',
         'HeridaOperatoria','InvolucionUterina','PresionArterial','FrecuenciaCardiaca','Temperatura',
         'ExamenMamas','ExamenGinecologico','LactanciaMaterna','PorqueNoLactanciaMaterna','Diagnostico',
         'ConductaTratamiento','Usuario_id','SulfatoFerroso','AcidoFolico','OtroMedicamento','Tdap','ConsejeriaPF_Posparto','ConsejeriaLactanciaAlimentacion','ConsejeriaLactanciaMujerVIH','ConsejeriaMujerVIH',)
         ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcevaluacionpospartos.DatosPersonalesPacientes_id')
         ->where('CUI','LIKE','%'.$texto.'%')
+        ->orwhere('Numerodireccion','LIKE','%'.$texto.'%')
+        ->orwhere('NombresPaciente','LIKE','%'.$texto.'%')
+        ->orwhere('ApellidosPaciente','LIKE','%'.$texto.'%')
         ->paginate(10);
         return view('pospartos.index', compact('fcevaluacionpospartos','texto'));
     }
@@ -54,9 +57,8 @@ class FcevaluacionpospartoController extends Controller
         $fcprenatalpostpartos = fcprenatalpostparto::all();
         $usuarios = User::all();
         $personaless = personale::all()->where('Cargo','=','Doctor');
-        $infantes = Infante::all();
 
-        return view ('pospartos.crear')->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('fcprenatalpostpartos',$fcprenatalpostpartos)->with('usuarios',$usuarios)->with('personaless',$personaless)->with('infantes',$infantes);
+        return view ('pospartos.crear')->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('fcprenatalpostpartos',$fcprenatalpostpartos)->with('usuarios',$usuarios)->with('personaless',$personaless);
     }
 
     /**
@@ -69,7 +71,6 @@ class FcevaluacionpospartoController extends Controller
     {
         //
         $this->validate($request,[
-            'FCPrenatalPostparto_id' => 'required',
             'FechaEvaluacionPosparto' => 'required',
             'DatosPersonalesPacientes_id' => 'required',
             'HemorragiaVaginal' => 'required',
@@ -84,7 +85,6 @@ class FcevaluacionpospartoController extends Controller
             'NombreServicio' => 'required|TextoRule1',
             'DiasDespuesParto' => 'required|NumeroRule',
             'EstablecimientoSalud_id' => 'required',
-            'Infantes_id' => 'required',
             'Personal_idD' => 'required',
             'HeridaOperatoria' => 'required|TextoRule3',
             'InvolucionUterina' => 'required|TextoRule3',
@@ -131,8 +131,7 @@ class FcevaluacionpospartoController extends Controller
         $usuarios = User::all();
         $pueblos = Pueblo::all();
         $personaless = personale::all()->where('Cargo','=','Doctor');
-        $infantes = Infante::all();
-        return view ('pospartos.show', compact('fcevaluacionposparto'))->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('fcprenatalpostpartos',$fcprenatalpostpartos)->with('usuarios',$usuarios)->with('personaless',$personaless)->with('pueblos',$pueblos)->with('infantes',$infantes);
+        return view ('pospartos.show', compact('fcevaluacionposparto'))->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('fcprenatalpostpartos',$fcprenatalpostpartos)->with('usuarios',$usuarios)->with('personaless',$personaless)->with('pueblos',$pueblos);
     }
 
     /**
@@ -152,8 +151,7 @@ class FcevaluacionpospartoController extends Controller
         $usuarios = User::all();
         $pueblos = Pueblo::all();
         $personaless = personale::all()->where('Cargo','=','Doctor');
-        $infantes = Infante::all();
-        return view ('pospartos.editar', compact('fcevaluacionposparto'))->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('fcprenatalpostpartos',$fcprenatalpostpartos)->with('usuarios',$usuarios)->with('personaless',$personaless)->with('pueblos',$pueblos)->with('infantes',$infantes);
+        return view ('pospartos.editar', compact('fcevaluacionposparto'))->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('fcprenatalpostpartos',$fcprenatalpostpartos)->with('usuarios',$usuarios)->with('personaless',$personaless)->with('pueblos',$pueblos);
     }
 
     /**
@@ -168,7 +166,6 @@ class FcevaluacionpospartoController extends Controller
     {
         //
         request()->validate([
-            'FCPrenatalPostparto_id' => 'required',
             'FechaEvaluacionPosparto' => 'required',
             'DatosPersonalesPacientes_id' => 'required',
             'HemorragiaVaginal' => 'required',
@@ -183,7 +180,6 @@ class FcevaluacionpospartoController extends Controller
             'NombreServicio' => 'required|TextoRule1',
             'DiasDespuesParto' => 'required|NumeroRule',
             'EstablecimientoSalud_id' => 'required',
-            'Infantes_id' => 'required',
             'Personal_idD' => 'required',
             'HeridaOperatoria' => 'required|TextoRule3',
             'InvolucionUterina' => 'required|TextoRule3',

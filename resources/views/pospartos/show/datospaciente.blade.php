@@ -17,10 +17,10 @@
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
                                         <label for="">Direccion</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->datospersonalespacientes->Domicilio}}" disabled>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->datospersonalespacientes->Descripciondireccion}} {{$fcevaluacionposparto->datospersonalespacientes->Grupodireccion}} {{$fcevaluacionposparto->datospersonalespacientes->Numerodireccion}} zona {{$fcevaluacionposparto->datospersonalespacientes->Zonadireccion}} {{$fcevaluacionposparto->datospersonalespacientes->Municipiodep}}" disabled>
                                     </div>                                       
                                 </div>
 

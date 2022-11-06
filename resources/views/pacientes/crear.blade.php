@@ -120,7 +120,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">Peso</label>
-                                        {!! Form::text('Peso', null, array('class'=>'form-control','maxlength'=>'5','placeholder'=>'Ingrese peso en libras','autocomplete'=>'off')) !!}
+                                        {!! Form::text('Peso', null, array('class'=>'form-control','maxlength'=>'6','placeholder'=>'Ingrese peso en libras','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>   
 
@@ -174,9 +174,10 @@
                                         <input class="form-control" list="filtroIdFamiliares" id="filtroIdFamiliare" name="idDatosFamiliares" placeholder="ingrese en número de expediente" autocomplete="off">                                        
                                         <datalist id="filtroIdFamiliares" name="idDatosFamiliares">
                                             @foreach($datosfamiliares as $idfamliar)
-                                                <option value="{{$idfamliar->idDatosFamiliares}}"> {{$idfamliar->CUI}}, {{$idfamliar->NombresFamiliar}}</option>                                            
+                                                <option value="{{$idfamliar->idDatosFamiliares}}"> {{$idfamliar->CUI}}, {{$idfamliar->NombresFamiliar}}</
+                                                option>                                            
                                             @endforeach
-                                        </datalist>
+                                        </datalist>                                        
                                     </div>
                                 </div>
 
@@ -186,14 +187,16 @@
                                         <label for="">Parentesco</label>
                                         {!! Form::text('Parentesco', null, array('class'=>'form-control','maxlength'=>'20', 'placeholder'=>'Ingrese la relacion','autocomplete'=>'off')) !!}
                                     </div>
-                                </div>   
+                                </div> 
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Guardar</button>
+                                <a href="{{ route('pacientes.index') }}" class="btn btn-danger mr-3">Volver</a>
                                 </div>
 
                                 
                             </div>
+                            @include('modal.guardar')
                             {!! Form::close() !!}                    
                         </div>
                     </div>

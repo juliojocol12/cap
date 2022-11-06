@@ -13,7 +13,7 @@
         </button>
       </div>
       <div class="modal-body">
-      ¿Desea eliminar el registro de {{ $infant->Nombres }} {{ $infant->Apellidos }}?
+      ¿Desea eliminar el registro de {{ $infant->Nombres }} {{ $infant->Apellidos }} que pertenece a la madre {{$infant->NombresPaciente}} {{$infant->ApellidosPaciente}}?
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-danger" value="Si">

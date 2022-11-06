@@ -27,6 +27,7 @@
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
+                                                <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
                                             </div>
                                         </div>
                                     </form>

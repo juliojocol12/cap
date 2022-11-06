@@ -27,6 +27,7 @@
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
+                                                <a href="{{ route('pospartos.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
                                             </div>
                                         </div>
                                     </form>
@@ -37,6 +38,7 @@
                             <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
+                                    <th style="color:#fff;">No. Expediente</th>
                                     <th style="color:#fff;">Fecha</th>
                                     <th style="color:#fff;">Datos de paciente</th>
                                     <th style="color:#fff;">DPI</th>
@@ -50,7 +52,7 @@
                                     
                                         <tr>
                                             <td style="display: none;">{{ $fcevaluacionposparto->idFCEvaluacionPosparto }}</td>
-
+                                            <td>{{$fcevaluacionposparto->Numerodireccion}}</td>
                                             <td>{{$fcevaluacionposparto->FechaEvaluacionPosparto}}</td>
 
                                             
@@ -65,7 +67,7 @@
                                                 <a class="btn btn-info mr-3" href="{{ route('pospartos.edit', $fcevaluacionposparto->idFCEvaluacionPosparto) }}">Editar</a>
                                                 
                                                 <!-- Button trigger modal -->                                                
-                                                <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-ficha">Eliminar</button>
+                                                <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-ficha">Eliminar</button> 
 
                                             </td>
                                             

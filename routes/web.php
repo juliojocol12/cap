@@ -21,6 +21,7 @@ use App\Http\Controllers\FcprenatalpostpartoController;
 use App\Http\Controllers\ControleController;
 use App\Http\Controllers\FcevaluacionpospartoController;
 use App\Http\Controllers\EventoController;
+use App\Http\Controllers\ControlpospartoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +34,7 @@ use App\Http\Controllers\EventoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -59,6 +60,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('fcprenatalpostpartos', FcprenatalpostpartoController::class);
     Route::resource('controles', ControleController::class);
     Route::resource('pospartos', FcevaluacionpospartoController::class);
+    Route::resource('controlpospartos', ControlpospartoController::class);
+    
     //Route::resource('evento', EventoController::class);
     Route::get('/evento', [App\Http\Controllers\EventoController::class, 'index']);
     Route::post('/evento/agregar', [App\Http\Controllers\EventoController::class, 'store']);

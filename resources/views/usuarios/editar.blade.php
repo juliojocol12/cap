@@ -32,40 +32,49 @@
                                         {!! Form::text('name', null, array('class'=>'form-control','maxlength'=>'45')) !!}
                                     </div>
                                 </div>
+                            </div>
 
+                            <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Email</label>
                                         {!! Form::text('email', null, array('class'=>'form-control','maxlength'=>'20')) !!}
                                     </div>
                                 </div>
+                            </div>
 
+                            <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Contraseña</label>
                                         {!! Form::password('password', array('class'=>'form-control','maxlength'=>'12')) !!}
                                     </div>
                                 </div>
+                            </div>
 
+                            <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Confirmar contraseña</label>
                                         {!! Form::password('confirm-password', array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
+                            </div>
 
+                            <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Roles</label>
                                         {!! Form::select('roles[]', $roles,[''], array('class'=>'form-control')) !!}
                                     </div>
-                                </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <button type="submit" class="btn btn-primary">Actualizar</button>
-                                </div>
+                                </div>                                
                             </div>
-                            
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-actualizar">Actualizar</button>
+                                <a href="{{ route('usuarios.index') }}" class="btn btn-danger mr-3">Volver</a>
+                            </div>
+                            @include('modal.actualizar')
                             {!! Form::close() !!}
 
 

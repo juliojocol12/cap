@@ -28,22 +28,27 @@ class CreateControlpospartosTable extends Migration
             $table->string("HeridaOperatiria",25);
             $table->string("ExamenGInecológico",200);
             $table->String("PresionArterial",20);
+            $table->String("MMHG",20);
             $table->String("FrecuenciaCardiaca",20);
             $table->String("Temperatura",10);
             $table->string("LactanciaMaterna",2);
 
-            $table->Integer("ClasificacionPosparto_id")->unsigned();
-            $table->foreign('ClasificacionPosparto_id')->references('idClasificacionPospartos')->on('clasificacionpospartos');
+            $table->string('ProblemasDetectados', 100)->nullable();
 
-            $table->Integer("ConductaPosparto_id")->unsigned();
-            $table->foreign('ConductaPosparto_id')->references('idConductaPospartos')->on('conductapospartos');
+            $table->string('SulfatoFerroso',25);
+            $table->string('AcidoFolico',25);
+            $table->string('VacuncacionTdapMadre',20);
+            $table->string('Medicamento',45);
 
-            $table->Integer("ConsejeriaPosparto_id")->unsigned();
-            $table->foreign('ConsejeriaPosparto_id')->references('idConsejeriaPospartos')->on('consejeriapospartos');
+            $table->string('LactanciaMaternaExclusiva', 30);
+            $table->string('PlanificacionFamiliarPosparto', 30);
+            $table->string('AlimentacionMadreLactante', 30);
+            $table->string('LactanciaMaternaVIH', 30);
+            $table->string('MujerVIH', 30);
 
-            $table->Integer("OtrosControlesObs_id")->unsigned();
-            $table->foreign('OtrosControlesObs_id')->references('idOtrosControlesObs')->on('otroscontrolesobs');
-
+            $table->unsignedBigInteger('Usuario_id');
+            $table->foreign('Usuario_id')->references('id')->on('users');
+            
             $table->timestamps();
         });
     }

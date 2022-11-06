@@ -43,7 +43,7 @@
                     <input class="form-control" list="filtroFClinicas" id="filtroFClinica" name="FCPrenatalPostparto_id" placeholder="ingrese ficha clinica" autocomplete="off">                                        
                     <datalist id="filtroFClinicas" name="FCPrenatalPostparto_id">
                         @foreach($fcprenatalpostparto as $idFClinica)
-                        <option value="{{$idFClinica->idFCPrenatalPostpartos}}"> {{$idFClinica->ExpedienteNo}} </option>
+                        <option value="{{$idFClinica->idFCPrenatalPostpartos}}"> {{$idFClinica->Fecha}} </option>
                         @endforeach
                     </datalist>
                 </div>
@@ -53,8 +53,11 @@
                 <div class="form-group">
                     <label for="">Fecha Posible Parto</label>
                     {!! Form::date('FechaPosibleParto', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
+                    <a href="https://www.diainternacionalde.com/sumar-restar-dias-fecha" class="btn btn-danger mr-3">Saber fecha</a>
                 </div>
             </div>
+
+            
 
             <div class="col-xs-6 col-sm-6 col-md-2">
                 <div class="form-group">

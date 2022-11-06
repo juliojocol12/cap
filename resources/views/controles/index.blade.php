@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">FICHA CLINICA PRENATAL Y/O POSPARTO</h3>
+            <h3 class="page__heading">REGISTRO DE CONTROLES PARA FICHA CLINICA PRENATAL Y/O POSPARTO</h3>
         </div>
         <div class="section-body">
             <div class="row row-responsive">

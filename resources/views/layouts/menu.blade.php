@@ -66,6 +66,10 @@
         <i class=" fa fa-users"></i><span>Pueblos</span>
     </a>
 
+    <a class="nav-link" href="/controlpospartos">
+        <i class=" fa fa-users"></i><span>Control Posparto</span>
+    </a>
+
     
     
     <a class="nav-link" href="/datosfamiliares">

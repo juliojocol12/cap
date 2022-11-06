@@ -35,10 +35,10 @@
                     
 
                         <div class="col-xs-6 col-sm-6 col-md-6">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                            <button type="submit" class="btn btn btn-danger" href="infantes.index">Cancelar</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Guardar</button>
+                            <a href="{{ route('pospartos.index') }}" class="btn btn-danger mr-3">Volver</a>
                         </div>
-
+                        @include('modal.guardar')
                     {!! Form::close() !!}
 
 

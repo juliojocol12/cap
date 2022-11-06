@@ -26,24 +26,25 @@
 
                             {!! Form::model($infant, ['method' => 'PATCH', 'route'=> ['infantes.update', $infant->idInfantes ]]) !!}
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Nombres</label>
-                                        {!! Form::text('Nombres', null, array('class'=>'form-control','maxlength'=>'25','placeholder'=>'Ingrese los nombres del infante', )) !!}
+                                        <label for="">Nombres (*)</label>
+                                        {!! Form::text('Nombres', null, array('class'=>'form-control', 'maxlength'=>'45','placeholder'=>'Ingrese los nombres del infante','autocomplete'=>'off' )) !!}
                                     </div>
                                        
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Apellidos</label>
-                                        {!! Form::text('Apellidos', null, array('class'=>'form-control','maxlength'=>'25','placeholder'=>'Ingrese los apellidos del infante')) !!}
+                                        <label for="">Apellidos (*)</label>
+                                        {!! Form::text('Apellidos', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Ingrese los apellidos del infante', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+
+                                <div class="col-xs-1 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="Genero">Género</label>
+                                        <label for="Genero">Género (*)</label>
                                         <select class="form-control" name="Genero" maxlength="45">
                                         <option value="Masculino">Masculino</option>
                                         <option value="Femenino">Femenino</option>
@@ -51,82 +52,119 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Fecha de Nacimiento</label>
+                                        <label for="">Fecha de Nacimiento (*)</label>
                                         {!! Form::date('FechaNacimiento', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Hora de Naciemiento</label>
-                                        {!! Form::time('HoraNaciemiento', null, array('class'=>'form-control','maxlength'=>'5')) !!}
+                                        {!! Form::time('HoraNaciemiento', null, array('class'=>'form-control')) !!}
+                                        
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Peso en Libras</label>
-                                        {!! Form::text('PesoLB', null, array('class'=>'form-control','maxlength'=>'5','placeholder'=>'Peso en libras', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
+                                        <label for="">Peso en Libras (*)</label>
+                                        {!! Form::text('PesoLB', null, array('class'=>'form-control', 'maxlength'=>'7', 'placeholder'=>'Peso en libras', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Peso en Onzas</label>
-                                        {!! Form::text('PesoOnz', null, array('class'=>'form-control','maxlength'=>'5','placeholder'=>'Peso en onzas', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
+                                        <label for="">Peso en Onzas (*)</label>
+                                        {!! Form::text('PesoOnz', null, array('class'=>'form-control', 'maxlength'=>'7', 'placeholder'=>'Peso en onzas', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Altura</label>
-                                        {!! Form::text('Altura', null, array('class'=>'form-control','maxlength'=>'5','placeholder'=>'Altura en cm', 'pattern'=>'[0-9]{3}+[.]+[0-9]{2}')) !!}
+                                        <label for="">Altura (*)</label>
+                                        {!! Form::text('Altura', null, array('class'=>'form-control','maxlength'=>'7', 'placeholder'=>'Altura en cm', 'autocomplete'=>'off' )) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="name">Tipo de Sangre</label>
-                                        {!! Form::text('TipoSanguineo',  null, array('class'=>'form-control')) !!}
+                                        <label for="">Observaciones</label> <br> 
+                                        
+                                        <div class="form-outline w-100 mb-4">
+                                            <textarea class="form-control" id="Observaciones" name="Observaciones" style="height:90px; width: 100%; " maxlength="45" placeholder="Observaciones durante el nacimiento">{{$infant->Observaciones}}</textarea>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="name">Observaciones</label><br>
-                                        {!! Form::textarea('Observaciones', null, array('style'=>'background:#FCFCFC;height:90px;width:400px;border-color:#E3E3E3'))!!}
+                                        <label for="">Fecha de Egreso</label>
+                                        {!! Form::date('FechaEgreso', null, array('class'=>'form-control')) !!}
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xs-1 col-sm-6 col-md-1">
+                                    <div class="form-group">
+                                        <label for="">Tipo de Sangre</label>
+                                        <select class="form-control" name="TipoSanguineo">
+                                        <option select">{{$infant->TipoSanguineo}}</option>
+                                        <option value="N/A">N/A</option>
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="" value="DatosPersonalesPacientes_id">Datos de Madre (*)</label>
+
+                                        <input class="form-control" list="filtroIDPacientes" id="filtroIDPaciente" name="DatosPersonalesPacientes_id" placeholder="ingrese el cui de la madre" autocomplete="off" value="{{$infant->DatosPersonalesPacientes_id}}">                                        
+                                        <datalist id="filtroIDPacientes" name="DatosPersonalesPacientes_id" value="{{$infant->DatosPersonalesPacientes_id}}">
+                                            @foreach($datospacientes as $idpaciente)
+                                            <option value="{{$idpaciente->idDatosPersonalesPacientes}}"> {{$idpaciente->CUI}}, {{$idpaciente->NombresPaciente}} {{$idpaciente->ApellidosPaciente}} </option>
+                                            
+                                            @endforeach
+                                        </datalist>
+                                    </div>
+                                </div>
+                                
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="" value="idDatosFamiliares">Datos de un Familiar (*)</label>
+                                        <input class="form-control" list="filtroCUIFamiliares" id="filtroCUIFamiliar" name="idDatosFamiliares" placeholder="{{$infant->datosfamiliares->NombresFamiliar}}" autocomplete="off" value="{{$infant->idDatosFamiliares}}">
+
+                                        <datalist id="filtroCUIFamiliares" name="idDatosFamiliares">
+                                            @foreach($datosfamiliares as $cuifamiliar)
+                                            <option value="{{$cuifamiliar->idDatosFamiliares}}"> {{$cuifamiliar->CUI}}, {{$cuifamiliar->NombresFamiliar}} {{$cuifamiliar->ApellidosFamiliar}} </option>
+                                            
+                                            @endforeach
+                                        </datalist>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Parentesco (*)</label>
+                                        {!! Form::text('Parentesco', null, array('class'=>'form-control', 'maxlength'=>'20', 'placeholder'=>'Parentesco', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-5">
-                                    <div class="form-group">                                        
-                                    <label for="name">Datos de la madre</label>
-                                        {!! Form::text('DatosPersonalesPacientes_id',  null, array('class'=>'form-control')) !!}
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-5">
-                                    <div class="form-group">
-                                    <label for="name">Datos de Familiar</label>
-                                        {!! Form::text('idDatosFamiliares',  null, array('class'=>'form-control')) !!}
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Parentesco</label>
-                                        {!! Form::text('Parentesco', null, array('class'=>'form-control', 'placeholder'=>'Parentesco', 'autocomplete'=>'off')) !!}
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-5">
-                                    <button type="submit" class="btn btn-primary">Actualizar</button>
-                                    <button type="submit" class="btn btn btn-danger" href="infantes.index">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-actualizar">Actualizar</button>
+                                    <a href="{{ route('infantes.index') }}" class="btn btn-danger mr-3">Volver</a>
                                 </div>
                             </div>
-                            
+                            @include('modal.actualizar')
                             {!! Form::close() !!}
 
 

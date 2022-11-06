@@ -47,7 +47,7 @@ class CreateFcprenatalpostpartosTable extends Migration
             $table->string('HijosMuertos',2)->nullable();
             $table->string('NoCesareas',2)->nullable();
             $table->string('EmbarazoMultiples',2)->nullable();
-            $table->date('FechaUltimoParto');
+            $table->date('FechaUltimoParto')->nullable();
             $table->string('NacidosAntesOchoMeses',2)->nullable();
             $table->string('PreEclampsia',2)->nullable();
             $table->string('UltimoRNPesoCincolb',2)->nullable();

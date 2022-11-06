@@ -5,7 +5,7 @@
                                 <div class="col-xs-6 col-sm-6 col-md-1">
                                     <div class="form-group">
                                         <label for="">Expediente</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->fcprenatalpostpartos->ExpedienteNo}}" disabled>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->datospersonalespacientes->Numerodireccion}}" disabled>
                                     </div>                                       
                                 </div>
 

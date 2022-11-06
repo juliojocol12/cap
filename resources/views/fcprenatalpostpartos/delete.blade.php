@@ -13,7 +13,7 @@
         </button>
       </div>
       <div class="modal-body">
-      ¿Desea eliminar el registro de ?
+      ¿Desea eliminar el registro de la ficha clinica de {{$fcprenatalpostparto->NombresPaciente}} {{$fcprenatalpostparto->ApellidosPaciente}} ?
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-danger" value="Si">

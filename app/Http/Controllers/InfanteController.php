@@ -21,12 +21,16 @@ class InfanteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        
-        $infantes = infante::paginate(10);
-        return view('infantes.index', compact('infantes'));
+        // 
+        $texto = trim($request->get('texto'));
+        $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','PesoOnz','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI',)
+        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+        ->where('CUI','LIKE','%'.$texto.'%')
+        ->orwhere('NombresPaciente','LIKE','%'.$texto.'%')->orwhere('ApellidosPaciente','LIKE','%'.$texto.'%')
+        ->paginate(10);
+        return view('infantes.index', compact('infantes','texto'));
 
     }
         
@@ -48,12 +52,6 @@ class InfanteController extends Controller
         $datospacientes = datospersonalespaciente::all();
         $datosfamiliares = datosfamiliare::all();
         
-/*
-        $texto = trim($request->get('texto'));
-        $datospacientefiltro = datospersonalespaciente::all()->where('CUI','LIKE','%'.$texto.'%');
-        $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','CUI')->where('CUI','LIKE','%'.$texto.'%')->paginate(10);
-*/
-        //return view ('infantes.crear', compact('datospersonalespacientes','datospacientefiltro','texto'))->with('datosfamiliares',$datosfamiliares);
 
         return view ('infantes.crear')->with('datosfamiliares',$datosfamiliares)->with('datospacientes',$datospacientes);
     }

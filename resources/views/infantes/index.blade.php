@@ -10,15 +10,31 @@
                 <div class="col-lg-12 col-responsive">
                     <div class="card">
                         <div class="card-body">
-                            
+                                                        
+                            <a class="btn btn-warning" href="{{ route('infantes.create') }}">Ingresar Infante</a>
+
                             @if(session('status'))
                                 <div class="alert alert-success mt-4">
                                     {{ session('status') }}
                                 </div>
-                            @endif
+                            @endif 
 
-                                                        
-                            <a class="btn btn-warning" href="{{ route('infantes.create') }}">Ingresar Infante</a>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <form action="{{ route('infantes.index') }}" method="GET">
+                                        <div class="form-row">
+                                            <div class="col-sm-4 my-1">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el Nombre para buscar">
+                                            </div>
+                                            <div class="col-sm-4 my-1">
+                                                <input type="submit" class="btn btn-primary" value="Buscar">
+                                                <a href="{{ route('infantes.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
 
                             
                             <table class="table  table-striped mt-2 table-responsive">
@@ -27,6 +43,7 @@
                                     <th style="color:#fff;">Nombres</th>
                                     <th style="color:#fff;">Apellidos</th>
                                     <th style="color:#fff;">Datos de la mamá</th>
+                                    <th style="color:#fff;">DPI de la madre</th>
                                     <th style="color:#fff;">Datos de familiares</th>
                                     <th style="color:#fff;">Parentesco</th>
 
@@ -34,12 +51,18 @@
                                 </thead>
                                 
                                 <tbody>
+                                    @if(count($infantes)<=0)
+                                        <tr>
+                                            <td colspan="8">No hay resultados</td>
+                                        </tr>
+                                    @else
                                     @foreach($infantes as $infant)
                                         <tr>
                                             <td style="display: none;">{{ $infant->idInfantes }}</td>
                                             <td>{{$infant->Nombres}}</td>
                                             <td>{{$infant->Apellidos}}</td>
-                                            <td>{{$infant->NombresPaciente}} {{$infant->datospersonalespacientes->ApellidosPaciente}}</td>
+                                            <td>{{$infant->NombresPaciente}} {{$infant->ApellidosPaciente}}</td>
+                                            <td>{{$infant->CUI}}</td>
                                             <td>{{$infant->datosfamiliares->NombresFamiliar}} {{$infant->datosfamiliares->ApellidosFamiliar}}</td>
                                             <td>{{$infant->Parentesco}}</td>
                                             <td>
@@ -53,6 +76,7 @@
                                         </tr>
                                         @include('infantes.delete')
                                     @endforeach
+                                    @endif
                                 </tbody>
 
                             </table>

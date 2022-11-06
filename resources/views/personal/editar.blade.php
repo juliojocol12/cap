@@ -26,76 +26,84 @@
 
                             {!! Form::model($personal, ['method' => 'PATCH', 'route'=> ['personal.update', $personal->idPersonal]]) !!}
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-3">
-                                    <div class="form-group">
-                                        <label for="name">Nombre</label>
-                                        {!! Form::text('Nombre', null, array('class'=>'form-control', 'maxlength'=>'45', 'placeholder'=>'Ingrese el nombre completo'))!!}
-                                    </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="name">Nombres y Apellidos (*)</label>
+                                    {!! Form::text('Nombre', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Ingrese el nombre completo','autocomplete'=>'off' ))!!}
                                 </div>
-    
-                                <div class="col-xs-12 col-sm-12 col-md-3">
-                                    <div class="form-group">
-                                        <label for="name">CUI</label>
-                                        {!! Form::text('CUI', null, array('class'=>'form-control','maxlength'=>'15')) !!}
-                                    </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="form-group">
+                                    <label for="name">DPI (*)</label>
+                                    {!! Form::text('CUI', null, array('class'=>'form-control','maxlength'=>'15','minlength'=>'13', 'maxlength'=>'14', 'placeholder'=>'Ingrese el DPI con números','autocomplete'=>'off' )) !!}
                                 </div>
-    
-                                <div class="col-xs-12 col-sm-12 col-md-3">
-                                    <div class="form-group">
-                                        <label for="name">Telefono</label>
-                                        {!! Form::text('Telefono', null, array('class'=>'form-control','maxlength'=>'15')) !!}
-                                    </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="form-group">
+                                    <label for="name">Telefono (*)</label>
+                                    {!! Form::text('Telefono', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'8', 'placeholder'=>'Ingrese números','autocomplete'=>'off')) !!}
                                 </div>
-    
-                                <div class="col-xs-12 col-sm-12 col-md-8">
-                                    <div class="form-group">
-                                        <label for="name">Direccion</label>
-                                        {!! Form::text('Direccion', null, array('class'=>'form-control','maxlength'=>'45')) !!}
-                                    </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="name">Direccion (*)</label>
+                                    {!! Form::text('Direccion', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'45', 'placeholder'=>'Ingrese la dirección','autocomplete'=>'off')) !!}
                                 </div>
-    
-                                <div class="col-xs-12 col-sm-12 col-md-3">
-                                    <div class="form-group">
-                                        <label for="name">Cargo</label>
-                                        {!! Form::text('Cargo', null, array('class'=>'form-control','maxlength'=>'30','placeholder'=>'Ingrese el cargo que desempeña')) !!}
-                                    </div>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="form-group">
+                                    <label for="" value="Cargo">Cargo (*)</label>
+                                    <input class="form-control" list="filtroIdPacientes" id="filtroIdPaciente" name="Cargo" value="{{$personal->Cargo}}">
+                                    <datalist id="filtroIdPacientes" name="Cargo" value="{{$personal->Cargo}}" {{$personal->Cargo}}>
+                                    
+                                        <option value="Doctor"> Doctor</option>       
+                                        <option value="Enfermero"> Enfermero</option>      
+                                    </datalist>
                                 </div>
-    
-                                <div class="col-xs-12 col-sm-12 col-md-3">
-                                    <div class="form-group">
-                                        <label for="name">Fecha Nacimiento</label>
-                                        {!! Form::date('FechaNacimiento', null, array('class'=>'form-control')) !!}
-                                    </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-3">
+                                <div class="form-group">
+                                    <label for="name">Fecha Nacimiento (*)</label>
+                                    {!! Form::date('FechaNacimiento', null, array('class'=>'form-control')) !!}
                                 </div>
-    
-                                <div class="col-xs-12 col-sm-12 col-md-3">
-                                    <div class="form-group">
-                                        <label for="name">Nivel Academico</label>
-                                        {!! Form::text('NivelAcademico', null, array('class'=>'form-control','maxlength'=>'30')) !!}
-                                    </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-3">
+                                <div class="form-group">
+                                    <label for="name">Nivel Academico</label>
+                                    {!! Form::text('NivelAcademico', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'30', 'placeholder'=>'Ingrese el nivel academico','autocomplete'=>'off')) !!}
                                 </div>
-    
-                                <div class="col-xs-12 col-sm-12 col-md-3">
-                                    <div class="form-group">
-                                        <label for="name">Correo Electronico</label>
-                                        {!! Form::text('CorreoElectronico', null, array('class'=>'form-control','maxlength'=>'20')) !!}
-                                    </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-3">
+                                <div class="form-group">
+                                    <label for="name">Correo Electronico </label>
+                                    {!! Form::text('CorreoElectronico', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'20', 'placeholder'=>'Ingrese el correo','autocomplete'=>'off')) !!}
                                 </div>
-    
-                                <div class="col-xs-12 col-sm-12 col-md-4">
-                                    <div class="form-group">
-                                        <label for="name">Observaciones</label><br>
-                                        {!! Form::textarea('Observaciones', null, array('style'=>'background:#FCFCFC;height:90px;width:400px;border-color:#E3E3E3','maxlength'=>'50'))!!}
-                                    </div>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-6 col-md-4">                            
+                                <div class="form-group">
+                                    <label for="name">Observaciones</label><br>
+                                <div class="form-outline w-100 mb-4">
+                                    <textarea class="form-control" id="Observaciones" name="Observaciones" style="height:45px; width: 100%; " maxlength="50" placeholder="Ingrese alguna observacion">{{$personal->Observaciones}}</textarea>
+
                                 </div>
+                            </div>
     
     
                                 <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-actualizar">Actualizar</button>
+                                    <a href="{{ route('personal.index') }}" class="btn btn-danger mr-3">Volver</a>
                                 </div>
                                 
                             </div>
-                            
+                            @include('modal.actualizar')
                             {!! Form::close() !!}                        
                         </div>
                     </div>

@@ -28,11 +28,11 @@
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
+                                                <a href="{{ route('pacientes.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-
                             </div>
 
                             <table class="table  table-striped mt-2 table-responsive">

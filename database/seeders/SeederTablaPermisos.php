@@ -85,6 +85,15 @@ class SeederTablaPermisos extends Seeder
             'editar-controle', 
             'borrar-controle',
 
+            //tabla controlposparto
+            'ver-controlposparto',
+            'crear-controlposparto',
+            'editar-controlposparto', 
+            'borrar-controlposparto',
+            
+
+            
+
         ];
         foreach($permisos as $permiso){
             Permission::create(['name'=>$permiso]);

@@ -2,7 +2,7 @@
                         <div class="card-body">
                         <h3 class="page__heading">Antecedentes medicos</h3>
                         <div class="row ">
-                        <div class="col-xs-1 col-sm-6 col-md-2">
+                        <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="AsmaBronquial">Asma Bronquial</label>
                                         <select class="form-control" name="AsmaBronquial">
@@ -12,7 +12,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="HipertensionArterial">Hipertensión Arterial</label>
                                         <select class="form-control" name="HipertensionArterial">
@@ -22,7 +22,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="Cancer">Cáncer</label>
                                         <select class="form-control" name="Cancer">
@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="ITS">ITS</label>
                                         <select class="form-control" name="ITS">
@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="Chagas">Chagas</label>
                                         <select class="form-control" name="Chagas">
@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="TomaMedicamentos">Toma Medicamentos</label>
                                         <select class="form-control" name="TomaMedicamentos">
@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="TrastornoPiscoSocial">Trastorno PsicoSocial</label>
                                         <select class="form-control" name="TrastornoPiscoSocial">
@@ -72,7 +72,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="ViolenciaGenero">Violencia basada en género</label>
                                         <select class="form-control" name="ViolenciaGenero">
@@ -82,7 +82,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="Diabetes">Diabetes</label>
                                         <select class="form-control" name="Diabetes">
@@ -92,7 +92,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="Cardiopatia">Cardiopatia</label>
                                         <select class="form-control" name="Cardiopatia">
@@ -102,7 +102,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="Tuberculosis">Tuberculosis</label>
                                         <select class="form-control" name="Tuberculosis">
@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="Neuropatia">Neuropatia</label>
                                         <select class="form-control" name="Neuropatia">
@@ -122,7 +122,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="InfeccionesUrinarias">Infecciones Urinarias</label>
                                         <select class="form-control" name="InfeccionesUrinarias">
@@ -132,7 +132,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="ViolenciaInrtraFamiliar">Violencia InrtraFamiliar</label>
                                         <select class="form-control" name="ViolenciaInrtraFamiliar">
@@ -142,7 +142,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Tipo de Sangre</label>
                                         <select class="form-control" name="TipoSangre">
@@ -158,7 +158,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="Fuma">Fuma</label>
                                         <select class="form-control" name="Fuma">
@@ -168,7 +168,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="BebidasAlcoholicas">Ingiere bebidas alcohólicas</label>
                                         <select class="form-control" name="BebidasAlcoholicas">
@@ -178,7 +178,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="ConsumoDrogas">Consumo de drogas</label>
                                         <select class="form-control" name="ConsumoDrogas">
@@ -188,7 +188,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="AntecedentesVacunas">Antecedentes de vacuna Td</label>
                                         <select class="form-control" name="AntecedentesVacunas">
@@ -198,21 +198,21 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Dosis de Vacuna</label>
                                         {!! Form::text('DosisVacuna', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Dosis de Vacuna', 'autocomplete'=>'off')) !!}
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Fecha de Ultima Dosis</label>
+                                        <label for="">Fecha de Ultima Dosis (*)</label>
                                         {!! Form::date('FechaUltimaDosis', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="SR">SR</label>
                                         <select class="form-control" name="SR">
@@ -224,22 +224,20 @@
                                 
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Quirurgicos</label>
+                                        <label for="">Quirurgicos (*)</label>
                                         <div class="form-outline w-100 mb-4">
 
-                                            <textarea class="form-control" id="Quirurgicos" name="Quirurgicos" style="height:60px; width: 100%; " maxlength="300" placeholder="Ingrese"></textarea>
+                                            <textarea class="form-control" id="Quirurgicos" name="Quirurgicos" style="height: 90px; width: 100%; " maxlength="45" placeholder="Ingrese información quirurgico"></textarea>
 
                                         </div>  
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <label for="">Otros Antecedentes</label>
+                                        <label for="">Otros Antecedentes (*)</label>
                                         <div class="form-outline w-100 mb-4">
-
-                                            <textarea class="form-control" id="OtrosAntecedentes" name="OtrosAntecedentes" style="height:60px; width: 100%; " maxlength="300" placeholder="Ingrese"></textarea>
-
+                                            <textarea class="form-control" id="OtrosAntecedentes" name="OtrosAntecedentes" style="height: 90px; width: 100%; " maxlength="75" placeholder="Describa otros antecedentes"></textarea>
                                         </div>
                                     </div>      
                                 </div>
