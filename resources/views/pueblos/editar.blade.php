@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+Editar datos de Pueblos
+@endsection
 
 @section('content')
     <section class="section">
@@ -35,7 +38,7 @@
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <button type="submit" class="btn btn-primary">Actualizar</button>
-                                    <button type="submit" class="btn btn btn-danger" href="pueblos.index">Cancelar</button>
+                                    <a href="{{ route('pueblos.index') }}" class="btn btn-danger mr-3">Volver</a>
                                 </div>
                             </div>
                             

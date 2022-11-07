@@ -10,7 +10,7 @@
             <img class="navbar-brand-full" src="{{ asset('img/images.png') }}" width="45px" alt=""/>
         </a>
     </div>
-    <ul class="list-unstyled components sidebar-menu ">
+    <ul class="sidebar-menu ">
         @include('layouts.menu')
     </ul>
 </aside>

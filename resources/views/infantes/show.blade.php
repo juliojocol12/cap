@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Datos de {{$infant->Nombres}} {{$infant->Apellidos}}
+@endsection
 
 @section('content')
     <section class="section">

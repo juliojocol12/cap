@@ -1,9 +1,13 @@
 @extends('layouts.app')
+@section('title')
+Editar datos de control de la paciente No. {{$controlposparto->idControlPosparto}}
+@endsection
+
 @section('content')
     <section class="section">
         
         <div class="section-header">
-            <h3 class="page__heading">editar control</h3>
+            <h3 class="page__heading">Editar datos de control de la paciente No. {{$controlposparto->idControlPosparto}}</h3>
         </div>
         <div class="section-body">
         <div class="row row-responsive">
@@ -20,7 +24,7 @@
                                 </button>
                             </div>
                             @endif
-
+                            <a href="{{ route('controlpospartos.index') }}" class="btn btn-danger mr-3">Cancelar</a>
                     {!! Form::model($controlposparto, ['method' => 'PATCH', 'route'=> ['controlpospartos.update', $controlposparto->idControlPosparto ]]) !!}
                     
                         @include('controlpospartos.editar.control')

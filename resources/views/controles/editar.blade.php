@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('title')
+Editar datos del expediente No. {{$controle->NoControl}}
+@endsection
+
 @section('content')
     <section class="section">
         

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+Ingreso de estableciemiento de salud
+@endsection
 
 @section('content')
     <section class="section">

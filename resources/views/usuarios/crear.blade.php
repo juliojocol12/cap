@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Ingresar nuevo usuario
+@endsection
 
 @section('content')
     <section class="section">

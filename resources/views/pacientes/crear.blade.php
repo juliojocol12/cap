@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Crear datos de paciente
+@endsection
 
 @section('content')
     <section class="section">

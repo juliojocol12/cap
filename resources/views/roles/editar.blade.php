@@ -1,9 +1,12 @@
 @extends('layouts.app')
+@section('title')
+    Editar rol de {{$role->name}}
+@endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Editar rol</h3>
+            <h3 class="page__heading">Editar datos de rol de {{$role->name}}</h3>
         </div>
         <div class="section-body">
             <div class="row">

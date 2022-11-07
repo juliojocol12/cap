@@ -1,9 +1,12 @@
 @extends('layouts.app')
+@section('title')
+    Datos del expediente No. {{$fcprenatalpostparto->datospersonalespacientes->Numerodireccion}}
+@endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Datos del expediente No. {{$fcprenatalpostparto->ExpedienteNo}} </h3>
+            <h3 class="page__heading">Datos del expediente No. {{$fcprenatalpostparto->datospersonalespacientes->Numerodireccion}} </h3>
         </div>
         <div class="section-body">
             <div class="row row-responsive">

@@ -1,9 +1,13 @@
 @extends('layouts.app')
+@section('title')
+    Editar datos del expediente No. {{$fcprenatalpostparto->datospersonalespacientes->Numerodireccion}}
+@endsection
+
 @section('content')
     <section class="section">
         
         <div class="section-header">
-            <h3 class="page__heading">EDITAR FICHA CLINICA PRENATAL Y/O POSPARTO</h3>
+            <h3 class="page__heading">Editar datos del expediente No. {{$fcprenatalpostparto->datospersonalespacientes->Numerodireccion}}</h3>
         </div>
         <div class="section-body">
         <div class="row row-responsive">
@@ -20,6 +24,7 @@
                                 </button>
                             </div>
                             @endif
+                            <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-danger mr-3">Cancelar</a>    
                     {!! Form::model($fcprenatalpostparto, ['method' => 'PATCH', 'route'=> ['fcprenatalpostpartos.update', $fcprenatalpostparto->idFCPrenatalPostpartos ]]) !!}
                     <div class="card">
                         <div class="card-body">                            

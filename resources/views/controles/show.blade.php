@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+Datos del expediente No. {{$controle->NoControl}}
+@endsection
 
 @section('content')
     <section class="section">
@@ -20,7 +23,8 @@
                             </button>
                         </div>
                     @endif
-
+                    <a href="{{ route('controles.index') }}" class="btn btn-success mr-3">Volver</a>
+                    <a href="{{ route('controles.edit', $controle->idControles) }}" class="btn btn-info mr-3">Editar</a>
                     @include('controles.show.examenfisicoembarazada'),
                     @include('controles.show.signosysintomaspeligro'),
                     @include('controles.show.signosvitales'),
@@ -33,10 +37,6 @@
                     @include('controles.show.clasificacion'),
                     @include('controles.show.conducta'),
                     @include('controles.show.consejeria'),
-                    <a href="{{ route('controles.index') }}" class="btn btn-success mr-3">Volver</a>
-                    <a href="{{ route('controles.edit', $controle->idControles) }}" class="btn btn-info mr-3">Editar</a>
-                    
-                    
                 </div>
             </div>
             <div class="row">

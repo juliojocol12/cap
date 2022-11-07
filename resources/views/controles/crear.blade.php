@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('title')
+    Ingresar cotrol prenatal
+@endsection
+
 @section('content')
     <section class="section">
         
@@ -20,7 +24,7 @@
                                 </button>
                             </div>
                             @endif
-
+                            <a href="{{ route('controles.index') }}" class="btn btn-danger mr-3">Volver</a>
                             {!! Form::open(array('route'=>'controles.store', 'method'=>'POST')) !!}
 
                             @include('controles.crear.examenfisicoembarazada')

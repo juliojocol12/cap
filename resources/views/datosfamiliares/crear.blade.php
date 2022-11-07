@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Crear datos familiar
+@endsection
 
 @section('content')
     <section class="section">

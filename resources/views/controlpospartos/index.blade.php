@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+Control posparto
+@endsection
 
 @section('content')
     <section class="section">

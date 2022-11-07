@@ -1,9 +1,12 @@
 @extends('layouts.app')
+@section('title')
+    Embarazadas
+@endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Pacientes</h3>
+            <h3 class="page__heading">Embarazadas</h3>
         </div>
         <div class="section-body">
             <div class="row">

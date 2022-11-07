@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+Datos el control de la paciente No.
+@endsection
+
 @section('content')
     <section class="section">
         <div class="section-header">

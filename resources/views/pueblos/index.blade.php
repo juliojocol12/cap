@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+Pueblos
+@endsection
 
 @section('content')
     <section class="section">

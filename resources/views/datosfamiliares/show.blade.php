@@ -1,9 +1,12 @@
 @extends('layouts.app')
+@section('title')
+    Datos de {{$datosfamiliare->NombresFamiliar}} {{$datosfamiliare->ApellidosFamiliar}}
+@endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Mostarr Datos de  </h3>
+            <h3 class="page__heading">Datos de {{$datosfamiliare->NombresFamiliar}} {{$datosfamiliare->ApellidosFamiliar}} </h3>
         </div>
         <div class="section-body">
             <div class="row">

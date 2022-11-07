@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('title')
+    Crear datos para ficha clinica prenatal
+@endsection
+
 @section('content')
     <section class="section">
         
@@ -20,7 +24,7 @@
                                 </button>
                             </div>
                             @endif
-
+                            <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-danger mr-3">Cancelar</a>
                             {!! Form::open(array('route'=>'fcprenatalpostpartos.store', 'method'=>'POST')) !!}
                     <div class="card">
                         <div class="card-body">

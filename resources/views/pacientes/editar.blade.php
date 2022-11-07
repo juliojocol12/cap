@@ -1,9 +1,12 @@
 @extends('layouts.app')
+@section('title')
+    Editar de datos de {{$paciente->NombresPaciente}} {{$paciente->ApellidosPaciente}}
+@endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Editar Paciente</h3>
+            <h3 class="page__heading">Editar datos de la paciente {{$paciente->NombresPaciente}} {{$paciente->ApellidosPaciente}}</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -202,6 +205,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-actualizar">Actualizar</button>
                                     <a href="{{ route('pacientes.index') }}" class="btn btn-danger mr-3">Volver</a>
+                                    
                                 </div>
                             </div>
                             @include('modal.actualizar')

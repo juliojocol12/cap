@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+Datos del expediente No. {{$fcevaluacionposparto->datospersonalespacientes->Numerodireccion}}
+@endsection
 
 @section('content')
     <section class="section">

@@ -1,9 +1,12 @@
 @extends('layouts.app')
+@section('title')
+    Editar datos de {{$user->name}}
+@endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Editar usuario</h3>
+            <h3 class="page__heading">Editar datos de usuario {{$user->name}}</h3>
         </div>
         <div class="section-body">
             <div class="row">

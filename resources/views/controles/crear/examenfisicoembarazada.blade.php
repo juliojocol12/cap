@@ -53,7 +53,7 @@
                 <div class="form-group">
                     <label for="">Fecha Posible Parto</label>
                     {!! Form::date('FechaPosibleParto', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
-                    <a href="https://www.diainternacionalde.com/sumar-restar-dias-fecha" class="btn btn-danger mr-3">Saber fecha</a>
+                    <a href="https://www.diainternacionalde.com/sumar-restar-dias-fecha" target="_blank" class="btn btn-danger mr-3">Saber fecha</a>
                 </div>
             </div>
 

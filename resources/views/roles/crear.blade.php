@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Crear roles
+@endsection
 
 @section('content')
     <section class="section">

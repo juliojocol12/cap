@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Editar datos de {{$personal->Nombre }}
+@endsection
 
 @section('content')
     <section class="section">

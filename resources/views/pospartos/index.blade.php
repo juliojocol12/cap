@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+Ficha clinica Posparto
+@endsection
 
 @section('content')
     <section class="section">
