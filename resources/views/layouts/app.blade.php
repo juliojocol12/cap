@@ -34,6 +34,9 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
     
+
+    
+    
     
 
 @yield('page_css')
@@ -41,7 +44,7 @@
     <link rel="stylesheet" href="{{ asset('web/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/components.css')}}">
     @yield('page_css')
-
+    @yield('scripts')
     @yield('css')
 </head>
 <body>
@@ -90,7 +93,7 @@
 <script src="{{ mix('assets/js/custom/custom.js') }}"></script>
 <script src="{{ asset('js/agenda.js') }}"></script>
 @yield('page_js')
-@yield('scripts')
+
 <script>
     let loggedInUser =@json(\Illuminate\Support\Facades\Auth::user());
     let loginUrl = '{{ route('login') }}';

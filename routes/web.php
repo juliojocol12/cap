@@ -20,8 +20,8 @@ use App\Http\Controllers\EstablecimientosaludoController;
 use App\Http\Controllers\FcprenatalpostpartoController;
 use App\Http\Controllers\ControleController;
 use App\Http\Controllers\FcevaluacionpospartoController;
-use App\Http\Controllers\EventoController;
 use App\Http\Controllers\ControlpospartoController;
+use App\Http\Controllers\EventosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,8 +63,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('controlpospartos', ControlpospartoController::class);
     
     //Route::resource('evento', EventoController::class);
-    Route::get('/evento', [App\Http\Controllers\EventoController::class, 'index']);
-    Route::post('/evento/agregar', [App\Http\Controllers\EventoController::class, 'store']);
+    Route::resource('eventos', EventosController::class);
     
 
     
