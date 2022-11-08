@@ -91,7 +91,17 @@ class SeederTablaPermisos extends Seeder
             'editar-controlposparto', 
             'borrar-controlposparto',
             
-
+            //tabla home
+            'home-personal',
+            'home-infantes',
+            'home-pacientes',
+            'home-familiares',
+            'home-prenatal',
+            'home-controlprenatal',
+            'home-posparto',
+            'home-controlposparto',
+            'home-pueblo',
+            'home-establecimiento',
             
 
         ];

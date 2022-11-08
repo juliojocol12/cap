@@ -18,9 +18,12 @@
                                 <div class="alert alert-success mt-4">
                                     {{ session('status') }}
                                 </div>
-                        @endif               
-            
-                        <a class="btn btn-warning" href="{{ route('personal.create') }}">Nuevo</a>
+                        @endif
+
+                        @can('crear-personal')
+                            <a class="btn btn-warning" href="{{ route('personal.create') }}">Nuevo</a>
+                        @endcan
+                        
 
                         <div class="row">
                                 <div class="col-xl-12">
@@ -71,8 +74,13 @@
                                         <td>{{ $personal->CorreoElectronico }}</td>
                                         <td>{{ $personal->Observaciones }}</td>
                                         <td>
-                                            <a class="btn btn-info" href="{{ route('personal.edit', $personal->idPersonal) }}">Editar</a>
-                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$personal->idPersonal}}">Eliminar</button>
+                                            @can('editar-personal')
+                                                <a class="btn btn-info" href="{{ route('personal.edit', $personal->idPersonal) }}">Editar</a>    
+                                            @endcan
+                                            @can('borrar-personal')
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$personal->idPersonal}}">Eliminar</button>
+                                            @endcan
+                                            
                                         </td>                      
                                     </tr>
                                 @include('personal.delete')

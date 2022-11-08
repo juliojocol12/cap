@@ -11,7 +11,7 @@ class PersonaleController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:ver-personal | crear-personal | editar-personal | borrar-personal', ['only'=>['index']]);
+         $this->middleware('permission:ver-personal', ['only'=>['index']]);
          $this->middleware('permission:crear-personal', ['only' => ['create','store']]);
          $this->middleware('permission:editar-personal', ['only' => ['edit','update']]);
          $this->middleware('permission:borrar-personal', ['only' => ['destroy']]);
