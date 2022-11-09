@@ -1,12 +1,30 @@
 <li class="side-menus {{ Request::is('*') ? 'active' : '' }}">
     
-    <hr class="dropdown-divider">
-    <a class="nav-link" href="/home">
-        <i class=" fas fa-building"></i><span>Inicio</span>
-    </a>
-    <a class="nav-link" href="/eventos">
-        <i class=" fa fa-hospital"></i><span>Evento</span>
-    </a>
-    <hr class="dropdown-divider">
+
+
+    <div class="sidebar-brand sidebar-brand-sm">
+
+        <div class="dropright" >
+            <a class="btn btn-secondary dropdown-toggle" id="dropdownMenuUsuarios" data-toggle="dropdown" aria-haspopup="true" href="Usuarios">
+                <i class="fas fa-user"></i> 
+            </a>
+        </div>
+        <hr class="dropdown-divider">
+
+        <div class="dropright" >
+            <a class="btn btn-secondary dropdown-toggle" id="dropdownMenuPacientes"  data-toggle="dropdown" aria-expanded="false" href="Pacientes">
+                <i class="fas fa-female"></i>  
+            </a>
+        </div>
+        <hr class="dropdown-divider">
+
+        <div class="dropright" >
+            <a class="btn btn-secondary dropdown-toggle" id="dropdownMenuControles"  data-toggle="dropdown" aria-expanded="false" href="Fichas clinicas">
+                <i class="fas fa-briefcase-medical"></i>  
+            </a>
+        </div>
+        <hr class="dropdown-divider">
+        
+    </div>    
 
 </li>

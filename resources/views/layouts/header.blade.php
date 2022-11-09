@@ -1,14 +1,8 @@
 <form class="form-inline mr-auto" action="#">
-    <ul class="navbar-nav mr-4" >
-        <div class="sidebar-brand">
-        
-        <a href="{{ url('/home') }}">
-            <img class="navbar-brand-full app-header-logo" src="{{ asset('img/images.png') }}" width="90" alt="Infyom Logo">
-        </a>
-        </div>
+    <ul class="navbar-nav mr-2" >
+        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg" ><i class="fas fa-bars"></i></a></li>
     </ul>
 </form>
-
 <ul class="navbar-nav navbar-right">
 
     @if(\Illuminate\Support\Facades\Auth::user())

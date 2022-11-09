@@ -15,6 +15,8 @@ use App\Models\fcevaluacionposparto;
 use App\Models\controlposparto;
 use App\Models\Pueblo;
 use App\Models\establecimientosaludo;
+use App\Models\vacuna;
+use App\Models\vacunainfante;
 
 
 class HomeController extends Controller
@@ -37,6 +39,8 @@ class HomeController extends Controller
         $this->middleware('permission:home-controlposparto', ['only'=>['controlpospartohome']]);
         $this->middleware('permission:home-pueblo', ['only'=>['pueblohome']]);
         $this->middleware('permission:home-establecimiento', ['only'=>['establecimientohome']]);
+        $this->middleware('permission:home-vacunas', ['only'=>['vacunashome']]);
+        $this->middleware('permission:home-vacunainfante', ['only'=>['vacunainfantehome']]);
     }
 
     /**
@@ -58,9 +62,21 @@ class HomeController extends Controller
         $cant_controlposparto = controlposparto::count();
         $cant_pueblo = Pueblo::count();
         $cant_establecimiento = establecimientosaludo::count();
-        return view('home', compact('cant_infantes','cant_personales','cant_roles','cantusuarios','cant_familiares','cant_pacientes','cant_prenatal','cant_controlprenatal','cant_posparto','cant_controlposparto','cant_pueblo','cant_establecimiento'));
+        $cant_vacunas = vacuna::count();
+        $cant_vacunainfante = vacunainfante::count();
+        return view('home', compact('cant_infantes','cant_personales','cant_roles','cantusuarios','cant_familiares','cant_pacientes','cant_prenatal','cant_controlprenatal','cant_posparto','cant_controlposparto','cant_pueblo','cant_establecimiento','cant_vacunas','cant_vacunainfante'));
     }
-    
+    public function vacunainfantehome()
+    {
+        return view('home.vacunainfantes');
+    }
+
+
+    public function vacunashome()
+    {
+        return view('home.vacunas');
+    }
+
     public function personalhome()
     {
         return view('home.personal');

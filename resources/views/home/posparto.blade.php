@@ -5,7 +5,7 @@
             <div class="card-block">
                 <h5>Ficha clinica posparto</h5> 
                 <h2 class="text-right"><i class="fa fa-users f-left"></i><span>{{$cant_posparto}}</span></h2>
-                <p class="m-b-0 text-right"><a href="/usuarios" class="text-white">Ver más</a></p>
+                <p class="m-b-0 text-right"><a href="/pospartos" class="text-white">Ver más</a></p>
             </div>                                            
         </div>                                    
     </div>

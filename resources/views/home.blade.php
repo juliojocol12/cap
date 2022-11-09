@@ -2,6 +2,7 @@
 @section('title')
     Pagina principal
 @endsection
+
 @section('content')
     <section class="section">
         <div class="section-header">
@@ -24,6 +25,8 @@
                             @include('home.controlposparto')
                             @include('home.pueblo')
                             @include('home.establecimiento')
+                            @include('home.vacunas')
+                            @include('home.vacunainfantes')
                                 
 
                             </div>

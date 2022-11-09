@@ -56,6 +56,7 @@
             @include('layouts.header')
 
         </nav>
+
         <div class="main-sidebar main-sidebar-postion">
             @include('layouts.sidebar')
         </div>

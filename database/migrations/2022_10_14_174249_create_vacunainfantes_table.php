@@ -15,12 +15,15 @@ class CreateVacunainfantesTable extends Migration
     {
         Schema::create('vacunainfantes', function (Blueprint $table) {
             $table->increments('idVacunasInfantes');
-            $table->dateTime('FechaSuministro');
+
+            $table->date('FechaSuministro');
+
             $table->unsignedInteger('Vacunas_id');
-            $table->unsignedInteger('Infante_id');
-            //Migrar la tabla de vacunas antes de esta tabla
             $table->foreign('Vacunas_id')->references('idVacunas')->on('vacunas');
+
+            $table->unsignedInteger('Infante_id');
             $table->foreign('Infante_id')->references('idInfantes')->on('infantes');
+            
             $table->timestamps();
         });
     }

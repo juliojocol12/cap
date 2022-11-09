@@ -16,6 +16,14 @@ class CreateVacunasTable extends Migration
         Schema::create('vacunas', function (Blueprint $table) {
             $table->increments('idVacunas');
             $table->string('NombreVacuna',45);
+            $table->string('TipoVacuna',45);
+            $table->string('EstadoVacuna',45);
+            $table->date('Fechaingreso');
+            $table->date('FechaVencimiento');
+            $table->string('Cantidad',5);
+
+            $table->unsignedBigInteger('Usuario_id');
+            $table->foreign('Usuario_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
