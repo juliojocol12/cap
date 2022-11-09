@@ -21,9 +21,7 @@ use App\Http\Controllers\FcprenatalpostpartoController;
 use App\Http\Controllers\ControleController;
 use App\Http\Controllers\FcevaluacionpospartoController;
 use App\Http\Controllers\ControlpospartoController;
-use App\Http\Controllers\EventosController;
-use App\Http\Controllers\VacunaController;
-use App\Http\Controllers\VacunainfanteController;
+use App\Http\Controllers\FichamspasriegoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,8 +61,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('controles', ControleController::class);
     Route::resource('pospartos', FcevaluacionpospartoController::class);
     Route::resource('controlpospartos', ControlpospartoController::class);
-    Route::resource('vacunas', VacunaController::class);
-    Route::resource('vacunainfantes', VacunainfanteController::class);
+    Route::resource('fichamspasriesgos', FichamspasriegoController::class);
     
     
     
