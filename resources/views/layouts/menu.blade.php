@@ -84,4 +84,8 @@
         <i class=" fa fa-hospital"></i><span>Evento</span>
     </a>
 
+    <a class="nav-link" href="/fichamspasriesgos">
+        <i class=" fa fa-hospital"></i><span>Ficha Riesgos</span>
+    </a>
+
 </li>

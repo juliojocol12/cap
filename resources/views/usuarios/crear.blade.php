@@ -24,43 +24,43 @@
 
                             {!! Form::open(array('route'=>'usuarios.store', 'method'=>'POST',)) !!}
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Nombre (*)</label>
-                                        {!! Form::text('name', null, array('class'=>'form-control','maxlength'=>'20', 'placeholder'=>'ingrese el nombre de usuario','autocomplete'=>'off')) !!}
+                                        {!! Form::text('name', null, array('class'=>'form-control','maxlength'=>'20', 'placeholder'=>'Ingrese el nombre de usuario','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Email (*)</label>
-                                        {!! Form::text('email', null, array('class'=>'form-control','maxlength'=>'80','placeholder'=>'ingrese una direccion de correo','autocomplete'=>'off')) !!}
+                                        {!! Form::text('email', null, array('class'=>'form-control','maxlength'=>'80','placeholder'=>'Ingrese una direccion de correo','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Contraseña (*)</label>
-                                        {!! Form::password('password', array('class'=>'form-control', 'maxlength'=>'12','placeholder'=>'ingrese la contraseña','autocomplete'=>'off')) !!}
+                                        {!! Form::password('password', array('class'=>'form-control', 'maxlength'=>'12','placeholder'=>'Ingrese la contraseña','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Confirmar contraseña (*)</label>
-                                        {!! Form::password('confirm-password', array('class'=>'form-control', 'maxlength'=>'12', 'placeholder'=>'vuelva a ingresar la contraseña')) !!}
+                                        {!! Form::password('confirm-password', array('class'=>'form-control', 'maxlength'=>'12', 'placeholder'=>'Ingrese nuevamente la contraseña')) !!}
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Roles</label>
                                         {!! Form::select('roles[]', $roles,[], array('class'=>'form-control')) !!}

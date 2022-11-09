@@ -19,7 +19,7 @@
                     </div>
                 @endif
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">Correo Electrónico</label>
                     <input aria-describedby="emailHelpBlock" id="email" type="email"
                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
                            placeholder="Ingrese el correo registrado" tabindex="1"

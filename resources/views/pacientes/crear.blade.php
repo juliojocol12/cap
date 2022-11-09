@@ -25,7 +25,7 @@
 
                             {!! Form::open(array('route'=>'pacientes.store', 'method'=>'POST')) !!}
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="">Nombres</label>
                                         {!! Form::text('NombresPaciente', null, array('class'=>'form-control','maxlength'=>'25','placeholder'=>'Ingrese los nombres del paciente','autocomplete'=>'off')) !!}
@@ -33,7 +33,7 @@
                                        
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="">Apellidos</label>
                                         {!! Form::text('ApellidosPaciente', null, array('class'=>'form-control','maxlength'=>'25','placeholder'=>'Ingrese los apellidos del paciente','autocomplete'=>'off')) !!}
@@ -50,7 +50,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">DPI</label>
-                                        {!! Form::text('CUI', null, array('class'=>'form-control', 'maxlength'=>'15','placeholder'=>'Ingrese el DPI','autocomplete'=>'off')) !!}
+                                        {!! Form::text('CUI', null, array('class'=>'form-control', 'maxlength'=>'13','placeholder'=>'Ingrese el DPI','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>   
 
