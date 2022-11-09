@@ -22,6 +22,10 @@ use App\Http\Controllers\ControleController;
 use App\Http\Controllers\FcevaluacionpospartoController;
 use App\Http\Controllers\ControlpospartoController;
 use App\Http\Controllers\FichamspasriegoController;
+
+
+use App\Http\Controllers\VacunaController;
+use App\Http\Controllers\VacunainfanteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,6 +66,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('pospartos', FcevaluacionpospartoController::class);
     Route::resource('controlpospartos', ControlpospartoController::class);
     Route::resource('fichamspasriesgos', FichamspasriegoController::class);
+    Route::resource('vacunas', VacunaController::class);
+    Route::resource('vacunainfantes', VacunainfanteController::class);
+
+    
     
     
     
