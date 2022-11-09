@@ -23,6 +23,8 @@ use App\Http\Controllers\FcevaluacionpospartoController;
 use App\Http\Controllers\ControlpospartoController;
 use App\Http\Controllers\FichamspasriegoController;
 
+use App\Http\Controllers\EventosController;
+
 
 use App\Http\Controllers\VacunaController;
 use App\Http\Controllers\VacunainfanteController;
@@ -69,13 +71,12 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('vacunas', VacunaController::class);
     Route::resource('vacunainfantes', VacunainfanteController::class);
 
+    Route::get('/evento', [App\Http\Controllers\EventoController::class, 'index']);
+    Route::post('/evento/agregar', [App\Http\Controllers\EventoController::class, 'store']);
     
-    
-    
-    
-    //Route::resource('evento', EventoController::clsass);
+
+    //Route::resource('evento', EventoController::class);
     Route::resource('eventos', EventosController::class);
-    
 
     
 });

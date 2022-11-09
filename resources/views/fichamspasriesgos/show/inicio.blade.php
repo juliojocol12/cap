@@ -13,13 +13,8 @@
                                     <div class="form-group">
                                         <label for="" value="DatosPersonalesPacientes_id">Datos de Madre (*)</label>
 
-                                        <input class="form-control" list="filtroIDPacientes" id="filtroIDPaciente" name="DatosPersonalesPacientes_id" placeholder="Ingrese el cui de la madre" autocomplete="off">                                        
-                                        <datalist id="filtroIDPacientes" name="DatosPersonalesPacientes_id">
-                                            @foreach($datospacientes as $idpaciente)
-                                            <option value="{{$idpaciente->idDatosPersonalesPacientes}}"> {{$idpaciente->CUI}}, {{$idpaciente->NombresPaciente}} {{$idpaciente->ApellidosPaciente}} </option>
-                                            
-                                            @endforeach
-                                        </datalist>
+                                        <input class="form-control" list="filtroIDPacientes" id="filtroIDPaciente" name="DatosPersonalesPacientes_id" placeholder="{{$fichamspasriego->DatosPersonalesPacientes_id}}" autocomplete="off" disabled>                                        
+                                        
                                     </div>
                                 </div>
                                 
@@ -27,13 +22,8 @@
                                     <div class="form-group">
                                         <label for="" value="FCPrenatalPostparto_id">Ficha Prenatal Posparto(*)</label>
 
-                                        <input class="form-control" list="filtroIDFichas" id="filtroIDFicha" name="FCPrenatalPostparto_id" placeholder="Ingrese número de ficha clínica" autocomplete="off">                                        
-                                        <datalist id="filtroIDFichas" name="FCPrenatalPostparto_id">
-                                            @foreach($fcprenatalpostparto as $idFicha)
-                                            <option value="{{$idFicha->idFCPrenatalPostpartos}}"> {{$idFicha->Fecha}}, {{$idFicha->DatosPersonalesPacientes_id}}  </option>
-                                            
-                                            @endforeach
-                                        </datalist>
+                                        <input class="form-control" list="filtroIDFichas" id="filtroIDFicha" name="FCPrenatalPostparto_id" placeholder="{{$fichamspasriego->FCPrenatalPostparto_id}}" autocomplete="off" disabled>                                        
+                                        
                                     </div>
                                 </div>
                                              
