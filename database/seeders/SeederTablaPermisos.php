@@ -102,6 +102,12 @@ class SeederTablaPermisos extends Seeder
             'home-controlposparto',
             'home-pueblo',
             'home-establecimiento',
+
+            //tabla fullcalendar
+            'ver-fullcalendar',
+            'crear-fullcalendar',
+            'editar-fullcalendar', 
+            'borrar-fullcalendar',
             
 
         ];

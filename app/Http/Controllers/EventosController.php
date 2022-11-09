@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\evento;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class EventosController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware('permission:ver-fullcalendar | crear-fullcalendar | editar-fullcalendar | borrar-fullcalendar', ['only'=>['index']]);
+        $this->middleware('permission:crear-fullcalendar', ['only'=>['create','store']]);
+        $this->middleware('permission:editar-fullcalendar', ['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-fullcalendar', ['only'=>['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

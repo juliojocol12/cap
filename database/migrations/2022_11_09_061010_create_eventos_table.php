@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateEventosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,13 @@ return new class extends Migration
         Schema::create('eventos', function (Blueprint $table) {
             $table->increments('id', true);
             
-            $table->string('title',255);
+            $table->string('title',100);
+
+            $table->string('datospaciente',100);
+
+            $table->string('establecimiento',100);
+
+            $table->string('comunidad',100);
 
             $table->text('descripcion');
 
@@ -27,6 +33,7 @@ return new class extends Migration
             $table->dateTime('end');
 
             $table->timestamps();
+
         });
     }
 
@@ -39,4 +46,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('eventos');
     }
-};
+}
