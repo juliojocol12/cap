@@ -14,6 +14,7 @@ class CreateVacunasTable extends Migration
     public function up()
     {
         Schema::create('vacunas', function (Blueprint $table) {
+            
             $table->increments('idVacunas');
             $table->string('NombreVacuna',45);
             $table->string('TipoVacuna',45);
@@ -25,6 +26,8 @@ class CreateVacunasTable extends Migration
             $table->unsignedBigInteger('Usuario_id');
             $table->foreign('Usuario_id')->references('id')->on('users');
             $table->timestamps();
+
+
         });
     }
 

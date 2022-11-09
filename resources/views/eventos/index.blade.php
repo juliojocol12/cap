@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         limpiarFormulario();
 
         $('#txtFecha').val(info.dateStr);
+        $('#txtFecha').prop("disabled",true);
 
         $('#btnAgregar').prop("disabled",false);
         $('#btnModificar').prop("disabled",true);
@@ -63,14 +64,21 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(info);
         console.log(info.event.title);
         console.log(info.event.start);
+        console.log(info.event.datospaciente);
+        console.log(info.event.establecimiento);
+        console.log(info.event.comunidad);
 
         console.log(info.event.end);
         console.log(info.event.textColor);
         console.log(info.event.backgroundColor);
 
         console.log(info.event.extendedProps.descripcion);
+
         $('#txtID').val(info.event.id);
         $('#txtTitulo').val(info.event.title);
+        $('#txtDatosP').val(info.event.extendedProps.datospaciente);
+        $('#txtEstablecimiento').val(info.event.extendedProps.establecimiento);
+        $('#txtComunidad').val(info.event.extendedProps.comunidad);
 
         mes = (info.event.start.getMonth()+1);
         dia = (info.event.start.getDate());
@@ -88,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
         horario = (hora+":"+minutos);
 
         $('#txtFecha').val(anio+"-"+mes+"-"+dia);
+        $('#txtFecha').prop("disabled",false);
         $('#txtHora').val(horario);
         $('#txtColor').val(info.event.backgroundColor)
 
@@ -126,7 +135,10 @@ document.addEventListener("DOMContentLoaded", function () {
     nuevoEvento={
         id:$('#txtID').val(),
         title:$('#txtTitulo').val(),
-        descripcion:$('#txtDescripcion').val(),	
+        descripcion:$('#txtDescripcion').val(),
+        datospaciente:$('#txtDatosP').val(),	
+        establecimiento:$('#txtEstablecimiento').val(),	
+        comunidad:$('#txtComunidad').val(),	
         color:$('#txtColor').val(),	
         textColor:'#FFFFFF',	
         start:$('#txtFecha').val()+" "+$('#txtHora').val(),	
@@ -159,6 +171,9 @@ document.addEventListener("DOMContentLoaded", function () {
         $('#txtID').val("");
         $('#txtTitulo').val("");
         $('#txtFecha').val("");
+        $('#txtDatosP').val("");
+        $('#txtEstablecimiento').val("");
+        $('#txtComunidad').val("");
         $('#txtHora').val("07:00");
         $('#txtColor').val("");
         $('#txtDescripcion').val("");
@@ -200,17 +215,32 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="form-row">
             <div class="form-group col-md-5">
               <label>Fecha:</label>
-              <input type="text" class="form-control" name="txtFecha" id="txtFecha" readonly>
+              <input type="text" class="form-control" name="txtFecha" id="txtFecha" >
             </div>
 
             <div class="form-group col-md-8">
-              <label>Titulo:</label> 
+              <label>Titulo de la cita:</label> 
               <input type="text" class="form-control" name="txtTitulo" id="txtTitulo">
             </div>
     
             <div class="form-group col-md-4">
               <label>Hora:</label>
               <input type="time" class="form-control" name="txtHora" id="txtHora">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Datos de la paciente:</label> 
+              <input type="text" class="form-control" name="txtDatosP" id="txtDatosP">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Establecimiento:</label> 
+              <input type="text" class="form-control" name="txtEstablecimiento" id="txtEstablecimiento">
+            </div>
+
+            <div class="form-group col-md-12">
+              <label>Comunidad:</label> 
+              <input type="text" class="form-control" name="txtComunidad" id="txtComunidad">
             </div>
 
             <div class="form-outline w-100 mb-1">
