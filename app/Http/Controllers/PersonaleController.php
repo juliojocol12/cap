@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\personale;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -25,7 +26,12 @@ class PersonaleController extends Controller
     {
         $texto = trim($request->get('texto'));
 
-        $personales = personale::select('idPersonal','Nombre','CUI','Telefono','Direccion','Cargo','FechaNacimiento','NivelAcademico','CorreoElectronico','Observaciones')->where('Nombre','LIKE','%'.$texto.'%')->orwhere('Cargo','LIKE','%'.$texto.'%')->paginate(10);
+        $personales = personale::select('idPersonal','Nombre','CUI','Celular','Telefono','Direccion','Cargo','FechaNacimiento','NivelAcademico','Usuario_id')->where('Nombre','LIKE','%'.$texto.'%')
+        ->where('Nombre','LIKE','%'.$texto.'%')
+        ->orwhere('CUI','LIKE','%'.$texto.'%')
+        ->orwhere('Cargo','LIKE','%'.$texto.'%')
+        ->orwhere('Celular','LIKE','%'.$texto.'%')
+        ->paginate(10);
         return view('personal.index',compact('personales','texto'));
     }
 
@@ -36,7 +42,8 @@ class PersonaleController extends Controller
      */
     public function create()
     {
-        return view('personal.crear');
+        $usuarios = User::all();
+        return view('personal.crear')->with('usuarios',$usuarios);
     }
 
     /**
@@ -50,13 +57,13 @@ class PersonaleController extends Controller
         $this->validate($request,[
             'Nombre' => 'required|TextoRule1',
             'CUI' => 'required|NumeroRule|Unique:personales',
-            'Telefono' => 'required|NumeroRule',
+            'Celular',
+            'Telefono',
             'Direccion' => 'required',
             'Cargo' => 'required|TextoRule1',
             'FechaNacimiento' => 'required',
             'NivelAcademico' => 'TextoRule2',
-            'CorreoElectronico' => 'CorreoRule2|Unique:personales',
-            'Observaciones',
+            'Usuario_id',
         ]);
     
         personale::create($request->all());
@@ -84,8 +91,9 @@ class PersonaleController extends Controller
      */
     public function edit($idPersonal)
     {
+        $usuarios = User::all();
         $personal = personale::find($idPersonal);
-        return view('personal.editar', compact('personal'));
+        return view('personal.editar', compact('personal'))->with('usuarios',$usuarios);
     }
 
     /**
@@ -103,39 +111,40 @@ class PersonaleController extends Controller
                 request()->validate([
                 'Nombre' => 'required|TextoRule1',
                 'CUI' => 'required|NumeroRule',
-                'Telefono' => 'required|NumeroRule',
+                'Celular',
+                'Telefono',
                 'Direccion' => 'required',
                 'Cargo' => 'required|TextoRule1',
                 'FechaNacimiento' => 'required',
                 'NivelAcademico' => 'TextoRule2',
-                'CorreoElectronico' => 'CorreoRule2',
-                'Observaciones',
-        ]);
-        $input = $request->all();
-        $personal = personale::find($idPersonal);
-        $personal->update($input);
-        return redirect()->route('personal.index');
+                'Usuario_id',
+                ]);
+                $input = $request->all();
+            $personal = personale::find($idPersonal);
+            $personal->update($input);
+            return redirect()->route('personal.index');
+            }
+            
+        } 
+        catch (\Throwable $th) {
+            Log::debug($th -> getMessage());
+            return request()->validate([
+                'Nombre' => 'required|TextoRule1',
+                'CUI' => 'required|NumeroRule|Unique:personales',
+                'Celular',
+                'Telefono',
+                'Direccion' => 'required',
+                'Cargo' => 'required|TextoRule1',
+                'FechaNacimiento' => 'required',
+                'NivelAcademico' => 'TextoRule2',
+                'Usuario_id',
+            ]);
+            $input = $request->all();
+            $personal = personale::find($idPersonal);
+            $personal->update($input);
+            return redirect()->route('personal.index');
+        }
     }
-
-    } catch (\Throwable $th) {
-        Log::debug($th -> getMessage());
-        return request()->validate([
-            'Nombre' => 'required|TextoRule1',
-            'CUI' => 'required|NumeroRule|Unique:personales',
-            'Telefono' => 'required|NumeroRule',
-            'Direccion' => 'required',
-            'Cargo' => 'required|TextoRule1',
-            'FechaNacimiento' => 'required',
-            'NivelAcademico' => 'TextoRule2',
-            'CorreoElectronico' => 'CorreoRule2',
-            'Observaciones',
-        ]);
-        $input = $request->all();
-        $personal = personale::find($idPersonal);
-        $personal->update($input);
-        return redirect()->route('personal.index');        
-    }
-}
 
     /**
      * Remove the specified resource from storage.

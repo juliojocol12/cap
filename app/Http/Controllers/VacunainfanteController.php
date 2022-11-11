@@ -57,8 +57,7 @@ class VacunainfanteController extends Controller
             'Vacunas_id',
             'Infante_id',
             'Usuario_id'
-        ]);
-        
+        ]);        
         vacunainfante::create($request->all());
 
         return redirect()->route('vacunainfantes.index');
@@ -87,7 +86,9 @@ class VacunainfanteController extends Controller
     public function edit($idVacunasInfantes)
     {
         $vacunainfantes = vacunainfante::find($idVacunasInfantes);
-        return view ('vacunainfantes.editar', compact('vacunainfantes'));
+        $vacunas = vacuna::all();
+        $infantes = Infante::all();
+        return view ('vacunainfantes.editar', compact('vacunainfantes'))->with('vacunas',$vacunas)->with('infantes',$infantes);
         //
     }
 

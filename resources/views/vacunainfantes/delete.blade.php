@@ -13,7 +13,7 @@
         </button>
       </div>
       <div class="modal-body">
-      ¿Desea eliminar el registro de ?
+      ¿Desea eliminar el registro de {{$vacunainfante->Nombres}} {{$vacunainfante->Apellidos}} de la vacuna {{$vacunainfante->NombreVacuna}} ?
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-danger" value="Si">

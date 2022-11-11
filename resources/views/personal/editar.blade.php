@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" onkeypress="return pulsar(event)">
 
                             {{-- Validacion para ingreso de campos --}}
                             @if($errors->any())
@@ -36,14 +36,21 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="name">DPI (*)</label>
                                     {!! Form::text('CUI', null, array('class'=>'form-control','maxlength'=>'15','minlength'=>'13', 'maxlength'=>'14', 'placeholder'=>'Ingrese el DPI con números','autocomplete'=>'off' )) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="name">Celular</label>
+                                    {!! Form::text('Celular', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'8', 'placeholder'=>'Ingrese números','autocomplete'=>'off')) !!}
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="name">Telefono (*)</label>
                                     {!! Form::text('Telefono', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'8', 'placeholder'=>'Ingrese números','autocomplete'=>'off')) !!}
@@ -57,7 +64,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-6 col-sm-6 col-md-2">
+                            <div class="col-xs-6 col-sm-6 col-md-4">
                                 <div class="form-group">
                                     <label for="" value="Cargo">Cargo (*)</label>
                                     <input class="form-control" list="filtroIdPacientes" id="filtroIdPaciente" name="Cargo" value="{{$personal->Cargo}}">
@@ -69,42 +76,38 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="name">Fecha Nacimiento (*)</label>
                                     {!! Form::date('FechaNacimiento', null, array('class'=>'form-control')) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="name">Nivel Academico</label>
                                     {!! Form::text('NivelAcademico', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'30', 'placeholder'=>'Ingrese el nivel academico','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
-                                    <label for="name">Correo Electronico </label>
-                                    {!! Form::text('CorreoElectronico', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'20', 'placeholder'=>'Ingrese el correo','autocomplete'=>'off')) !!}
-                                </div>
-                            </div>
+                                    <label for="" value="Usuario_id">Email de usuario</label>
 
-                            <div class="col-xs-6 col-sm-6 col-md-4">                            
-                                <div class="form-group">
-                                    <label for="name">Observaciones</label><br>
-                                <div class="form-outline w-100 mb-4">
-                                    <textarea class="form-control" id="Observaciones" name="Observaciones" style="height:45px; width: 100%; " maxlength="50" placeholder="Ingrese alguna observacion">{{$personal->Observaciones}}</textarea>
+                                    <input class="form-control" list="filtroIdInfantes" id="filtroIdInfante" name="Usuario_id" placeholder="ingrese el nombre del usuario registrado " onkeypress="return tab(event)" value="{{$personal->usuarios->name}}" autocomplete="off">                                        
+                                    <datalist id="filtroIdInfantes" name="Usuario_id"">
+                                        @foreach($usuarios as $usuario)
+                                            <option value="{{$usuario->id}}"> {{$usuario->email}}</option>                                            
+                                        @endforeach
+                                    </datalist>                                    
 
                                 </div>
                             </div>
     
-    
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-actualizar">Actualizar</button>
-                                    <a href="{{ route('personal.index') }}" class="btn btn-danger mr-3">Volver</a>
-                                </div>
-                                
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-actualizar">Actualizar</button>
+                                <a href="{{ route('personal.index') }}" class="btn btn-danger mr-3">Volver</a>
                             </div>
                             @include('modal.actualizar')
                             {!! Form::close() !!}                        

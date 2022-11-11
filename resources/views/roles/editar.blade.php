@@ -35,17 +35,32 @@
                                         {!! Form::text('name', null, array('class' => 'form-control','maxlength'=>'45')) !!}
                                     </div>
                                 </div>
+
                                 <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <label for="">Permisos para este Rol:</label>
-                                        <br/>
-                                        @foreach($permission as $value)
-                                            <label>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'name')) }}
-                                            {{ $value->name }}</label>
-                                        <br/>
-                                        @endforeach
+                                        <div class="form-group">
+                                            <label for="name">Permisos de rol</label>
+                                            <br/>
+                                            <table class="table  table-striped mt-2 table-responsive">
+                                                <thead style="background-color: #6777ef;">
+                                                    <th style="color:#fff;">Nombre</th>
+                                                    <th style="color:#fff;">Permiso</th>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($permission as $value)
+                                                    <tr>
+                                                        <td>abc</td>
+                                                        <td>
+                                                        {{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'name')) }}
+                                                        {{ $value->name }}
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+
                                     </div>
-                                </div>
                                 
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                                 

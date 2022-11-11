@@ -17,13 +17,16 @@ class CreatePersonalesTable extends Migration
             $table->increments('idPersonal', true);
             $table->string('Nombre', 45);
             $table->string('CUI', 15)->unique();
-            $table->string('Telefono', 15);
-            $table->string('Direccion', 45);
-            $table->string('Cargo', 30);
+            $table->string('Celular', 15)->nullable();
+            $table->string('Telefono', 15)->nullable();
+            $table->string('Direccion', 80);
+            $table->string('Cargo', 45);
             $table->date('FechaNacimiento');
             $table->string('NivelAcademico', 30)->nullable();
-            $table->string('CorreoElectronico', 20)->nullable();
-            $table->string('Observaciones', 50)->nullable();
+            
+            $table->unsignedBigInteger('Usuario_id')->nullable();
+            $table->foreign('Usuario_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }

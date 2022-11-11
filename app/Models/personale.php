@@ -10,5 +10,12 @@ class personale extends Model
     use HasFactory;
     protected $table = 'personales';
     protected $primaryKey = 'idPersonal';
-    protected $fillable = ['Nombre','CUI','Telefono','Direccion','Cargo','FechaNacimiento','NivelAcademico','CorreoElectronico','Observaciones'];
+    protected $fillable = ['Nombre','CUI','Celular','Telefono','Direccion','Cargo','FechaNacimiento','NivelAcademico','CorreoElectronico','Observaciones','Usuario_id'];
+
+    public function usuarios()
+    {
+        return $this->belongsTo('App\Models\User', 'Usuario_id', 'id');
+    }
 }
+
+

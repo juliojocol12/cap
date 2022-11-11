@@ -40,15 +40,29 @@
                                         <div class="form-group">
                                             <label for="name">Permisos de rol</label>
                                             <br/>
-                                            @foreach($permission as $value)
-                                                <label>
-                                                    {{ Form::checkbox('permission[]', $value->id, false, array('class' => 'name')) }}
-                                                    {{ $value->name }}
-                                                </label>
-                                            <br/>
-                                            @endforeach
+                                            <table class="table  table-striped mt-2 table-responsive">
+                                                <thead style="background-color: #6777ef;">
+                                                    <th style="color:#fff;">Nombre</th>
+                                                    <th style="color:#fff;">Permiso</th>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($permission as $value)
+                                                    <tr>
+                                                        <td>abc</td>
+                                                        <td>
+                                                        {{ Form::checkbox('permission', $value->id, false, array('class' => 'name')) }}
+                                                        {{ $value->name }}
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                @endforeach
+                                                </tbody>
+                                            </table>
                                         </div>
+
                                     </div>
+
+                                    
 
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">

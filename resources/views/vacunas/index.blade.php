@@ -13,8 +13,10 @@
                 <div class="col-lg-12 col-responsive">
                     <div class="card">
                         <div class="card-body">
-                                                        
+                            @can('crear-vacuna')
                             <a class="btn btn-warning" href="{{ route('vacunas.create') }}">Ingresar vacunas</a>
+                            @endcan          
+                            
                             
                            
 

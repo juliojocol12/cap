@@ -26,11 +26,16 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //paginacion
-        $usuarios = User::paginate(10);
-        return view('usuarios.index', compact('usuarios'));
+        $texto = trim($request->get('texto'));
+
+        $usuarios = User::select('id','name','email')
+        ->where('name','LIKE','%'.$texto.'%')
+        ->orwhere('name','email','%'.$texto.'%')
+        ->paginate(10);
+        return view('usuarios.index', compact('usuarios','texto'));
 
 
     }
@@ -118,7 +123,7 @@ class UsuarioController extends Controller
                     ]);
                 }
     
-    $input = $request->all();
+            $input = $request->all();
     if (!empty($input['password'])){
         $input['password'] = Hash::make($input['password']);
     }

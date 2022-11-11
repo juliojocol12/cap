@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" onkeypress="return pulsar(event)">
 
                             {{-- Validacion para ingreso de campos --}}
                             @if($errors->any())
@@ -31,7 +31,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="name">Nombre</label>
+                                        <label for="name">Nombre (*)</label>
                                         {!! Form::text('name', null, array('class'=>'form-control','maxlength'=>'45')) !!}
                                     </div>
                                 </div>
@@ -40,7 +40,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="name">Email</label>
+                                        <label for="name">Email (*)</label>
                                         {!! Form::text('email', null, array('class'=>'form-control','maxlength'=>'20')) !!}
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="name">Contraseña</label>
+                                        <label for="name">Contraseña (*)</label>
                                         {!! Form::password('password', array('class'=>'form-control','maxlength'=>'12')) !!}
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="name">Confirmar contraseña</label>
+                                        <label for="name">Confirmar contraseña (*)</label>
                                         {!! Form::password('confirm-password', array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
@@ -67,11 +67,19 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="name">Roles</label>
-                                        {!! Form::select('roles[]', $roles,[''], array('class'=>'form-control')) !!}
+                                        <label for="name">Rol (*)</label>
+                                        <select class="form-control" name="roles[]" id="$roles" value="{{$user->roles}}">
+                                            @foreach ($roles as $role )
+                                                <option values="$role" >{{$role}}</option>
+                                            @endforeach
+                                            
+                                        </select>
                                     </div>
-                                </div>                                
+                                </div>
                             </div>
+
+
+                            
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-actualizar">Actualizar</button>
