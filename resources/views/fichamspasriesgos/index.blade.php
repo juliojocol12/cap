@@ -42,7 +42,6 @@
                                     <th style="color:#fff;">Registro Número</th>
                                     <th style="color:#fff;">Datos de paciente</th>
                                     <th style="color:#fff;">DPI</th>
-                                    <th style="color:#fff;">Establecimiento Salud</th>
                                     <th style="color:#fff;">Acciones</th>
                                 </thead>
 

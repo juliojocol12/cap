@@ -43,8 +43,7 @@
                             <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
-                                    <th style="color:#fff;">Nombres</th>
-                                    <th style="color:#fff;">Apellidos</th>
+                                    <th style="color:#fff;">Nombres y apellidos </th>
                                     <th style="color:#fff;">Datos de la mamá</th>
                                     <th style="color:#fff;">DPI de la madre</th>
                                     <th style="color:#fff;">Datos de familiares</th>
@@ -62,15 +61,14 @@
                                     @foreach($infantes as $infant)
                                         <tr>
                                             <td style="display: none;">{{ $infant->idInfantes }}</td>
-                                            <td>{{$infant->Nombres}}</td>
-                                            <td>{{$infant->Apellidos}}</td>
+                                            <td>{{$infant->Nombres}}  {{$infant->Apellidos}}</td>
                                             <td>{{$infant->NombresPaciente}} {{$infant->ApellidosPaciente}}</td>
                                             <td>{{$infant->CUI}}</td>
                                             <td>{{$infant->datosfamiliares->NombresFamiliar}} {{$infant->datosfamiliares->ApellidosFamiliar}}</td>
                                             <td>{{$infant->Parentesco}}</td>
                                             <td>
-                                                <a class="btn btn-success mr-3" href="{{ route('infantes.show',  $infant->idInfantes) }}">Mostar</a>
-                                                <a class="btn btn-info mr-3" href="{{ route('infantes.edit', $infant->idInfantes) }}">Editar</a>
+                                                <a class="btn btn-success" href="{{ route('infantes.show',  $infant->idInfantes) }}">Mostar</a>
+                                                <a class="btn btn-info" href="{{ route('infantes.edit', $infant->idInfantes) }}">Editar</a>
                                                 
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$infant->idInfantes}}">Eliminar</button>

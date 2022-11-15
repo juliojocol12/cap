@@ -97,7 +97,7 @@
                                     <div class="form-group responsive" >
                                         <label for="">Si refirio a la paciente registre manejo y estabilización</label>    
                                         <div class="form-outline w-100 mb-4">
-                                            <textarea class="form-control" id="RegistrodeReferencia" placeholder="Ingrese si se refirio a la paciente" name="RegistrodeReferencia" style="height:60px; width: 100%; " maxlength="190"></textarea>
+                                            <textarea class="form-control" id="RegistrodeReferencia" placeholder="Ingrese si se refirio a la paciente de lo contrario escriba 'No'" name="RegistrodeReferencia" style="height:60px; width: 100%; " maxlength="190"></textarea>
                                         </div> 
                                         </div>                                     
                                 </div>
