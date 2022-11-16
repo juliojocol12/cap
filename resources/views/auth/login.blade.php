@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="card card-primary">
-        <div class="card-header"><h4>Iniciar sesion</h4></div>
+        <div class="card-header"><h4>Iniciar sesión</h4></div>
 
         <div class="card-body">
             <form method="POST" action="{{ route('login') }}">
@@ -19,10 +19,10 @@
                     </div>
                 @endif
                 <div class="form-group">
-                    <label for="email">Correo Electrónico</label>
+                    <label for="email">Correo electrónico</label>
                     <input aria-describedby="emailHelpBlock" id="email" type="email"
                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
-                           placeholder="Ingrese el correo registrado" tabindex="1"
+                           placeholder="Ingrese el correo electrónico registrado" tabindex="1"
                            value="{{ (Cookie::get('email') !== null) ? Cookie::get('email') : old('email') }}" autofocus
                            required>
                     <div class="invalid-feedback">
@@ -41,7 +41,7 @@
                     </div>
                     <input aria-describedby="passwordHelpBlock" id="password" type="password"
                            value="{{ (Cookie::get('password') !== null) ? Cookie::get('password') : null }}"
-                           placeholder="Ingrese la contraseña"
+                           placeholder="Ingrese su contraseña"
                            class="form-control{{ $errors->has('password') ? ' is-invalid': '' }}" name="password"
                            tabindex="2" required>
                     <div class="invalid-feedback">
