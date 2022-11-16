@@ -12,7 +12,7 @@ Editar establecimiento de salud
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body"  onkeypress="return pulsar(event)">
 
                             {{-- Validacion para ingreso de campos --}}
                             @if($errors->any())

@@ -11,7 +11,7 @@ Ingreso para control posparto
         </div>
         <div class="section-body">
         <div class="row row-responsive">
-                <div class="col-lg-12 col-responsive">
+                <div class="col-lg-12 col-responsive"  onkeypress="return pulsar(event)">
                     {{-- Validacion para ingreso de campos --}}
                     @if($errors->any())
                         <div class="alert alert-dark alert-dismissible fade show" role="alert">
