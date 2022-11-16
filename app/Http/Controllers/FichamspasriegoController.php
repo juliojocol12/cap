@@ -36,7 +36,7 @@ class FichamspasriegoController extends Controller
         ->paginate(10);
         return view('fichamspasriesgos.index', compact('fichamspasriesgos','texto'));
     }
-
+ 
     /**
      * Show the form for creating a new resource.
      *
@@ -60,7 +60,7 @@ class FichamspasriegoController extends Controller
     {
         // 
         $this->validate($request,[
-            'RegistroNo',
+            'RegistroNo'=> 'required|NumeroRule|Unique:fichamspasriegos',
             'DatosPersonalesPacientes_id' => 'required|NumeroRule',
             'FCPrenatalPostparto_id' => 'required|NumeroRule',
             'Muertefetal' => 'required|TextoRule4',
@@ -148,45 +148,90 @@ class FichamspasriegoController extends Controller
     public function update(Request $request, $idFichamspasriegos)
     {
         //
-        request()->validate([
-            'RegistroNo',
-            'DatosPersonalesPacientes_id' => 'required|NumeroRule',
-            'FCPrenatalPostparto_id' => 'required|NumeroRule',
-            'Muertefetal' => 'required|TextoRule4',
-            'Ancedentesaborto' => 'required|TextoRule4',
-            'Antecedentegestas' => 'required|TextoRule4',
-            'Pesocinco' => 'required|TextoRule4',
-            'Pesonueve' => 'required|TextoRule4',
-            'Antecedentehipertension' => 'required|TextoRule4',
-            'Cirugiasprevias' => 'required|TextoRule4',
-            'Diagnosticosospecha' => 'required|TextoRule4',
-            'Menosveinte' => 'required|TextoRule4',
-            'Mastreinta' => 'required|TextoRule4',
-            'Pacienterh' => 'required|TextoRule4',
-            'Hemorragia'  => 'required|TextoRule4',
-            'VIH' => 'required|TextoRule4',
-            'Presionarterial' => 'required|TextoRule4',
-            'Anemiaclinica' => 'required|TextoRule4',
-            'Desnutricion' => 'required|TextoRule4',
-            'Dolorabdominal' => 'required|TextoRule4',
-            'Sintomatologia' => 'required|TextoRule4',
-            'Ictericia' => 'required|TextoRule4',
-            'Diabetes' => 'required|TextoRule4',
-            'Enfermedadrenal' => 'required|TextoRule4',
-            'Enfermerdadcorazon' => 'required|TextoRule4',
-            'Hipertension' => 'required|TextoRule4',
-            'Consumodrogas' => 'required|TextoRule4',
-            'Cualquierenfermedad' => 'required|TextoRule4',
-            'Especifiquefichamspasriegos' => 'TextoRule4',
-            'Refirio' => 'TextoRule4',
-            'Fecha',
-            'Nombre' => 'TextoRule4',
-           
-        ]);
-        $input = $request->all();
-        $fichamspasriego = fichamspasriego::find($idFichamspasriegos);
-        $fichamspasriego->update($input);
-        return redirect()->route('fichamspasriesgos.index');
+        try {
+            if ('RegistroNo' === 'RegistroNo') {
+                request()->validate([
+                    'RegistroNo'=> 'required|NumeroRule',
+                    'DatosPersonalesPacientes_id' => 'required|NumeroRule',
+                    'FCPrenatalPostparto_id' => 'required|NumeroRule',
+                    'Muertefetal' => 'required|TextoRule4',
+                    'Ancedentesaborto' => 'required|TextoRule4',
+                    'Antecedentegestas' => 'required|TextoRule4',
+                    'Pesocinco' => 'required|TextoRule4',
+                    'Pesonueve' => 'required|TextoRule4',
+                    'Antecedentehipertension' => 'required|TextoRule4',
+                    'Cirugiasprevias' => 'required|TextoRule4',
+                    'Diagnosticosospecha' => 'required|TextoRule4',
+                    'Menosveinte' => 'required|TextoRule4',
+                    'Mastreinta' => 'required|TextoRule4',
+                    'Pacienterh' => 'required|TextoRule4',
+                    'Hemorragia'  => 'required|TextoRule4',
+                    'VIH' => 'required|TextoRule4',
+                    'Presionarterial' => 'required|TextoRule4',
+                    'Anemiaclinica' => 'required|TextoRule4',
+                    'Desnutricion' => 'required|TextoRule4',
+                    'Dolorabdominal' => 'required|TextoRule4',
+                    'Sintomatologia' => 'required|TextoRule4',
+                    'Ictericia' => 'required|TextoRule4',
+                    'Diabetes' => 'required|TextoRule4',
+                    'Enfermedadrenal' => 'required|TextoRule4',
+                    'Enfermerdadcorazon' => 'required|TextoRule4',
+                    'Hipertension' => 'required|TextoRule4',
+                    'Consumodrogas' => 'required|TextoRule4',
+                    'Cualquierenfermedad' => 'required|TextoRule4',
+                    'Especifiquefichamspasriegos' => 'TextoRule4',
+                    'Refirio' => 'TextoRule4',
+                    'Fecha' => 'required',
+                    'Nombre' => 'TextoRule4',                
+                ]);
+                $input = $request->all();
+                $fichamspasriego = fichamspasriego::find($idFichamspasriegos);
+                $fichamspasriego->update($input);
+                return redirect()->route('fichamspasriesgos.index');
+            } 
+            
+
+        } catch (\Throwable $th) {
+            Log::debug($th -> getMessage());
+            return request()->validate([
+                'RegistroNo'=> 'required|NumeroRule|Unique:fichamspasriegos',
+                'DatosPersonalesPacientes_id' => 'required|NumeroRule',
+                'FCPrenatalPostparto_id' => 'required|NumeroRule',
+                'Muertefetal' => 'required|TextoRule4',
+                'Ancedentesaborto' => 'required|TextoRule4',
+                'Antecedentegestas' => 'required|TextoRule4',
+                'Pesocinco' => 'required|TextoRule4',
+                'Pesonueve' => 'required|TextoRule4',
+                'Antecedentehipertension' => 'required|TextoRule4',
+                'Cirugiasprevias' => 'required|TextoRule4',
+                'Diagnosticosospecha' => 'required|TextoRule4',
+                'Menosveinte' => 'required|TextoRule4',
+                'Mastreinta' => 'required|TextoRule4',
+                'Pacienterh' => 'required|TextoRule4',
+                'Hemorragia'  => 'required|TextoRule4',
+                'VIH' => 'required|TextoRule4',
+                'Presionarterial' => 'required|TextoRule4',
+                'Anemiaclinica' => 'required|TextoRule4',
+                'Desnutricion' => 'required|TextoRule4',
+                'Dolorabdominal' => 'required|TextoRule4',
+                'Sintomatologia' => 'required|TextoRule4',
+                'Ictericia' => 'required|TextoRule4',
+                'Diabetes' => 'required|TextoRule4',
+                'Enfermedadrenal' => 'required|TextoRule4',
+                'Enfermerdadcorazon' => 'required|TextoRule4',
+                'Hipertension' => 'required|TextoRule4',
+                'Consumodrogas' => 'required|TextoRule4',
+                'Cualquierenfermedad' => 'required|TextoRule4',
+                'Especifiquefichamspasriegos' => 'TextoRule4',
+                'Refirio' => 'TextoRule4',
+                'Fecha',
+                'Nombre' => 'TextoRule4',
+                ]);
+                $input = $request->all();
+                $fichamspasriego = fichamspasriego::find($idFichamspasriegos);
+                $fichamspasriego->update($input);
+                return redirect()->route('fichamspasriesgos.index');
+            }        
     }
 
     /**

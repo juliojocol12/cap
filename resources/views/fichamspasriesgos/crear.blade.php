@@ -7,8 +7,8 @@
         </div>
         <div class="section-body">
         <div class="row row-responsive">
-                <div class="col-lg-12 col-responsive">
-                {{-- Validacion para ingreso de campos --}}
+                <div class="col-lg-12 col-responsive" onkeypress="return pulsar(event)">
+                            {{-- Validacion para ingreso de campos --}}
                             @if($errors->any())
                             <div class="alert alert-dark alert-dismissible fade show" role="alert">
                                 <strong>¡Revise los campos!</strong>
@@ -20,7 +20,7 @@
                                 </button>
                             </div>
                             @endif
-
+                            <a href="{{ route('fichamspasriesgos.index') }}" class="btn btn-danger mr-3">Volver</a>
                             {!! Form::open(array('route'=>'fichamspasriesgos.store', 'method'=>'POST')) !!}
                             
                     

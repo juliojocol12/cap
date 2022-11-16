@@ -15,7 +15,7 @@
                                     <div class="form-group">
                                         <label for="">Nombre de la persona responsable (*)</label>
                                         
-                                        {!! Form::text('Nombre', null, array('class'=>'form-control','maxlength'=>'35', 'placeholder'=>'Indique el nombre de la persona que atendió', 'autocomplete'=>'off')) !!}
+                                        {!! Form::text('Nombre', null, array('class'=>'form-control','maxlength'=>'35', 'placeholder'=>'Ingrese el nombre de la persona que atendió', 'autocomplete'=>'off')) !!}
                                     </div>     
                                 </div>   
 

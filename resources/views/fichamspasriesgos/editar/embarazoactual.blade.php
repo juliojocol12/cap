@@ -7,8 +7,12 @@
                                     <div class="form-group">
                                         <label for="Diagnosticosospecha">Diagnóstico o sospecha de embarazos múltiples (*)</label>
                                         <select class="form-control" name="Diagnosticosospecha">
-                                        <option value="No">No</option>
-                                        <option value="Si">Si</option>
+                                        <option select">{{$fichamspasriego->Diagnosticosospecha}}</option>
+                                        @if ($fichamspasriego->Diagnosticosospecha === 'Si')
+                                            <option value="No">No</option>
+                                        @else
+                                            <option value="Si">Si</option>
+                                        @endif 
                                         </select>
                                     </div>
                                 </div>
@@ -17,8 +21,12 @@
                                     <div class="form-group">
                                         <label for="Menosveinte">Menos de 20 años (*)</label>
                                         <select class="form-control" name="Menosveinte">
-                                        <option value="No">No</option>
-                                        <option value="Si">Si</option>
+                                        <option select">{{$fichamspasriego->Menosveinte}}</option>
+                                        @if ($fichamspasriego->Menosveinte === 'Si')
+                                            <option value="No">No</option>
+                                        @else
+                                            <option value="Si">Si</option>
+                                        @endif 
                                         </select>
                                     </div>
                                 </div>
@@ -27,8 +35,12 @@
                                     <div class="form-group">
                                         <label for="Mastreinta">Más de 35 años (*)</label>
                                         <select class="form-control" name="Mastreinta">
-                                        <option value="No">No</option>
-                                        <option value="Si">Si</option>
+                                        <option select">{{$fichamspasriego->Mastreinta}}</option>
+                                        @if ($fichamspasriego->Mastreinta === 'Si')
+                                            <option value="No">No</option>
+                                        @else
+                                            <option value="Si">Si</option>
+                                        @endif 
                                         </select>
                                     </div>
                                 </div>
@@ -37,8 +49,12 @@
                                     <div class="form-group">
                                         <label for="Pacienterh">Paciente Rh (-) (*)</label>
                                         <select class="form-control" name="Pacienterh">
-                                        <option value="No">No</option>
-                                        <option value="Si">Si</option>
+                                        <option select">{{$fichamspasriego->Pacienterh}}</option>
+                                        @if ($fichamspasriego->Pacienterh === 'Si')
+                                            <option value="No">No</option>
+                                        @else
+                                            <option value="Si">Si</option>
+                                        @endif 
                                         </select>
                                     </div>
                                 </div>
@@ -47,8 +63,12 @@
                                     <div class="form-group">
                                         <label for="Hemorragia">Hemorragia vaginal sin importar cantidad (*)</label>
                                         <select class="form-control" name="Hemorragia">
-                                        <option value="No">No</option>
-                                        <option value="Si">Si</option>
+                                        <option select">{{$fichamspasriego->Hemorragia}}</option>
+                                        @if ($fichamspasriego->Hemorragia === 'Si')
+                                            <option value="No">No</option>
+                                        @else
+                                            <option value="Si">Si</option>
+                                        @endif 
                                         </select>
                                     </div>
                                 </div>
@@ -57,8 +77,12 @@
                                     <div class="form-group">
                                         <label for="VIH">VIH positivo o sifilis positivo (*)</label>
                                         <select class="form-control" name="VIH">
-                                        <option value="No">No</option>
-                                        <option value="Si">Si</option>
+                                        <option select">{{$fichamspasriego->VIH}}</option>
+                                        @if ($fichamspasriego->VIH === 'Si')
+                                            <option value="No">No</option>
+                                        @else
+                                            <option value="Si">Si</option>
+                                        @endif 
                                         </select>
                                     </div>
                                 </div>
@@ -67,8 +91,12 @@
                                     <div class="form-group">
                                         <label for="Presionarterial">Presión arterial diastótica de 90 mm Hg o más durante el registro (*)</label>
                                         <select class="form-control" name="Presionarterial">
-                                        <option value="No">No</option>
-                                        <option value="Si">Si</option>
+                                        <option select">{{$fichamspasriego->Presionarterial}}</option>
+                                        @if ($fichamspasriego->Presionarterial === 'Si')
+                                            <option value="No">No</option>
+                                        @else
+                                            <option value="Si">Si</option>
+                                        @endif 
                                         </select>
                                     </div>
                                 </div>
@@ -77,8 +105,12 @@
                                     <div class="form-group">
                                         <label for="Anemiaclinica">Anemia clínica de laboratorio (*)</label>
                                         <select class="form-control" name="Anemiaclinica">
-                                        <option value="No">No</option>
-                                        <option value="Si">Si</option>
+                                        <option select">{{$fichamspasriego->Anemiaclinica}}</option>
+                                        @if ($fichamspasriego->Anemiaclinica === 'Si')
+                                            <option value="No">No</option>
+                                        @else
+                                            <option value="Si">Si</option>
+                                        @endif 
                                         </select>
                                     </div>
                                 </div>
@@ -87,8 +119,12 @@
                                     <div class="form-group">
                                         <label for="Desnutricion">Desnutrición u obesidad (*)</label>
                                         <select class="form-control" name="Desnutricion">
-                                        <option value="No">No</option>
-                                        <option value="Si">Si</option>
+                                        <option select">{{$fichamspasriego->Desnutricion}}</option>
+                                        @if ($fichamspasriego->Desnutricion === 'Si')
+                                            <option value="No">No</option>
+                                        @else
+                                            <option value="Si">Si</option>
+                                        @endif 
                                         </select>
                                     </div>
                                 </div>
@@ -97,8 +133,12 @@
                                     <div class="form-group">
                                         <label for="Dolorabdominal">Dolor abdominal (*)</label>
                                         <select class="form-control" name="Dolorabdominal">
-                                        <option value="No">No</option>
-                                        <option value="Si">Si</option>
+                                        <option select">{{$fichamspasriego->Dolorabdominal}}</option>
+                                        @if ($fichamspasriego->Dolorabdominal === 'Si')
+                                            <option value="No">No</option>
+                                        @else
+                                            <option value="Si">Si</option>
+                                        @endif 
                                         </select>
                                     </div>
                                 </div>
@@ -107,8 +147,12 @@
                                     <div class="form-group">
                                         <label for="Sintomatologia">Sintomatología urinaria (*)</label>
                                         <select class="form-control" name="Sintomatologia">
-                                        <option value="No">No</option>
-                                        <option value="Si">Si</option>
+                                        <option select">{{$fichamspasriego->Sintomatologia}}</option>
+                                        @if ($fichamspasriego->Sintomatologia === 'Si')
+                                            <option value="No">No</option>
+                                        @else
+                                            <option value="Si">Si</option>
+                                        @endif 
                                         </select>
                                     </div>
                                 </div>
@@ -117,8 +161,12 @@
                                     <div class="form-group">
                                         <label for="Ictericia">Ictericia (*)</label>
                                         <select class="form-control" name="Ictericia">
-                                        <option value="No">No</option>
-                                        <option value="Si">Si</option>
+                                        <option select">{{$fichamspasriego->Ictericia}}</option>
+                                        @if ($fichamspasriego->Ictericia === 'Si')
+                                            <option value="No">No</option>
+                                        @else
+                                            <option value="Si">Si</option>
+                                        @endif 
                                         </select>
                                     </div>
                                 </div>  

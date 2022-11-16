@@ -35,7 +35,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="Pesocinco">Peso al nacer del último bebé: 2500 g (5 libras 8 onzas) (*)</label>
+                                        <label for="Pesocinco">Peso al nacer del último bebé: 2500g (5 libras 8 onzas) (*)</label>
                                         <select class="form-control" name="Pesocinco">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -45,7 +45,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="Pesonueve">Peso al nacer del último bebé: 4500 g (9 libras 9 onzas) (*)</label>
+                                        <label for="Pesonueve">Peso al nacer del último bebé: 4500g (9 libras 9 onzas) (*)</label>
                                         <select class="form-control" name="Pesonueve">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -65,7 +65,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <label for="Cirugiasprevias">Cirugias previas en el tacto reproductivo (miomectomía, conización, cesárea o cerciaje cervical (*)</label>
+                                        <label for="Cirugiasprevias">Cirugias previas en el tacto reproductivo (miomectomía, conización, cesárea o cerciaje cervical) (*)</label>
                                         <select class="form-control" name="Cirugiasprevias">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>

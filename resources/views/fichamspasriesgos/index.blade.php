@@ -54,7 +54,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach($fichamspasriesgos as $fichamspasriesgo)
-
+ 
                                     
                                         <tr>
                                             <td style="display: none;">{{ $fichamspasriesgo->idFichamspasriegos }}</td>
@@ -67,10 +67,9 @@
                                             <a class="btn btn-info mr-3" href="{{ route('fichamspasriesgos.edit', $fichamspasriesgo->idFichamspasriegos) }}">Editar</a>
                                             </td>
                                             @endcan
-
                                             @can('borrar-fichamspasriego')
                                             <td>
-                                            <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-ficha">Eliminar</button>
+                                            <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-{{$fichamspasriesgo->idFichamspasriegos}}">Eliminar</button>
                                             </td>
                                             @endcan
 
@@ -84,7 +83,7 @@
                                             
               
                                         </tr>
-                                   
+                                        @include('fichamspasriesgos.delete')
                                     @endforeach
                                 </tbody>
                             </table>

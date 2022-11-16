@@ -5,7 +5,7 @@
                         <div class="row ">
                         <div class="col-xs-6 col-sm-6 col-md-4">
                                 <div class="form-group">
-                                        <label for="">Fecha (*)</label>
+                                        <label for="">Fecha</label>
                                         {!! Form::date('Fecha', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>   
@@ -13,9 +13,9 @@
                                     
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Nombre de la persona responsable (*)</label>
+                                        <label for="">Nombre de la persona responsable</label>
                                         
-                                        {!! Form::text('Nombre', null, array('class'=>'form-control','maxlength'=>'35', 'placeholder'=>'Indique el nombre de la persona que atendió','autocomplete'=>'off')) !!}
+                                        {!! Form::text('Nombre', null, array('class'=>'form-control','maxlength'=>'35', 'placeholder'=>'Ingrese el nombre de la persona que atendió','autocomplete'=>'off')) !!}
                                     </div>     
                                 </div>   
 
