@@ -27,11 +27,11 @@
                                     <form action="{{ route('pacientes.index') }}" method="GET">
                                         <div class="form-row">
                                             <div class="col-sm-4 my-1">
-                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el CUI para buscar">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el DPI para buscar">
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
-                                                <a href="{{ route('pacientes.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
+                                                <a href="{{ route('pacientes.index') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
                                             </div>
                                         </div>
                                     </form>
@@ -50,7 +50,7 @@
                                     <th style="color:#fff;">Nombres</th>
                                     <th style="color:#fff;">Apellidos</th>
                                     <th style="color:#fff;">DPI</th>
-                                    <th style="color:#fff;">Telefono</th>
+                                    <th style="color:#fff;">Teléfono</th>
                                     <th style="color:#fff;">Celular</th>
                                     <th style="color:#fff;">Pueblo</th>
                                 </thead>

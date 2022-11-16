@@ -29,7 +29,7 @@
 
                             {!! Form::model($paciente, [ 'method' => 'PATCH', 'route'=> ['pacientes.update', $paciente->idDatosPersonalesPacientes]]) !!}
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="">Nombres</label>
                                         {!! Form::text('NombresPaciente', null, array('class'=>'form-control','minlength'=>'10','maxlength'=>'25','placeholder'=>'Ingrese los nombres del paciente','autocomplete'=>'off')) !!}
@@ -37,28 +37,28 @@
                                        
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="">Apellidos</label>
                                         {!! Form::text('ApellidosPaciente', null, array('class'=>'form-control','maxlength'=>'25','placeholder'=>'Ingrese los apellidos del paciente','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="">Fecha de nacimiento</label>
                                         {!! Form::date('FechaNaciemientoPaciente', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="">DPI</label>
                                         {!! Form::text('CUI', null, array('class'=>'form-control','minlength'=>'13', 'maxlength'=>'15','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>   
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="">Profesión u Oficio</label>
                                         {!! Form::text('ProfesionOficio', null, array('class'=>'form-control','minlength'=>'5', 'maxlength'=>'25','autocomplete'=>'off')) !!}
@@ -67,14 +67,14 @@
 
 
 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="">Descripción de la dirección</label>
                                         {!! Form::text('Descripciondireccion', null, array('class'=>'form-control', 'maxlength'=>'45','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>   
 
-                                <div class="col-xs-12 col-sm-12 col-md-3">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="">Grupo de la dirección</label>
                                         {!! Form::text('Grupodireccion', null, array('class'=>'form-control', 'maxlength'=>'45','autocomplete'=>'off')) !!}
@@ -95,9 +95,9 @@
                                     </div>
                                 </div>  
                                 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Lugar</label>
+                                        <label for="">>Municipio y departamento</label>
                                         {!! Form::text('Municipiodep', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'45','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
@@ -105,21 +105,21 @@
 
 
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Telefono</label>
+                                        <label for="">Teléfono</label>
                                         {!! Form::text('Telefono', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'15','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>     
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="">Celular</label>
                                         {!! Form::text('Celular', null, array('class'=>'form-control', 'minlength'=>'8','maxlength'=>'15','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>        
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="">Estado Civil</label>
                                         {!! Form::text('EstadoCivil', null, array('class'=>'form-control','minlength'=>'2','maxlength'=>'7','autocomplete'=>'off')) !!}
@@ -133,7 +133,7 @@
                                     </div>
                                 </div> 
                                 
-                                <div class="col-xs-1 col-sm-6 col-md-1">
+                                <div class="col-xs-1 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Tipo de Sangre</label>
                                         <select class="form-control" name="TipoSanguineo" value="{{$paciente->TipoSanguineo}}">
@@ -151,14 +151,14 @@
                                     </div>
                                 </div>
                                 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Medicamentos actualmente</label>
-                                        {!! Form::text('MedicamentosActualmente', null, array('class'=>'form-control','minlength'=>'2','maxlength'=>'100', 'placeholder'=>'Ingrese los Medicamentos actuales del paciente')) !!}
+                                        <label for="">¿Toma medicamentos actualmente?</label>
+                                        {!! Form::text('MedicamentosActualmente', null, array('class'=>'form-control','minlength'=>'2','maxlength'=>'100', 'placeholder'=>'Ingrese el nombre y la dosis, de lo contrario coloque un "No"')) !!}
                                     </div>
                                 </div>   
 
-                                <div class="col-xs-1 col-sm-6 col-md-1">
+                                <div class="col-xs-1 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="" >Migrante</label>
                                         <select class="form-control" name="Migrante" value="{{$paciente->Migrante}}">
@@ -173,17 +173,17 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-1">
+                                <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">Pueblo</label> 
                                         {!! Form::select ('pueblo_id', $pueblos->pluck('Nombre', 'idPueblo')->all(), $paciente->pueblo_id, array('class'=>'form-control'))  !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
                                         <label for="" value="idDatosFamiliares">Nombre del familiar</label>
-                                        <input class="form-control" list="filtroIdFamiliares" id="filtroIdFamiliare" name="idDatosFamiliares" value="{{$paciente->idDatosFamiliares}}" placeholder="ingrese en número de expediente" autocomplete="off">                                        
+                                        <input class="form-control" list="filtroIdFamiliares" id="filtroIdFamiliare" name="idDatosFamiliares" value="{{$paciente->idDatosFamiliares}}" placeholder="Ingrese el nombre del familiar" autocomplete="off">                                        
                                         <datalist id="filtroIdFamiliares" name="idDatosFamiliares" value="{{$paciente->idDatosFamiliares}}">
                                             @foreach($datosfamiliares as $idfamliar)
                                                 <option value="{{$idfamliar->idDatosFamiliares}}"> {{$idfamliar->CUI}}, {{$idfamliar->NombresFamiliar}}</option>                                            
@@ -193,10 +193,10 @@
                                 </div>
 
                                 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="">Parentesco</label>
-                                        {!! Form::text('Parentesco', null, array('class'=>'form-control','maxlength'=>'20', 'placeholder'=>'Ingrese la relacion','autocomplete'=>'off')) !!}
+                                        {!! Form::text('Parentesco', null, array('class'=>'form-control','maxlength'=>'20', 'placeholder'=>'Ingrese el parentesco con la paciente','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 

@@ -12,7 +12,7 @@
           </button>
         </div>
         <div class="modal-body">
-        ¿Desea eliminar el registro de {{ $role->name }}?
+        ¿Está seguro que desea eliminar el registro de {{ $role->name }}?
         </div>
         <div class="modal-footer">
           <input type="submit" class="btn btn-danger" value="Si">

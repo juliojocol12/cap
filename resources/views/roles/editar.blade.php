@@ -31,7 +31,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label for="">Nombre del Rol:</label>      
+                                        <label for="">Nombre del rol:</label>      
                                         {!! Form::text('name', null, array('class' => 'form-control','maxlength'=>'45')) !!}
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                                             <table class="table  table-striped mt-2 table-responsive">
                                                 <thead style="background-color: #6777ef;">
                                                     <th style="color:#fff;">Nombre</th>
-                                                    <th style="color:#fff;">Permiso</th>
+                                                    <th style="color:#fff;">Permisos</th>
                                                 </thead>
                                                 <tbody>
                                                 @foreach($permission as $value)

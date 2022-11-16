@@ -38,7 +38,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="name">DPI (*)</label>
-                                    {!! Form::text('CUI', null, array('class'=>'form-control','maxlength'=>'13','minlength'=>'13', 'maxlength'=>'14', 'placeholder'=>'Ingrese el CUI en números y sin espacios','autocomplete'=>'off' )) !!}
+                                    {!! Form::text('CUI', null, array('class'=>'form-control','maxlength'=>'13','minlength'=>'13', 'maxlength'=>'14', 'placeholder'=>'Ingrese el DPI en números y sin espacios','autocomplete'=>'off' )) !!}
                                 </div>
                             </div>
 
@@ -51,7 +51,7 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
-                                    <label for="name">Teléfono</label>
+                                    <label for="name">Teléfono (*)</label>
                                     {!! Form::text('Telefono', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'8', 'placeholder'=>'Ingrese número de teléfono','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                                     <input type="date" class="form-control" name="FechaNacimiento" id="FechaNacimiento" aria-describedby="helpId" placeholder="">
                                 </div>
                             </div>
-
+ 
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="name">Nivel académico</label>

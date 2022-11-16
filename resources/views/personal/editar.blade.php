@@ -31,7 +31,7 @@
                             <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
-                                    <label for="name">Nombres y Apellidos</label>
+                                    <label for="name">Nombres y apellidos</label>
                                     {!! Form::text('Nombre', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Ingrese el nombre completo del colaborador','autocomplete'=>'off' ))!!}
                                 </div>
                             </div>
@@ -117,4 +117,4 @@
             </div>
         </div>
     </section>
-@endsection
+@endsection 
