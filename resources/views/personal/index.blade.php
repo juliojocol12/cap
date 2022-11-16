@@ -7,7 +7,7 @@
     <section class="section">
         <div class="section-header">
             <h3 class="page__heading">Personal</h3>
-        </div>
+        </div> 
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">

@@ -13,7 +13,7 @@ class DatospersonalespacienteController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:ver-datospersonalespaciente | crear-datospersonalespaciente | editar-datospersonalespaciente | borrar-datospersonalespaciente', ['only'=>['index']]);
+        $this->middleware('permission:ver-datospersonalespaciente', ['only'=>['index']]);
         $this->middleware('permission:crear-datospersonalespaciente', ['only'=>['create','store']]);
         $this->middleware('permission:editar-datospersonalespaciente', ['only'=>['edit','update']]);
         $this->middleware('permission:borrar-datospersonalespaciente', ['only'=>['destroy']]);

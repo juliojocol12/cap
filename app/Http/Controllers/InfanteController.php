@@ -11,7 +11,7 @@ class InfanteController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:ver-infante | crear-infante | editar-infante | borrar-infante', ['only'=>['index']]);
+        $this->middleware('permission:ver-infante', ['only'=>['index']]);
         $this->middleware('permission:crear-infante', ['only'=>['create','store']]);
         $this->middleware('permission:editar-infante', ['only'=>['edit','update']]);
         $this->middleware('permission:borrar-infante', ['only'=>['destroy']]);

@@ -40,11 +40,17 @@ Control posparto
                             <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
+                                    <th style="color:#fff;">Mostar</th>
+                                    @can('editar-controlposparto')
+                                    <th style="color:#fff;">Editar</th>
+                                    @endcan
+                                    @can('borrar-controlposparto')
+                                    <th style="color:#fff;">Borrar</th>
+                                    @endcan
                                     <th style="color:#fff;">NoControl</th>
                                     <th style="color:#fff;">FCEvaluacionPosparto_id</th>
                                     <th style="color:#fff;">SemanasDespuesParto</th>
                                     <th style="color:#fff;">FechaVisita</th>
-                                    <th style="color:#fff;">Acciones</th>
                                 </thead>
 
                                 <tbody>
@@ -53,19 +59,24 @@ Control posparto
                                     
                                         <tr>
                                             <td style="display: none;">{{ $controlpos->idControlPosparto }}</td>
+                                            <td>
+                                            <a class="btn btn-success mr-3" href="{{ route('controlpospartos.show', $controlpos->idControlPosparto) }}">Mostar</a>
+                                            </td>
+                                            @can('editar-controlposparto')
+                                            <td>
+                                            <a class="btn btn-info mr-3" href="{{ route('controlpospartos.edit', $controlpos->idControlPosparto) }}">Editar</a>
+                                            </td>
+                                            @endcan
+                                            @can('borrar-controlposparto')
+                                            <td>
+                                             <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-control">Eliminar</button>
+                                            </td>
+                                            @endcan
                                             <td>{{$controlpos->NoControl}}</td>
                                             <td>{{$controlpos->FCEvaluacionPosparto_id}}</td>
                                             <td>{{$controlpos->SemanasDespuesParto}}</td>
                                             <td>{{$controlpos->FechaVisita}}</td>
 
-                                            <td>
-                                                <a class="btn btn-success mr-3" href="{{ route('controlpospartos.show', $controlpos->idControlPosparto) }}">Mostar</a>
-                                                <a class="btn btn-info mr-3" href="{{ route('controlpospartos.edit', $controlpos->idControlPosparto) }}">Editar</a>
-                                                
-                                                <!-- Button trigger modal -->                                                
-                                                <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-control">Eliminar</button>
-
-                                            </td>
                                             
               
                                         </tr>

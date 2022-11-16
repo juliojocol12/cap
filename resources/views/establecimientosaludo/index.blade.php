@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Estableciento de salud
+Establecimiento de salud
 @endsection
 
 @section('content')
@@ -20,25 +20,37 @@ Estableciento de salud
                         <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color:#6777ef">                                     
                                     <th style="display: none;">ID</th>
+                                    @can('editar-establecimientosaludo')
+                                    <th style="color:#fff;">Editar</th>
+                                    @endcan
+                                    @can('borrar-establecimientosaludo')
+                                    <th style="color:#fff;">Borrar</th>
+                                    @endcan
                                     <th style="color:#fff;">Nombre</th>
                                     <th style="color:#fff;">Direccion</th>                                    
                                     <th style="color:#fff;">Comunidad</th>
                                     <th style="color:#fff;">Puesto de Salud</th>        
-                                    <th style="color:#fff;">Acciones</th>                                                      
+                                                                                   
                               </thead>
                               <tbody>
                             @foreach ($establecimientosaludos as $establecimientosaludo)
                             <tr>
                                 <td style="display: none;">{{ $establecimientosaludo->idEstablecimientoSaludos }}</td>                                
+                                @can('editar-establecimientosaludo')
+                                <td>
+                                  <a class="btn btn-info" href="{{ route('establecimientosaludo.edit', $establecimientosaludo->idEstablecimientoSaludos) }}">Editar</a>
+                                </td>   
+                                @endcan
+                                @can('borrar-establecimientosaludo')
+                                <td>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$establecimientosaludo->idEstablecimientoSaludos}}">Eliminar</button>
+                                </td>   
+                                    @endcan
                                 <td>{{ $establecimientosaludo->Nombre }}</td>
                                 <td>{{ $establecimientosaludo->Direccion }}</td>
                                 <td>{{ $establecimientosaludo->Comunidad }}</td>
                                 <td>{{ $establecimientosaludo->PuestoSalud }}</td>
-                                <td>
-                                    
-                                    <a class="btn btn-info" href="{{ route('establecimientosaludo.edit', $establecimientosaludo->idEstablecimientoSaludos) }}">Editar</a>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$establecimientosaludo->idEstablecimientoSaludos}}">Eliminar</button>
-                                            </td>                      
+                                               
                                         </tr>
                                         @include('establecimientosaludo.delete')
                             @endforeach

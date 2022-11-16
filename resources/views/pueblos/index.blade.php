@@ -19,19 +19,30 @@ Pueblos
                             <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
+                                    @can('editar-pueblo')
+                                    <th style="color:#fff;">Editar</th>
+                                    @endcan
+                                    @can('borrar-pueblo')
+                                    <th style="color:#fff;">Borrar</th>
+                                    @endcan
                                     <th style="color:#fff;">Nombre</th>
-                                    <th style="color:#fff;">Acciones</th>
                                 </thead>
                                 <tbody>
                                     @foreach($pueblos as $pueblo)
                                         <tr>
                                             <td style="display: none;">{{ $pueblo->idPueblo }}</td>
-                                            <td>{{$pueblo->Nombre}}</td>
+                                            @can('editar-pueblo')
                                             <td>
                                                 <a class="btn btn-info" href="{{ route('pueblos.edit', $pueblo->idPueblo) }}">Editar</a>
+                                            </td>   
+                                            @endcan
+                                            @can('borrar-pueblo')
+                                            <td>
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$pueblo->idPueblo}}">Eliminar</button>
-
-                                            </td>                                       
+                                            </td>   
+                                            @endcan
+                                            <td>{{$pueblo->Nombre}}</td>
+                                                                                
                                         </tr>
                                     @include('pueblos.delete')
                                     @endforeach

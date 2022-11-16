@@ -13,7 +13,7 @@ class FichamspasriegoController extends Controller
     
     function __construct()
     {
-        $this->middleware('permission:ver-fichamspasriego | crear-fichamspasriego | editar-fichamspasriego | borrar-fichamspasriego', ['only'=>['index']]);
+        $this->middleware('permission:ver-fichamspasriego', ['only'=>['index']]);
         $this->middleware('permission:crear-fichamspasriego', ['only'=>['create','store']]);
         $this->middleware('permission:editar-fichamspasriego', ['only'=>['edit','update']]);
         $this->middleware('permission:borrar-fichamspasriego', ['only'=>['destroy']]);

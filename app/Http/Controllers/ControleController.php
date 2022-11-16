@@ -11,7 +11,7 @@ class ControleController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:ver-controle | crear-controle | editar-controle | borrar-controle', ['only'=>['index']]);
+        $this->middleware('permission:ver-controle', ['only'=>['index']]);
         $this->middleware('permission:crear-controle', ['only'=>['create','store']]);
         $this->middleware('permission:editar-controle', ['only'=>['edit','update']]);
         $this->middleware('permission:borrar-controle', ['only'=>['destroy']]);

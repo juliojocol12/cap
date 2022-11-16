@@ -14,7 +14,7 @@ class ControlpospartoController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:ver-controlposparto | crear-controlposparto | editar-controlposparto | borrar-controlposparto', ['only'=>['index']]);
+        $this->middleware('permission:ver-controlposparto', ['only'=>['index']]);
         $this->middleware('permission:crear-controlposparto', ['only'=>['create','store']]);
         $this->middleware('permission:editar-controlposparto', ['only'=>['edit','update']]);
         $this->middleware('permission:borrar-controlposparto', ['only'=>['destroy']]);

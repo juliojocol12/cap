@@ -11,7 +11,7 @@ class EstablecimientosaludoController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:ver-establecimientosaludo | crear-establecimientosaludo | editar-establecimientosaludo | borrar-establecimientosaludo', ['only'=>['index']]);
+         $this->middleware('permission:ver-establecimientosaludo', ['only'=>['index']]);
          $this->middleware('permission:crear-establecimientosaludo', ['only' => ['create','store']]);
          $this->middleware('permission:editar-establecimientosaludo', ['only' => ['edit','update']]);
          $this->middleware('permission:borrar-establecimientosaludo', ['only' => ['destroy']]);

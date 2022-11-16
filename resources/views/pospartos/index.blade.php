@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Ficha clinica Posparto
+Ficha clinica posparto
 @endsection
 
 @section('content')
@@ -41,12 +41,18 @@ Ficha clinica Posparto
                             <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
+                                    <th style="color:#fff;">Mostar</th>
+                                    @can('editar-fcevaluacionposparto')
+                                    <th style="color:#fff;">Editar</th>
+                                    @endcan
+                                    @can('borrar-fcevaluacionposparto')
+                                    <th style="color:#fff;">Borrar</th>
+                                    @endcan
                                     <th style="color:#fff;">No. Expediente</th>
                                     <th style="color:#fff;">Fecha</th>
                                     <th style="color:#fff;">Datos de paciente</th>
                                     <th style="color:#fff;">DPI</th>
                                     <th style="color:#fff;">Establecimiento Salud</th>
-                                    <th style="color:#fff;">Acciones</th>
                                 </thead>
 
                                 <tbody>
@@ -55,6 +61,19 @@ Ficha clinica Posparto
                                     
                                         <tr>
                                             <td style="display: none;">{{ $fcevaluacionposparto->idFCEvaluacionPosparto }}</td>
+                                            <td>
+                                            <a class="btn btn-success mr-3" href="{{ route('pospartos.show', $fcevaluacionposparto->idFCEvaluacionPosparto) }}">Mostar</a>
+                                            </td>
+                                            @can('editar-fcevaluacionposparto')
+                                            <td>
+                                            <a class="btn btn-info mr-3" href="{{ route('pospartos.edit', $fcevaluacionposparto->idFCEvaluacionPosparto) }}">Editar</a>
+                                            </td>
+                                            @endcan
+                                            @can('borrar-fcevaluacionposparto')
+                                            <td>
+                                                 <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-ficha">Eliminar</button> 
+                                            </td>
+                                            @endcan
                                             <td>{{$fcevaluacionposparto->Numerodireccion}}</td>
                                             <td>{{$fcevaluacionposparto->FechaEvaluacionPosparto}}</td>
 
@@ -65,14 +84,7 @@ Ficha clinica Posparto
                                             
                                             <td>{{$fcevaluacionposparto->establecimientosaludos->Nombre}} </td>
 
-                                            <td>
-                                                <a class="btn btn-success mr-3" href="{{ route('pospartos.show', $fcevaluacionposparto->idFCEvaluacionPosparto) }}">Mostar</a>
-                                                <a class="btn btn-info mr-3" href="{{ route('pospartos.edit', $fcevaluacionposparto->idFCEvaluacionPosparto) }}">Editar</a>
-                                                
-                                                <!-- Button trigger modal -->                                                
-                                                <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-ficha">Eliminar</button> 
-
-                                            </td>
+                                          
                                             
               
                                         </tr>
