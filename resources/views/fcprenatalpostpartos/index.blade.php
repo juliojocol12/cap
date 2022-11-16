@@ -70,7 +70,7 @@
                                             <td>
                                                 <a class="btn btn-success mr-3" href="{{ route('fcprenatalpostpartos.show', $fcprenatalpostparto->idFCPrenatalPostpartos) }}">Mostar</a>
                                                 <a class="btn btn-info mr-3" href="{{ route('fcprenatalpostpartos.edit', $fcprenatalpostparto->idFCPrenatalPostpartos) }}">Editar</a>
-                                                
+                                                <a class="btn btn-dark mr-3" href="{{ route('fcprenatalpostpartos.pdf', $fcprenatalpostparto->idFCPrenatalPostpartos) }}"><i class="fa-solid fa-download"></i></a>
                                                 <!-- Button trigger modal -->                                                
                                                 <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-ficha">Eliminar</button>
 

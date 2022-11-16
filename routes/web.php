@@ -22,6 +22,7 @@ use App\Http\Controllers\ControleController;
 use App\Http\Controllers\FcevaluacionpospartoController;
 use App\Http\Controllers\ControlpospartoController;
 use App\Http\Controllers\EventosController;
+use App\Http\Controllers\ReportesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,10 +62,31 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('controles', ControleController::class);
     Route::resource('pospartos', FcevaluacionpospartoController::class);
     Route::resource('controlpospartos', ControlpospartoController::class);
+    Route::resource('reportes', ReportesController::class);
     
     //Route::resource('evento', EventoController::class);
     Route::resource('eventos', EventosController::class);
-    
 
+    //Route para ficha clinica prenatal
+    Route::get('pdf/fcprenatalpostpartos', [App\Http\Controllers\FcprenatalpostpartoController::class, 'pdf'])->name('fcprenatalpostpartos.pdf');
     
+    //rutas para vistas de reportes
+    Route::get('r1/reportes', [App\Http\Controllers\ReportesController::class, 'r1'])->name('reportes.r1');
+    Route::get('r2/reportes', [App\Http\Controllers\ReportesController::class, 'r2'])->name('reportes.r2');
+    Route::get('r3/reportes', [App\Http\Controllers\ReportesController::class, 'r3'])->name('reportes.r3');
+    Route::get('r4/reportes', [App\Http\Controllers\ReportesController::class, 'r4'])->name('reportes.r4');
+    Route::get('r5/reportes', [App\Http\Controllers\ReportesController::class, 'r5'])->name('reportes.r5');
+    Route::get('r6/reportes', [App\Http\Controllers\ReportesController::class, 'r6'])->name('reportes.r6');
+    Route::get('r7/reportes', [App\Http\Controllers\ReportesController::class, 'r7'])->name('reportes.r7');
+    Route::get('r8/reportes', [App\Http\Controllers\ReportesController::class, 'r8'])->name('reportes.r8');
+    Route::get('r9/reportes', [App\Http\Controllers\ReportesController::class, 'r9'])->name('reportes.r9');
+    Route::get('r10/reportes', [App\Http\Controllers\ReportesController::class, 'r10'])->name('reportes.r10');
+    Route::get('r11/reportes', [App\Http\Controllers\ReportesController::class, 'r11'])->name('reportes.r11');
+    Route::get('r12/reportes', [App\Http\Controllers\ReportesController::class, 'r12'])->name('reportes.r12');
+    Route::get('r13/reportes', [App\Http\Controllers\ReportesController::class, 'r13'])->name('reportes.r13');
+
+    //rutas para generar reportes
+    Route::get('pdf4/reportes', [App\Http\Controllers\ReportesController::class, 'pdf4'])->name('datospersonalespacientes.pdf4');
+
+
 });

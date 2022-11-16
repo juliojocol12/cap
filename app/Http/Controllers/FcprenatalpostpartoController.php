@@ -6,6 +6,8 @@ use App\Models\fcprenatalpostparto;
 use App\Models\datospersonalespaciente;
 use App\Models\establecimientosaludo;
 use Illuminate\Http\Request;
+use PDF;
+use Carbon\Carbon;
 
 class FcprenatalpostpartoController extends Controller
 {
@@ -33,6 +35,31 @@ class FcprenatalpostpartoController extends Controller
         ->orwhere('Numerodireccion','LIKE','%'.$texto.'%')
         ->paginate(10);
         return view('fcprenatalpostpartos.index', compact('fcprenatalpostpartos','texto'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\fcprenatalpostparto  $fcprenatalpostparto
+     * @param  int  $idFCPrenatalPostpartos
+     * @return \Illuminate\Http\Response
+     */
+    
+    public function pdf()
+    {
+        $fcprenatalpostpartos = fcprenatalpostparto::select('idFCPrenatalPostpartos','Fecha',
+        'NombresPaciente','ApellidosPaciente','CUI','Numerodireccion','idDatosPersonalesPacientes','EstablecimientoSalud_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterial','Fiebre','PresentacionesFetales','RegistrodeReferencia','MotivoConsulta','HistoriaEnfermedadActual','FechaUltimaRegla','NoGestas','Partos','Aborto','AbortoConsecutivo','NoLIU','NacidosVivos','NacidosMuertos','HijosVivos','HijosMuertos','NoCesareas','EmbarazoMultiples','FechaUltimoParto','NacidosAntesOchoMeses','PreEclampsia','UltimoRNPesoCincolb','UltimoRNPesoSietelb','DeteccionCancerCervix','FechaDeteccionCancer','ResultadoNormal','MetodoPlanificacionFamiliar','CualMetodoPlanificacionF','AsmaBronquial','HipertensionArterial','Cancer','ITS','Chagas','TomaMedicamentos','TrastornoPiscoSocial','ViolenciaGenero','Diabetes','Cardiopatia','Tuberculosis','Neuropatia','InfeccionesUrinarias','ViolenciaInrtraFamiliar','TipoSangre','Quirurgicos','Fuma','BebidasAlcoholicas','ConsumoDrogas','AntecedentesVacunas','DosisVacuna','FechaUltimaDosis','SR','OtrosAntecedentes',)
+        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcprenatalpostpartos.DatosPersonalesPacientes_id')
+        ->where(['idFCPrenatalPostpartos' => 1])
+        ->paginate(10);
+        //return view('fcprenatalpostpartos.pdf', compact('fcprenatalpostpartos'));
+
+        $pdf = PDF::loadView('fcprenatalpostpartos.pdf', compact('fcprenatalpostpartos'));
+        $date = Carbon::now();
+        //$pdf->loadHTML('<h1>Prueba</h1>');
+        return $pdf->stream('Ficha_Clinia.pdf');
+        //return $pdf->download('Ficha_Clinia.pdf');
+
     }
 
     /**

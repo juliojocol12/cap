@@ -7,6 +7,10 @@
     <a class="nav-link" href="/eventos">
         <i class=" fa fa-hospital"></i><span>Evento</span>
     </a>
+
+    <a class="nav-link" href="/reportes">
+        <i class="fa fa-file" aria-hidden="true"></i><span>Reportes</span>
+    </a>
     <hr class="dropdown-divider">
 
 </li>

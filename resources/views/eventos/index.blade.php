@@ -10,6 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+
 <link rel="stylesheet" href="{{ asset('fullcalendar/core/main.css')}}">
 <link rel="stylesheet" href="{{ asset('fullcalendar/daygrid/main.css')}}">
 <link rel="stylesheet" href="{{ asset('fullcalendar/list/main.css')}}">
@@ -23,12 +24,16 @@
 <script src="{{ asset('fullcalendar/list/main.js')}}" defer></script>
 <script src="{{ asset('fullcalendar/timegrid/main.js')}}" defer></script>
 
+<script src='fullcalendar/core/locales/es.js'></script>
+
+
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
   var calendarEl = document.getElementById("calendar");
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
+    locale: 'es',
     plugins: ["interaction", "dayGrid", "timeGrid", "list"],
     selectable: true,
     header: {
@@ -108,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
         events:"{{ url('/eventos/show') }}"
 
   });
-  calendar.setOption('locale','es');
+  //calendar.setOption('locale','es');
 
   calendar.render();
 
