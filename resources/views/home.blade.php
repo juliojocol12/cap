@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Pagina principal
+    Página principal
 @endsection
 
 @section('content')

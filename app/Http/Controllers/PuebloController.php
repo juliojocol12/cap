@@ -9,7 +9,7 @@ class PuebloController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:ver-pueblo | crear-pueblo | editar-pueblo | borrar-pueblo', ['only'=>['index']]);
+        $this->middleware('permission:ver-pueblo', ['only'=>['index']]);
         $this->middleware('permission:crear-pueblo', ['only'=>['create','store']]);
         $this->middleware('permission:editar-pueblo', ['only'=>['edit','update']]);
         $this->middleware('permission:borrar-pueblo', ['only'=>['destroy']]);

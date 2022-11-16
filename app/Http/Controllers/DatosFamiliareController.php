@@ -10,7 +10,7 @@ class DatosfamiliareController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:ver-datosfamiliare | crear-datosfamiliare | editar-datosfamiliare | borrar-datosfamiliare', ['only'=>['index']]);
+        $this->middleware('permission:ver-datosfamiliare', ['only'=>['index']]);
         $this->middleware('permission:crear-datosfamiliare', ['only'=>['create','store']]);
         $this->middleware('permission:editar-datosfamiliare', ['only'=>['edit','update']]);
         $this->middleware('permission:borrar-datosfamiliare', ['only'=>['destroy']]);

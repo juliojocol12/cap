@@ -31,7 +31,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="name">Nombre (*)</label>
-                                        {!! Form::text('name', null, array('class'=>'form-control','maxlength'=>'20', 'placeholder'=>'ingrese el nombre de usuario','autocomplete'=>'off')) !!}
+                                        {!! Form::text('name', null, array('class'=>'form-control','maxlength'=>'20', 'placeholder'=>'Ingrese el nombre de usuario','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
                             </div>
@@ -39,8 +39,8 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Email (*)</label>
-                                        {!! Form::text('email', null, array('class'=>'form-control','maxlength'=>'80','placeholder'=>'ingrese una direccion de correo','autocomplete'=>'off')) !!}
+                                        <label for="name">Correo electrónico (*)</label>
+                                        {!! Form::text('email', null, array('class'=>'form-control','maxlength'=>'80','placeholder'=>'Ingrese la dirección de correo electrónico','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="name">Contraseña (*)</label>
-                                        {!! Form::password('password', array('class'=>'form-control', 'maxlength'=>'12','placeholder'=>'ingrese la contraseña','autocomplete'=>'off')) !!}
+                                        {!! Form::password('password', array('class'=>'form-control', 'maxlength'=>'12','placeholder'=>'Debe contener al menos una mayúscula y números','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="name">Confirmar contraseña (*)</label>
-                                        {!! Form::password('confirm-password', array('class'=>'form-control', 'maxlength'=>'12', 'placeholder'=>'vuelva a ingresar la contraseña')) !!}
+                                        {!! Form::password('confirm-password', array('class'=>'form-control', 'maxlength'=>'12', 'placeholder'=>'Asegurese las contraseñas coincidan')) !!}
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Roles (*)</label>
+                                        <label for="name">Rol a desempeñar (*)</label>
                                         {!! Form::select('roles[]', $roles,[], array('class'=>'form-control')) !!}
                                     </div>
                                 </div>                                

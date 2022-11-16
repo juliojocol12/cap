@@ -42,12 +42,18 @@
                             <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
+                                    <th style="color:#fff;">Mostar</th>
+                                    @can('editar-fcprenatalpostparto')
+                                    <th style="color:#fff;">Editar</th>
+                                    @endcan
+                                    @can('borrar-fcprenatalpostparto')
+                                    <th style="color:#fff;">Borrar</th>
+                                    @endcan
                                     <th style="color:#fff;">No. Expediente</th>
                                     <th style="color:#fff;">Fecha</th>
                                     <th style="color:#fff;">Datos de paciente</th>
                                     <th style="color:#fff;">DPI</th>
                                     <th style="color:#fff;">Establecimiento Salud</th>
-                                    <th style="color:#fff;">Acciones</th>
                                 </thead>
 
                                 <tbody>
@@ -56,7 +62,19 @@
                                     
                                         <tr>
                                             <td style="display: none;">{{ $fcprenatalpostparto->idFCPrenatalPostpartos }}</td>
-
+                                            <td>
+                                            <a class="btn btn-success mr-3" href="{{ route('fcprenatalpostpartos.show', $fcprenatalpostparto->idFCPrenatalPostpartos) }}">Mostar</a>
+                                            </td>
+                                            @can('editar-fcprenatalpostparto')
+                                            <td>
+                                            <a class="btn btn-info mr-3" href="{{ route('fcprenatalpostpartos.edit', $fcprenatalpostparto->idFCPrenatalPostpartos) }}">Editar</a>
+                                            </td>
+                                            @endcan
+                                            @can('borrar-fcprenatalpostparto')
+                                            <td>
+                                            <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-ficha">Eliminar</button>
+                                            </td>
+                                            @endcan
                                             <td>{{$fcprenatalpostparto->Numerodireccion}}</td>
                                             <td>{{$fcprenatalpostparto->Fecha}}</td>
 
@@ -67,14 +85,7 @@
                                             
                                             <td>{{$fcprenatalpostparto->establecimientosaludos->Nombre}} </td>
 
-                                            <td>
-                                                <a class="btn btn-success mr-3" href="{{ route('fcprenatalpostpartos.show', $fcprenatalpostparto->idFCPrenatalPostpartos) }}">Mostar</a>
-                                                <a class="btn btn-info mr-3" href="{{ route('fcprenatalpostpartos.edit', $fcprenatalpostparto->idFCPrenatalPostpartos) }}">Editar</a>
-                                                
-                                                <!-- Button trigger modal -->                                                
-                                                <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-ficha">Eliminar</button>
 
-                                            </td>
                                             
               
                                         </tr>

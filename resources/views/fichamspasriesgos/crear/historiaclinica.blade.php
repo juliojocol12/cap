@@ -67,7 +67,7 @@
                                     <div class="form-group">
                                         <label for="">Si cuenta con alguna otra enfermedad especifique (*)</label>
                                         
-                                        {!! Form::text('Especifiquefichamspasriegos', null, array('class'=>'form-control','maxlength'=>'50', 'placeholder'=>'Por favor especifique de lo contrario ingrese un "no"', 'autocomplete'=>'off')) !!}
+                                        {!! Form::text('Especifiquefichamspasriegos', null, array('class'=>'form-control','maxlength'=>'50', 'placeholder'=>'Por favor especifique de lo contrario ingrese un "No"', 'autocomplete'=>'off')) !!}
                                     </div>                                       
                                 </div>
 
@@ -82,7 +82,7 @@
                                     <div class="form-group">
                                         <label for="">En caso de referir, indique a que establecimiento :</label>
                                         
-                                        {!! Form::text('Refirio', null, array('class'=>'form-control','maxlength'=>'35', 'placeholder'=>'Si será referida ingrese el nombre del establecimiento, de lo contrario coloque "no"', 'autocomplete'=>'off')) !!}
+                                        {!! Form::text('Refirio', null, array('class'=>'form-control','maxlength'=>'35', 'placeholder'=>'Ingrese el nombre del establecimiento al que será referida, de lo contrario deje la casilla en blanco', 'autocomplete'=>'off')) !!}
                                     </div>                                       
                                 </div>
 

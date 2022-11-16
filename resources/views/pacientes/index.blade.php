@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title')
-    Embarazadas
+    Pacientes Embarazadas
 @endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Embarazadas</h3>
+            <h3 class="page__heading">Pacientes embarazadas</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -27,11 +27,11 @@
                                     <form action="{{ route('pacientes.index') }}" method="GET">
                                         <div class="form-row">
                                             <div class="col-sm-4 my-1">
-                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el CUI para buscar">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el DPI para buscar">
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
-                                                <a href="{{ route('pacientes.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
+                                                <a href="{{ route('pacientes.index') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
                                             </div>
                                         </div>
                                     </form>
@@ -40,13 +40,19 @@
 
                             <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
+                                    <th style="color:#fff;">Mostar</th>
+                                    @can('editar-datospersonalespaciente')
+                                    <th style="color:#fff;">Editar</th>
+                                    @endcan
+                                    @can('borrar-datospersonalespaciente')
+                                    <th style="color:#fff;">Borrar</th>
+                                    @endcan
                                     <th style="color:#fff;">Nombres</th>
                                     <th style="color:#fff;">Apellidos</th>
                                     <th style="color:#fff;">DPI</th>
-                                    <th style="color:#fff;">Telefono</th>
+                                    <th style="color:#fff;">Teléfono</th>
                                     <th style="color:#fff;">Celular</th>
                                     <th style="color:#fff;">Pueblo</th>
-                                    <th style="color:#fff;">Acciones</th>
                                 </thead>
                             
                                 
@@ -57,19 +63,28 @@
                                         </tr>
                                     @else
                                     @foreach($datospersonalespacientes as $paciente)
-                                        <tr "table-active">
+                                    <tr "table-active">
                                       
+                                    <td>
+                                    <a class="btn btn-success mr-3" href="{{ route('pacientes.show', $paciente->idDatosPersonalesPacientes) }}">Mostar</a>
+                                    </td>    
+                                    @can('editar-datospersonalespaciente')
+                                    <td>
+                                      <a href="{{ route('pacientes.edit', $paciente->idDatosPersonalesPacientes) }}" class="btn btn-info mr-3">Editar</a>
+                                    </td> 
+                                    @endcan
+                                    @can('borrar-datospersonalespaciente')
+                                    <td>
+                                     <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-{{$paciente->idDatosPersonalesPacientes}}">Eliminar</button>
+                                    </td> 
+                                    @endcan
                                             <td>{{$paciente->NombresPaciente}}</td>
                                             <td>{{$paciente->ApellidosPaciente}}</td> 
                                             <td>{{$paciente->CUI}}</td> 
                                             <td>{{$paciente->Telefono}}</td> 
                                             <td>{{$paciente->Celular}}</td> 
                                             <td>{{$paciente->Nombre}}</td> 
-                                            <td>
-                                                <a class="btn btn-success mr-3" href="{{ route('pacientes.show', $paciente->idDatosPersonalesPacientes) }}">Mostar</a>
-                                                <a href="{{ route('pacientes.edit', $paciente->idDatosPersonalesPacientes) }}" class="btn btn-info mr-3">Editar</a>
-                                                <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-{{$paciente->idDatosPersonalesPacientes}}">Eliminar</button>
-                                            </td>                                    
+                                                                               
                                         </tr>
                                     @include('pacientes.delete')
                                     @endforeach

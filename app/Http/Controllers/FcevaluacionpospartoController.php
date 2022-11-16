@@ -16,7 +16,7 @@ class FcevaluacionpospartoController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:ver-fcevaluacionposparto | crear-fcevaluacionposparto | editar-fcevaluacionposparto | borrar-fcevaluacionposparto', ['only'=>['index']]);
+        $this->middleware('permission:ver-fcevaluacionposparto', ['only'=>['index']]);
         $this->middleware('permission:crear-fcevaluacionposparto', ['only'=>['create','store']]);
         $this->middleware('permission:editar-fcevaluacionposparto', ['only'=>['edit','update']]);
         $this->middleware('permission:borrar-fcevaluacionposparto', ['only'=>['destroy']]);

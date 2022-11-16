@@ -29,11 +29,11 @@
                                     <form action="{{ route('usuarios.index') }}" method="GET">
                                         <div class="form-row">
                                             <div class="col-sm-4 my-1">
-                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese cualquier valor a buscar">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese algún valor para buscar">
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
-                                                <a href="{{ route('usuarios.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
+                                                <a href="{{ route('usuarios.index') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
                                             </div>
                                         </div>
                                     </form>
@@ -50,7 +50,7 @@
                                     <th style="color:#fff;">Borrar</th>
                                     @endcan
                                     <th style="color:#fff;">Nombre</th>
-                                    <th style="color:#fff;">E-mail</th>
+                                    <th style="color:#fff;">Correo electrónico</th>
                                     <th style="color:#fff;">Rol</th>
                                 </thead>
                                 <tbody>

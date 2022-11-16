@@ -12,7 +12,7 @@ class PrimercontrolpostpartoController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:ver-primercontrolpostparto | crear-primercontrolpostparto | editar-primercontrolpostparto | borrar-primercontrolpostparto', ['only'=>['index']]);
+         $this->middleware('permission:ver-primercontrolpostparto', ['only'=>['index']]);
          $this->middleware('permission:crear-primercontrolpostparto', ['only' => ['create','store']]);
          $this->middleware('permission:editar-primercontrolpostparto', ['only' => ['edit','update']]);
          $this->middleware('permission:borrar-primercontrolpostparto', ['only' => ['destroy']]);

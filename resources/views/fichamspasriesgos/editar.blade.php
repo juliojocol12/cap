@@ -1,12 +1,15 @@
 @extends('layouts.app')
+@section('title')
+Editar datos de la ficha de expediente No. {{$fichamspasriego->RegistroNo}}
+@endsection 
 @section('content')
     <section class="section">        
         <div class="section-header">
-            <h3 class="page__heading">Editar ficha </h3>
+            <h3 class="page__heading">Editar datos de la ficha de expediente No. {{$fichamspasriego->RegistroNo}} </h3>
         </div>
         <div class="section-body">
              <div class="row row-responsive">
-                <div class="col-lg-12 col-responsive">
+                <div class="col-lg-12 col-responsive" onkeypress="return pulsar(event)">
                     {{-- Validacion para ingreso de campos --}}
                             @if($errors->any())
                             <div class="alert alert-dark alert-dismissible fade show" role="alert">
@@ -20,7 +23,7 @@
                             </div>
                          @endif
 
-
+                         <a href="{{ route('fichamspasriesgos.index') }}" class="btn btn-danger mr-3">Cancelar</a>
                     {!! Form::model($fichamspasriego, ['method' => 'PATCH', 'route'=> ['fichamspasriesgos.update', $fichamspasriego->idFichamspasriegos ]]) !!}
 
 
@@ -34,7 +37,7 @@
 
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-actualizar">Actualizar</button>
-                        <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-danger mr-3">Cancelar</a>
+                        <a href="{{ route('fichamspasriesgos.index') }}" class="btn btn-danger mr-3">Cancelar</a>
                     </div>
                     @include('modal.actualizar')
                     {!! Form::close() !!}

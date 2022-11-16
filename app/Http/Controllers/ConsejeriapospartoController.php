@@ -10,7 +10,7 @@ class ConsejeriapospartoController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:ver-conserjeriaposparto | crear-conserjeriaposparto | editar-conserjeriaposparto | borrar-conserjeriaposparto', ['only'=>['index']]);
+         $this->middleware('permission:ver-conserjeriaposparto', ['only'=>['index']]);
          $this->middleware('permission:crear-conserjeriaposparto', ['only' => ['create','store']]);
          $this->middleware('permission:editar-conserjeriaposparto', ['only' => ['edit','update']]);
          $this->middleware('permission:borrar-conserjeriaposparto', ['only' => ['destroy']]);

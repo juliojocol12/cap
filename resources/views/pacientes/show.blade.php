@@ -6,7 +6,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h4 class="page__heading">Datos de {{$pacientes->NombresPaciente}} {{$pacientes->ApellidosPaciente}} </h4>
+            <h4 class="page__heading">Información de {{$pacientes->NombresPaciente}} {{$pacientes->ApellidosPaciente}} </h4>
         </div>
         <div class="section-body">
             <div class="row">
@@ -27,7 +27,7 @@
                         <div class="card-body table-responsive">
                             
                                     <table class="table table-striped table-bordered table-responsive " >
-                                        <h4 class="page__heading">Datos de personales</h4>
+                                        <h4 class="page__heading">Datos personales</h4>
                                         <tbody >
                                             <tr>
                                                 <th scope="row" ">Nombres</th>
@@ -60,12 +60,12 @@
                                     <table class="table table-striped table-bordered table-responsive " >
                                         <tbody >   
                                             <tr>
-                                                <th scope="row" ">Descripcion direccion</th>
+                                                <th scope="row" ">Descripción dirección</th>
                                                 <td>{{$pacientes->Descripciondireccion}}</td>
                                             </tr>
 
                                             <tr>
-                                                <th scope="row" ">Grupo direccion</th>
+                                                <th scope="row" ">Grupo dirección</th>
                                                 <td>{{$pacientes->Grupodireccion}}</td>
                                             </tr>
 
@@ -80,12 +80,12 @@
                                             </tr>
 
                                             <tr>
-                                                <th scope="row" ">Lugar</th>
+                                                <th scope="row" ">Municipio y departamento</th>
                                                 <td>{{$pacientes->Municipiodep}}</td>
                                             </tr>
 
                                             <tr>
-                                                <th scope="row" ">Telefono</th>
+                                                <th scope="row" ">Teléfono</th>
                                                 <td>{{$pacientes->Telefono}}</td>
                                                 
                                             </tr>
@@ -94,7 +94,7 @@
                                                 <td>{{$pacientes->Celular}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row" ">Profesion</th>
+                                                <th scope="row" ">Profesión u oficio</th>
                                                 <td>{{$pacientes->ProfesionOficio}}</td>
                                             </tr>
                                             
@@ -148,8 +148,8 @@
                         <div class="card-body table-responsive">
                             <a href="{{ route('pacientes.index') }}" class="btn btn-success mr-3">Volver</a>
                             <a href="{{ route('pacientes.edit', $pacientes->idDatosPersonalesPacientes) }}" class="btn btn-info mr-3">Editar</a>
-                            <a href="{{ route('fcprenatalpostpartos.create') }}" class="btn btn-primary mr-3">Ingresar ficha clinica</a>
-                            <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-primary mr-3">Ver ficha clinica</a> 
+                            <a href="{{ route('fcprenatalpostpartos.create') }}" class="btn btn-primary mr-3">Ingresar ficha clínica</a>
+                            <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-primary mr-3">Ver ficha clínica</a> 
                         </div>
                     </div>
                 </div>

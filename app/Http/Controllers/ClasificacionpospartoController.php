@@ -10,7 +10,7 @@ class ClasificacionpospartoController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:ver-clasificacionposparto | crear-clasificacionposparto | editar-clasificacionposparto | borrar-clasificacionposparto', ['only'=>['index']]);
+         $this->middleware('permission:ver-clasificacionposparto', ['only'=>['index']]);
          $this->middleware('permission:crear-clasificacionposparto', ['only' => ['create','store']]);
          $this->middleware('permission:editar-clasificacionposparto', ['only' => ['edit','update']]);
          $this->middleware('permission:borrar-clasificacionposparto', ['only' => ['destroy']]);

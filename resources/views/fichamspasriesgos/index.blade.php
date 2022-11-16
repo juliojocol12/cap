@@ -1,9 +1,11 @@
 @extends('layouts.app')
-
+@section('title')
+    Ficha Riesgo Obstétrico MSPAS
+@endsection
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Ficha de riesgo obstétrico del ministerio de salud pública <br> y asistencia social centro nacional de epidemiolía</h3>
+            <h3 class="page__heading">Ficha de riesgo obstétrico del MSPAS Centro Nacional de Epidemiología</h3>
         </div>
         <div class="section-body">
             <div class="row row-responsive">
@@ -38,20 +40,38 @@
                             <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
+                                    <th style="color:#fff;">Mostar</th>
+                                    @can('editar-fichamspasriego')
+                                    <th style="color:#fff;">Editar</th>
+                                    @endcan
+                                    @can('borrar-fichamspasriego')
+                                    <th style="color:#fff;">Borrar</th>
+                                    @endcan
                                     <th style="color:#fff;">No. Expediente</th>
                                     <th style="color:#fff;">Registro Número</th>
                                     <th style="color:#fff;">Datos de paciente</th>
                                     <th style="color:#fff;">DPI</th>
-                                    <th style="color:#fff;">Establecimiento Salud</th>
-                                    <th style="color:#fff;">Acciones</th>
                                 </thead>
-
                                 <tbody>
                                     @foreach($fichamspasriesgos as $fichamspasriesgo)
-
+ 
                                     
                                         <tr>
                                             <td style="display: none;">{{ $fichamspasriesgo->idFichamspasriegos }}</td>
+                                            <td>
+                                            <a class="btn btn-success mr-3" href="{{ route('fichamspasriesgos.show', $fichamspasriesgo->idFichamspasriegos) }}">Mostar</a>
+                                            </td>
+                                            
+                                            @can('editar-fichamspasriego')
+                                            <td>
+                                            <a class="btn btn-info mr-3" href="{{ route('fichamspasriesgos.edit', $fichamspasriesgo->idFichamspasriegos) }}">Editar</a>
+                                            </td>
+                                            @endcan
+                                            @can('borrar-fichamspasriego')
+                                            <td>
+                                            <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-{{$fichamspasriesgo->idFichamspasriegos}}">Eliminar</button>
+                                            </td>
+                                            @endcan
 
                                             <td>{{$fichamspasriesgo->Numerodireccion}}</td>
                                             <td>{{$fichamspasriesgo->RegistroNo}}</td>
@@ -61,20 +81,9 @@
                                             <td>{{$fichamspasriesgo->CUI}}</td>
 
                                             
-                                            
-
-                                            <td>
-                                                <a class="btn btn-success mr-3" href="{{ route('fichamspasriesgos.show', $fichamspasriesgo->idFichamspasriegos) }}">Mostar</a>
-                                                <a class="btn btn-info mr-3" href="{{ route('fichamspasriesgos.edit', $fichamspasriesgo->idFichamspasriegos) }}">Editar</a>
-                                                
-                                                <!-- Button trigger modal -->                                                
-                                                <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-ficha">Eliminar</button>
-
-                                            </td>
-                                            
               
                                         </tr>
-                                   
+                                        @include('fichamspasriesgos.delete')
                                     @endforeach
                                 </tbody>
                             </table>

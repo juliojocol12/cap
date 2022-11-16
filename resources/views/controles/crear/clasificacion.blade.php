@@ -12,7 +12,7 @@
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
                                             <label for="">Problemas detectados</label>
-                                            {!! Form::text('ProblemasDetectados', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Ingrese los problemas detectados', 'autocomplete'=>'off')) !!}
+                                            {!! Form::text('ProblemasDetectados', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Si detecta problemas describalos', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>    
 

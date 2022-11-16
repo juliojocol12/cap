@@ -43,11 +43,16 @@
                             <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
+                                    <th style="color:#fff;">Mostar</th>
+                                    @can('editar-vacunainfante')
+                                    <th style="color:#fff;">Editar</th>
+                                    @endcan
+                                    @can('borrar-vacunainfante')
+                                    <th style="color:#fff;">Borrar</th>
+                                    @endcan
                                     <th style="color:#fff;">Fecha de sumistro de la vacuna</th>
                                     <th style="color:#fff;">Vacuna</th>
                                     <th style="color:#fff;">Infante</th>
-
-                                    <th style="color:#fff;">Acciones</th>
                                 </thead>
                                 
                                 <tbody>
@@ -59,17 +64,23 @@
                                     @foreach($vacunainfantes as $vacunainfante)
                                         <tr>
                                             <td style="display: none;">{{ $vacunainfante->idVacunasInfantes}}</td>
+                                            <td>
+                                                <a class="btn btn-success mr-3" href="{{ route('vacunainfantes.show',  $vacunainfante->idVacunasInfantes) }}">Mostar</a>
+                                            </td>
+                                            @can('editar-vacunainfante')
+                                            <td>
+                                                <a class="btn btn-info mr-3" href="{{ route('vacunainfantes.edit', $vacunainfante->idVacunasInfantes) }}">Editar</a>
+                                            </td>
+                                            @endcan
+                                            @can('borrar-vacunainfante')
+                                            <td>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$vacunainfante->idVacunasInfantes}}">Eliminar</button>
+                                            </td>
+                                            @endcan
                                             <td>{{$vacunainfante->FechaSuministro}}</td>
                                             <td>{{$vacunainfante->NombreVacuna}}</td>
                                             <td>{{$vacunainfante->Nombres}} {{$vacunainfante->Apellidos}}</td>
-                                            <td>
-                                                <a class="btn btn-success mr-3" href="{{ route('vacunainfantes.show',  $vacunainfante->idVacunasInfantes) }}">Mostar</a>
-                                                <a class="btn btn-info mr-3" href="{{ route('vacunainfantes.edit', $vacunainfante->idVacunasInfantes) }}">Editar</a>
-                                                
-                                                <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$vacunainfante->idVacunasInfantes}}">Eliminar</button>
-
-                                            </td>
+                                            
                                         </tr>
                                         @include('vacunainfantes.delete')
                                     @endforeach

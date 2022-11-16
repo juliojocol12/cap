@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Clasificación Posparto
+@endsection
 @section('content')
     <section class="section">
         <div class="section-header">
@@ -7,7 +9,7 @@
         </div>
         <div class="section-body">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12"> 
                     <div class="card">
                         <div class="card-body">
                            
@@ -16,20 +18,33 @@
                         <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color:#6777ef">                                     
                                     <th style="display: none;">ID</th>
-                                    <th style="color:#fff;">Problemas Detectados</th>      
-                                    <th style="color:#fff;">Acciones</th>                                                      
+                                    @can('editar-clasificacionposparto')
+                                    <th style="color:#fff;">Editar</th>
+                                    @endcan
+                                    @can('borrar-clasificacionposparto')
+                                    <th style="color:#fff;">Borrar</th>
+                                    @endcan
+                                    <th style="color:#fff;">Problemas detectados</th>                                                   
                               </thead>
                               <tbody>
                             @foreach ($clasificacionpospartos as $clasificacionposparto)
                             <tr>
                                 <td style="display: none;">{{ $clasificacionposparto->idClasificacionPospartos }}</td>                                
-                                <td>{{ $clasificacionposparto->ProblemasDetectados }}</td>
-                                <td>
-                                    
-                                    <a class="btn btn-info" href="{{ route('clasificacionposparto.edit', $clasificacionposparto->idClasificacionPospartos) }}">Editar</a>
+                                
+                                @can('editar-clasificacionposparto')
+                                  <td>
+                                  <a class="btn btn-info" href="{{ route('clasificacionposparto.edit', $clasificacionposparto->idClasificacionPospartos) }}">Editar</a>
+                                  </td>      
+                                 @endcan
+                              
+                                 @can('borrar-clasificacionposparto')
+                                 <td>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$clasificacionposparto->idClasificacionPospartos}}">Eliminar</button>
-                                            </td>                      
-                                        </tr>
+                                </td> 
+                                 @endcan
+                                <td>{{ $clasificacionposparto->ProblemasDetectados }}</td>
+                                                     
+                            </tr>
                             @include('clasificacionposparto.delete')
                             @endforeach
                             </tbody>

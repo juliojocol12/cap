@@ -15,8 +15,8 @@
                                     <div class="form-group">
                                         <label for="" value="DatosPersonalesPacientes_id">Datos de Madre (*)</label>
 
-                                        <input class="form-control" list="filtroIDPacientes" id="filtroIDPaciente" name="DatosPersonalesPacientes_id" placeholder="Ingrese el cui de la madre" autocomplete="off">                                        
-                                        <datalist id="filtroIDPacientes" name="DatosPersonalesPacientes_id">
+                                        <input class="form-control" list="filtroIDPacientes" id="filtroIDPaciente" name="DatosPersonalesPacientes_id" placeholder="ingrese el cui de la madre" autocomplete="off" value="{{$fichamspasriego->DatosPersonalesPacientes_id }}">                                        
+                                        <datalist id="filtroIDPacientes" name="DatosPersonalesPacientes_id" value="{{$fichamspasriego->DatosPersonalesPacientes_id }}">
                                             @foreach($datospacientes as $idpaciente)
                                             <option value="{{$idpaciente->idDatosPersonalesPacientes}}"> {{$idpaciente->CUI}}, {{$idpaciente->NombresPaciente}} {{$idpaciente->ApellidosPaciente}} </option>
                                             
@@ -29,8 +29,8 @@
                                     <div class="form-group">
                                         <label for="" value="FCPrenatalPostparto_id">Ficha Prenatal Posparto(*)</label>
 
-                                        <input class="form-control" list="filtroIDFichas" id="filtroIDFicha" name="FCPrenatalPostparto_id" placeholder="Ingrese número de ficha clínica" autocomplete="off">                                        
-                                        <datalist id="filtroIDFichas" name="FCPrenatalPostparto_id">
+                                        <input class="form-control" list="filtroIDFichas" id="filtroIDFicha" name="FCPrenatalPostparto_id" placeholder="Ingrese número de ficha clínica" autocomplete="off" value="{{$fichamspasriego->FCPrenatalPostparto_id }}">                                        
+                                        <datalist id="filtroIDFichas" name="FCPrenatalPostparto_id" value="{{$fichamspasriego->DatosPersonalesPacientes_id }}">
                                             @foreach($fcprenatalpostparto as $idFicha)
                                             <option value="{{$idFicha->idFCPrenatalPostpartos}}"> {{$idFicha->Fecha}}, {{$idFicha->DatosPersonalesPacientes_id}}  </option>
                                             

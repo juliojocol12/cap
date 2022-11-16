@@ -10,7 +10,7 @@ class PadecimientoinfanteController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:ver-padecimientoinfate | crear-padecimientoinfate | editar-padecimientoinfate | borrar-padecimientoinfate', ['only'=>['index']]);
+         $this->middleware('permission:ver-padecimientoinfate', ['only'=>['index']]);
          $this->middleware('permission:crear-padecimientoinfate', ['only' => ['create','store']]);
          $this->middleware('permission:editar-padecimientoinfate', ['only' => ['edit','update']]);
          $this->middleware('permission:borrar-padecimientoinfate', ['only' => ['destroy']]);

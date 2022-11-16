@@ -10,7 +10,7 @@ class ConductapospartoController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:ver-conductapostparto | crear-conductapostparto | editar-conductapostparto | borrar-conductapostparto', ['only'=>['index']]);
+         $this->middleware('permission:ver-conductapostparto', ['only'=>['index']]);
          $this->middleware('permission:crear-conductapostparto', ['only' => ['create','store']]);
          $this->middleware('permission:editar-conductapostparto', ['only' => ['edit','update']]);
          $this->middleware('permission:borrar-conductapostparto', ['only' => ['destroy']]);

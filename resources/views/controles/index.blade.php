@@ -2,7 +2,7 @@
 @section('title')
     Control prenatal
 @endsection
-
+ 
 @section('content')
     <section class="section">
         <div class="section-header">
@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="card-body">
                             
-                            <a class="btn btn-warning" href="{{ route('controles.create') }}">Ingresar control de madre</a>
+                            <a class="btn btn-warning" href="{{ route('controles.create') }}">Ingresar control de paciente</a>
                             @if(session('status'))
                                 <div class="alert alert-success mt-4">
                                     {{ session('status') }}
@@ -26,7 +26,7 @@
                                     <form action="{{ route('controles.index') }}" method="GET">
                                         <div class="form-row">
                                             <div class="col-sm-4 my-1">
-                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el Nombre para buscar">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el nombre para buscar">
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
@@ -34,16 +34,22 @@
                                         </div>
                                     </form>
                                 </div>
-
+ 
                             </div>
 
                             <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
+                                    <th style="color:#fff;">Mostar</th>
+                                    @can('editar-controle')
+                                    <th style="color:#fff;">Editar</th>
+                                    @endcan
+                                    @can('borrar-controle')
+                                    <th style="color:#fff;">Borrar</th>
+                                    @endcan
                                     <th style="color:#fff;">Fecha</th>
                                     <th style="color:#fff;">Datos de paciente</th>
                                     <th style="color:#fff;">DPI</th>
-                                    <th style="color:#fff;">Acciones</th>
                                 </thead>
 
                                 <tbody>
@@ -52,25 +58,27 @@
                                     
                                         <tr>
                                             <td style="display: none;">{{ $control->idControles }}</td>
-
-                                            <td>{{$control->FechaVisita}}</td>
-
-                                            
+                                            <td>
+                                            <a class="btn btn-success mr-3" href="{{ route('controles.show', $control->idControles) }}">Mostar</a>
+                                            </td>
+                                            @can('editar-controle')
+                                            <td>
+                                                <a class="btn btn-info mr-3" href="{{ route('controles.edit', $control->idControles) }}">Editar</a>
+                                            </td>
+                                            @endcan
+                                            @can('borrar-controle')
+                                            <td>
+                                            <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-{{$control->idControles}}">Eliminar</button>
+                                            </td>
+                                            @endcan
+                                            <td>{{$control->FechaVisita}}</td>                                          
                                             <td>{{$control->NombresPaciente}}</td>
                                             <td>{{$control->CUI}}</td>
 
-
-                                            <td>
-                                                <a class="btn btn-success mr-3" href="{{ route('controles.show', $control->idControles) }}">Mostar</a>
-                                                <a class="btn btn-info mr-3" href="{{ route('controles.edit', $control->idControles) }}">Editar</a>
-                                                
-                                                <!-- Button trigger modal -->                                                
-                                                <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-ficha">Eliminar</button>
-
-                                            </td>
                                             
               
                                         </tr>
+                                        @include('controles.delete')
                                     @endforeach
                                 </tbody>
 

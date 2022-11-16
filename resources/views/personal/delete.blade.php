@@ -13,14 +13,14 @@
         </button>
       </div>
       <div class="modal-body">
-      ¿Desea eliminar el registro de {{ $personal->Nombre }}?
+      ¿Está seguro que desea eliminar el registro de {{ $personal->Nombre }}?
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-danger" value="Si">
         <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
-        
+         
       </div>
     </div>
     </form>
   </div>
-</div>
+</div> 

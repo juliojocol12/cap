@@ -6,8 +6,8 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Personal</h3>
-        </div>
+            <h3 class="page__heading">Colaboradores del CAP</h3>
+        </div> 
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
@@ -30,11 +30,11 @@
                                     <form action="{{ route('personal.index') }}" method="GET">
                                         <div class="form-row">
                                             <div class="col-sm-4 my-1">
-                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese cualquier valor a buscar">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese algún valor para buscar">
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
-                                                <a href="{{ route('personal.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
+                                                <a href="{{ route('personal.index') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
                                             </div>
                                         </div>
                                     </form>
@@ -53,11 +53,11 @@
                                 <th style="color:#fff;">Nombre</th>
                                 <th style="color:#fff;">DPI</th>   
                                 <th style="color:#fff;">Celular</th>                                 
-                                <th style="color:#fff;">Telefono</th>
-                                <th style="color:#fff;">Direccion</th>
+                                <th style="color:#fff;">Teléfono</th>
+                                <th style="color:#fff;">Dirección</th>
                                 <th style="color:#fff;">Cargo</th>
-                                <th style="color:#fff;">FechaNacimiento</th>  
-                                <th style="color:#fff;">NivelAcademico</th>
+                                <th style="color:#fff;">Fecha de nacimiento</th>  
+                                <th style="color:#fff;">Nivel académico</th>
                                                                                             
                             </thead>
                             <tbody>

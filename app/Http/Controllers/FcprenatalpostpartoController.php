@@ -11,7 +11,7 @@ class FcprenatalpostpartoController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:ver-fcprenatalpostparto | crear-fcprenatalpostparto | editar-fcprenatalpostparto | borrar-fcprenatalpostparto', ['only'=>['index']]);
+        $this->middleware('permission:ver-fcprenatalpostparto', ['only'=>['index']]);
         $this->middleware('permission:crear-fcprenatalpostparto', ['only'=>['create','store']]);
         $this->middleware('permission:editar-fcprenatalpostparto', ['only'=>['edit','update']]);
         $this->middleware('permission:borrar-fcprenatalpostparto', ['only'=>['destroy']]);
