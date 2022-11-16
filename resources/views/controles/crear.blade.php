@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Ingresar cotrol prenatal
+    Ingresar nuevo control prenatal
 @endsection
 
 @section('content')

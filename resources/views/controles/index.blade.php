@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="card-body">
                             
-                            <a class="btn btn-warning" href="{{ route('controles.create') }}">Ingresar control de madre</a>
+                            <a class="btn btn-warning" href="{{ route('controles.create') }}">Ingresar control de paciente</a>
                             @if(session('status'))
                                 <div class="alert alert-success mt-4">
                                     {{ session('status') }}
@@ -26,7 +26,7 @@
                                     <form action="{{ route('controles.index') }}" method="GET">
                                         <div class="form-row">
                                             <div class="col-sm-4 my-1">
-                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el Nombre para buscar">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el nombre para buscar">
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
@@ -34,7 +34,7 @@
                                         </div>
                                     </form>
                                 </div>
-
+ 
                             </div>
 
                             <table class="table  table-striped mt-2 table-responsive">
@@ -68,7 +68,7 @@
                                             @endcan
                                             @can('borrar-controle')
                                             <td>
-                                                <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-ficha">Eliminar</button>
+                                            <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-{{$control->idControles}}">Eliminar</button>
                                             </td>
                                             @endcan
                                             <td>{{$control->FechaVisita}}</td>                                          
@@ -78,6 +78,7 @@
                                             
               
                                         </tr>
+                                        @include('controles.delete')
                                     @endforeach
                                 </tbody>
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title')
 Editar datos de la ficha de expediente No. {{$fichamspasriego->RegistroNo}}
-@endsection
+@endsection 
 @section('content')
     <section class="section">        
         <div class="section-header">
