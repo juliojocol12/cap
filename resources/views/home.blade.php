@@ -14,25 +14,23 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                            
-                            @include('home.personal')
-                            @include('home.infantes')
-                            @include('home.pacientes')
-                            @include('home.familiares')
-                            @include('home.prenatal')
-                            @include('home.controlprenatal')
-                            @include('home.posparto')
-                            @include('home.controlposparto')
-                            @include('home.pueblo')
-                            @include('home.establecimiento')
-                            @include('home.vacunas')
-                            @include('home.vacunainfantes')
-                                
-
-                            </div>
-                        
-
-                            
+                                @include('home.usuarios') 
+                                @include('home.roles')
+                                @include('home.personal')
+                                @include('home.infantes')
+                                @include('home.pacientes')
+                                @include('home.familiares')
+                                @include('home.prenatal')
+                                @include('home.controlprenatal')
+                                @include('home.posparto')
+                                @include('home.controlposparto')
+                                @include('home.pueblo')
+                                @include('home.establecimiento')
+                                @include('home.agenda')
+                                @include('home.vacunas')
+                                @include('home.vacunainfantes')
+                                @include('home.aborto')
+                             </div>
                         </div>
                     </div>
                 </div>

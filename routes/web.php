@@ -28,6 +28,8 @@ use App\Http\Controllers\EventosController;
 
 use App\Http\Controllers\VacunaController;
 use App\Http\Controllers\VacunainfanteController;
+
+use App\Http\Controllers\AbortoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,6 +79,8 @@ Route::group(['middleware' => ['auth']], function(){
 
     //Route::resource('evento', EventoController::class);
     Route::resource('eventos', EventosController::class);
+    Route::resource('abortos', AbortoController::class);
+    
 
     
 });

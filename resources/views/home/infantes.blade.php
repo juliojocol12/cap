@@ -1,4 +1,4 @@
-@can('home-infantes')
+@can('home-infante')
 
     <div class="col-md-4 col-xl-4">
         <div class="card bg-c-blue order-card">

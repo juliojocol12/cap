@@ -20,104 +20,118 @@ class SeederTablaPermisos extends Seeder
         //definicion de variable
         $permisos = [
             //tabla users
+            'home-usuario',
             'ver-usuario',
             'crear-usuario',
             'editar-usuario',
             'borrar-usuario',
 
             //tabla roles
+            'home-rol',
             'ver-rol',
             'crear-rol',
             'editar-rol',
             'borrar-rol',
 
             //tabla infante
+            'home-infante',
             'ver-infante',
             'crear-infante',
             'editar-infante',
             'borrar-infante',
 
             //tabla personal
+            'home-personal',
             'ver-personal',
             'crear-personal',
             'editar-personal',
             'borrar-personal',
             
             //tabla pueblo
+            'home-pueblo',
             'ver-pueblo',
             'crear-pueblo',
             'editar-pueblo',
             'borrar-pueblo',
 
             //tabla establecimientosaludo
+            'home-establecimientosaludo',
             'ver-establecimientosaludo',
             'crear-establecimientosaludo',
             'editar-establecimientosaludo', 
             'borrar-establecimientosaludo',
 
             //tabla datospersonalespaciente
+            'home-datospersonalespaciente',
             'ver-datospersonalespaciente',
             'crear-datospersonalespaciente',
             'editar-datospersonalespaciente', 
             'borrar-datospersonalespaciente',
 
             //tabla datosfamiliares
+            'home-datosfamiliare',
             'ver-datosfamiliare',
             'crear-datosfamiliare',
             'editar-datosfamiliare', 
             'borrar-datosfamiliare',
 
             //tabla fcprenatalpostparto
+            'home-fcprenatalpostparto',
             'ver-fcprenatalpostparto',
             'crear-fcprenatalpostparto',
             'editar-fcprenatalpostparto', 
             'borrar-fcprenatalpostparto',
 
-            //tabla fcevaluacionposparto
-            'ver-fcevaluacionposparto',
-            'crear-fcevaluacionposparto',
-            'editar-fcevaluacionposparto', 
-            'borrar-fcevaluacionposparto',
-
             //tabla controle
-            'ver-controle',
+            'home-controle',
+            'ver-controle',            
             'crear-controle',
             'editar-controle', 
             'borrar-controle',
 
+            //tabla fcevaluacionposparto
+            'home-fcevaluacionposparto',
+            'ver-fcevaluacionposparto',
+            'crear-fcevaluacionposparto',
+            'editar-fcevaluacionposparto', 
+            'borrar-fcevaluacionposparto',
+            
+
             //tabla controlposparto
+            'home-controlposparto',
             'ver-controlposparto',
             'crear-controlposparto',
             'editar-controlposparto', 
             'borrar-controlposparto',
             
-            //tabla home
-            'home-personal',
-            'home-infantes',
-            'home-pacientes',
-            'home-familiares',
-            'home-prenatal',
-            'home-controlprenatal',
-            'home-posparto',
-            'home-controlposparto',
-            'home-pueblo',
-            'home-establecimiento',
-            'home-vacunainfante',
-            'home-vacunas',
-
 
             //tabla fullcalendar
+            'home-fullcalendar',
             'ver-fullcalendar',
             'crear-fullcalendar',
             'editar-fullcalendar', 
             'borrar-fullcalendar',
 
             //Tabla vacunas
+            'home-vacunas',
             'ver-vacuna',
-            'ver-vacunas',
             'crear-vacuna',
             'editar-vacuna', 
             'borrar-vacuna',
+
+            //tabla vacunainfante
+            'home-vacunainfante',
+            'ver-vacunainfante',
+            'crear-vacunainfante',
+            'editar-vacunainfante', 
+            'borrar-vacunainfante',
+
+            //tabla Aborto
+            'home-Aborto',
+            'ver-Aborto',
+            'crear-Aborto',
+            'editar-Aborto', 
+            'borrar-Aborto',
             
 
         ];

@@ -18,6 +18,9 @@ use App\Models\establecimientosaludo;
 use App\Models\vacuna;
 use App\Models\vacunainfante;
 
+use App\Models\evento; 
+use App\Models\Aborto;
+
 
 class HomeController extends Controller
 {
@@ -29,16 +32,20 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('permission:home-Aborto', ['only'=>['abortohome']]);
+        $this->middleware('permission:home-fullcalendar', ['only'=>['agendahome']]);
+        $this->middleware('permission:home-usuario', ['only'=>['usuariohome']]);
+        $this->middleware('permission:home-rol', ['only'=>['rolhome']]);
         $this->middleware('permission:home-personal', ['only'=>['personalhome']]);
-        $this->middleware('permission:home-infantes', ['only'=>['infanteshome']]);
-        $this->middleware('permission:home-pacientes', ['only'=>['pacienteshome']]);
-        $this->middleware('permission:home-familiares', ['only'=>['familiareshome']]);
-        $this->middleware('permission:home-prenatal', ['only'=>['prenatalhome']]);
-        $this->middleware('permission:home-controlprenatal', ['only'=>['controlprenatalhome']]);
-        $this->middleware('permission:home-posparto', ['only'=>['pospartohome']]);
+        $this->middleware('permission:home-infante', ['only'=>['infanteshome']]);
+        $this->middleware('permission:home-datospersonalespaciente', ['only'=>['pacienteshome']]);
+        $this->middleware('permission:home-datosfamiliare', ['only'=>['familiareshome']]);
+        $this->middleware('permission:home-fcprenatalpostparto', ['only'=>['prenatalhome']]);
+        $this->middleware('permission:home-controle', ['only'=>['controlprenatalhome']]);
+        $this->middleware('permission:home-fcevaluacionposparto', ['only'=>['pospartohome']]);
         $this->middleware('permission:home-controlposparto', ['only'=>['controlpospartohome']]);
         $this->middleware('permission:home-pueblo', ['only'=>['pueblohome']]);
-        $this->middleware('permission:home-establecimiento', ['only'=>['establecimientohome']]);
+        $this->middleware('permission:home-establecimientosaludo', ['only'=>['establecimientohome']]);
         $this->middleware('permission:home-vacunas', ['only'=>['vacunashome']]);
         $this->middleware('permission:home-vacunainfante', ['only'=>['vacunainfantehome']]);
     }
@@ -64,17 +71,26 @@ class HomeController extends Controller
         $cant_establecimiento = establecimientosaludo::count();
         $cant_vacunas = vacuna::count();
         $cant_vacunainfante = vacunainfante::count();
-        return view('home', compact('cant_infantes','cant_personales','cant_roles','cantusuarios','cant_familiares','cant_pacientes','cant_prenatal','cant_controlprenatal','cant_posparto','cant_controlposparto','cant_pueblo','cant_establecimiento','cant_vacunas','cant_vacunainfante'));
-    }
-    public function vacunainfantehome()
-    {
-        return view('home.vacunainfantes');
+        $cant_agenda = evento::count();
+        $cant_aborto = Aborto::count();
+        return view('home', compact('cant_infantes','cant_personales','cant_roles','cantusuarios','cant_familiares','cant_pacientes','cant_prenatal','cant_controlprenatal','cant_posparto','cant_controlposparto','cant_pueblo','cant_establecimiento','cant_vacunas','cant_vacunainfante','cant_agenda','cant_aborto'));
     }
 
-
-    public function vacunashome()
+    public function abortohome()
     {
-        return view('home.vacunas');
+        return view('home.aborto');
+    }
+    public function agendahome()
+    {
+        return view('home.agenda');
+    }
+    public function usuariohome()
+    {
+        return view('home.usuarios');
+    }
+    public function rolhome()
+    {
+        return view('home.roles');
     }
 
     public function personalhome()
@@ -125,5 +141,15 @@ class HomeController extends Controller
     public function establecimientohome()
     {
         return view('home.establecimiento');
+    }
+    
+    public function vacunainfantehome()
+    {
+        return view('home.vacunainfantes');
+    }
+
+    public function vacunashome()
+    {
+        return view('home.vacunas');
     }
 }

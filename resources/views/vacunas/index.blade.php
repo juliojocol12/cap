@@ -52,8 +52,11 @@
                                 {!! $vacunas->links() !!}
                             </div>
 
+                            @can('editar-vacuna')
                             <button type="button" class="btn btn-info" data-toggle="modal" id="guardarmodal" data-target="#modal-vacunas">Ver el total de las vacunas</button>
                             @include('vacunas.vacunas')
+                            @endcan
+                            
                             
                         </div>
                     </div>

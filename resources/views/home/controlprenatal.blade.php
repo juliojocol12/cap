@@ -1,4 +1,4 @@
-@can('home-controlprenatal')
+@can('home-controle')
 
     <div class="col-md-4 col-xl-4">
         <div class="card bg-c-green order-card">
