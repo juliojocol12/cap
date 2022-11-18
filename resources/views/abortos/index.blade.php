@@ -64,8 +64,10 @@
                                         <td colspan="8">No hay resultados</td>
                                     </tr>
                                 @else
+                                
                                 @foreach ($abortos as $aborto)
                                     <tr>
+                                        
                                         <td style="display: none;">{{ $aborto->idAbortos }}</td>  
                                         @can('editar-Aborto')
                                         <td>                                            
@@ -81,12 +83,16 @@
                                         <td>{{ $aborto->CUI }}</td>
                                         <td>{{ $aborto->Antecedente }}</td>
                                         <td>{{ $aborto->Descripcion }}</td>
-                                        <td>{{ $aborto->FechaAborto }}</td>               
+                                        <td>{{ $aborto->FechaAborto }}</td>
+                                        <td>{{ $aborto->Estado }}</td>   
+                                                      
                                     </tr>
+                                
                                     @include('abortos.delete')
                                 @endforeach
                                 @endif
                             </tbody>
+                              
                         </table>
 
                         <!-- Ubicamos la paginacion a la derecha -->                                      

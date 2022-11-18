@@ -64,6 +64,17 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="d-none">
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="form-group">
+                                <label for="" value="Estado">Estado</label>
+                                <input type="text" name="Estado" value="Si">
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="col-md-12 mt-4">
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">

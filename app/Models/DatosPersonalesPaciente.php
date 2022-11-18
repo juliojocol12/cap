@@ -10,7 +10,7 @@ class datospersonalespaciente extends Model
     use HasFactory;
     protected $table = 'datospersonalespacientes';
     protected $primaryKey = 'idDatosPersonalesPacientes';
-    protected $fillable  = ['NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente','CUI','ProfesionOficio','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Migrante','pueblo_id','idDatosFamiliares','Parentesco','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion','Municipiodep',];
+    protected $fillable  = ['NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente','CUI','ProfesionOficio','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Migrante','pueblo_id','idDatosFamiliares','Parentesco','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion','Municipiodep','Usuario_id','Stado'];
 
     public function pueblos()
     {
@@ -20,5 +20,10 @@ class datospersonalespaciente extends Model
     public function datosfamiliares()
     {
         return $this->belongsTo('App\Models\DatosFamiliare', 'idDatosFamiliares', 'idDatosFamiliares');
+    }
+
+    public function usuarios()
+    {
+        return $this->belongsTo('App\Models\User', 'Usuario_id', 'id');
     }
 }

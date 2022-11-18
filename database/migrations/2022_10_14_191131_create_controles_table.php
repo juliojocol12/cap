@@ -120,6 +120,11 @@ class CreateControlesTable extends Migration
             $table->string('ImportanciaControlPos', 2);
             $table->string('VacunacionRecienNacido', 2);
 
+            $table->unsignedBigInteger('Usuario_id')->nullable();
+            $table->foreign('Usuario_id')->references('id')->on('users');
+
+            $table->string('Estado',2);
+
             $table->timestamps();
         });
     }

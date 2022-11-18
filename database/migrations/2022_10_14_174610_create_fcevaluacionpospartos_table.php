@@ -66,6 +66,8 @@ class CreateFcevaluacionpospartosTable extends Migration
             $table->string('ConsejeriaLactanciaMujerVIH',2);
             $table->string('ConsejeriaMujerVIH',2);
 
+            $table->string('Estado',2);
+
             $table->timestamps();
         });
     }

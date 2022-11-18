@@ -21,7 +21,7 @@ class PuebloController extends Controller
      */
     public function index()
     {
-        $pueblos = Pueblo::paginate(10);
+        $pueblos = Pueblo::where('Estado','Si')->paginate(10);
         return view('pueblos.index', compact('pueblos'));
     }
 
@@ -45,6 +45,7 @@ class PuebloController extends Controller
     {
         request()->validate([
             'Nombre' => 'required|TextoRule1|Unique:pueblos',
+            'Estado',
         ]);
         
         Pueblo::create($request->all());
@@ -88,6 +89,7 @@ class PuebloController extends Controller
     {
         request()->validate([
             'Nombre' => 'required|TextoRule1|Unique:pueblos',
+            'Estado',
         ]);
         $input = $request->all();
         $pueblo = Pueblo::find($idPueblo);
@@ -104,7 +106,9 @@ class PuebloController extends Controller
      */
     public function destroy($idPueblo)
     {
-        Pueblo::find($idPueblo)->delete();
+        $pueblos = Pueblo::findOrFail($idPueblo);
+        $pueblos->Estado='No';
+        $pueblos->update();
         return redirect()->route('pueblos.index');
     }
 }

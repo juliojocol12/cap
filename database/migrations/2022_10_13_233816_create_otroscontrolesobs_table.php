@@ -17,6 +17,9 @@ class CreateOtroscontrolesobsTable extends Migration
             $table->increments('idOtrosControlesObs');
             $table->date('Fecha');
             $table->string('ObservacionesAdicionales', 300);
+            $table->unsignedBigInteger('Usuario_id')->nullable();
+            $table->foreign('Usuario_id')->references('id')->on('users');
+            $table->string('Estado',2);
             $table->timestamps();
         });
     }

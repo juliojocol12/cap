@@ -43,6 +43,11 @@ class CreateDatospersonalespacientesTable extends Migration
             
             $table->string('Parentesco',20);
 
+            $table->unsignedBigInteger('Usuario_id')->nullable();
+            $table->foreign('Usuario_id')->references('id')->on('users');
+
+            $table->string('Stado',2);
+
             $table->timestamps();
         });
     }

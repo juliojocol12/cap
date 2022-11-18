@@ -10,5 +10,10 @@ class datosfamiliare extends Model
     use HasFactory;
     protected $guarded  = [];
     protected $primaryKey = 'idDatosFamiliares';
-    protected $fillable  = ['NombresFamiliar','ApellidosFamiliar','CUI','EstadoCivil','ProfesionOficio','Domicilio','TelefonoFamiliar','CelularFamiliar'];
+    protected $fillable  = ['NombresFamiliar','ApellidosFamiliar','CUI','EstadoCivil','ProfesionOficio','Domicilio','TelefonoFamiliar','CelularFamiliar','Usuario_id', 'Estado'];
+
+    public function usuarios()
+    {
+        return $this->belongsTo('App\Models\User', 'Usuario_id', 'id');
+    }
 }

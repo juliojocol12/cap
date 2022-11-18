@@ -55,6 +55,11 @@ class CreateFichamspasriegosTable extends Migration
             $table->date('Fecha',100)->nullable();
             $table->string('Nombre',40)->nullable();
 
+            $table->unsignedBigInteger('Usuario_id')->nullable();
+            $table->foreign('Usuario_id')->references('id')->on('users');
+
+            $table->string('Estado',2);
+
             $table->timestamps();
         });
     }

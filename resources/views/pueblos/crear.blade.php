@@ -36,10 +36,20 @@ Crear Pueblos
                                        
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                <div class="d-none">
+                                    <div class="col-xs-12 col-sm-12 col-md-2">
+                                        <div class="form-group">
+                                            <label for="" value="Estado">Estado</label>
+                                            <input type="text" name="Estado" value="Si">
+                                        </div>
+                                    </div>
                                 </div>
-                                
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Guardar</button>
+                                    <a href="{{ route('pueblos.index') }}" class="btn btn-danger mr-3">Volver</a>
+                                </div>
+                                @include('modal.guardar')
                                 
                             </div>
                             {!! Form::close() !!}                    

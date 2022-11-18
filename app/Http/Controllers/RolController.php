@@ -26,7 +26,7 @@ class RolController extends Controller
     public function index()
     {
         //referencia al modelo roles
-        $roles = Role::paginate(10);
+        $roles = Role::where('Estado','Si')->paginate(10);
         return view('roles.index', compact('roles'));
     }
 
@@ -143,8 +143,12 @@ class RolController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request, ['name' => 'required | TextoRule3', 'permission'=>'required']);
-        $role = Role::create(['name'=>$request->input('name')]);
+        $this->validate($request, [
+            'name' => 'required | TextoRule3', 
+            'permission'=>'required',
+            'Estado',
+        ]);
+        $role = Role::create(['name'=>$request->input('name'),'Estado'=>$request->input('Estado')]);
         $role->syncPermissions($request->input('permission'));
 
         return redirect()->route('roles.index');
@@ -276,10 +280,15 @@ class RolController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request, ['name' => 'required', 'permission' => 'required',]);
+        $this->validate($request, [
+            'name' => 'required', 
+            'permission' => 'required',
+            'Estado',
+        ]);
     
         $role = Role::find($id);
         $role->name = $request->input('name');
+        $role->Estado = $request->input('Estado');
         $role->save();
     
         $role->syncPermissions($request->input('permission'));
@@ -296,7 +305,9 @@ class RolController extends Controller
     public function destroy($id)
     {
         //
-        DB::table('roles')->where('id',$id)->delete();
+        $roles = Role::findOrFail($id);
+        $roles->Estado='No';
+        $roles->update();
         return redirect()->route('roles.index')->with('status');
     }
 }

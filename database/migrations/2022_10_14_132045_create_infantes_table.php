@@ -33,6 +33,11 @@ class CreateInfantesTable extends Migration
             $table->foreign('idDatosFamiliares')->references('idDatosFamiliares')->on('datosfamiliares');
 
             $table->string('Parentesco',20)->nullable();
+
+            $table->unsignedBigInteger('Usuario_id')->nullable();
+            $table->foreign('Usuario_id')->references('id')->on('users');
+
+            $table->string('Estado',2);
             $table->timestamps();
         });
     }

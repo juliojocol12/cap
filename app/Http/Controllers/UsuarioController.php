@@ -31,10 +31,10 @@ class UsuarioController extends Controller
         //paginacion
         $texto = trim($request->get('texto'));
 
-        $usuarios = User::select('id','name','email')
+        $usuarios = User::select('id','name','email','Estado')
         ->where('name','LIKE','%'.$texto.'%')
-        ->orwhere('name','email','%'.$texto.'%')
-        ->paginate(10);
+        ->where('Estado','Si')
+        ->paginate(10); 
         return view('usuarios.index', compact('usuarios','texto'));
 
 
@@ -48,7 +48,7 @@ class UsuarioController extends Controller
     public function create()
     {
         //
-        $roles = Role::pluck('name', 'name')->all();
+        $roles = Role::where('Estado','Si')->pluck('name', 'name');
         return view('usuarios.crear', compact('roles'));
     }
 
@@ -65,6 +65,7 @@ class UsuarioController extends Controller
             'name' => 'required|UsuarioRule1|max:45|unique:users,name',
             'email' => 'required|email|unique:users,email|CorreoRule1|max:20',
             'password' => 'required|same:confirm-password|max:12|ContraseñaRule',
+            'Estado',
             'roles' => 'required',
         ]);
 
@@ -98,7 +99,7 @@ class UsuarioController extends Controller
     {
         //
         $user = User::find($id);
-        $roles = Role::pluck('name', 'name')->all();
+        $roles = Role::where('Estado','Si')->pluck('name', 'name');
         $userRole = $user->roles->pluck('name', 'name')->all();
         return view('usuarios.editar', compact('user', 'roles', 'userRole'));
     }
@@ -119,6 +120,7 @@ class UsuarioController extends Controller
                     'name' => 'required|UsuarioRule1|max:45',
                     'email' => 'email|CorreoRule1|max:20'.$id,
                     'password' => 'max:12|ContraseñaRule',
+                    'Estado',
                     'roles' => 'required',
                     ]);
                 }
@@ -146,6 +148,7 @@ class UsuarioController extends Controller
             'name' => 'required|UsuarioRule1|max:45|unique:users,name',
             'email' => 'email|CorreoRule1|max:20'.$id,
             'password' => 'max:12|ContraseñaRule',
+            'Estado',
             'roles' => 'required',
         ]);
     
@@ -174,8 +177,9 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
-        User::find($id)->delete();
+        $usuarios = User::findOrFail($id);
+        $usuarios->Estado='No';
+        $usuarios->update();
         return redirect()->route('usuarios.index')->with('status');
     }
 }

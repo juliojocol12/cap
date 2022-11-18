@@ -81,8 +81,13 @@ class CreateFcprenatalpostpartosTable extends Migration
             $table->string('DosisVacuna',2)->nullable();
             $table->date('FechaUltimaDosis');
             $table->string('SR',2)->nullable();
-            $table->string('OtrosAntecedentes',75);            
+            $table->string('OtrosAntecedentes',75);
+            
+            $table->unsignedBigInteger('Usuario_id')->nullable();
+            $table->foreign('Usuario_id')->references('id')->on('users');
 
+            $table->string('Estado',2);
+            
             $table->timestamps();
         });
     }

@@ -23,6 +23,11 @@ class CreateDatosfamiliaresTable extends Migration
             $table->string('Domicilio',45);
             $table->string('TelefonoFamiliar',12)->nullable();
             $table->string('CelularFamiliar',12);
+
+            $table->unsignedBigInteger('Usuario_id')->nullable();
+            $table->foreign('Usuario_id')->references('id')->on('users');
+
+            $table->string('Estado',2);
             $table->timestamps();
         });
     }

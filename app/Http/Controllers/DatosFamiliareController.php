@@ -22,9 +22,17 @@ class DatosfamiliareController extends Controller
      */
     public function index()
     {
-        //
-        $datosfamiliares = datosfamiliare::paginate(10);
-        return view('datosfamiliares.index', compact('datosfamiliares'));
+        $cant_familiares = datosfamiliare::count();
+        if($cant_familiares === 0)
+        {
+            $datosfamiliares = datosfamiliare::paginate(10);
+            return view('datosfamiliares.index', compact('datosfamiliares'));
+        }
+        else{
+            $datosfamiliares = datosfamiliare::where('Estado','Si')
+            ->paginate(10);
+            return view('datosfamiliares.index', compact('datosfamiliares'));
+        }
     }
 
     /**
@@ -56,6 +64,8 @@ class DatosfamiliareController extends Controller
             'Domicilio' => 'required',
             'TelefonoFamiliar' => 'required|NumeroRule',
             'CelularFamiliar' => 'required|NumeroRule',
+            'Usuario_id',
+            'Estado',
         ]);
         
         datosfamiliare::create($request->all());
@@ -113,6 +123,8 @@ class DatosfamiliareController extends Controller
             'Domicilio' => 'required',
             'TelefonoFamiliar' => 'required|NumeroRule',
             'CelularFamiliar' => 'required|NumeroRule',
+            'Usuario_id',
+            'Estado',
         ]);
     }
         $input = $request->all();
@@ -131,6 +143,8 @@ class DatosfamiliareController extends Controller
             'Domicilio' => 'required',
             'TelefonoFamiliar' => 'required|NumeroRule',
             'CelularFamiliar' => 'required|NumeroRule',
+            'Usuario_id',
+            'Estado',
         ]);
         $input = $request->all();
         $datosfamiliare = datosfamiliare::find($idDatosFamiliares);
@@ -143,10 +157,14 @@ class DatosfamiliareController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\datosfamiliare  $datosfamiliare
+     * @param  int  $idDatosFamiliares
      * @return \Illuminate\Http\Response
      */
-    public function destroy(datosfamiliare $datosfamiliare)
+    public function destroy($idDatosFamiliares)
     {
-        //
+        $familiares = datosfamiliare::findOrFail($idDatosFamiliares);
+        $familiares->Estado='No';
+        $familiares->update();
+        return redirect()->route('datosfamiliares.index')->with('status');
     }
 }

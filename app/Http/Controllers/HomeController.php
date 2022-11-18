@@ -57,12 +57,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cantusuarios = User::count();  
-        $cant_roles = Role::count();    
+        $cantusuarios = User::where('Estado','Si')->count();  
+        $cant_roles = Role::where('Estado','Si')->count();    
         $cant_personales = personale::count();
         $cant_infantes = Infante::count();
         $cant_pacientes = DatosPersonalesPaciente::count();
-        $cant_familiares = DatosFamiliare::count();
+        $cant_familiares = DatosFamiliare::where('Estado','Si')->count();
         $cant_prenatal = fcprenatalpostparto::count();
         $cant_controlprenatal = controle::count();
         $cant_posparto = fcevaluacionposparto::count();

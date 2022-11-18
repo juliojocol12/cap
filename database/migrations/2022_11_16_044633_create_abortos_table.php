@@ -23,6 +23,11 @@ class CreateAbortosTable extends Migration
             $table->string('Antecedente',2);
             $table->string('Descripcion',250)->nullable();
             $table->date('FechaAborto')->nullable();
+
+            $table->unsignedBigInteger('Usuario_id')->nullable();
+            $table->foreign('Usuario_id')->references('id')->on('users');
+
+            $table->string('Estado',2);
             
             $table->timestamps();
         });

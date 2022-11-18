@@ -10,5 +10,10 @@ class establecimientosaludo extends Model
     use HasFactory;
     protected $table = 'establecimientosaludos';
     protected $primaryKey = 'idEstablecimientoSaludos';
-    protected $fillable  = ['Nombre','Direccion','Comunidad','PuestoSalud'];
+    protected $fillable  = ['Nombre','Direccion','Comunidad','PuestoSalud','Usuario_id', 'Estado'];
+
+    public function usuarios()
+    {
+        return $this->belongsTo('App\Models\User', 'Usuario_id', 'id');
+    }
 }

@@ -25,12 +25,25 @@ class DatospersonalespacienteController extends Controller
      */
     public function index(Request $request)
     {
-        $texto = trim($request->get('texto'));
-
-        $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente','CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion','Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Migrante','Nombre')
-        ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
-        ->where('CUI','LIKE','%'.$texto.'%')->paginate(10);
-        return view('pacientes.index', compact('datospersonalespacientes','texto'));
+        $cant_pacientes = datospersonalespaciente::count();
+        if($cant_pacientes === 0)
+        {
+            $texto = trim($request->get('texto'));
+            $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente','CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion','Municipiodep','Telefono','Celular','Peso','TipoSanguineo','MedicamentosActualmente','Migrante','Nombre','Stado')
+            ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+            ->where('CUI','LIKE','%'.$texto.'%')
+            ->paginate(10);
+            return view('pacientes.index', compact('datospersonalespacientes','texto'));
+        }
+        else{
+            $texto = trim($request->get('texto'));
+            $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente','CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion','Municipiodep','Telefono','Celular','Peso','TipoSanguineo','MedicamentosActualmente','Migrante','Nombre','Stado')
+            ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+            ->where('CUI','LIKE','%'.$texto.'%')
+            ->where('Stado','Si')
+            ->paginate(10);
+            return view('pacientes.index', compact('datospersonalespacientes','texto'));
+        }
     }
  
     /**
@@ -75,6 +88,8 @@ class DatospersonalespacienteController extends Controller
             'Numerodireccion' => 'required',
             'Zonadireccion' => 'required|NumeroRule',
             'Municipiodep' => 'required',
+            'Usuario_id',
+			'Estado',
         ]);
         
         datospersonalespaciente::create($request->all());
@@ -149,6 +164,8 @@ class DatospersonalespacienteController extends Controller
                     'Numerodireccion' => 'required',
                     'Zonadireccion' => 'required|NumeroRule',
                     'Municipiodep' => 'required',
+                    'Usuario_id',
+			        'Stado',
                 ]);  
                 $datos = $request->all();
                 $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
@@ -181,6 +198,8 @@ class DatospersonalespacienteController extends Controller
                 'Numerodireccion' => 'required',
                 'Zonadireccion' => 'required|NumeroRule',
                 'Municipiodep' => 'required',
+                'Usuario_id',
+			    'Stado',
             ]);
             $datos = $request->all();
             $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
@@ -198,7 +217,10 @@ class DatospersonalespacienteController extends Controller
      */
     public function destroy($idDatosPersonalesPacientes)
     {
-        datospersonalespaciente::find($idDatosPersonalesPacientes)->delete();
+
+        $pacientes = datospersonalespaciente::findOrFail($idDatosPersonalesPacientes);
+        $pacientes->Stado='No';
+        $pacientes->update();
         return redirect()->route('pacientes.index')->with('status');
     }
 }

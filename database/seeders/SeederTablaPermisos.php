@@ -132,8 +132,21 @@ class SeederTablaPermisos extends Seeder
             'crear-Aborto',
             'editar-Aborto', 
             'borrar-Aborto',
+
+            //tabla fichamspasriego
+            'home-fichamspasriego',
+            'ver-fichamspasriego',
+            'crear-fichamspasriego',
+            'editar-fichamspasriego', 
+            'borrar-fichamspasriego',
+
+            
             
 
+        ];
+
+        $estados = [
+            'Si',
         ];
         foreach($permisos as $permiso){
             Permission::create(['name'=>$permiso]);

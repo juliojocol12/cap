@@ -64,6 +64,7 @@
                                             
 
                                         </tr>
+                                        @include('datosfamiliares.delete')
                                     @endforeach
                                 </tbody>
 

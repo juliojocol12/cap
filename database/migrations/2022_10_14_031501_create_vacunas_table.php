@@ -25,6 +25,8 @@ class CreateVacunasTable extends Migration
 
             $table->unsignedBigInteger('Usuario_id');
             $table->foreign('Usuario_id')->references('id')->on('users');
+
+            $table->string('Estado',2);
             $table->timestamps();
 
 

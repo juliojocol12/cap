@@ -23,16 +23,26 @@ class AbortoController extends Controller
      */
     public function index(Request $request)
     {
-        $texto = trim($request->get('texto'));
 
-        $abortos = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI')
-        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','abortos.DatosPersonalesPacientes_id')
-        ->where('NombresPaciente','LIKE','%'.$texto.'%')
-        ->orwhere('ApellidosPaciente','LIKE','%'.$texto.'%')
-        ->orwhere('FechaAborto','LIKE','%'.$texto.'%')
-        ->orwhere('CUI','LIKE','%'.$texto.'%')
+        $cant_aborto = Aborto::count();
+        if($cant_aborto === 0)
+        {
+        $texto = trim($request->get('texto'));
+        $abortos = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Usuario_id','Estado')
+        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','abortos.DatosPersonalesPacientes_id')           
+        ->where('CUI','LIKE','%'.$texto.'%')
         ->paginate(10);
         return view('abortos.index', compact('abortos','texto'));
+        }
+        else{
+            $texto = trim($request->get('texto'));
+        $abortos = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Usuario_id','Estado')
+        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','abortos.DatosPersonalesPacientes_id')           
+        ->where('CUI','LIKE','%'.$texto.'%')
+        ->where('Estado','Si')
+        ->paginate(10);
+        return view('abortos.index', compact('abortos','texto'));
+        }
     }
 
     /**
@@ -61,6 +71,9 @@ class AbortoController extends Controller
             'Antecedente' => 'required',
             'Descripcion' => 'required|TextoRule3', 
             'FechaAborto' => 'required',
+            'Usuario_id',
+            'Estado',
+            
         ]);
         
         Aborto::create($request->all());
@@ -108,6 +121,8 @@ class AbortoController extends Controller
             'Antecedente' => 'required',
             'Descripcion' => 'required|TextoRule3', 
             'FechaAborto' => 'required',
+            'Usuario_id',
+            'Estado',
         ]);
         $input = $request->all();
         $aborto = Aborto::find($idAbortos);
@@ -124,7 +139,9 @@ class AbortoController extends Controller
      */
     public function destroy($idAbortos)
     {
-        Aborto::find($idAbortos)->delete();
+        $abortos = Aborto::findOrFail($idAbortos);
+        $abortos->Estado='No';
+        $abortos->update();
         return redirect()->route('abortos.index')->with('status');
     }
 }

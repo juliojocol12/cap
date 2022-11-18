@@ -19,6 +19,12 @@ class CreateEstablecimientosaludosTable extends Migration
             $table->string('Direccion',60);
             $table->string('Comunidad',30);
             $table->string('PuestoSalud',30);
+
+            $table->unsignedBigInteger('Usuario_id')->nullable();
+            $table->foreign('Usuario_id')->references('id')->on('users');
+
+            $table->string('Estado',2);
+            
             $table->timestamps();
         });
     }
