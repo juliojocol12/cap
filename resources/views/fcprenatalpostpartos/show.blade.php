@@ -26,6 +26,10 @@
 
                     <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-success mr-3">Volver</a>
                             <a href="{{ route('fcprenatalpostpartos.edit', $fcprenatalpostparto->idFCPrenatalPostpartos) }}" class="btn btn-info mr-3">Editar</a>
+
+                            
+
+                            
                     
                     <div class="card">
                         <div class="card-body">
@@ -94,7 +98,7 @@
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Dirección</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->datospersonalespacientes->Domicilio}}" disabled>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->datospersonalespacientes->Descripciondireccion}} {{$fcprenatalpostparto->datospersonalespacientes->Grupodireccion}} {{$fcprenatalpostparto->datospersonalespacientes->Numerodireccion}}" disabled>
                                     </div>                                       
                                 </div>
 
@@ -120,7 +124,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="page__heading">Refirio a la paciente de registo manejo y estabilizacion</h4>
+                            <h4 class="page__heading">Si refirio a la paciente registre manejo y estabilización</h4>
                             <div class="row ">
 
                                 <div class="col-xs-6 col-sm-6 col-md-12">
