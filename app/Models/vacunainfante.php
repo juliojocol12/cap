@@ -10,7 +10,7 @@ class vacunainfante extends Model
     use HasFactory;
     protected $table = 'vacunainfantes';
     protected $primaryKey = 'idVacunasInfantes';
-    protected $fillable  = ['FechaSuministro','Vacunas_id','Infante_id','Usuario_id', 'Estado'];
+    protected $fillable  = ['FechaSuministro','Vacunas_id','Infante_id','Usuario_id', 'Tado'];
 
     public function vacunas()
     {

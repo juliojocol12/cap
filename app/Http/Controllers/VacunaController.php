@@ -26,23 +26,22 @@ class VacunaController extends Controller
     {
         //*
         $texto = trim($request->get('texto'));
-        $vacunas = vacuna::where('NombreVacuna','LIKE','%'.$texto.'%')->paginate(10);
+        $vacunas = vacuna::where('NombreVacuna','LIKE','%'.$texto.'%')->where('Estado','Si')->paginate(10);
 
-        $restacovid = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Covid')->count('vacunainfantes.Vacunas_id');
-        $sumacovid = vacuna::where('NombreVacuna', 'Covid')->sum('Cantidad');
-
+        $restacovid = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Covid')->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
+        $sumacovid = vacuna::where('NombreVacuna', 'Covid')->where('Estado','Si')->sum('Cantidad');
         $vacunascovid = $sumacovid - $restacovid;
 
-        $restatd = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Td')->count('vacunainfantes.Vacunas_id');        
-        $sumatd = vacuna::where('NombreVacuna', 'Td')->sum('Cantidad');
+        $restatd = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Td')->where('Tado','Si')->count('vacunainfantes.Vacunas_id');        
+        $sumatd = vacuna::where('NombreVacuna', 'Td')->where('Estado','Si')->sum('Cantidad');
         $vacunastd = $sumatd - $restatd;
 
-        $restainfluenza = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Influenza')->count('vacunainfantes.Vacunas_id');
-        $sumainfluenza = vacuna::where('NombreVacuna', 'Influenza')->sum('Cantidad');
+        $restainfluenza = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Influenza')->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
+        $sumainfluenza = vacuna::where('NombreVacuna', 'Influenza')->where('Estado','Si')->sum('Cantidad');
         $vacunainfluenza = $sumainfluenza - $restainfluenza;
 
-        $restatdap = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','TdAp')->count('vacunainfantes.Vacunas_id');
-        $sumatdap = vacuna::where('NombreVacuna', 'TdAp')->sum('Cantidad');
+        $restatdap = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','TdAp')->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
+        $sumatdap = vacuna::where('NombreVacuna', 'TdAp')->where('Estado','Si')->sum('Cantidad');
         $vacunastdap =  $sumatdap - $restatdap;
 
         return view('vacunas.index', compact('vacunas','texto','vacunastd','vacunascovid','vacunainfluenza','vacunastdap'));
@@ -56,9 +55,6 @@ class VacunaController extends Controller
 
     public function vacunas()
     {
-        $vacunassum = vacuna::where('NombreVacuna', 'Covid')->sum('Cantidad');
-        $vacunastd = vacuna::where('NombreVacuna', 'Td')->sum('Cantidad');
-        $vacunas = vacuna::paginate(10);
         return view('vacunas.vacunas', compact('vacunas','vacunassum','vacunastd'));
         
         
@@ -91,6 +87,7 @@ class VacunaController extends Controller
             'FechaVencimiento' => 'required',
             'Cantidad' => 'required|NumeroRule',
             'Usuario_id',
+            'Estado',
         ]);
         
         vacuna::create($request->all());
@@ -144,6 +141,7 @@ class VacunaController extends Controller
             'FechaVencimiento' => 'required',
             'Cantidad' => 'required|NumeroRule',
             'Usuario_id',
+            'Estado',
         ]);
         
         vacuna::create($request->all());
@@ -160,8 +158,9 @@ class VacunaController extends Controller
      */
     public function destroy($idVacunas)
     {
-        //
-        vacuna::find($idVacunas)->delete();
+        $vacunas = vacuna::findOrFail($idVacunas);
+        $vacunas->Estado='No';
+        $vacunas->update();
         return redirect()->route('vacunas.index')->with('status');
     }
 }

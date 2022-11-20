@@ -23,13 +23,27 @@ class VacunainfanteController extends Controller
      */
     public function index(Request $request)
     {
-        $texto = trim($request->get('texto'));
-        $vacunainfantes = vacunainfante::select('idVacunasInfantes','FechaSuministro','Vacunas_id','NombreVacuna','Nombres','Apellidos')
-        ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
-        ->join('infantes', 'infantes.idInfantes', '=','vacunainfantes.Infante_id')
-        ->where('NombreVacuna','LIKE','%'.$texto.'%')
-        ->paginate(10);
-        return view('vacunainfantes.index', compact('vacunainfantes','texto'));        
+        $cant_vacunainfante = vacunainfante::count();
+        if($cant_vacunainfante === 0)
+        {
+            $texto = trim($request->get('texto'));
+            $vacunainfantes = vacunainfante::select('idVacunasInfantes','FechaSuministro','Vacunas_id','NombreVacuna','Nombres','Apellidos','Tado')
+            ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+            ->join('infantes', 'infantes.idInfantes', '=','vacunainfantes.Infante_id')
+            ->where('NombreVacuna','LIKE','%'.$texto.'%')
+            ->paginate(10);
+            return view('vacunainfantes.index', compact('vacunainfantes','texto'));     
+        }
+        else{
+            $texto = trim($request->get('texto'));
+            $vacunainfantes = vacunainfante::select('idVacunasInfantes','FechaSuministro','Vacunas_id','NombreVacuna','Nombres','Apellidos','Tado')
+            ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+            ->join('infantes', 'infantes.idInfantes', '=','vacunainfantes.Infante_id')
+            ->where('NombreVacuna','LIKE','%'.$texto.'%')
+            ->where('Tado','Si')
+            ->paginate(10);
+            return view('vacunainfantes.index', compact('vacunainfantes','texto'));   
+        }   
         
     }
 
@@ -40,8 +54,8 @@ class VacunainfanteController extends Controller
      */
     public function create()
     {
-        $vacunas = vacuna::all();
-        $infantes = Infante::all();
+        $vacunas = vacuna::all()->where('Estado','Si');
+        $infantes = Infante::all()->where('Estado','Si');
         return view ('vacunainfantes.crear')->with('vacunas',$vacunas)->with('infantes',$infantes);
     }
     /**
@@ -54,9 +68,10 @@ class VacunainfanteController extends Controller
     {
         $this->validate($request,[
             'FechaSuministro' => 'required',
-            'Vacunas_id',
-            'Infante_id',
-            'Usuario_id'
+            'Vacunas_id' => 'required',
+            'Infante_id' => 'required',
+            'Usuario_id' => 'required',
+            'Tado' => 'required',
         ]);        
         vacunainfante::create($request->all());
 
@@ -86,8 +101,8 @@ class VacunainfanteController extends Controller
     public function edit($idVacunasInfantes)
     {
         $vacunainfantes = vacunainfante::find($idVacunasInfantes);
-        $vacunas = vacuna::all();
-        $infantes = Infante::all();
+        $vacunas = vacuna::all()->where('Estado','Si');
+        $infantes = Infante::all()->where('Estado','Si');
         return view ('vacunainfantes.editar', compact('vacunainfantes'))->with('vacunas',$vacunas)->with('infantes',$infantes);
         //
     }
@@ -104,9 +119,10 @@ class VacunainfanteController extends Controller
     {
         request()->validate([
             'FechaSuministro' => 'required',
-            'Vacunas_id',
-            'Infante_id',
-            'Usuario_id'
+            'Vacunas_id' => 'required',
+            'Infante_id' => 'required',
+            'Usuario_id' => 'required',
+            'Tado' => 'required',
         ]);
         
         vacunainfante::create($request->all());
@@ -123,7 +139,9 @@ class VacunainfanteController extends Controller
      */
     public function destroy($idVacunasInfantes)
     {
-        vacunainfante::find($idVacunasInfantes)->delete();
+        $vacunainfante = vacunainfante::findOrFail($idVacunasInfantes);
+        $vacunainfante->Tado='No';
+        $vacunainfante->update();
         return redirect()->route('vacunainfantes.index')->with('status');
     }
 }

@@ -25,16 +25,27 @@ class FcprenatalpostpartoController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        $texto = trim($request->get('texto'));
-
-        $fcprenatalpostpartos = fcprenatalpostparto::select('idFCPrenatalPostpartos','Fecha',
-        'NombresPaciente','ApellidosPaciente','CUI','Numerodireccion','idDatosPersonalesPacientes','EstablecimientoSalud_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterial','Fiebre','PresentacionesFetales','RegistrodeReferencia','MotivoConsulta','HistoriaEnfermedadActual','FechaUltimaRegla','NoGestas','Partos','Aborto','AbortoConsecutivo','NoLIU','NacidosVivos','NacidosMuertos','HijosVivos','HijosMuertos','NoCesareas','EmbarazoMultiples','FechaUltimoParto','NacidosAntesOchoMeses','PreEclampsia','UltimoRNPesoCincolb','UltimoRNPesoSietelb','DeteccionCancerCervix','FechaDeteccionCancer','ResultadoNormal','MetodoPlanificacionFamiliar','CualMetodoPlanificacionF','AsmaBronquial','HipertensionArterial','Cancer','ITS','Chagas','TomaMedicamentos','TrastornoPiscoSocial','ViolenciaGenero','Diabetes','Cardiopatia','Tuberculosis','Neuropatia','InfeccionesUrinarias','ViolenciaInrtraFamiliar','TipoSangre','Quirurgicos','Fuma','BebidasAlcoholicas','ConsumoDrogas','AntecedentesVacunas','DosisVacuna','FechaUltimaDosis','SR','OtrosAntecedentes',)
-        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcprenatalpostpartos.DatosPersonalesPacientes_id')
-        ->where('CUI','LIKE','%'.$texto.'%')
-        ->orwhere('Numerodireccion','LIKE','%'.$texto.'%')
-        ->paginate(10);
-        return view('fcprenatalpostpartos.index', compact('fcprenatalpostpartos','texto'));
+        $cant_prenatal = fcprenatalpostparto::count();
+        if($cant_prenatal === 0)
+        {
+            $texto = trim($request->get('texto'));
+            $fcprenatalpostpartos = fcprenatalpostparto::select('idFCPrenatalPostpartos','Fecha',
+            'NombresPaciente','ApellidosPaciente','CUI','Numerodireccion','idDatosPersonalesPacientes','EstablecimientoSalud_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterial','Fiebre','PresentacionesFetales','RegistrodeReferencia','MotivoConsulta','HistoriaEnfermedadActual','FechaUltimaRegla','NoGestas','Partos','Aborto','AbortoConsecutivo','NoLIU','NacidosVivos','NacidosMuertos','HijosVivos','HijosMuertos','NoCesareas','EmbarazoMultiples','FechaUltimoParto','NacidosAntesOchoMeses','PreEclampsia','UltimoRNPesoCincolb','UltimoRNPesoSietelb','DeteccionCancerCervix','FechaDeteccionCancer','ResultadoNormal','MetodoPlanificacionFamiliar','CualMetodoPlanificacionF','AsmaBronquial','HipertensionArterial','Cancer','ITS','Chagas','TomaMedicamentos','TrastornoPiscoSocial','ViolenciaGenero','Diabetes','Cardiopatia','Tuberculosis','Neuropatia','InfeccionesUrinarias','ViolenciaInrtraFamiliar','TipoSangre','Quirurgicos','Fuma','BebidasAlcoholicas','ConsumoDrogas','AntecedentesVacunas','DosisVacuna','FechaUltimaDosis','SR','OtrosAntecedentes', 'Estado')
+            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcprenatalpostpartos.DatosPersonalesPacientes_id')
+            ->where('CUI','LIKE','%'.$texto.'%')
+            ->paginate(10);
+            return view('fcprenatalpostpartos.index', compact('fcprenatalpostpartos','texto'));
+        }
+        else{
+            $texto = trim($request->get('texto'));
+            $fcprenatalpostpartos = fcprenatalpostparto::select('idFCPrenatalPostpartos','Fecha',
+            'NombresPaciente','ApellidosPaciente','CUI','Numerodireccion','idDatosPersonalesPacientes','EstablecimientoSalud_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterial','Fiebre','PresentacionesFetales','RegistrodeReferencia','MotivoConsulta','HistoriaEnfermedadActual','FechaUltimaRegla','NoGestas','Partos','Aborto','AbortoConsecutivo','NoLIU','NacidosVivos','NacidosMuertos','HijosVivos','HijosMuertos','NoCesareas','EmbarazoMultiples','FechaUltimoParto','NacidosAntesOchoMeses','PreEclampsia','UltimoRNPesoCincolb','UltimoRNPesoSietelb','DeteccionCancerCervix','FechaDeteccionCancer','ResultadoNormal','MetodoPlanificacionFamiliar','CualMetodoPlanificacionF','AsmaBronquial','HipertensionArterial','Cancer','ITS','Chagas','TomaMedicamentos','TrastornoPiscoSocial','ViolenciaGenero','Diabetes','Cardiopatia','Tuberculosis','Neuropatia','InfeccionesUrinarias','ViolenciaInrtraFamiliar','TipoSangre','Quirurgicos','Fuma','BebidasAlcoholicas','ConsumoDrogas','AntecedentesVacunas','DosisVacuna','FechaUltimaDosis','SR','OtrosAntecedentes', 'Estado')
+            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcprenatalpostpartos.DatosPersonalesPacientes_id')
+            ->where('CUI','LIKE','%'.$texto.'%')
+            ->where('Estado','Si')
+            ->paginate(10);
+            return view('fcprenatalpostpartos.index', compact('fcprenatalpostpartos','texto'));
+        }
     }
 
     /**
@@ -72,8 +83,8 @@ class FcprenatalpostpartoController extends Controller
     public function create()
     {
         //
-        $datospacientes = datospersonalespaciente::all();
-        $establecimientosaludos = establecimientosaludo::all();
+        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');
         return view ('fcprenatalpostpartos.crear')->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes);
     }
 
@@ -147,6 +158,8 @@ class FcprenatalpostpartoController extends Controller
             'FechaUltimaDosis',
             'SR' => 'TextoRule4',
             'OtrosAntecedentes' => 'required|TextoRule3',
+            'Usuario_id',
+			'Estado',
         ]);
         
         fcprenatalpostparto::create($request->all());
@@ -166,8 +179,8 @@ class FcprenatalpostpartoController extends Controller
         //
         $fcprenatalpostparto = fcprenatalpostparto::find($idFCPrenatalPostpartos);
 
-        $datospacientes = datospersonalespaciente::all();
-        $establecimientosaludos = establecimientosaludo::all();
+        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');
         return view ('fcprenatalpostpartos.show', compact('fcprenatalpostparto'))->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes);
     }
 
@@ -260,6 +273,8 @@ class FcprenatalpostpartoController extends Controller
             'FechaUltimaDosis',
             'SR' => 'TextoRule4',
             'OtrosAntecedentes' => 'required|TextoRule3',
+            'Usuario_id',
+			'Estado',
         ]);
         $input = $request->all();
         $fcprenatalpostparto = fcprenatalpostparto::find($idFCPrenatalPostpartos);
@@ -277,8 +292,9 @@ class FcprenatalpostpartoController extends Controller
      */
     public function destroy($idFCPrenatalPostpartos)
     {
-        //
-        fcprenatalpostparto::find($idFCPrenatalPostpartos)->delete();
+        $prenatal = fcprenatalpostparto::findOrFail($idFCPrenatalPostpartos);
+        $prenatal->Estado='No';
+        $prenatal->update();
         return redirect()->route('fcprenatalpostpartos.index')->with('status');
     }
 }

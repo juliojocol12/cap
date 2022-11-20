@@ -28,20 +28,31 @@ class FcevaluacionpospartoController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        $texto = trim($request->get('texto'));
-
-        $fcevaluacionpospartos = fcevaluacionposparto::select('idFCEvaluacionPosparto','FCPrenatalPostparto_id','FechaEvaluacionPosparto','Numerodireccion','NombresPaciente','ApellidosPaciente','CUI','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterialSignos','Fiebre','Coagulos','RegistroReferencia','NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Personal_idD',
-        'HeridaOperatoria','InvolucionUterina','PresionArterial','FrecuenciaCardiaca','Temperatura',
-        'ExamenMamas','ExamenGinecologico','LactanciaMaterna','PorqueNoLactanciaMaterna','Diagnostico',
-        'ConductaTratamiento','Usuario_id','SulfatoFerroso','AcidoFolico','OtroMedicamento','Tdap','ConsejeriaPF_Posparto','ConsejeriaLactanciaAlimentacion','ConsejeriaLactanciaMujerVIH','ConsejeriaMujerVIH',)
-        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcevaluacionpospartos.DatosPersonalesPacientes_id')
-        ->where('CUI','LIKE','%'.$texto.'%')
-        ->orwhere('Numerodireccion','LIKE','%'.$texto.'%')
-        ->orwhere('NombresPaciente','LIKE','%'.$texto.'%')
-        ->orwhere('ApellidosPaciente','LIKE','%'.$texto.'%')
-        ->paginate(10);
-        return view('pospartos.index', compact('fcevaluacionpospartos','texto'));
+        $cant_posparto = fcevaluacionposparto::count();
+        if($cant_posparto === 0)
+        {
+            $texto = trim($request->get('texto'));
+            $fcevaluacionpospartos = fcevaluacionposparto::select('idFCEvaluacionPosparto','FechaEvaluacionPosparto','Numerodireccion','NombresPaciente','ApellidosPaciente','CUI','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterialSignos','Fiebre','Coagulos','RegistroReferencia','NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Personal_idD',
+            'HeridaOperatoria','InvolucionUterina','PresionArterial','FrecuenciaCardiaca','Temperatura',
+            'ExamenMamas','ExamenGinecologico','LactanciaMaterna','PorqueNoLactanciaMaterna','Diagnostico',
+            'ConductaTratamiento','SulfatoFerroso','AcidoFolico','OtroMedicamento','Tdap','ConsejeriaPF_Posparto','ConsejeriaLactanciaAlimentacion','ConsejeriaLactanciaMujerVIH','ConsejeriaMujerVIH','Estado')
+            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcevaluacionpospartos.DatosPersonalesPacientes_id')
+            ->where('CUI','LIKE','%'.$texto.'%')
+            ->paginate(10);
+            return view('pospartos.index', compact('fcevaluacionpospartos','texto'));
+        }
+        else{
+            $texto = trim($request->get('texto'));
+            $fcevaluacionpospartos = fcevaluacionposparto::select('idFCEvaluacionPosparto','FechaEvaluacionPosparto','Numerodireccion','NombresPaciente','ApellidosPaciente','CUI','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterialSignos','Fiebre','Coagulos','RegistroReferencia','NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Personal_idD',
+            'HeridaOperatoria','InvolucionUterina','PresionArterial','FrecuenciaCardiaca','Temperatura',
+            'ExamenMamas','ExamenGinecologico','LactanciaMaterna','PorqueNoLactanciaMaterna','Diagnostico',
+            'ConductaTratamiento','SulfatoFerroso','AcidoFolico','OtroMedicamento','Tdap','ConsejeriaPF_Posparto','ConsejeriaLactanciaAlimentacion','ConsejeriaLactanciaMujerVIH','ConsejeriaMujerVIH','Estado')
+            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcevaluacionpospartos.DatosPersonalesPacientes_id')
+            ->where('CUI','LIKE','%'.$texto.'%')
+            ->where('Estado','Si')
+            ->paginate(10);
+            return view('pospartos.index', compact('fcevaluacionpospartos','texto'));
+        }
     }
 
     /**
@@ -52,13 +63,12 @@ class FcevaluacionpospartoController extends Controller
     public function create()
     {
         //
-        $datospacientes = datospersonalespaciente::all();
-        $establecimientosaludos = establecimientosaludo::all();
-        $fcprenatalpostpartos = fcprenatalpostparto::all();
-        $usuarios = User::all();
-        $personaless = personale::all()->where('Cargo','=','Doctor');
+        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');
+        $usuarios = User::all()->where('Estado','Si');
+        $personaless = personale::all()->where('Cargo','=','Doctor')->where('Estado','Si');
 
-        return view ('pospartos.crear')->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('fcprenatalpostpartos',$fcprenatalpostpartos)->with('usuarios',$usuarios)->with('personaless',$personaless);
+        return view ('pospartos.crear')->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('usuarios',$usuarios)->with('personaless',$personaless);
     }
 
     /**
@@ -106,6 +116,7 @@ class FcevaluacionpospartoController extends Controller
             'ConsejeriaLactanciaAlimentacion' => 'required',
             'ConsejeriaLactanciaMujerVIH' => 'required',
             'ConsejeriaMujerVIH' => 'required',
+			'Estado',
         ]);
         
         fcevaluacionposparto::create($request->all());
@@ -125,13 +136,12 @@ class FcevaluacionpospartoController extends Controller
         //
         $fcevaluacionposparto = fcevaluacionposparto::find($idFCEvaluacionPosparto);
 
-        $datospacientes = datospersonalespaciente::all();
-        $establecimientosaludos = establecimientosaludo::all();        
-        $fcprenatalpostpartos = fcprenatalpostparto::all();
-        $usuarios = User::all();
-        $pueblos = Pueblo::all();
-        $personaless = personale::all()->where('Cargo','=','Doctor');
-        return view ('pospartos.show', compact('fcevaluacionposparto'))->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('fcprenatalpostpartos',$fcprenatalpostpartos)->with('usuarios',$usuarios)->with('personaless',$personaless)->with('pueblos',$pueblos);
+        $datospacientes = datospersonalespaciente::all()->where('Estado','Si');
+        $establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');   
+        $usuarios = User::all()->where('Estado','Si');
+        $pueblos = Pueblo::all()->where('Estado','Si');
+        $personaless = personale::all()->where('Cargo','=','Doctor')->where('Estado','Si');
+        return view ('pospartos.show', compact('fcevaluacionposparto'))->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('usuarios',$usuarios)->with('personaless',$personaless)->with('pueblos',$pueblos);
     }
 
     /**
@@ -145,13 +155,12 @@ class FcevaluacionpospartoController extends Controller
     {
         //
         $fcevaluacionposparto = fcevaluacionposparto::find($idFCEvaluacionPosparto);
-        $datospacientes = datospersonalespaciente::all();
-        $establecimientosaludos = establecimientosaludo::all();        
-        $fcprenatalpostpartos = fcprenatalpostparto::all();
-        $usuarios = User::all();
-        $pueblos = Pueblo::all();
-        $personaless = personale::all()->where('Cargo','=','Doctor');
-        return view ('pospartos.editar', compact('fcevaluacionposparto'))->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('fcprenatalpostpartos',$fcprenatalpostpartos)->with('usuarios',$usuarios)->with('personaless',$personaless)->with('pueblos',$pueblos);
+        $datospacientes = datospersonalespaciente::all()->where('Estado','Si');
+        $establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');
+        $usuarios = User::all()->where('Estado','Si');
+        $pueblos = Pueblo::all()->where('Estado','Si');
+        $personaless = personale::all()->where('Cargo','=','Doctor')->where('Estado','Si');
+        return view ('pospartos.editar', compact('fcevaluacionposparto'))->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('usuarios',$usuarios)->with('personaless',$personaless)->with('pueblos',$pueblos);
     }
 
     /**
@@ -201,6 +210,7 @@ class FcevaluacionpospartoController extends Controller
             'ConsejeriaLactanciaAlimentacion' => 'required',
             'ConsejeriaLactanciaMujerVIH' => 'required',
             'ConsejeriaMujerVIH' => 'required',
+			'Estado',
         ]);
         $input = $request->all();
         $fcevaluacionposparto = fcevaluacionposparto::find($idFCEvaluacionPosparto);
@@ -217,8 +227,9 @@ class FcevaluacionpospartoController extends Controller
      */
     public function destroy($idFCEvaluacionPosparto)
     {
-        //
-        fcevaluacionposparto::find($idFCEvaluacionPosparto)->delete();
+        $posparto = fcevaluacionposparto::findOrFail($idFCEvaluacionPosparto);
+        $posparto->Estado='No';
+        $posparto->update();
         return redirect()->route('pospartos.index')->with('status');
     }
 }

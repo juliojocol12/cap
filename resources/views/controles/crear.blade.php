@@ -39,15 +39,32 @@
                             @include('controles.crear.conducta')
                             @include('controles.crear.consejeria')
                     
+                            <div class="d-none">	
+                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <div class="form-group">
+                                        <label for="" value="Usuario_id">Encargado de llenado</label>
+                                        <select id="Usuario_id" class="form-control" name="Usuario_id" maxlength="35">
+                                            <option value="{{\Illuminate\Support\Facades\Auth::user()->id}}">{{\Illuminate\Support\Facades\Auth::user()->name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="d-none">
+                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <div class="form-group">
+                                        <label for="" value="Estado">Estado</label>
+                                        <input type="text" name="Estado" value="Si">
+                                    </div>
+                                </div>
+                            </div>
 
                     
-
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                    <a href="{{ route('controles.index') }}" class="btn btn-danger mr-3">Volver</a>
-                                </div>
-
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Guardar</button>
+                                <a href="{{ route('controles.index') }}" class="btn btn-danger mr-3">Volver</a>
+                            </div>
+                            @include('modal.guardar')
                     {!! Form::close() !!}
 
 

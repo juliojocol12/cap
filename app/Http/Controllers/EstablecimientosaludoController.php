@@ -23,8 +23,17 @@ class EstablecimientosaludoController extends Controller
      */
     public function index()
     {
-        $establecimientosaludos = establecimientosaludo::paginate(10);
-        return view('establecimientosaludo.index',compact('establecimientosaludos'));
+        $cant_establecimiento = establecimientosaludo::count();
+        if($cant_establecimiento === 0)
+        {
+            $establecimientosaludos = establecimientosaludo::paginate(10);
+            return view('establecimientosaludo.index',compact('establecimientosaludos'));
+        }
+        else
+        {
+            $establecimientosaludos = establecimientosaludo::where('Estado','Si')->paginate(10);
+            return view('establecimientosaludo.index',compact('establecimientosaludos'));
+        }
     }
 
     /**
@@ -50,6 +59,8 @@ class EstablecimientosaludoController extends Controller
             'Direccion' => 'required',
             'Comunidad' => 'required|TextoRule1',
             'PuestoSalud' => 'required|TextoRule1',
+            'Usuario_id',
+			'Estado',
         ]);
     
         establecimientosaludo::create($request->all());
@@ -98,6 +109,8 @@ class EstablecimientosaludoController extends Controller
                     'Direccion' => 'required',
                     'Comunidad' => 'required|TextoRule1',
                     'PuestoSalud' => 'required|TextoRule1',
+                    'Usuario_id',
+			        'Estado',
                 ]);
             }
         $input = $request->all();
@@ -112,6 +125,8 @@ class EstablecimientosaludoController extends Controller
                 'Direccion' => 'required',
                 'Comunidad' => 'required|TextoRule1',
                 'PuestoSalud' => 'required|TextoRule1',
+                'Usuario_id',
+			    'Estado',
             ]);
             $input = $request->all();
             $establecimientosaludo = establecimientosaludo::find($idEstablecimientoSaludos);
@@ -129,7 +144,9 @@ class EstablecimientosaludoController extends Controller
      */
     public function destroy($idEstablecimientoSaludos)
     {
-        establecimientosaludo::find($idEstablecimientoSaludos)->delete();
+        $establecimiento = establecimientosaludo::findOrFail($idEstablecimientoSaludos);
+        $establecimiento->Estado='No';
+        $establecimiento->update();
         return redirect()->route('establecimientosaludo.index')->with('status');
     }
 }

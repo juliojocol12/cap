@@ -32,13 +32,22 @@ Editar datos de control de la paciente No. {{$controlposparto->idControlPosparto
                         @include('controlpospartos.editar.conducta')
                         @include('controlpospartos.editar.consejeria')
 
+                        <div class="d-none">
+                            <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="form-group">
+                                    <label for="" value="Estado">Estado</label>
+                                    <input type="text" name="Estado" value="Si">
+                                </div>
+                            </div>
+                        </div>
 
 
                     
-                    <div class="col-xs-6 col-sm-6 col-md-6">
-                        <button type="submit" class="btn btn-primary">Actualizar</button>
-                        <a href="{{ route('controlpospartos.index') }}" class="btn btn-danger mr-3">Cancelar</a>
-                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-actualizar">Actualizar</button>
+                                <a href="{{ route('controlpospartos.index') }}" class="btn btn-danger mr-3">Volver</a>
+                            </div>
+                            @include('modal.actualizar')
 
                     {!! Form::close() !!}
 

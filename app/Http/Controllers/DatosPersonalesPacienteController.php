@@ -53,8 +53,8 @@ class DatospersonalespacienteController extends Controller
      */
     public function create()
     {
-        $pueblos = pueblo::select('idPueblo','Nombre')->get();
-        $datosfamiliares = DatosFamiliare::all();
+        $pueblos = pueblo::select('idPueblo','Nombre')->where('Estado','Si')->get();
+        $datosfamiliares = DatosFamiliare::all()->where('Estado','Si');
         return view ('pacientes.crear')->with('pueblos',$pueblos)->with('datosfamiliares',$datosfamiliares);
     }
 
@@ -125,8 +125,8 @@ class DatospersonalespacienteController extends Controller
         return view ('pacientes.editar', compact('paciente'));
         */
         $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
-        $pueblos = pueblo::select('idPueblo','Nombre')->get();
-        $datosfamiliares = DatosFamiliare::all();
+        $pueblos = pueblo::select('idPueblo','Nombre')->where('Estado','Si')->get();
+        $datosfamiliares = DatosFamiliare::all()->where('Estado','Si');
         return view ('pacientes.editar', compact('paciente'))->with('pueblos',$pueblos)->with('datosfamiliares',$datosfamiliares);
     }
 

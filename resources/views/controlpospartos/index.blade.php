@@ -30,13 +30,14 @@ Control posparto
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
+                                                <a href="{{ route('controlpospartos.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
 
                             </div>
-
+ 
                             <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
@@ -54,6 +55,11 @@ Control posparto
                                 </thead>
 
                                 <tbody>
+                                    @if(count($controlpospartos)<=0)
+                                        <tr>
+                                            <td colspan="8">No hay resultados</td>
+                                        </tr>
+                                    @else
                                     @foreach($controlpospartos as $controlpos)
 
                                     
@@ -80,7 +86,9 @@ Control posparto
                                             
               
                                         </tr>
+                                        @include('controlpospartos.delete')
                                     @endforeach
+                                    @endif
                                 </tbody>
 
                                 

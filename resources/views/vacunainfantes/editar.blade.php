@@ -73,6 +73,15 @@
                                     </div>
                                 </div>
 
+                                <div class="d-none">
+                                    <div class="col-xs-12 col-sm-12 col-md-2">
+                                        <div class="form-group">
+                                            <label for="" value="Tado">Estado</label>
+                                            <input type="text" name="Tado" value="Si">
+                                        </div>
+                                    </div>
+                                </div>  
+
                                 
                                 
                             </div>

@@ -10,7 +10,7 @@ class fcevaluacionposparto extends Model
     use HasFactory; 
     protected $table = 'fcevaluacionpospartos';
     protected $primaryKey = 'idFCEvaluacionPosparto';
-    protected $fillable  = ['FCPrenatalPostparto_id','FechaEvaluacionPosparto','DatosPersonalesPacientes_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterialSignos','Fiebre','Coagulos','RegistroReferencia','NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Personal_idD',
+    protected $fillable  = ['FechaEvaluacionPosparto','DatosPersonalesPacientes_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterialSignos','Fiebre','Coagulos','RegistroReferencia','NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Personal_idD',
     'HeridaOperatoria','InvolucionUterina','PresionArterial','FrecuenciaCardiaca','Temperatura',
     'ExamenMamas','ExamenGinecologico','LactanciaMaterna','PorqueNoLactanciaMaterna','Diagnostico',
     'ConductaTratamiento','Usuario_id','SulfatoFerroso','AcidoFolico','OtroMedicamento','Tdap','ConsejeriaPF_Posparto','ConsejeriaLactanciaAlimentacion','ConsejeriaLactanciaMujerVIH','ConsejeriaMujerVIH', 'Estado'];
@@ -24,11 +24,6 @@ class fcevaluacionposparto extends Model
     public function establecimientosaludos()
     {
         return $this->belongsTo('App\Models\establecimientosaludo', 'EstablecimientoSalud_id', 'idEstablecimientoSaludos');
-    }
-
-    public function fcprenatalpostpartos()
-    {
-        return $this->belongsTo('App\Models\fcprenatalpostparto', 'FCPrenatalPostparto_id', 'idFCPrenatalPostpartos');
     }
 
     public function usuarios()

@@ -16,9 +16,6 @@ class CreateFcevaluacionpospartosTable extends Migration
         Schema::create('fcevaluacionpospartos', function (Blueprint $table) {
             $table->increments('idFCEvaluacionPosparto');
 
-            $table->unsignedInteger("FCPrenatalPostparto_id");
-            $table->foreign('FCPrenatalPostparto_id')->references('idFCPrenatalPostpartos')->on('fcprenatalpostpartos');
-
             $table->date('FechaEvaluacionPosparto');
 
             $table->unsignedInteger('DatosPersonalesPacientes_id');

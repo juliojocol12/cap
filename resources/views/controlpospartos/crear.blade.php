@@ -30,13 +30,24 @@ Ingreso para control posparto
                         @include('controlpospartos.crear.clasificacion')
                         @include('controlpospartos.crear.conducta')
                         @include('controlpospartos.crear.consejeria')
-
-                        <div class="col-xs-6 col-sm-6 col-md-6">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                            <a href="{{ route('controlpospartos.index') }}" class="btn btn-danger mr-3">Volver</a>
+                        <div class="d-none">
+                            <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="form-group">
+                                    <label for="" value="Estado">Estado</label>
+                                    <input type="text" name="Estado" value="Si">
+                                </div>
+                            </div>
                         </div>
 
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Guardar</button>
+                                    <a href="{{ route('controlpospartos.index') }}" class="btn btn-danger mr-3">Volver</a>
+                                </div>
+                        
+
                     {!! Form::close() !!}
+
+                    @include('modal.guardar')
 
                 </div>
             </div>

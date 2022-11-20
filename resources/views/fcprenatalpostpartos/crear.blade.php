@@ -91,6 +91,25 @@
                     @include('fcprenatalpostpartos.crear.obstretico')
                     @include('fcprenatalpostpartos.crear.medico')
 
+                    <div class="d-none">	
+                            <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="form-group">
+                                    <label for="" value="Usuario_id">Encargado de llenado</label>
+                                    <select id="Usuario_id" class="form-control" name="Usuario_id" maxlength="35">
+                                        <option value="{{\Illuminate\Support\Facades\Auth::user()->id}}">{{\Illuminate\Support\Facades\Auth::user()->name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-none">
+                            <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="form-group">
+                                    <label for="" value="Estado">Estado</label>
+                                    <input type="text" name="Estado" value="Si">
+                                </div>
+                            </div>
+                        </div>
                     
 
                     <div class="col-xs-6 col-sm-6 col-md-6">

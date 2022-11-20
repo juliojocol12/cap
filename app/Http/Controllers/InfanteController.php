@@ -23,22 +23,26 @@ class InfanteController extends Controller
      */
     public function index(Request $request)
     {
-        // 
-        $texto = trim($request->get('texto'));
-        $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','PesoOnz','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI',)
-        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
-        ->where('CUI','LIKE','%'.$texto.'%')
-        ->orwhere('NombresPaciente','LIKE','%'.$texto.'%')->orwhere('ApellidosPaciente','LIKE','%'.$texto.'%')
-        ->paginate(10);
-        return view('infantes.index', compact('infantes','texto'));
+        $cant_infantes = infante::count();
+        if($cant_infantes === 0)
+        {
+            $texto = trim($request->get('texto'));
+            $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','PesoOnz','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+            ->where('CUI','LIKE','%'.$texto.'%')
+            ->paginate(10);
+            return view('infantes.index', compact('infantes','texto'));
+        }
+        else{
+            $texto = trim($request->get('texto'));
+            $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','PesoOnz','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+            ->where('CUI','LIKE','%'.$texto.'%')
+            ->where('Estado','Si')
+            ->paginate(10);
+            return view('infantes.index', compact('infantes','texto'));
+        }
 
-    }
-        
-        /*
-        $datospacientes = datospersonalespaciente::all();
-        $datosfamiliares = datosfamiliare::all();
-        $infantes = infante::paginate(10);
-        return view('infantes.index', compact('infantes'))->with('datospacientes',$datospacientes)->with('datosfamiliares',$datosfamiliares);/*
     }
 
     /**
@@ -49,8 +53,8 @@ class InfanteController extends Controller
     public function create(Request $request)
     {
         
-        $datospacientes = datospersonalespaciente::all();
-        $datosfamiliares = datosfamiliare::all();
+        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $datosfamiliares = datosfamiliare::all()->where('Estado','Si');
         
 
         return view ('infantes.crear')->with('datosfamiliares',$datosfamiliares)->with('datospacientes',$datospacientes);
@@ -79,6 +83,8 @@ class InfanteController extends Controller
             'TipoSanguineo',
             'DatosPersonalesPacientes_id' => 'required',
             'idDatosFamiliares' => 'required',
+            'Usuario_id',
+            'Estado',
         ]);
         
         infante::create($request->all());
@@ -98,8 +104,8 @@ class InfanteController extends Controller
     {
         //
         $infant = infante::find($idInfantes);
-        $datospersonalespacientes = datospersonalespaciente::all();
-        $datosfamiliares = datosfamiliare::all();
+        $datospersonalespacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $datosfamiliares = datosfamiliare::all()->where('Estado','Si');
         return view ('infantes.show', compact('infant'))->with('datospersonalespacientes',$datospersonalespacientes)->with('datosfamiliares',$datosfamiliares);
     }
 
@@ -115,8 +121,8 @@ class InfanteController extends Controller
     {
         //
         $infant = infante::find($idInfantes);
-        $datospacientes = datospersonalespaciente::all();
-        $datosfamiliares = datosfamiliare::all();
+        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $datosfamiliares = datosfamiliare::all()->where('Estado','Si');
         return view ('infantes.editar', compact('infant'))->with('datospacientes',$datospacientes)->with('datosfamiliares',$datosfamiliares);
     }
 
@@ -146,6 +152,8 @@ class InfanteController extends Controller
             'TipoSanguineo',
             'DatosPersonalesPacientes_id' => 'required',
             'idDatosFamiliares' => 'required',
+            'Usuario_id',
+            'Estado',
 
         ]);
         $input = $request->all();
@@ -161,8 +169,9 @@ class InfanteController extends Controller
      */
     public function destroy($idInfantes)
     {
-        //
-        infante::find($idInfantes)->delete();
+        $infantes = infante::findOrFail($idInfantes);
+        $infantes->Estado='No';
+        $infantes->update();
         return redirect()->route('infantes.index')->with('status');
     }
 }

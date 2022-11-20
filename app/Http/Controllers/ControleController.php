@@ -23,14 +23,25 @@ class ControleController extends Controller
      */
     public function index(Request $request) 
     {
-        //
-        $texto = trim($request->get('texto'));
-
-        $controles = controle::select('idControles','NoControl','SemanasEmbarazo','FechaVisita','NombresPaciente','ApellidosPaciente','CUI' ,'Numerodireccion','FCPrenatalPostparto_id','FechaPosibleParto','CircuferenciaBrazo','EvaluacionInicialRapida','DescripcionEvaluacion','PresionArterial','Temperatura','RespiracionPorMinuto','FrecuenciaCardiacaMaternal','Pesolb','Talla','CMB','Diagnostico','IMC_Diagnostico','Accionesicm','GananciaPeso','Accionesganancia','Anemia','DescripcionAnemia','ExamenCardioPulmonar','ExamenMamas','ObservacionAbdominal','AlturaUterina','PresenciaMovimientoFetales','FrecuenciaCardiacaFetal','ManiobrasLeopold','TrazasSangreManchado','DescripcionTrazasSangreManchado','EnfermedadesGinecologicos','DescripcionEnfermedadesGinecologicos','FlujoVaginal','PruebasEmbarazo','DecripcionPruebasEmbarazo','Hematologia','DescripcionHematologia','GrupoRH','DescripcionGrupoRH','Orina','DescripcionOrina','Heces','DescirpcionHeces','GlicemiaAyunas','DescripcionGlicemiaAyunas','VDLR','DescripcionVDLR','VIH','DescipcionVIH','TORCH','DescripcionTORCH','PapanicolaouIVAA','DescripcionPapanicolaouIVAA','HepatitisB','DescripcionHepatitisB','OtrosEstudios','SemanasEmbarazoFURAU','ProblemasDetectados','SulfatoFerroso','AcidoFolico','VacunacionTdTdap','VacunacionInfluenza','OtrosTratamientos','Referencia','AlimentacionEmbarazo','DescripcionAlimentacionEmbarazo','CuidadosPersonales','DescripcionCuidadosPersonales','SintomasComunes','DescipcionSintomasComunes','SenalesPeligro','DescripcionSenalesPeligro','ConsejeriaPrePostVIH','DescripcionConsejeriaPrePostVIH','PlanParto','DescrpcionPlanParto','PlanEmergencia','DescpcionPlanEmergencia','LactanciaMaterna','DescripcionLactanciaMaterna','ViolenciaSexual','DescipcionViolenciaSexual','MetodosPlanificcion','ImportanciaControlPos','VacunacionRecienNacido',)
-        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','controles.DatosPersonalesPacientes_id')
-        ->where('CUI','LIKE','%'.$texto.'%')
-        ->paginate(10);
-        return view('controles.index', compact('controles','texto'));
+        $cant_controlprenatal = controle::count();
+        if($cant_controlprenatal === 0)
+        {
+            $texto = trim($request->get('texto'));
+            $controles = controle::select('idControles','NoControl','SemanasEmbarazo','FechaVisita','NombresPaciente','ApellidosPaciente','CUI' ,'Numerodireccion','FCPrenatalPostparto_id','FechaPosibleParto','CircuferenciaBrazo','EvaluacionInicialRapida','DescripcionEvaluacion','PresionArterial','Temperatura','RespiracionPorMinuto','FrecuenciaCardiacaMaternal','Pesolb','Talla','CMB','Diagnostico','IMC_Diagnostico','Accionesicm','GananciaPeso','Accionesganancia','Anemia','DescripcionAnemia','ExamenCardioPulmonar','ExamenMamas','ObservacionAbdominal','AlturaUterina','PresenciaMovimientoFetales','FrecuenciaCardiacaFetal','ManiobrasLeopold','TrazasSangreManchado','DescripcionTrazasSangreManchado','EnfermedadesGinecologicos','DescripcionEnfermedadesGinecologicos','FlujoVaginal','PruebasEmbarazo','DecripcionPruebasEmbarazo','Hematologia','DescripcionHematologia','GrupoRH','DescripcionGrupoRH','Orina','DescripcionOrina','Heces','DescirpcionHeces','GlicemiaAyunas','DescripcionGlicemiaAyunas','VDLR','DescripcionVDLR','VIH','DescipcionVIH','TORCH','DescripcionTORCH','PapanicolaouIVAA','DescripcionPapanicolaouIVAA','HepatitisB','DescripcionHepatitisB','OtrosEstudios','SemanasEmbarazoFURAU','ProblemasDetectados','SulfatoFerroso','AcidoFolico','VacunacionTdTdap','VacunacionInfluenza','OtrosTratamientos','Referencia','AlimentacionEmbarazo','DescripcionAlimentacionEmbarazo','CuidadosPersonales','DescripcionCuidadosPersonales','SintomasComunes','DescipcionSintomasComunes','SenalesPeligro','DescripcionSenalesPeligro','ConsejeriaPrePostVIH','DescripcionConsejeriaPrePostVIH','PlanParto','DescrpcionPlanParto','PlanEmergencia','DescpcionPlanEmergencia','LactanciaMaterna','DescripcionLactanciaMaterna','ViolenciaSexual','DescipcionViolenciaSexual','MetodosPlanificcion','ImportanciaControlPos','VacunacionRecienNacido', 'Estado')
+            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','controles.DatosPersonalesPacientes_id')
+            ->where('CUI','LIKE','%'.$texto.'%')
+            ->paginate(10);
+            return view('controles.index', compact('controles','texto'));
+        }
+        else{
+            $texto = trim($request->get('texto'));
+            $controles = controle::select('idControles','NoControl','SemanasEmbarazo','FechaVisita','NombresPaciente','ApellidosPaciente','CUI' ,'Numerodireccion','FCPrenatalPostparto_id','FechaPosibleParto','CircuferenciaBrazo','EvaluacionInicialRapida','DescripcionEvaluacion','PresionArterial','Temperatura','RespiracionPorMinuto','FrecuenciaCardiacaMaternal','Pesolb','Talla','CMB','Diagnostico','IMC_Diagnostico','Accionesicm','GananciaPeso','Accionesganancia','Anemia','DescripcionAnemia','ExamenCardioPulmonar','ExamenMamas','ObservacionAbdominal','AlturaUterina','PresenciaMovimientoFetales','FrecuenciaCardiacaFetal','ManiobrasLeopold','TrazasSangreManchado','DescripcionTrazasSangreManchado','EnfermedadesGinecologicos','DescripcionEnfermedadesGinecologicos','FlujoVaginal','PruebasEmbarazo','DecripcionPruebasEmbarazo','Hematologia','DescripcionHematologia','GrupoRH','DescripcionGrupoRH','Orina','DescripcionOrina','Heces','DescirpcionHeces','GlicemiaAyunas','DescripcionGlicemiaAyunas','VDLR','DescripcionVDLR','VIH','DescipcionVIH','TORCH','DescripcionTORCH','PapanicolaouIVAA','DescripcionPapanicolaouIVAA','HepatitisB','DescripcionHepatitisB','OtrosEstudios','SemanasEmbarazoFURAU','ProblemasDetectados','SulfatoFerroso','AcidoFolico','VacunacionTdTdap','VacunacionInfluenza','OtrosTratamientos','Referencia','AlimentacionEmbarazo','DescripcionAlimentacionEmbarazo','CuidadosPersonales','DescripcionCuidadosPersonales','SintomasComunes','DescipcionSintomasComunes','SenalesPeligro','DescripcionSenalesPeligro','ConsejeriaPrePostVIH','DescripcionConsejeriaPrePostVIH','PlanParto','DescrpcionPlanParto','PlanEmergencia','DescpcionPlanEmergencia','LactanciaMaterna','DescripcionLactanciaMaterna','ViolenciaSexual','DescipcionViolenciaSexual','MetodosPlanificcion','ImportanciaControlPos','VacunacionRecienNacido', 'Estado')
+            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','controles.DatosPersonalesPacientes_id')
+            ->where('CUI','LIKE','%'.$texto.'%')
+            ->where('Estado','Si')
+            ->paginate(10);
+            return view('controles.index', compact('controles','texto'));
+        }
     }
 
     /**
@@ -41,8 +52,8 @@ class ControleController extends Controller
     public function create()
     {
         //
-        $datospacientes = datospersonalespaciente::all();
-        $fcprenatalpostparto = fcprenatalpostparto::all();
+        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $fcprenatalpostparto = fcprenatalpostparto::all()->where('Estado','Si');
         //$fcprenatalpostparto = fcprenatalpostparto::select('idFCPrenatalPostpartos','Fecha','NombresPaciente','ApellidosPaciente','CUI','EstablecimientoSalud_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa',)->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcprenatalpostpartos.DatosPersonalesPacientes_id');
         return view ('controles.crear')->with('fcprenatalpostparto',$fcprenatalpostparto)->with('datospacientes',$datospacientes);
     }
@@ -144,6 +155,8 @@ class ControleController extends Controller
             'MetodosPlanificcion'=> 'required|TextoRule3',
             'ImportanciaControlPos' => 'required|TextoRule3',
             'VacunacionRecienNacido' => 'required|TextoRule3',
+            'Usuario_id',
+			'Estado',
             
         ]);
         
@@ -164,8 +177,8 @@ class ControleController extends Controller
         //
         $controle = controle::find($idControles);
 
-        $datospacientes = datospersonalespaciente::all();
-        $fcprenatalpostparto = fcprenatalpostparto::all();
+        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $fcprenatalpostparto = fcprenatalpostparto::all()->where('Estado','Si');
         return view ('controles.show', compact('controle'))->with('fcprenatalpostparto',$fcprenatalpostparto)->with('datospacientes',$datospacientes);
    
 }
@@ -182,8 +195,8 @@ class ControleController extends Controller
         //
         $controle = controle::find($idControles);
 
-        $datospacientes = datospersonalespaciente::all();
-        $fcprenatalpostparto = fcprenatalpostparto::all();
+        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $fcprenatalpostparto = fcprenatalpostparto::all()->where('Estado','Si');
         return view ('controles.editar', compact('controle'))->with('fcprenatalpostparto',$fcprenatalpostparto)->with('datospacientes',$datospacientes);
    
          
@@ -288,7 +301,8 @@ class ControleController extends Controller
                     'MetodosPlanificcion'=> 'required|TextoRule3',
                     'ImportanciaControlPos' => 'required|TextoRule3',
                     'VacunacionRecienNacido' => 'required|TextoRule3',
-                    
+                    'Usuario_id',
+			        'Estado',                    
                 ]);
             $input = $request->all();
             $controle = controle::find($idControles);
@@ -308,8 +322,9 @@ class ControleController extends Controller
      */
     public function destroy($idControles)
     {
-        //
-        controle::find($idControles)->delete();
+        $controles = controle::findOrFail($idControles);
+        $controles->Estado='No';
+        $controles->update();
         return redirect()->route('controles.index')->with('status');
     }
 }

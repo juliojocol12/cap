@@ -87,18 +87,24 @@
                                     {!! Form::text('NivelAcademico', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'30', 'placeholder'=>'Ingrese el nivel académico alcanzado','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
-                            
-                            <div class="col-xs-12 col-sm-12 col-md-4">
-                                <div class="form-group">
-                                    <label for="" value="Usuario_id">Correo electrónico del usuario</label>
 
-                                    <input class="form-control" list="filtroIdInfantes" id="filtroIdInfante" name="Usuario_id" placeholder="Seleccione el correo electrónico del usuario" onkeypress="return tab(event)"autocomplete="off">                                        
-                                    <datalist id="filtroIdInfantes" name="Usuario_id"">
-                                        @foreach($usuarios as $usuario)
-                                            <option value="{{$usuario->id}}"> {{$usuario->email}}</option>                                            
-                                        @endforeach
-                                    </datalist>                                    
+                            <div class="d-none">	
+                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <div class="form-group">
+                                        <label for="" value="Usuario_id">Encargado de llenado</label>
+                                        <select id="Usuario_id" class="form-control" name="Usuario_id" maxlength="35">
+                                            <option value="{{\Illuminate\Support\Facades\Auth::user()->id}}">{{\Illuminate\Support\Facades\Auth::user()->name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="d-none">
+                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <div class="form-group">
+                                        <label for="" value="Estado">Estado</label>
+                                        <input type="text" name="Estado" value="Si">
+                                    </div>
                                 </div>
                             </div>
 

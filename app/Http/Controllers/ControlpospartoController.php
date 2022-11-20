@@ -26,11 +26,18 @@ class ControlpospartoController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        $texto = trim($request->get('texto'));
-
-        $controlpospartos = controlposparto::select('idControlPosparto','NoControl','FCEvaluacionPosparto_id','SemanasDespuesParto','FechaVisita','InvolucionUterina','ExamenMamas','HeridaOperatiria','ExamenGInecológico','PresionArterial','MMHG','FrecuenciaCardiaca','Temperatura','LactanciaMaterna','ProblemasDetectados','SulfatoFerroso','AcidoFolico','VacuncacionTdapMadre','Medicamento','LactanciaMaternaExclusiva','PlanificacionFamiliarPosparto','AlimentacionMadreLactante','LactanciaMaternaVIH','MujerVIH','Usuario_id',)->paginate(10);
-        return view('controlpospartos.index', compact('controlpospartos','texto'));
+        $cant_contropos = controlposparto::count();
+        if($cant_contropos === 0)
+        {
+            $texto = trim($request->get('texto'));
+            $controlpospartos = controlposparto::select('idControlPosparto','NoControl','FCEvaluacionPosparto_id','SemanasDespuesParto','FechaVisita','InvolucionUterina','ExamenMamas','HeridaOperatiria','ExamenGInecológico','PresionArterial','MMHG','FrecuenciaCardiaca','Temperatura','LactanciaMaterna','ProblemasDetectados','SulfatoFerroso','AcidoFolico','VacuncacionTdapMadre','Medicamento','LactanciaMaternaExclusiva','PlanificacionFamiliarPosparto','AlimentacionMadreLactante','LactanciaMaternaVIH','MujerVIH','Usuario_id','Estado')->where('idControlPosparto','LIKE','%'.$texto.'%')->paginate(10);
+            return view('controlpospartos.index', compact('controlpospartos','texto'));
+        }
+        else{
+            $texto = trim($request->get('texto'));
+            $controlpospartos = controlposparto::select('idControlPosparto','NoControl','FCEvaluacionPosparto_id','SemanasDespuesParto','FechaVisita','InvolucionUterina','ExamenMamas','HeridaOperatiria','ExamenGInecológico','PresionArterial','MMHG','FrecuenciaCardiaca','Temperatura','LactanciaMaterna','ProblemasDetectados','SulfatoFerroso','AcidoFolico','VacuncacionTdapMadre','Medicamento','LactanciaMaternaExclusiva','PlanificacionFamiliarPosparto','AlimentacionMadreLactante','LactanciaMaternaVIH','MujerVIH','Usuario_id','Estado')->where('idControlPosparto','LIKE','%'.$texto.'%')->where('Estado','Si')->paginate(10);
+            return view('controlpospartos.index', compact('controlpospartos','texto'));
+        }
 
     }
 
@@ -41,10 +48,9 @@ class ControlpospartoController extends Controller
      */
     public function create()
     {
-        //
-        $fcevaluacionpospartos = fcevaluacionposparto::all();
-        $datospacientes = datospersonalespaciente::all();
-        $usuarios = User::all();
+        $fcevaluacionpospartos = fcevaluacionposparto::all()->where('Estado','Si');
+        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $usuarios = User::all()->where('Estado','Si');
         return view ('controlpospartos.crear')->with('fcevaluacionpospartos',$fcevaluacionpospartos)->with('datospacientes',$datospacientes)->with('usuarios',$usuarios);
     }
 
@@ -58,34 +64,36 @@ class ControlpospartoController extends Controller
     {
         //
         $this->validate($request,[
-            'NoControl',
-            'FCEvaluacionPosparto_id',
-            'SemanasDespuesParto','FechaVisita',
-            'InvolucionUterina',
-            'ExamenMamas',
-            'HeridaOperatiria',
-            'ExamenGInecológico',
-            'PresionArterial',
-            'MMHG',
-            'FrecuenciaCardiaca',
-            'Temperatura',
-            'LactanciaMaterna',
-            'ProblemasDetectados',
-            'SulfatoFerroso',
-            'AcidoFolico',
-            'VacuncacionTdapMadre',
-            'Medicamento',
-            'LactanciaMaternaExclusiva',
-            'PlanificacionFamiliarPosparto',
-            'AlimentacionMadreLactante',
-            'LactanciaMaternaVIH',
-            'MujerVIH',
+            'NoControl' => 'required|NumeroRule',
+            'FCEvaluacionPosparto_id' => 'required',
+            'SemanasDespuesParto' => 'required|NumeroRule',
+            'FechaVisita' => 'required',
+            'InvolucionUterina' => 'required|TextoRule3',
+            'ExamenMamas' => 'required|TextoRule3',
+            'HeridaOperatiria' => 'required|TextoRule3',
+            'ExamenGInecológico' => 'TextoRule4',
+            'PresionArterial' => 'required|DecimalRule',
+            'MMHG' => 'required|DecimalRule',
+            'FrecuenciaCardiaca' => 'required|DecimalRule',
+            'Temperatura' => 'required|DecimalRule',
+            'LactanciaMaterna' => 'required|TextoRule1',
+            'ProblemasDetectados' => 'required|TextoRule3',
+            'SulfatoFerroso' => 'required|NumeroRule',
+            'AcidoFolico' => 'required|NumeroRule',
+            'VacuncacionTdapMadre' => 'required|NumeroRule',
+            'Medicamento' => 'required|TextoRule3',
+            'LactanciaMaternaExclusiva' => 'required|TextoRule3',
+            'PlanificacionFamiliarPosparto' => 'required|TextoRule3',
+            'AlimentacionMadreLactante' => 'required|TextoRule3',
+            'LactanciaMaternaVIH' => 'required|TextoRule3',
+            'MujerVIH' => 'required|TextoRule3',
             'Usuario_id',
+            'Estado',
         ]);
         
         controlposparto::create($request->all());
 
-        return redirect()->route('pospartos.index');
+        return redirect()->route('controlpospartos.index');
     }
 
     /**
@@ -98,15 +106,15 @@ class ControlpospartoController extends Controller
     public function show($idControlPosparto)
     {
         //
-        $controlpospartos = controlposparto::select('idControlPosparto','NoControl','FCEvaluacionPosparto_id','idFCEvaluacionPosparto','SemanasDespuesParto','FechaVisita','InvolucionUterina','ExamenMamas','HeridaOperatiria','ExamenGInecológico','PresionArterial','MMHG','FrecuenciaCardiaca','Temperatura','LactanciaMaterna','ProblemasDetectados','SulfatoFerroso','AcidoFolico','VacuncacionTdapMadre','Medicamento','LactanciaMaternaExclusiva','PlanificacionFamiliarPosparto','AlimentacionMadreLactante','LactanciaMaternaVIH','MujerVIH','Usuario_id',)
+        $controlpospartos = controlposparto::select('idControlPosparto','NoControl','FCEvaluacionPosparto_id','idFCEvaluacionPosparto','SemanasDespuesParto','FechaVisita','InvolucionUterina','ExamenMamas','HeridaOperatiria','ExamenGInecológico','PresionArterial','MMHG','FrecuenciaCardiaca','Temperatura','LactanciaMaterna','ProblemasDetectados','SulfatoFerroso','AcidoFolico','VacuncacionTdapMadre','Medicamento','LactanciaMaternaExclusiva','PlanificacionFamiliarPosparto','AlimentacionMadreLactante','LactanciaMaternaVIH','MujerVIH','Usuario_id','Estado',)
         ->join('fcevaluacionpospartos', 'fcevaluacionpospartos.idFCEvaluacionPosparto', '=','controlpospartos.FCEvaluacionPosparto_id');
 
 
         $controlposparto = controlposparto::find($idControlPosparto);
 
-        $fcevaluacionpospartos = fcevaluacionposparto::all();
-        $datospacientes = datospersonalespaciente::all();
-        $usuarios = User::all();
+        $fcevaluacionpospartos = fcevaluacionposparto::all()->where('Estado','Si');
+        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $usuarios = User::all()->where('Estado','Si');
 
         return view ('controlpospartos.show', compact('controlposparto','controlpospartos'))->with('fcevaluacionpospartos',$fcevaluacionpospartos)->with('datospacientes',$datospacientes)->with('usuarios',$usuarios);
     }
@@ -127,9 +135,9 @@ class ControlpospartoController extends Controller
 
         $controlposparto = controlposparto::find($idControlPosparto);
 
-        $fcevaluacionpospartos = fcevaluacionposparto::all();
-        $datospacientes = datospersonalespaciente::all();
-        $usuarios = User::all();
+        $fcevaluacionpospartos = fcevaluacionposparto::all()->where('Estado','Si');
+        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $usuarios = User::all()->where('Estado','Si');
 
         return view ('controlpospartos.editar', compact('controlposparto','controlpospartos'))->with('fcevaluacionpospartos',$fcevaluacionpospartos)->with('datospacientes',$datospacientes)->with('usuarios',$usuarios);
     }
@@ -145,29 +153,31 @@ class ControlpospartoController extends Controller
     {
         //
         request()->validate([
-            'NoControl',
-            'FCEvaluacionPosparto_id',
-            'SemanasDespuesParto','FechaVisita',
-            'InvolucionUterina',
-            'ExamenMamas',
-            'HeridaOperatiria',
-            'ExamenGInecológico',
-            'PresionArterial',
-            'MMHG',
-            'FrecuenciaCardiaca',
-            'Temperatura',
-            'LactanciaMaterna',
-            'ProblemasDetectados',
-            'SulfatoFerroso',
-            'AcidoFolico',
-            'VacuncacionTdapMadre',
-            'Medicamento',
-            'LactanciaMaternaExclusiva',
-            'PlanificacionFamiliarPosparto',
-            'AlimentacionMadreLactante',
-            'LactanciaMaternaVIH',
-            'MujerVIH',
+            'NoControl' => 'required|NumeroRule',
+            'FCEvaluacionPosparto_id' => 'required',
+            'SemanasDespuesParto' => 'required|NumeroRule',
+            'FechaVisita' => 'required',
+            'InvolucionUterina' => 'required|TextoRule3',
+            'ExamenMamas' => 'required|TextoRule3',
+            'HeridaOperatiria' => 'required|TextoRule3',
+            'ExamenGInecológico' => 'TextoRule4',
+            'PresionArterial' => 'required|DecimalRule',
+            'MMHG' => 'required|DecimalRule',
+            'FrecuenciaCardiaca' => 'required|DecimalRule',
+            'Temperatura' => 'required|DecimalRule',
+            'LactanciaMaterna' => 'required|TextoRule1',
+            'ProblemasDetectados' => 'required|TextoRule3',
+            'SulfatoFerroso' => 'required|NumeroRule',
+            'AcidoFolico' => 'required|NumeroRule',
+            'VacuncacionTdapMadre' => 'required|NumeroRule',
+            'Medicamento' => 'required|TextoRule3',
+            'LactanciaMaternaExclusiva' => 'required|TextoRule3',
+            'PlanificacionFamiliarPosparto' => 'required|TextoRule3',
+            'AlimentacionMadreLactante' => 'required|TextoRule3',
+            'LactanciaMaternaVIH' => 'required|TextoRule3',
+            'MujerVIH' => 'required|TextoRule3',
             'Usuario_id',
+            'Estado',
         ]);
         $input = $request->all();
         $controlposparto = controlposparto::find($idControlPosparto);
@@ -185,8 +195,9 @@ class ControlpospartoController extends Controller
      */
     public function destroy($idControlPosparto)
     {
-        //
-        controlposparto::find($idControlPosparto)->delete();
+        $controposparto = controlposparto::findOrFail($idControlPosparto);
+        $controposparto->Estado='No';
+        $controposparto->update();
         return redirect()->route('controlpospartos.index')->with('status');
     }
 }
