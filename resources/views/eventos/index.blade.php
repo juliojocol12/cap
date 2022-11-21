@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
 
             <div class="form-group col-md-8">
-              <label>Titulo de la cita:</label> 
+              <label>Título de la cita:</label> 
               <input type="text" class="form-control" name="txtTitulo" id="txtTitulo">
             </div>
     
@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             <div class="form-outline w-100 mb-1">
                 <div class="form-group col-md-12">
-                    <label>Descripcion:</label>
+                <label>Descripción:</label>
                         <textarea class="form-control" name="txtDescripcion" 
                         id="txtDescripcion"  style="height:70px; width: 100%; "></textarea>
                 </div>
