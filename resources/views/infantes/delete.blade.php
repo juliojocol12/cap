@@ -7,13 +7,13 @@
 
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Eliminación de registros</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar registro de infante</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-      ¿Desea eliminar el registro de {{ $infant->Nombres }} {{ $infant->Apellidos }} que pertenece a la madre {{$infant->NombresPaciente}} {{$infant->ApellidosPaciente}}?
+      ¿Está seguro que desea eliminar el registro de {{ $infant->Nombres }} {{ $infant->Apellidos }}, <br> hijo de {{$infant->NombresPaciente}} {{$infant->ApellidosPaciente}}?
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-danger" value="Si">

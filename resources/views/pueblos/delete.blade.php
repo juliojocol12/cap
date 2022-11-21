@@ -7,13 +7,13 @@
   
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Eliminación de registros</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Eliminación de registro de pueblo</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-        ¿Desea eliminar el registro de {{ $pueblo->Nombre }}?
+        ¿Está seguro que desea eliminar el registro: {{ $pueblo->Nombre }}?
         </div>
         <div class="modal-footer">
           <input type="submit" class="btn btn-danger" value="Si">

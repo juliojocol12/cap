@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('title')
-Editar datos de control de la paciente No. {{$controlposparto->idControlPosparto}}
+Editar datos de control de la paciente {{$controlposparto->idControlPosparto}}
 @endsection
 
 @section('content')
     <section class="section">
         
         <div class="section-header">
-            <h3 class="page__heading">Editar datos de control de la paciente No. {{$controlposparto->idControlPosparto}}</h3>
+            <h3 class="page__heading">Editar datos de control de la paciente {{$controlposparto->idControlPosparto}}</h3>
         </div>
         <div class="section-body">
         <div class="row row-responsive">

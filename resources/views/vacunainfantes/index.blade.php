@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Infantes
+   Vacunas Infantes
 @endsection
 
 @section('content')
@@ -27,11 +27,11 @@
                                     <form action="{{ route('vacunainfantes.index') }}" method="GET">
                                         <div class="form-row">
                                             <div class="col-sm-4 my-1">
-                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el Nombre para buscar">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el nombre para buscar">
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
-                                                <a href="{{ route('vacunainfantes.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
+                                                <a href="{{ route('vacunainfantes.index') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
                                             </div>
                                         </div>
                                     </form>

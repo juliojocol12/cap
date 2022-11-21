@@ -31,8 +31,8 @@
                             <div class="row">                            
                             <div class="col-xs-6 col-sm-6 col-md-4">
                                 <div class="form-group">
-                                    <label for="" value="DatosPersonalesPacientes_id">Datos de madre (*)</label>
-                                    <input class="form-control" list="filtroIDPacientes" id="filtroIDPaciente" name="DatosPersonalesPacientes_id" placeholder="ingrese el cui de la madre" autocomplete="off" value="{{$aborto->DatosPersonalesPacientes_id }}">                                        
+                                    <label for="" value="DatosPersonalesPacientes_id">Datos de la paciente</label>
+                                    <input class="form-control" list="filtroIDPacientes" id="filtroIDPaciente" name="DatosPersonalesPacientes_id" placeholder="Ingrese el DPI de la madre" autocomplete="off" value="{{$aborto->DatosPersonalesPacientes_id }}">                                        
                                     <datalist id="filtroIDPacientes" name="DatosPersonalesPacientes_id">
                                         @foreach($datospacientes as $idpaciente)
                                             <option value="{{$idpaciente->idDatosPersonalesPacientes}}"> {{$idpaciente->CUI}}, {{$idpaciente->NombresPaciente}} {{$idpaciente->ApellidosPaciente}} </option>
@@ -45,7 +45,7 @@
                         <div class="row">
                             <div class="col-xs-1 col-sm-6 col-md-3">
                                 <div class="form-group">
-                                    <label for="Antecedente">¿Tuvo aborto? (*)</label>
+                                    <label for="Antecedente">¿Tuvo aborto?</label>
                                     <select class="form-control" name="Antecedente">
                                         <option value="Si">Si</option>
                                         <option value="No">No</option>
@@ -57,7 +57,7 @@
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-3">
                                 <div class="form-group">
-                                    <label for="">¿Qué fecha fue? (*)</label>
+                                    <label for="">¿Qué fecha fue?</label>
                                     {!! Form::date('FechaAborto', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
@@ -66,9 +66,9 @@
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-4">
                                 <div class="form-group" responsive>
-                                    <label for="">Describa (*)</label>
+                                    <label for="">Describa</label>
                                     <div class="form-outline w-100 mb-4">
-                                        <textarea class="form-control" id="Descripcion" placeholder="Describa como fue" name="Descripcion" style="height:150px; width: 100%; " maxlength="250">{{$aborto->Descripcion }}</textarea>
+                                        <textarea class="form-control" id="Descripcion" placeholder="Describa el motivo del aborto" name="Descripcion" style="height:150px; width: 100%; " maxlength="250">{{$aborto->Descripcion }}</textarea>
                                     </div>  
                                 </div>                                       
                             </div>

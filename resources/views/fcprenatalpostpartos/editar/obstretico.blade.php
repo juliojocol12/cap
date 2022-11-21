@@ -1,11 +1,11 @@
 <div class="card">
                         <div class="card-body">
-                        <h3 class="page__heading">Antecedentes obstreticos</h3>
+                        <h3 class="page__heading">Antecedentes obstéticos</h3>
                         <div class="row ">
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                             
                                     <div class="form-group">
-                                        <label for="">Fecha de la última regla (*)</label>
+                                        <label for="">Fecha de la última regla</label>
                                         {!! Form::date('FechaUltimaRegla', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
@@ -21,20 +21,20 @@
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Número de partos</label>
-                                        {!! Form::text('Partos', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Número de partos', 'autocomplete'=>'off')) !!}
+                                        {!! Form::text('Partos', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Ingrese número de partos', 'autocomplete'=>'off')) !!}
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Abortos</label>
-                                        {!! Form::text('Aborto', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Abortos', 'autocomplete'=>'off')) !!}
+                                        <label for="">Cantidad de abortos</label>
+                                        {!! Form::text('Aborto', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Ingrese número de abortos', 'autocomplete'=>'off')) !!}
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="AbortoConsecutivo">Abortos consecutivo</label>
+                                        <label for="AbortoConsecutivo">Abortos consecutivos</label>
                                         <select class="form-control" name="AbortoConsecutivo" value="{{$fcprenatalpostparto->AbortoConsecutivo}}">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -44,21 +44,21 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Número de Legrado Intrauterino (*)</label>
-                                        {!! Form::text('NoLIU', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'LIU', 'autocomplete'=>'off')) !!}
+                                        <label for="">Número de legrado intrauterino</label>
+                                        {!! Form::text('NoLIU', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Ingrese número de LIU', 'autocomplete'=>'off')) !!}
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Número de nacidos vivos</label>
+                                        <label for="">Número de hijos nacidos vivos</label>
                                         {!! Form::text('NacidosVivos', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Número de nacidos vivos', 'autocomplete'=>'off')) !!}
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Número de nacidos muertos</label>
+                                        <label for="">Número de hijos nacidos muertos</label>
                                         {!! Form::text('NacidosMuertos', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Número de nacidos muertos', 'autocomplete'=>'off')) !!}
                                     </div>                                       
                                 </div>
@@ -79,14 +79,14 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Número de cesareas</label>
+                                        <label for="">Número de cesáreas</label>
                                         {!! Form::text('NoCesareas', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Número de cesareas', 'autocomplete'=>'off')) !!}
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="EmbarazoMultiples">Embarazo Multiples</label>
+                                        <label for="EmbarazoMultiples">Embarazos múltiples</label>
                                         <select class="form-control" name="EmbarazoMultiples" value="{{$fcprenatalpostparto->EmbarazoMultiples}}">
                                         <option select">{{$fcprenatalpostparto->EmbarazoMultiples}}</option>
                                         @if ($fcprenatalpostparto->EmbarazoMultiples === 'Si')
@@ -114,7 +114,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="PreEclampsia">Pre eclampsia</label>
+                                        <label for="PreEclampsia">Preeclampsia</label>
                                         <select class="form-control" name="PreEclampsia" value="{{$fcprenatalpostparto->PreEclampsia}}">
                                         <option select">{{$fcprenatalpostparto->PreEclampsia}}</option>
                                         @if ($fcprenatalpostparto->PreEclampsia === 'Si')
@@ -191,7 +191,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="MetodoPlanificacionFamiliar">Utilizo algún método de planificación familiar</label>
+                                        <label for="MetodoPlanificacionFamiliar">¿Utilizó algún método de planificación familiar?</label>
                                         <select class="form-control" name="MetodoPlanificacionFamiliar" value="{{$fcprenatalpostparto->MetodoPlanificacionFamiliar}}">
                                         <option select">{{$fcprenatalpostparto->MetodoPlanificacionFamiliar}}</option>
                                         @if ($fcprenatalpostparto->MetodoPlanificacionFamiliar === 'Si')
@@ -205,10 +205,10 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Cual fue el mótodo que utilizo</label>
+                                        <label for="">¿Cúal fue el mótodo que utilizó?</label>
                                         <div class="form-outline w-100 mb-4">
 
-                                            <textarea class="form-control" id="CualMetodoPlanificacionF" name="CualMetodoPlanificacionF" style="height:90px; width: 100%; " maxlength="45" placeholder="Describa cual fue el método de planificación que utlizo">{{$fcprenatalpostparto->CualMetodoPlanificacionF}}</textarea>
+                                            <textarea class="form-control" id="CualMetodoPlanificacionF" name="CualMetodoPlanificacionF" style="height:90px; width: 100%; " maxlength="45" placeholder="Describa cual fue el método de planificación que utilizo">{{$fcprenatalpostparto->CualMetodoPlanificacionF}}</textarea>
 
                                         </div>
                                     </div>                                       

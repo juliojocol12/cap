@@ -7,13 +7,13 @@
 
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Eliminación de registros</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar de resgistro de familiar</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-      ¿Desea eliminar el registro de  ?
+      ¿Está seguro que desea eliminar el registro de {{$datosfamiliare->NombresFamiliar}} {{$datosfamiliare->ApellidosFamiliar}}, con número de  DPI: {{$datosfamiliare->CUI}} ?
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-danger" value="Si">

@@ -30,11 +30,11 @@
                                     <form action="{{ route('abortos.index') }}" method="GET">
                                         <div class="form-row">
                                             <div class="col-sm-4 my-1">
-                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese cualquier valor a buscar">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese cualquier valor para buscar">
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
-                                                <a href="{{ route('abortos.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
+                                                <a href="{{ route('abortos.index') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
                                             </div>
                                         </div>
                                     </form>
@@ -52,9 +52,9 @@
                                 @endcan
                                 <th style="color:#fff;">Nombre de la paciente</th>
                                 <th style="color:#fff;">DPI</th>
-                                <th style="color:#fff;">Antecedente</th>   
-                                <th style="color:#fff;">Descripcion</th>                                 
-                                <th style="color:#fff;">FechaAborto</th>
+                                <th style="color:#fff;">Antecedentes</th>   
+                                <th style="color:#fff;">Descripción</th>                                 
+                                <th style="color:#fff;">Fecha de aborto</th>
                                 
                                                                                             
                             </thead>

@@ -6,7 +6,7 @@ Establecimiento de salud
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Establecimiento de Salud</h3>
+            <h3 class="page__heading">Establecimiento de salud</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -27,9 +27,9 @@ Establecimiento de salud
                                     <th style="color:#fff;">Borrar</th>
                                     @endcan
                                     <th style="color:#fff;">Nombre</th>
-                                    <th style="color:#fff;">Direccion</th>                                    
+                                    <th style="color:#fff;">Dirección</th>                                    
                                     <th style="color:#fff;">Comunidad</th>
-                                    <th style="color:#fff;">Puesto de Salud</th>        
+                                    <th style="color:#fff;">Puesto de salud</th>        
                                                                                    
                               </thead>
                               <tbody>

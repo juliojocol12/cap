@@ -6,7 +6,7 @@ Editar control prenatal
     <section class="section">
         
         <div class="section-header">
-            <h3 class="page__heading">Editar Control Prenatal y/o Posparto</h3>
+            <h3 class="page__heading">Editar control prenatal y/o posparto</h3>
         </div>
         <div class="section-body">
         <div class="row row-responsive">

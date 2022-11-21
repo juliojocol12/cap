@@ -60,7 +60,7 @@
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Profesión u Oficio</label>
+                                        <label for="">Profesión u oficio</label>
                                         {!! Form::text('ProfesionOficio', null, array('class'=>'form-control','minlength'=>'5', 'maxlength'=>'25','autocomplete'=>'off')) !!}
                                     </div>
                                 </div> 

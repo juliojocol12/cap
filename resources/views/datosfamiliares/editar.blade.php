@@ -29,60 +29,60 @@
 
                             {!! Form::model($datosfamiliare, ['method' => 'PATCH', 'route'=> ['datosfamiliares.update', $datosfamiliare->idDatosFamiliares ]]) !!}
                             <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-5">
+                            <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Nombres (*)</label>
+                                        <label for="">Nombres</label>
                                         {!! Form::text('NombresFamiliar', null, array('class'=>'form-control','minlength'=>'5','maxlength'=>'25', 'placeholder'=>'Ingrese los nombres del familiar','autocomplete'=>'off' )) !!}
                                     </div>
                                        
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Apellidos (*)</label>
+                                        <label for="">Apellidos</label>
                                         {!! Form::text('ApellidosFamiliar', null, array('class'=>'form-control','minlength'=>'5','maxlength'=>'25', 'placeholder'=>'Ingrese los apellidos del familiar', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">DPI (*)</label>
-                                        {!! Form::text('CUI', null, array('class'=>'form-control','maxlength'=>'13', 'minlength'=>'13', 'placeholder'=>'Ingrese el CUI', 'autocomplete'=>'off')) !!}
+                                        <label for="">DPI</label>
+                                        {!! Form::text('CUI', null, array('class'=>'form-control','maxlength'=>'13', 'minlength'=>'13', 'placeholder'=>'Ingrese el DPI en números y sin espacios', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Estado civil  (*)</label>
+                                        <label for="">Estado civil</label>
                                         {!! Form::text('EstadoCivil', null, array('class'=>'form-control','minlength'=>'3', 'maxlength'=>'7', 'placeholder'=>'Ingrese el estado civil', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Profesion Oficio  (*)</label>
-                                        {!! Form::text('ProfesionOficio', null, array('class'=>'form-control','maxlength'=>'25', 'placeholder'=>'Ingrese la profesión', 'autocomplete'=>'off')) !!}
+                                        <label for="">Profesión u oficio</label>
+                                        {!! Form::text('ProfesionOficio', null, array('class'=>'form-control','maxlength'=>'25', 'placeholder'=>'Ingrese la profesión u oficio', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Domicilio  (*)</label>
+                                        <label for="">Domicilio</label>
                                         {!! Form::text('Domicilio', null, array('class'=>'form-control','minlength'=>'10','maxlength'=>'45', 'placeholder'=>'Ingrese el domicilio', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-3">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Número de Telefono  (*)</label>
-                                        {!! Form::text('TelefonoFamiliar', null, array('class'=>'form-control','minlength'=>'8','maxlength'=>'12', 'placeholder'=>'Número de Telefono', 'autocomplete'=>'off')) !!}
+                                        <label for="">Número de teléfono</label>
+                                        {!! Form::text('TelefonoFamiliar', null, array('class'=>'form-control','minlength'=>'8','maxlength'=>'8', 'placeholder'=>'Ingrese número de teléfono', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-3">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Número de Celular  (*)</label>
-                                        {!! Form::text('CelularFamiliar', null, array('class'=>'form-control','minlength'=>'5','maxlength'=>'12', 'placeholder'=>'Número de Celular', 'autocomplete'=>'off')) !!}
+                                        <label for="">Número de celular</label>
+                                        {!! Form::text('CelularFamiliar', null, array('class'=>'form-control','minlength'=>'5','maxlength'=>'8', 'placeholder'=>'Ingrese número de celular', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 

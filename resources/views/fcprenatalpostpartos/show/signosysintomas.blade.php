@@ -5,7 +5,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Hemorragia Vaginal</label>
+                                        <label for="">Hemorragia vaginal</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->HemorragiaVaginal}}" disabled>
                                     </div>                                       
                                 </div>
@@ -19,7 +19,7 @@
                                 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Vision Borrosa</label>
+                                        <label for="">Vision borrosa</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->VisionBorrosa}}" disabled>
                                     </div>                                       
                                 </div>
@@ -33,14 +33,14 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Dolor Abdominal severo</label>
+                                        <label for="">Dolor abdominal severo</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->DolorAbdominal}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Presion Arterial alta</label>
+                                        <label for="">Presion arterial alta</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->PresionArterial}}" disabled>
                                     </div>                                       
                                 </div>
@@ -54,7 +54,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Presentaciones Fetales</label>
+                                        <label for="">Presentaciones fetales</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->PresentacionesFetales}}" disabled>
                                     </div>                                       
                                 </div>

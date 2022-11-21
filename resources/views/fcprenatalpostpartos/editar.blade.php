@@ -2,7 +2,7 @@
 @section('title')
     Editar datos del expediente No. {{$fcprenatalpostparto->datospersonalespacientes->Numerodireccion}}
 @endsection
-
+ 
 @section('content')
     <section class="section">
         
@@ -34,9 +34,9 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="" value="ExpedienteNo">No de expediente</label>
+                                        <label for="" value="ExpedienteNo">Número de expediente</label>
 
-                                        <input class="form-control" list="filtroIDCasas" id="filtroIDCasa" name="ExpedienteNo" placeholder="ingrese el cui de la madre" autocomplete="off">                                        
+                                        <input class="form-control" list="filtroIDCasas" id="filtroIDCasa" name="ExpedienteNo" placeholder="Ingrese el DPI de la madre" autocomplete="off">                                        
                                         <datalist id="filtroIDCasas" name="ExpedienteNo">
                                             @foreach($datospacientes as $idpaciente)
                                             <option value="{{$idpaciente->Numerodireccion}}"> {{$idpaciente->CUI}}, {{$idpaciente->NombresPaciente}} {{$idpaciente->ApellidosPaciente}} </option>
@@ -50,7 +50,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="" value="DatosPersonalesPacientes_id">Datos de Madre (*)</label>
+                                        <label for="" value="DatosPersonalesPacientes_id">Datos de la paciente</label>
 
                                         <input class="form-control" list="filtroIDPacientes" id="filtroIDPaciente" name="DatosPersonalesPacientes_id" placeholder="ingrese el cui de la madre" autocomplete="off" value="{{$fcprenatalpostparto->DatosPersonalesPacientes_id }}">                                        
                                         <datalist id="filtroIDPacientes" name="DatosPersonalesPacientes_id" value="{{$fcprenatalpostparto->DatosPersonalesPacientes_id }}">
@@ -64,14 +64,14 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Fecha (*)</label>
+                                        <label for="">Fecha</label>
                                         {!! Form::date('Fecha', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>                                
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="" value="EstablecimientoSalud_id">Establecimiento (*)</label>
+                                        <label for="" value="EstablecimientoSalud_id">Establecimiento</label>
                                         <select class="form-control" name="EstablecimientoSalud_id">
                                             @foreach($establecimientosaludos as $establecimiento)
                                             <option value="{{$establecimiento->idEstablecimientoSaludos}}" >{{ $establecimiento->Nombre}}, {{ $establecimiento->PuestoSalud}} </option>

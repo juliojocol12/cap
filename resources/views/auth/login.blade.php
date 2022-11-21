@@ -22,7 +22,7 @@
                     <label for="email">Correo electrónico</label>
                     <input aria-describedby="emailHelpBlock" id="email" type="email"
                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
-                           placeholder="Ingrese el correo electrónico registrado" tabindex="1"
+                           placeholder="Ingrese su correo electrónico" tabindex="1"
                            value="{{ (Cookie::get('email') !== null) ? Cookie::get('email') : old('email') }}" autofocus
                            required>
                     <div class="invalid-feedback">

@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body">
-        <h4 class="page__heading">Evaluación Nutricional de la Mujer Embarazada</h4>
+        <h4 class="page__heading">Evaluación nutricional de la mujer embarazada</h4>
 
         <h5 class="page__heading"></h5>
         <div class="row ">
@@ -28,14 +28,14 @@
 
             <div class="col-xs-6 col-sm-6 col-md-2">
                 <div class="form-group">
-                    <label for="">Diagnostico</label>
+                    <label for="">Diagnóstico</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$controle->Diagnostico}}" disabled>
                 </div>                                       
             </div>
 
             <div class="col-xs-6 col-sm-6 col-md-2">
                 <div class="form-group">
-                    <label for="">Diagnostico de IMC</label>
+                    <label for="">Diagnóstico de IMC</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$controle->IMC_Diagnostico}}" disabled>
                 </div>                                       
             </div>
@@ -49,14 +49,14 @@
 
             <div class="col-xs-6 col-sm-6 col-md-2">
                 <div class="form-group">
-                    <label for="">Ganancia Peso</label>
+                    <label for="">Ganancia de peso</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$controle->GananciaPeso}}" disabled>
                 </div>                                       
             </div>
 
             <div class="col-xs-6 col-sm-6 col-md-2">
                 <div class="form-group">
-                    <label for="">Acciones Peso</label>
+                    <label for="">Acciones de peso</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$controle->Accionesganancia}}" disabled>
                 </div>                                       
             </div>

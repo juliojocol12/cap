@@ -42,11 +42,11 @@
                                                 <td>{{$datosfamiliare->CUI}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row" ">Estado Civil</th>
+                                                <th scope="row" ">Estado civil</th>
                                                 <td>{{$datosfamiliare->EstadoCivil}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row" ">Profesion Oficio</th>
+                                                <th scope="row" ">Profesion u oficio</th>
                                                 <td>{{$datosfamiliare->ProfesionOficio}}</td>
                                             </tr>
                                             <tr>
@@ -54,11 +54,11 @@
                                                 <td>{{$datosfamiliare->Domicilio}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row" ">Telefono</th>
+                                                <th scope="row" ">Número de teléfono</th>
                                                 <td>{{$datosfamiliare->TelefonoFamiliar}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row" ">Celular</th>
+                                                <th scope="row" ">Número de celular</th>
                                                 <td>{{$datosfamiliare->CelularFamiliar}}</td>
                                             </tr>
                                         </tbody>

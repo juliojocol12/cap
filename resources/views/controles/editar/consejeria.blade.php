@@ -24,7 +24,7 @@
 
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="CuidadosPersonales">Cuidados Personales</label>
+                                            <label for="CuidadosPersonales">Cuidados personales</label>
                                                 <select class="form-control" name="CuidadosPersonales">
                                                 <option select">{{$controle->CuidadosPersonales}}</option>
                                                 @if ($controle->CuidadosPersonales === 'Si')
@@ -184,7 +184,7 @@
 
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="MetodosPlanificcion">Métodos de Planificación Familiar</label>
+                                            <label for="MetodosPlanificcion">Métodos de planificación familiar</label>
                                                 <select class="form-control" name="MetodosPlanificcion">
                                                 <option select">{{$controle->MetodosPlanificcion}}</option>
                                                 @if ($controle->MetodosPlanificcion === 'Si')
@@ -198,7 +198,7 @@
             
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="ImportanciaControlPos">Importancia del control pos parto</label>
+                                            <label for="ImportanciaControlPos">Importancia del control posparto</label>
                                                 <select class="form-control" name="ImportanciaControlPos">
                                                 <option select">{{$controle->ImportanciaControlPos}}</option>
                                                 @if ($controle->ImportanciaControlPos === 'Si')

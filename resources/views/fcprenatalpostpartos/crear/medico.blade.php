@@ -1,10 +1,10 @@
                     <div class="card">
                         <div class="card-body">
-                        <h3 class="page__heading">Antecedentes medicos</h3>
+                        <h3 class="page__heading">Antecedentes médicos</h3>
                         <div class="row ">
                         <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="AsmaBronquial">Asma Bronquial</label>
+                                        <label for="AsmaBronquial">Asma bronquial (*)</label>
                                         <select class="form-control" name="AsmaBronquial">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -14,7 +14,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="HipertensionArterial">Hipertensión Arterial</label>
+                                        <label for="HipertensionArterial">Hipertensión arterial (*)</label>
                                         <select class="form-control" name="HipertensionArterial">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -24,7 +24,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="Cancer">Cáncer</label>
+                                        <label for="Cancer">Cáncer (*)</label>
                                         <select class="form-control" name="Cancer">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -34,7 +34,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="ITS">ITS</label>
+                                        <label for="ITS">ITS (*)</label>
                                         <select class="form-control" name="ITS">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -44,7 +44,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="Chagas">Chagas</label>
+                                        <label for="Chagas">Chagas (*)</label>
                                         <select class="form-control" name="Chagas">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -54,7 +54,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="TomaMedicamentos">Toma Medicamentos</label>
+                                        <label for="TomaMedicamentos">Toma médicamentos (*)</label>
                                         <select class="form-control" name="TomaMedicamentos">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -64,7 +64,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="TrastornoPiscoSocial">Trastorno PsicoSocial</label>
+                                        <label for="TrastornoPiscoSocial">Trastorno psicosocial (*)</label>
                                         <select class="form-control" name="TrastornoPiscoSocial">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -74,7 +74,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="ViolenciaGenero">Violencia basada en género</label>
+                                        <label for="ViolenciaGenero">Violencia basada en género (*)</label>
                                         <select class="form-control" name="ViolenciaGenero">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -84,7 +84,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="Diabetes">Diabetes</label>
+                                        <label for="Diabetes">Diabetes (*)</label>
                                         <select class="form-control" name="Diabetes">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -94,7 +94,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="Cardiopatia">Cardiopatia</label>
+                                        <label for="Cardiopatia">Cardiopatía (*)</label>
                                         <select class="form-control" name="Cardiopatia">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -104,7 +104,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="Tuberculosis">Tuberculosis</label>
+                                        <label for="Tuberculosis">Tuberculosis (*)</label>
                                         <select class="form-control" name="Tuberculosis">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -114,7 +114,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="Neuropatia">Neuropatia</label>
+                                        <label for="Neuropatia">Neuropatía (*)</label>
                                         <select class="form-control" name="Neuropatia">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -124,7 +124,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="InfeccionesUrinarias">Infecciones Urinarias</label>
+                                        <label for="InfeccionesUrinarias">Infecciones urinarias (*)</label>
                                         <select class="form-control" name="InfeccionesUrinarias">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -134,7 +134,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="ViolenciaInrtraFamiliar">Violencia InrtraFamiliar</label>
+                                        <label for="ViolenciaInrtraFamiliar">Violencia inrtrafamiliar (*)</label>
                                         <select class="form-control" name="ViolenciaInrtraFamiliar">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -144,7 +144,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Tipo de Sangre</label>
+                                        <label for="">Tipo sanguíneo (*)</label>
                                         <select class="form-control" name="TipoSangre">
                                         <option value="A+">A+</option>
                                         <option value="A-">A-</option>
@@ -160,7 +160,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="Fuma">Fuma</label>
+                                        <label for="Fuma">Fuma (*)</label>
                                         <select class="form-control" name="Fuma">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -170,7 +170,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="BebidasAlcoholicas">Ingiere bebidas alcohólicas</label>
+                                        <label for="BebidasAlcoholicas">Ingiere bebidas alcohólicas (*)</label>
                                         <select class="form-control" name="BebidasAlcoholicas">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -180,7 +180,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="ConsumoDrogas">Consumo de drogas</label>
+                                        <label for="ConsumoDrogas">Consumo de drogas (*)</label>
                                         <select class="form-control" name="ConsumoDrogas">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -190,7 +190,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="AntecedentesVacunas">Antecedentes de vacuna Td</label>
+                                        <label for="AntecedentesVacunas">Antecedentes de vacuna Td (*)</label>
                                         <select class="form-control" name="AntecedentesVacunas">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -200,14 +200,14 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Dosis de Vacuna</label>
-                                        {!! Form::text('DosisVacuna', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Dosis de Vacuna', 'autocomplete'=>'off')) !!}
+                                        <label for="">Dosis de vacuna (*)</label>
+                                        {!! Form::text('DosisVacuna', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Ingrese dosis de vacuna', 'autocomplete'=>'off')) !!}
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Fecha de Ultima Dosis (*)</label>
+                                        <label for="">Fecha de últimas dosis (*)</label>
                                         {!! Form::date('FechaUltimaDosis', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
@@ -224,7 +224,7 @@
                                 
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Quirurgicos (*)</label>
+                                        <label for="">Quirúrgicos (*)</label>
                                         <div class="form-outline w-100 mb-4">
 
                                             <textarea class="form-control" id="Quirurgicos" name="Quirurgicos" style="height: 90px; width: 100%; " maxlength="45" placeholder="Ingrese información quirurgico"></textarea>
@@ -235,7 +235,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <label for="">Otros Antecedentes (*)</label>
+                                        <label for="">Otros antecedentes (*)</label>
                                         <div class="form-outline w-100 mb-4">
                                             <textarea class="form-control" id="OtrosAntecedentes" name="OtrosAntecedentes" style="height: 90px; width: 100%; " maxlength="75" placeholder="Describa otros antecedentes"></textarea>
                                         </div>

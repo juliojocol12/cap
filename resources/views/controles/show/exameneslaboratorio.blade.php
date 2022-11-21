@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card"> 
                         <div class="card-body">
                             <h4 class="page__heading">Examenes de laboratorio o pruebas de gabinete</h4>
 
@@ -14,21 +14,21 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Resultado de prueba de embarazo</label>
+                                    <label for="">Resultado prueba de embarazo</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$controle->DecripcionPruebasEmbarazo}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Hematología (Hemaglobina / Ht)</label>
+                                    <label for="">Hematología (Hemaglobina/Ht)</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$controle->Hematologia}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Resultado de Hematología</label>
+                                    <label for="">Resultado de hematología</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$controle->DescripcionHematologia}}" disabled>
                                     </div>                                       
                                 </div>
@@ -56,7 +56,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Resultado de Orina</label>
+                                    <label for="">Resultado de orina</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$controle->NacidosVivos}}" disabled>
                                     </div>                                       
                                 </div>
@@ -70,14 +70,14 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Resultado de Heces</label>
+                                    <label for="">Resultado de heces</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$controle->DescirpcionHeces}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Glicemia en ayunas</label>
+                                    <label for="">Glucemia en ayunas</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$controle->DescripcionGlicemiaAyunas}}" disabled>
                                     </div>                                       
                                 </div>

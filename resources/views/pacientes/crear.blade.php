@@ -59,7 +59,7 @@
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Profesión u Oficio (*)</label>
+                                        <label for="">Profesión u oficio (*)</label>
                                         {!! Form::text('ProfesionOficio', null, array('class'=>'form-control', 'maxlength'=>'25','placeholder'=>'Ingrese la profesión u oficio','autocomplete'=>'off')) !!}
                                     </div>
                                 </div> 
@@ -101,15 +101,15 @@
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Teléfono (*)</label>
-                                        {!! Form::text('Telefono', null, array('class'=>'form-control', 'maxlength'=>'15','placeholder'=>'Ingrese número de teléfono','autocomplete'=>'off')) !!}
+                                        <label for="">Número de teléfono (*)</label>
+                                        {!! Form::text('Telefono', null, array('class'=>'form-control', 'maxlength'=>'8','placeholder'=>'Ingrese número de teléfono','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>     
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Celular</label>
-                                        {!! Form::text('Celular', null, array('class'=>'form-control','maxlength'=>'15','placeholder'=>'Ingrese el número de celular','autocomplete'=>'off')) !!}
+                                        <label for="">Número de celular</label>
+                                        {!! Form::text('Celular', null, array('class'=>'form-control','maxlength'=>'8','placeholder'=>'Ingrese el número de celular','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>        
 

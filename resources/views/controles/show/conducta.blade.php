@@ -4,29 +4,29 @@
 
                             <h5 class="page__heading"></h5>
                             <div class="row ">
-
+ 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Sulfato Ferroso</label>
+                                    <label for="">Sulfato ferroso</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$controle->SulfatoFerroso}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Ácido Fólico</label>
+                                    <label for="">Ácido fólico</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$controle->AcidoFolico}}" disabled>
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                     <label for="">Vacunación de la madre (Td), (Tdap)</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$controle->VacunacionTdTdap}}" disabled>
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                     <label for="">Vacunación de la madre (influenza)</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$controle->VacunacionInfluenza}}" disabled>

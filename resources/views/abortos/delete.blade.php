@@ -13,7 +13,7 @@
         </button>
       </div>
       <div class="modal-body">
-      ¿Desea eliminar el registro de {{ $aborto->NombresPaciente }}  {{ $aborto->ApellidosPaciente }} con fecha {{ $aborto->FechaAborto }} ?
+      ¿Está seguro que desea eliminar el registro de {{ $aborto->NombresPaciente }}  {{ $aborto->ApellidosPaciente }} con fecha: {{ $aborto->FechaAborto }} ?
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-danger" value="Si">

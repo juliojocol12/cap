@@ -6,7 +6,7 @@ Editar establecimiento de salud
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Editar Establecimiento de Salud</h3>
+            <h3 class="page__heading">Editar establecimiento de salud</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -38,7 +38,7 @@ Editar establecimiento de salud
     
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="name">Direccion</label>
+                                        <label for="name">Dirección</label>
                                         {!! Form::text('Direccion', null, array('class'=>'form-control','maxlength'=>'60')) !!}
                                     </div>
                                 </div>
@@ -50,9 +50,9 @@ Editar establecimiento de salud
                                     </div>
                                 </div>
     
-                                <div class="col-xs-6 col-sm-6 col-md-5">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="name">Puesto de Salud</label>
+                                        <label for="name">Puesto de salud</label>
                                         {!! Form::text('PuestoSalud', null, array('class'=>'form-control','maxlength'=>'30')) !!}
                                     </div>
                                 </div>

@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="card-body">
                                                         
-                            <a class="btn btn-warning" href="{{ route('infantes.create') }}">Ingresar Infante</a>
+                            <a class="btn btn-warning" href="{{ route('infantes.create') }}">Nuevo</a>
 
                             @if(session('status'))
                                 <div class="alert alert-success mt-4">
@@ -27,11 +27,11 @@
                                     <form action="{{ route('infantes.index') }}" method="GET">
                                         <div class="form-row">
                                             <div class="col-sm-4 my-1">
-                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el Nombre para buscar">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el nombre para buscar">
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
-                                                <a href="{{ route('infantes.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
+                                                <a href="{{ route('infantes.index') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
                                             </div>
                                         </div>
                                     </form>
@@ -51,9 +51,9 @@
                                     <th style="color:#fff;">Borrar</th>
                                     @endcan
                                     <th style="color:#fff;">Nombres y apellidos </th>
-                                    <th style="color:#fff;">Datos de la mamá</th>
+                                    <th style="color:#fff;">Nombre de la madre</th>
                                     <th style="color:#fff;">DPI de la madre</th>
-                                    <th style="color:#fff;">Datos de familiares</th>
+                                    <th style="color:#fff;">Nombre de familiar</th>
                                     <th style="color:#fff;">Parentesco</th>
                                 </thead>
                                 

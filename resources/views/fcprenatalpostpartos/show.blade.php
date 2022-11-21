@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title')
-    Datos del expediente No. {{$fcprenatalpostparto->datospersonalespacientes->Numerodireccion}}
+    Datos del expediente no. {{$fcprenatalpostparto->datospersonalespacientes->Numerodireccion}}
 @endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Datos del expediente No. {{$fcprenatalpostparto->datospersonalespacientes->Numerodireccion}} </h3>
+            <h3 class="page__heading">Datos del expediente no. {{$fcprenatalpostparto->datospersonalespacientes->Numerodireccion}} </h3>
         </div>
         <div class="section-body">
             <div class="row row-responsive">
@@ -62,7 +62,7 @@
                     
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="page__heading">Datos de centro de atencion</h4>
+                            <h4 class="page__heading">Datos de centro de atención</h4>
                             <div class="row ">
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
@@ -78,10 +78,10 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="page__heading">Datos generales del paciente</h4>
+                            <h4 class="page__heading">Datos generales de la paciente</h4>
                             <div class="row ">
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Nombre</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->datospersonalespacientes->NombresPaciente}} {{$fcprenatalpostparto->datospersonalespacientes->ApellidosPaciente}}" disabled>
@@ -104,14 +104,14 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Telefono</label>
+                                        <label for="">Número de teléfono</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->datospersonalespacientes->Telefono}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Celular</label>
+                                        <label for="">Número de celular</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->datospersonalespacientes->Celular}}" disabled>
                                     </div>                                       
                                 </div>
@@ -124,7 +124,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="page__heading">Si refirio a la paciente registre manejo y estabilización</h4>
+                            <h4 class="page__heading">Si refirió a la paciente registre manejo y estabilización</h4>
                             <div class="row ">
 
                                 <div class="col-xs-6 col-sm-6 col-md-12">
@@ -169,6 +169,10 @@
 
                     @include('fcprenatalpostpartos.show.obstretico')
                     @include('fcprenatalpostpartos.show.medico')
+
+                    <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-success mr-3">Volver</a>
+                            <a href="{{ route('fcprenatalpostpartos.edit', $fcprenatalpostparto->idFCPrenatalPostpartos) }}" class="btn btn-info mr-3">Editar</a>
+
 
                 </div>
             </div>

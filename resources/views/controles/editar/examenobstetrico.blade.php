@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body">
-    <h3 class="page__heading">Examen Obstetrico</h3>
+    <h3 class="page__heading">Examen obstérico</h3>
     <div class="row ">
 
             <div class="col-xs-1 col-sm-6 col-md-2">
@@ -19,21 +19,21 @@
 
             <div class="col-xs-6 col-sm-6 col-md-2">
                 <div class="form-group">
-                    <label for="">Observacion Abdominal</label>
+                    <label for="">Observación abdominal</label>
                     {!! Form::text('ObservacionAbdominal', null, array('class'=>'form-control','maxlength'=>'25', 'placeholder'=>'forma del abdomen', 'autocomplete'=>'off')) !!}
                 </div>                                       
             </div>
 
             <div class="col-xs-6 col-sm-6 col-md-2">
                 <div class="form-group">
-                    <label for="">Altura Uterina</label>
+                    <label for="">Altura uterina</label>
                     {!! Form::text('AlturaUterina', null, array('class'=>'form-control', 'maxlength'=>'45', 'autocomplete'=>'off')) !!}
                 </div>                                       
             </div>
 
             <div class="col-xs-1 col-sm-6 col-md-2">
                 <div class="form-group">
-                    <label for="PresenciaMovimientoFetales">Presencia de Movimiento Fetales</label>
+                    <label for="PresenciaMovimientoFetales">Presencia de movimientos fetales</label>
                     <select class="form-control" name="PresenciaMovimientoFetales">
                     <option select">{{$controle->PresenciaMovimientoFetales}}</option>
                     @if ($controle->PresenciaMovimientoFetales === 'Si')
@@ -47,7 +47,7 @@
 
             <div class="col-xs-6 col-sm-6 col-md-2">
                 <div class="form-group">
-                    <label for="">Frecuencia Cardiaca Fetal</label>
+                    <label for="">Frecuencia cardíaca fetal</label>
                     {!! Form::text('FrecuenciaCardiacaFetal', null, array('class'=>'form-control', 'maxlength'=>'45', 'placeholder'=>'foco fetal', 'autocomplete'=>'off')) !!}
                 </div>                                       
             </div>
