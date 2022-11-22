@@ -176,7 +176,7 @@ class FcprenatalpostpartoController extends Controller
      */
     public function show($idFCPrenatalPostpartos)
     {
-        //
+        // 
         $fcprenatalpostparto = fcprenatalpostparto::find($idFCPrenatalPostpartos);
 
         $datospacientes = datospersonalespaciente::all()->where('Stado','Si');

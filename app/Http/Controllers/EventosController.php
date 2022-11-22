@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\evento;
+use App\Models\Evento;
+use App\Models\datospersonalespaciente;
+use App\Models\establecimientosaludo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -24,6 +26,8 @@ class EventosController extends Controller
      */
     public function index()
     {
+        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');
         return view("eventos.index");
     }
 
@@ -46,7 +50,7 @@ class EventosController extends Controller
     public function store(Request $request)
     {
         $datosEvento=request()->except(['_token','_method']);
-        evento::insert($datosEvento);
+        Evento::insert($datosEvento);
         print_r($datosEvento);
     }
 
@@ -58,7 +62,7 @@ class EventosController extends Controller
      */
     public function show()
     {
-        $data['eventos']=evento::all();
+        $data['eventos']=Evento::all();
         return response()->json($data['eventos']);
     }
 
@@ -83,7 +87,7 @@ class EventosController extends Controller
     public function update(Request $request, $id)
     {
         $datosEvento=request()->except(['_token','_method']);
-        $respuesta=evento::where('id','=',$id)->update($datosEvento);
+        $respuesta=Evento::where('id','=',$id)->update($datosEvento);
         return response()->json($respuesta);
     }
 
@@ -96,8 +100,8 @@ class EventosController extends Controller
     public function destroy($id)
     {
         //
-        $eventos=evento::findOrFail($id);
-        evento::destroy($id);
+        $eventos=Evento::findOrFail($id);
+        Evento::destroy($id);
         return response()->json($id);
     }
 }

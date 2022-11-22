@@ -53,6 +53,11 @@
                                     <th style="color:#fff;">DPI</th>
                                 </thead>
                                 <tbody>
+                                    @if(count($fichamspasriesgos)<=0)
+                                        <tr>
+                                            <td colspan="8">No hay resultados</td>
+                                        </tr>
+                                    @else
                                     @foreach($fichamspasriesgos as $fichamspasriesgo)
  
                                     
@@ -85,6 +90,7 @@
                                         </tr>
                                         @include('fichamspasriesgos.delete')
                                     @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                             

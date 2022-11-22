@@ -30,6 +30,7 @@
                                 @include('home.vacunas')
                                 @include('home.vacunainfantes')
                                 @include('home.aborto')
+                                @include('home.fichamspasriego')
                              </div>
                         </div>
                     </div>

@@ -642,6 +642,39 @@
                                                         </td> 
                                                         @endforeach
                                                     </tr>
+
+                                                    <tr>                                                        
+                                                        <td>Ficha de riegos</td>
+                                                        @foreach($permisoochentauno as $valuesochentauno)
+                                                        <td align="center">
+                                                        {{ Form::checkbox('permission[]', $valuesochentauno->id, false, array('class' => 'name')) }}
+                                                        </td> 
+                                                        @endforeach
+
+                                                        @foreach($permisoochentados as $valuesochentados)
+                                                        <td align="center">
+                                                        {{ Form::checkbox('permission[]', $valuesochentados->id, false, array('class' => 'name')) }}
+                                                        </td> 
+                                                        @endforeach
+
+                                                        @foreach($permisoochentatres as $valuesochentatres)
+                                                        <td align="center">
+                                                        {{ Form::checkbox('permission[]', $valuesochentatres->id, false, array('class' => 'name')) }}
+                                                        </td> 
+                                                        @endforeach
+
+                                                        @foreach($permisoochentacuatro as $valuesochentacuatro)
+                                                        <td align="center">
+                                                        {{ Form::checkbox('permission[]', $valuesochentacuatro->id, false, array('class' => 'name')) }}
+                                                        </td> 
+                                                        @endforeach
+
+                                                        @foreach($permisoochentacinco as $valuesochentacinco)
+                                                        <td align="center">
+                                                        {{ Form::checkbox('permission[]', $valuesochentacinco->id, false, array('class' => 'name')) }}
+                                                        </td> 
+                                                        @endforeach
+                                                    </tr>
                                             </table>
 
                                         </div>

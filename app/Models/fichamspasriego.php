@@ -28,6 +28,9 @@ class fichamspasriego extends Model
         return $this->belongsTo('App\Models\User', 'Usuario_id', 'id');
     }
      
-     
+    public function pueblos()
+    {
+        return $this->belongsTo('App\Models\Pueblo', 'pueblo_id', 'idPueblo');
+    }
 
 }

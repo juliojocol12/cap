@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\fichamspasriego;
 use App\Models\datospersonalespaciente;
 use App\Models\fcprenatalpostparto;
+use App\Models\pueblo;
+use App\Models\DatosFamiliare;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -27,14 +29,25 @@ class FichamspasriegoController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        $texto = trim($request->get('texto'));
-
-        $fichamspasriesgos = fichamspasriego::select('idFichamspasriegos','RegistroNo', 'FCPrenatalPostparto_id', 'DatosPersonalesPacientes_id','NombresPaciente','ApellidosPaciente','CUI','Numerodireccion','Muertefetal','Ancedentesaborto','Antecedentegestas','Pesocinco','Pesonueve','Antecedentehipertension','Cirugiasprevias','Diagnosticosospecha','Menosveinte','Mastreinta','Pacienterh','Hemorragia','VIH','Presionarterial','Anemiaclinica','Desnutricion','Dolorabdominal','Sintomatologia','Ictericia','Diabetes','Enfermedadrenal','Enfermerdadcorazon','Hipertension','Consumodrogas','Cualquierenfermedad','Especifiquefichamspasriegos','Refirio','Fecha','Nombre',)
-        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fichamspasriegos.DatosPersonalesPacientes_id')
-        ->where('CUI','LIKE','%'.$texto.'%')
-        ->paginate(10);
-        return view('fichamspasriesgos.index', compact('fichamspasriesgos','texto'));
+        $cant_fichamspasriego = fichamspasriego::count();
+        if($cant_fichamspasriego === 0)
+        {
+            $texto = trim($request->get('texto'));
+            $fichamspasriesgos = fichamspasriego::select('idFichamspasriegos','RegistroNo', 'FCPrenatalPostparto_id', 'DatosPersonalesPacientes_id','NombresPaciente','ApellidosPaciente','CUI','Numerodireccion','Muertefetal','Ancedentesaborto','Antecedentegestas','Pesocinco','Pesonueve','Antecedentehipertension','Cirugiasprevias','Diagnosticosospecha','Menosveinte','Mastreinta','Pacienterh','Hemorragia','VIH','Presionarterial','Anemiaclinica','Desnutricion','Dolorabdominal','Sintomatologia','Ictericia','Diabetes','Enfermedadrenal','Enfermerdadcorazon','Hipertension','Consumodrogas','Cualquierenfermedad','Especifiquefichamspasriegos','Refirio','Fecha','Nombre','Estado')
+            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fichamspasriegos.DatosPersonalesPacientes_id')
+            ->where('CUI','LIKE','%'.$texto.'%')
+            ->paginate(10);
+            return view('fichamspasriesgos.index', compact('fichamspasriesgos','texto'));
+        }
+        else{
+            $texto = trim($request->get('texto'));
+            $fichamspasriesgos = fichamspasriego::select('idFichamspasriegos','RegistroNo', 'FCPrenatalPostparto_id', 'DatosPersonalesPacientes_id','NombresPaciente','ApellidosPaciente','CUI','Numerodireccion','Muertefetal','Ancedentesaborto','Antecedentegestas','Pesocinco','Pesonueve','Antecedentehipertension','Cirugiasprevias','Diagnosticosospecha','Menosveinte','Mastreinta','Pacienterh','Hemorragia','VIH','Presionarterial','Anemiaclinica','Desnutricion','Dolorabdominal','Sintomatologia','Ictericia','Diabetes','Enfermedadrenal','Enfermerdadcorazon','Hipertension','Consumodrogas','Cualquierenfermedad','Especifiquefichamspasriegos','Refirio','Fecha','Nombre','Estado')
+            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fichamspasriegos.DatosPersonalesPacientes_id')
+            ->where('CUI','LIKE','%'.$texto.'%')
+            ->where('Estado','Si')
+            ->paginate(10);
+            return view('fichamspasriesgos.index', compact('fichamspasriesgos','texto'));
+        }
     }
  
     /**
@@ -45,8 +58,8 @@ class FichamspasriegoController extends Controller
     public function create()
     {
         //
-        $datospacientes = datospersonalespaciente::all();
-        $fcprenatalpostparto = fcprenatalpostparto::all();
+        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $fcprenatalpostparto = fcprenatalpostparto::all()->where('Estado','Si');
         return view ('fichamspasriesgos.crear')->with('fcprenatalpostparto',$fcprenatalpostparto)->with('datospacientes',$datospacientes);
     }
 
@@ -92,6 +105,8 @@ class FichamspasriegoController extends Controller
             'Refirio' => 'TextoRule4',
             'Fecha',
             'Nombre' => 'TextoRule4',
+            'Usuario_id',
+			'Estado',
            
         ]);
         
@@ -112,9 +127,12 @@ class FichamspasriegoController extends Controller
         //
         $fichamspasriego = fichamspasriego::find($idFichamspasriegos);
 
-        $datospacientes = datospersonalespaciente::all();
+        $datospersonalespacientes = datospersonalespaciente::all();
         $fcprenatalpostparto = fcprenatalpostparto::all();
-        return view ('fichamspasriesgos.show', compact('fichamspasriego'))->with('fcprenatalpostparto',$fcprenatalpostparto)->with('datospacientes',$datospacientes);
+
+        $pueblos = pueblo::select('idPueblo','Nombre')->get();
+        $datosfamiliares = DatosFamiliare::all();
+        return view ('fichamspasriesgos.show', compact('fichamspasriego'))->with('fcprenatalpostparto',$fcprenatalpostparto)->with('datospersonalespacientes',$datospersonalespacientes)->with('pueblos',$pueblos)->with('datosfamiliares',$datosfamiliares);
    
 
     }
@@ -131,8 +149,8 @@ class FichamspasriegoController extends Controller
         //
         $fichamspasriego = fichamspasriego::find($idFichamspasriegos);
 
-        $datospacientes = datospersonalespaciente::all();
-        $fcprenatalpostparto = fcprenatalpostparto::all();
+        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $fcprenatalpostparto = fcprenatalpostparto::all()->where('Estado','Si');
         return view ('fichamspasriesgos.editar', compact('fichamspasriego'))->with('fcprenatalpostparto',$fcprenatalpostparto)->with('datospacientes',$datospacientes);
    
     }
@@ -182,7 +200,9 @@ class FichamspasriegoController extends Controller
                     'Especifiquefichamspasriegos' => 'TextoRule4',
                     'Refirio' => 'TextoRule4',
                     'Fecha' => 'required',
-                    'Nombre' => 'TextoRule4',                
+                    'Nombre' => 'TextoRule4',     
+                    'Usuario_id',
+			        'Estado',           
                 ]);
                 $input = $request->all();
                 $fichamspasriego = fichamspasriego::find($idFichamspasriegos);
@@ -226,6 +246,8 @@ class FichamspasriegoController extends Controller
                 'Refirio' => 'TextoRule4',
                 'Fecha',
                 'Nombre' => 'TextoRule4',
+                'Usuario_id',
+			    'Estado',
                 ]);
                 $input = $request->all();
                 $fichamspasriego = fichamspasriego::find($idFichamspasriegos);
@@ -243,8 +265,9 @@ class FichamspasriegoController extends Controller
      */
     public function destroy( $idFichamspasriegos)
     {
-        //
-        fichamspasriego::find($idFichamspasriegos)->delete();
+        $fichamspasriegos = fichamspasriego::findOrFail($idFichamspasriegos);
+        $fichamspasriegos->Estado='No';
+        $fichamspasriegos->update();
         return redirect()->route('fichamspasriesgos.index')->with('status');
     }
 }

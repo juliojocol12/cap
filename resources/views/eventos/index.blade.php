@@ -1,204 +1,45 @@
 @extends('layouts.app')
 
-@section('scripts')
-<!-- css de Bootstrap-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" >
-
-<!-- js de Bootstrap-->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" ></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-
-<link rel="stylesheet" href="{{ asset('fullcalendar/core/main.css')}}">
-<link rel="stylesheet" href="{{ asset('fullcalendar/daygrid/main.css')}}">
-<link rel="stylesheet" href="{{ asset('fullcalendar/list/main.css')}}">
-<link rel="stylesheet" href="{{ asset('fullcalendar/timegrid/main.css')}}">
-
-<script src="{{ asset('fullcalendar/core/main.js')}}" defer></script>
-
-<script src="{{ asset('fullcalendar/interaction/main.js')}}" defer></script>
-
-<script src="{{ asset('fullcalendar/daygrid/main.js')}}" defer></script>
-<script src="{{ asset('fullcalendar/list/main.js')}}" defer></script>
-<script src="{{ asset('fullcalendar/timegrid/main.js')}}" defer></script>
-
-<script src='fullcalendar/core/locales/es.js'></script>
-
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-  var calendarEl = document.getElementById("calendar");
-
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    locale: 'es',
-    plugins: ["interaction", "dayGrid", "timeGrid", "list"],
-    selectable: true,
-    header: {
-      left: "prev,next today ",
-      center: "title",
-      right: "dayGridMonth,timeGridWeek,timeGridDay"
-    },
-    dateClick: function (info) {   
-
-        limpiarFormulario();
-
-        $('#txtFecha').val(info.dateStr);
-        $('#txtFecha').prop("disabled",true);
-
-        $('#btnAgregar').prop("disabled",false);
-        $('#btnModificar').prop("disabled",true);
-        $('#btnEliminar').prop("disabled",true);
-
-
-         
-        $('#exampleModal').modal('show');
-        //console.log(info);
-        //calendar.addEvent({ title:"Evento X", date:info.dateStr});
-
-    },
-    eventClick:function(info){
-
-        $('#btnAgregar').prop("disabled",true);
-        $('#btnModificar').prop("disabled",false);
-        $('#btnEliminar').prop("disabled",false);
-
-
-        console.log(info);
-        console.log(info.event.title);
-        console.log(info.event.start);
-        console.log(info.event.datospaciente);
-        console.log(info.event.establecimiento);
-        console.log(info.event.comunidad);
-
-        console.log(info.event.end);
-        console.log(info.event.textColor);
-        console.log(info.event.backgroundColor);
-
-        console.log(info.event.extendedProps.descripcion);
-
-        $('#txtID').val(info.event.id);
-        $('#txtTitulo').val(info.event.title);
-        $('#txtDatosP').val(info.event.extendedProps.datospaciente);
-        $('#txtEstablecimiento').val(info.event.extendedProps.establecimiento);
-        $('#txtComunidad').val(info.event.extendedProps.comunidad);
-
-        mes = (info.event.start.getMonth()+1);
-        dia = (info.event.start.getDate());
-        anio = (info.event.start.getFullYear());
-
-        mes=(mes<10)?"0"+mes:mes;
-        dia=(dia<10)?"0"+dia:dia;
-
-        minutos=info.event.start.getMinutes();
-        hora=info.event.start.getHours();
-
-        minutos=(minutos<10)?"0"+minutos:minutos;
-        hora=(hora<10)?"0"+hora:hora;
-
-        horario = (hora+":"+minutos);
-
-        $('#txtFecha').val(anio+"-"+mes+"-"+dia);
-        $('#txtFecha').prop("disabled",false);
-        $('#txtHora').val(horario);
-        $('#txtColor').val(info.event.backgroundColor)
-
-        $('#txtDescripcion').val(info.event.extendedProps.descripcion)
-
-         
-        $('#exampleModal').modal('show');
-        },
-        events:"{{ url('/eventos/show') }}"
-
-  });
-  //calendar.setOption('locale','es');
-
-  calendar.render();
-
-  $('#btnAgregar').click(function(){
-    ObjEvento=recolectarDatosGUI("POST");
-
-    EnviarInformacion('',ObjEvento);
-  });
-
-  $('#btnEliminar').click(function(){
-    ObjEvento=recolectarDatosGUI("DELETE");
-
-    EnviarInformacion('/'+$('#txtID').val(),ObjEvento);
-  });
-
-  $('#btnModificar').click(function(){
-    ObjEvento=recolectarDatosGUI("PATCH");
-
-    EnviarInformacion('/'+$('#txtID').val(),ObjEvento);
-  });
-
-  function recolectarDatosGUI(method){
-
-    nuevoEvento={
-        id:$('#txtID').val(),
-        title:$('#txtTitulo').val(),
-        descripcion:$('#txtDescripcion').val(),
-        datospaciente:$('#txtDatosP').val(),	
-        establecimiento:$('#txtEstablecimiento').val(),	
-        comunidad:$('#txtComunidad').val(),	
-        color:$('#txtColor').val(),	
-        textColor:'#FFFFFF',	
-        start:$('#txtFecha').val()+" "+$('#txtHora').val(),	
-        end:$('#txtFecha').val()+" "+$('#txtHora').val(),  
-
-        '_token':$("meta[name='csrf-token']").attr("content"),
-        '_method':method
-    }
-    return (nuevoEvento);
-  }
-  function EnviarInformacion(accion,objEvento){
-
-    $.ajax(
-        {
-            type:"POST",
-            url:"{{ url('/eventos') }}"+accion,
-            data:objEvento,
-            success:function(msg){ 
-              console.log(msg);
-              $('#exampleModal').modal('toggle');
-              calendar.refetchEvents();
-            },
-            error:function(){ alert("Hay un error");}
-        }
-    );
-  }
-
-  function limpiarFormulario(){
-
-        $('#txtID').val("");
-        $('#txtTitulo').val("");
-        $('#txtFecha').val("");
-        $('#txtDatosP').val("");
-        $('#txtEstablecimiento').val("");
-        $('#txtComunidad').val("");
-        $('#txtHora').val("07:00");
-        $('#txtColor').val("");
-        $('#txtDescripcion').val("");
-  }
-
-});
-
-  </script>
+@section('title')
+    Agenda
 @endsection
 
+
+
 @section('content')
-<div class="row">
-    <div class="col"></div>
-    <div class="col-9">
-        <div class="container">
-        <div id="calendar"></div>
+
+<section class="section">
+        <div class="section-header">
+            <h3 class="page__heading">Agenda</h3>
         </div>
-    </div>
-    <div class="col"></div>
-</div>
+        <div class="section-body">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <div class="card">
+                        <div class="card-body">
+                              
+                            @if(session('status'))
+                                <div class="alert alert-success mt-4">
+                                    {{ session('status') }}
+                                </div>
+                            @endif 
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col-9">
+                                    <div class="container">
+                                    <div id="calendar"></div>
+                                    </div>
+                                </div>
+                                <div class="col"></div>
+                            </div>
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
 
 <!-- Modal -->
 <div class="modal fade"  data-backdrop="false" data-keyboard="false" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -233,14 +74,49 @@ document.addEventListener("DOMContentLoaded", function () {
               <input type="time" class="form-control" name="txtHora" id="txtHora">
             </div>
 
+            {{--
             <div class="form-group col-md-6">
               <label>Datos de la paciente:</label> 
               <input type="text" class="form-control" name="txtDatosP" id="txtDatosP">
+            </div>
+            --}}
+
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label>Datos de la paciente (*)</label>
+                  <input class="form-control" list="filtroIDPacientes" id="txtDatosP" name="txtDatosP" placeholder="ingrese el cui de la madre" autocomplete="off">
+              </div>
             </div>
 
             <div class="form-group col-md-6">
               <label>Establecimiento:</label> 
               <input type="text" class="form-control" name="txtEstablecimiento" id="txtEstablecimiento">
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Establecimiento (*)</label>
+                <input class="form-control" list="filtroIDPacientes" id="txtEstable" name="txtEstable" placeholder="ingrese" autocomplete="off">
+              </div>
+            </div>
+
+
+            	
+              <div class="col-xs-12 col-sm-12 col-md-2">
+                <div class="form-group">
+                  <label>Encargado de llenado</label>
+                  <select id="txtUsuario" class="form-control" name="txtUsuario"  maxlength="35">
+                    <option value="{{\Illuminate\Support\Facades\Auth::user()->id}}">{{\Illuminate\Support\Facades\Auth::user()->name}}</option>
+                  </select>
+                </div>
+
+            
+              <div class="col-xs-12 col-sm-12 col-md-2">
+                <div class="form-group">
+                  <label>Estado</label>
+                  <input type="text" name="txtEstado" id="txtEstado" value="Si">
+                </div>
+              </div>
             </div>
 
             <div class="form-group col-md-12">

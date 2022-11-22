@@ -20,6 +20,7 @@ use App\Models\vacunainfante;
 
 use App\Models\evento; 
 use App\Models\Aborto;
+use App\Models\fichamspasriego;
 
 
 class HomeController extends Controller
@@ -32,6 +33,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('permission:home-fichamspasriego', ['only'=>['fichamspasriegohome']]);
         $this->middleware('permission:home-Aborto', ['only'=>['abortohome']]);
         $this->middleware('permission:home-fullcalendar', ['only'=>['agendahome']]);
         $this->middleware('permission:home-usuario', ['only'=>['usuariohome']]);
@@ -56,6 +58,7 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
+    
     {
         $cantusuarios = User::where('Estado','Si')->count();  
         $cant_roles = Role::where('Estado','Si')->count();    
@@ -73,9 +76,13 @@ class HomeController extends Controller
         $cant_vacunainfante = vacunainfante::count();
         $cant_agenda = evento::count();
         $cant_aborto = Aborto::count();
-        return view('home', compact('cant_infantes','cant_personales','cant_roles','cantusuarios','cant_familiares','cant_pacientes','cant_prenatal','cant_controlprenatal','cant_posparto','cant_controlposparto','cant_pueblo','cant_establecimiento','cant_vacunas','cant_vacunainfante','cant_agenda','cant_aborto'));
+        $cant_fichamspasriego = fichamspasriego::where('Estado','Si')->count();
+        return view('home', compact('cant_infantes','cant_personales','cant_roles','cantusuarios','cant_familiares','cant_pacientes','cant_prenatal','cant_controlprenatal','cant_posparto','cant_controlposparto','cant_pueblo','cant_establecimiento','cant_vacunas','cant_vacunainfante','cant_agenda','cant_aborto','cant_fichamspasriego'));
     }
-
+    public function fichamspasriegohome()
+    {
+        return view('home.fichamspasriego');
+    }
     public function abortohome()
     {
         return view('home.aborto');
