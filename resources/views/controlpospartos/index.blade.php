@@ -6,7 +6,7 @@ Control posparto
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">CONTROL DE POSPARTO</h3>
+            <h3 class="page__heading">Control posparto</h3>
         </div>
         <div class="section-body">
             <div class="row row-responsive">
@@ -14,7 +14,7 @@ Control posparto
                     <div class="card">
                         <div class="card-body">
                             
-                            <a class="btn btn-warning" href="{{ route('controlpospartos.create') }}">Ingresar control de madre</a>
+                            <a class="btn btn-warning" href="{{ route('controlpospartos.create') }}">Ingresar control de la paciente</a>
                             @if(session('status'))
                                 <div class="alert alert-success mt-4">
                                     {{ session('status') }}
@@ -26,7 +26,7 @@ Control posparto
                                     <form action="{{ route('controlpospartos.index') }}" method="GET">
                                         <div class="form-row">
                                             <div class="col-sm-4 my-1">
-                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el Nombre para buscar">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el nombre para buscar">
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
@@ -48,10 +48,10 @@ Control posparto
                                     @can('borrar-controlposparto')
                                     <th style="color:#fff;">Borrar</th>
                                     @endcan
-                                    <th style="color:#fff;">NoControl</th>
-                                    <th style="color:#fff;">FCEvaluacionPosparto_id</th>
-                                    <th style="color:#fff;">SemanasDespuesParto</th>
-                                    <th style="color:#fff;">FechaVisita</th>
+                                    <th style="color:#fff;">Número de control</th>
+                                    <th style="color:#fff;">Ficha evaluación posparto</th>
+                                    <th style="color:#fff;">Semanas despúes del parto</th>
+                                    <th style="color:#fff;">Fecha de visita</th>
                                 </thead>
 
                                 <tbody>

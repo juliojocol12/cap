@@ -5,14 +5,14 @@
                                 
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Sulfato Ferroso</label>
+                                            <label for="">Sulfato ferroso</label>
                                             {!! Form::text('SulfatoFerroso', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Ingrese número de tabletas', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
 
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Ácido Fólico</label>
+                                            <label for="">Ácido fólico</label>
                                             {!! Form::text('AcidoFolico', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Ingrese número de tabletas', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
@@ -26,7 +26,7 @@
                                                                          
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Vacunación de la madre (influenza)</label>
+                                            <label for="">Vacunación de la madre (Influenza)</label>
                                             {!! Form::text('VacunacionInfluenza', null, array('class'=>'form-control','maxlength'=>'30', 'placeholder'=>'Ingrese la vacunación de influenza', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div> 

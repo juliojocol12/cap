@@ -20,12 +20,21 @@ class CreateInfantesTable extends Migration
             $table->string('Genero',45);
             $table->date('FechaNacimiento');
             $table->time('HoraNaciemiento')->nullable();
+            $table->string('LugarNacimiento');
             $table->decimal('PesoLB', 5, 2);
-            $table->decimal('PesoOnz', 5, 2);
             $table->decimal('Altura', 5, 2);
             $table->string('Observaciones',45)->nullable();
+
+            $table->unsignedInteger('Establecimientoid')->nullable();
+            $table->foreign('Establecimientoid')->references('idEstablecimientoSaludos')->on('establecimientosaludos');
+
+
+            $table->unsignedInteger('Personal_idD')->nullable();
+            $table->foreign('Personal_idD')->references('idPersonal')->on('personales');
+            
             $table->date('FechaEgreso')->nullable();
             $table->string('TipoSanguineo',5)->nullable();
+
             $table->unsignedInteger('DatosPersonalesPacientes_id');
             $table->foreign('DatosPersonalesPacientes_id')->references('idDatosPersonalesPacientes')->on('datospersonalespacientes');
             

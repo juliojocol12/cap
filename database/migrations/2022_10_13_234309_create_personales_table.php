@@ -22,6 +22,10 @@ class CreatePersonalesTable extends Migration
             $table->string('Direccion', 80);
             $table->string('Cargo', 45);
             $table->date('FechaNacimiento');
+
+            $table->string('EstadoCivil',7);
+            $table->string('TipoSanguineo',5);
+            
             $table->string('NivelAcademico', 30)->nullable();
             
             $table->unsignedBigInteger('Usuario_id')->nullable();

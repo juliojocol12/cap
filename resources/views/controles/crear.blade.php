@@ -7,7 +7,7 @@
     <section class="section">
         
         <div class="section-header">
-            <h3 class="page__heading">Ingreso de Control Prenatal y/o Posparto</h3>
+            <h3 class="page__heading">Ingreso de control prenatal y/o posparto</h3>
         </div>
         <div class="section-body">
         <div class="row row-responsive">

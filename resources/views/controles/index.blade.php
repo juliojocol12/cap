@@ -6,7 +6,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">REGISTRO DE CONTROLES PARA FICHA CLINICA PRENATAL Y/O POSPARTO</h3>
+            <h3 class="page__heading">Registro de controles para ficha clínica prenatal y/o posparto</h3>
         </div>
         <div class="section-body">
             <div class="row row-responsive">
@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="card-body">
                             
-                            <a class="btn btn-warning" href="{{ route('controles.create') }}">Ingresar control de paciente</a>
+                            <a class="btn btn-warning" href="{{ route('controles.create') }}">Ingresar nuevo control de paciente</a>
                             @if(session('status'))
                                 <div class="alert alert-success mt-4">
                                     {{ session('status') }}

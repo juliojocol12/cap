@@ -7,13 +7,13 @@
 
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Eliminación de registros</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar registro de vacuna de infantes</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-      ¿Desea eliminar el registro de {{$vacunainfante->Nombres}} {{$vacunainfante->Apellidos}} de la vacuna {{$vacunainfante->NombreVacuna}} ?
+      ¿Está seguro que desea eliminar el registro de la vacuna {{$vacunainfante->NombreVacuna}}, del paciente infante: {{$vacunainfante->Nombres}} {{$vacunainfante->Apellidos}} ?
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-danger" value="Si">

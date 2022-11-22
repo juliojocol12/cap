@@ -7,7 +7,7 @@ Datos el control de la paciente No.
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Datos el control de la paciente No.  </h3>
+            <h3 class="page__heading">Datos el control de la paciente {{$controlposparto->idControlPosparto}}  </h3>
         </div>
         <div class="section-body">
             <div class="row row-responsive">

@@ -22,6 +22,7 @@
 
                         @can('crear-personal')
                             <a class="btn btn-warning" href="{{ route('personal.create') }}">Nuevo</a>
+                            <a class="btn btn-success" href="{{ route('usuarios.index') }}">Usuarios existentes</a>
                         @endcan
                         
 

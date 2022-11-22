@@ -73,7 +73,7 @@ class HomeController extends Controller
         $cant_pueblo = Pueblo::where('Estado','Si')->count();
         $cant_establecimiento = establecimientosaludo::where('Estado','Si')->count();
         $cant_vacunas = vacuna::where('Estado','Si')->count();
-        $cant_vacunainfante = vacunainfante::count();
+        $cant_vacunainfante = vacunainfante::where('Tado','Si')->count();
         $cant_agenda = evento::count();
         $cant_aborto = Aborto::count();
         $cant_fichamspasriego = fichamspasriego::where('Estado','Si')->count();

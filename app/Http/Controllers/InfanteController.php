@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\infante;
 use App\Models\datospersonalespaciente;
 use App\Models\datosfamiliare;
+use App\Models\vacunainfante;
+use App\Models\vacuna;
 use Illuminate\Http\Request;
 
 class InfanteController extends Controller
@@ -27,7 +29,7 @@ class InfanteController extends Controller
         if($cant_infantes === 0)
         {
             $texto = trim($request->get('texto'));
-            $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','PesoOnz','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+            $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
             ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
             ->where('CUI','LIKE','%'.$texto.'%')
             ->paginate(10);
@@ -35,7 +37,7 @@ class InfanteController extends Controller
         }
         else{
             $texto = trim($request->get('texto'));
-            $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','PesoOnz','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+            $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
             ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
             ->where('CUI','LIKE','%'.$texto.'%')
             ->where('Estado','Si')
@@ -76,7 +78,6 @@ class InfanteController extends Controller
             'FechaNacimiento' => 'required',
             'HoraNaciemiento',
             'PesoLB' => 'required||DecimalRule',
-            'PesoOnz' => 'required||DecimalRule',
             'Altura' => 'required||DecimalRule',
             'Observaciones',
             'FechaEgreso',
@@ -104,9 +105,19 @@ class InfanteController extends Controller
     {
         //
         $infant = infante::find($idInfantes);
+        $infantsss = infante::select('PesoLB')->find($idInfantes);
+
+        $restacovid = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Covid')->where('Infante_id',$idInfantes)->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
+        
+        $restaTd = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Td')->where('Infante_id',$idInfantes)->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
+
+        $restaInfluenza = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Influenza')->where('Infante_id',$idInfantes)->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
+
+        $restaTdAp = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','TdAp')->where('Infante_id',$idInfantes)->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
+
         $datospersonalespacientes = datospersonalespaciente::all()->where('Stado','Si');
         $datosfamiliares = datosfamiliare::all()->where('Estado','Si');
-        return view ('infantes.show', compact('infant'))->with('datospersonalespacientes',$datospersonalespacientes)->with('datosfamiliares',$datosfamiliares);
+        return view ('infantes.show', compact('infant','infantsss','restacovid','restaTd','restaInfluenza','restaTdAp'))->with('datospersonalespacientes',$datospersonalespacientes)->with('datosfamiliares',$datosfamiliares);
     }
 
     /**
@@ -145,7 +156,6 @@ class InfanteController extends Controller
             'FechaNacimiento' => 'required',
             'HoraNaciemiento',
             'PesoLB' => 'required||DecimalRule',
-            'PesoOnz' => 'required||DecimalRule',
             'Altura' => 'required||DecimalRule',
             'Observaciones',
             'FechaEgreso',

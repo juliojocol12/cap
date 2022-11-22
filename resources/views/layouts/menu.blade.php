@@ -84,7 +84,6 @@
         <i class=" fa fa-hospital"></i><span>Evento</span>
     </a>
 
-<<<<<<< HEAD
     <a class="nav-link" href="/fichamspasriesgos">
         <i class=" fa fa-hospital"></i><span>Ficha Riesgos</span>
     </a>
@@ -92,11 +91,5 @@
     <a class="nav-link" href="/abortos">
         <i class=" fa fa-hospital"></i><span>Abortos</span>
     </a>
-=======
-    <a class="nav-link" href="/reportes">
-        <i class="fa fa-file" aria-hidden="true"></i><span>Reportes</span>
-    </a>
-    <hr class="dropdown-divider">
->>>>>>> Reportes
 
 </li>

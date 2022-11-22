@@ -1,27 +1,27 @@
 <div class="card">
                         <div class="card-body">
-                            <h4 class="page__heading">Antecedentes: Medicos</h4>
+                            <h4 class="page__heading">Antecedentes médicos</h4>
 
                             <h5 class="page__heading"></h5>
                             <div class="row ">
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">AsmaBronquial</label>
+                                    <label for="">Asma bronquial</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->AsmaBronquial}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">HipertensionArterial</label>
+                                    <label for="">Hipertensión arterial</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->HipertensionArterial}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Cancer</label>
+                                    <label for="">Cáncer</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->Cancer}}" disabled>
                                     </div>                                       
                                 </div>
@@ -42,21 +42,21 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">TomaMedicamentos</label>
+                                    <label for="">Toma médicamentos</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->TomaMedicamentos}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">TrastornoPiscoSocial</label>
+                                    <label for="">Trastorno psicosocial</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->TrastornoPiscoSocial}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">ViolenciaGenero</label>
+                                    <label for="">Violencia basada en género</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->ViolenciaGenero}}" disabled>
                                     </div>                                       
                                 </div>
@@ -70,7 +70,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Cardiopatia</label>
+                                    <label for="">Cardiopatía</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->Cardiopatia}}" disabled>
                                     </div>                                       
                                 </div>
@@ -84,21 +84,21 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Neuropatia</label>
+                                    <label for="">Neuropatía</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->Neuropatia}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">InfeccionesUrinarias</label>
+                                    <label for="">Infecciones urinarias</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->InfeccionesUrinarias}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">TipoSangre</label>
+                                    <label for="">Tipo sanguíneo</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->TipoSangre}}" disabled>
                                     </div>                                       
                                 </div>
@@ -112,35 +112,35 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">BebidasAlcoholicas</label>
+                                    <label for="">Ingiere bebidas alcohólicas</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->BebidasAlcoholicas}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">ConsumoDrogas</label>
+                                    <label for="">Consumo de drogas</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->ConsumoDrogas}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">AntecedentesVacunas</label>
+                                    <label for="">Antecedentes de vacuna Td</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->AntecedentesVacunas}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">DosisVacuna</label>
+                                    <label for="">Dosis de vacuna</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->DosisVacuna}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">FechaUltimaDosis</label>
+                                    <label for="">Fecha de última dosis</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->FechaUltimaDosis}}" disabled>
                                     </div>                                       
                                 </div>
@@ -154,16 +154,16 @@
 
                                 
 
-                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                    <label for="">Quirurgicos</label>
+                                    <label for="">Quirúrgicos</label>
                                         <input type="textarea" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->Quirurgicos}}" disabled>
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                    <label for="">OtrosAntecedentes</label>
+                                    <label for="">Otros antecedentes</label>
                                         <input type="textarea" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->OtrosAntecedentes}}" disabled>
                                     </div>                                       
                                 </div>

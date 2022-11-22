@@ -1,6 +1,6 @@
-<div class="card">
+<div class="card"> 
                     <div class="card-body">
-                        <h3 class="page__heading">Consejeria</h3>
+                        <h3 class="page__heading">Consejería</h3>
                         <div class="row ">
                         <div class="col-xs-1 col-sm-6 col-md-3">
                                      <div class="form-group">
@@ -20,12 +20,12 @@
 
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="CuidadosPersonales">Cuidados Personales</label>
+                                            <label for="CuidadosPersonales">Cuidados personales</label>
                                                 <select class="form-control" name="CuidadosPersonales">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
                                                 </select>
-                                        </div>
+                                       </div>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
@@ -148,7 +148,7 @@
 
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="MetodosPlanificcion">Métodos de Planificación Familiar</label>
+                                            <label for="MetodosPlanificcion">Métodos de planificación familiar</label>
                                                 <select class="form-control" name="MetodosPlanificcion">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
@@ -158,7 +158,7 @@
             
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="ImportanciaControlPos">Importancia del control pos parto</label>
+                                            <label for="ImportanciaControlPos">Importancia del control posparto</label>
                                                 <select class="form-control" name="ImportanciaControlPos">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>

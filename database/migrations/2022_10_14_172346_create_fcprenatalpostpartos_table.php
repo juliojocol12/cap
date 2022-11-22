@@ -40,7 +40,7 @@ class CreateFcprenatalpostpartosTable extends Migration
             $table->string('Partos',2)->nullable();
             $table->string('Aborto',2)->nullable();
             $table->string('AbortoConsecutivo',2)->nullable();
-            $table->string('NoLIU',2);
+            $table->string('NoLIU',2)->nullable();
             $table->string('NacidosVivos',2)->nullable();
             $table->string('NacidosMuertos',2)->nullable();
             $table->string('HijosVivos',2)->nullable();
@@ -77,11 +77,27 @@ class CreateFcprenatalpostpartosTable extends Migration
             $table->string('Fuma',2)->nullable();
             $table->string('BebidasAlcoholicas',2)->nullable();
             $table->string('ConsumoDrogas',2)->nullable();
-            $table->string('AntecedentesVacunas',2)->nullable();
-            $table->string('DosisVacuna',2)->nullable();
-            $table->date('FechaUltimaDosis');
+
+            $table->string('VacunaTdAp',2)->nullable();
+            $table->string('DosisVacunaTdAp',15)->nullable();
+            $table->date('FechaVacunaTdAp')->nullable();
+            
+            $table->string('VacunaTd',2)->nullable();
+            $table->string('DosisVacunaTd',15)->nullable();
+            $table->date('FechaVacunaTd')->nullable();
+
+            $table->string('VacunaInfluenza',2)->nullable();
+            $table->string('DosisVacunaInfluenza',15)->nullable();
+            $table->date('FechaVacunaInfluenza')->nullable();
+
+            $table->string('VacunaCovid',2)->nullable();
+            $table->string('DosisVacunaCovid',15)->nullable();
+            $table->date('FechaVacunaCovid')->nullable();
+
             $table->string('SR',2)->nullable();
+
             $table->string('OtrosAntecedentes',75);
+            
             
             $table->unsignedBigInteger('Usuario_id')->nullable();
             $table->foreign('Usuario_id')->references('id')->on('users');

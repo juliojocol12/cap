@@ -1,10 +1,10 @@
                     <div class="card">
                         <div class="card-body">
-                        <h3 class="page__heading">Antecedentes medicos</h3>
+                        <h3 class="page__heading">Antecedentes médicos</h3>
                         <div class="row ">
                         <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="AsmaBronquial">Asma Bronquial</label>
+                                        <label for="AsmaBronquial">Asma bronquial</label>
                                         <select class="form-control" name="AsmaBronquial" value="{{$fcprenatalpostparto->AsmaBronquial}}">
                                         <option select">{{$fcprenatalpostparto->AsmaBronquial}}</option>
                                         @if ($fcprenatalpostparto->AsmaBronquial === 'Si')
@@ -18,7 +18,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="HipertensionArterial">Hipertensión Arterial</label>
+                                        <label for="HipertensionArterial">Hipertensión arterial</label>
                                         <select class="form-control" name="HipertensionArterial" value="{{$fcprenatalpostparto->HipertensionArterial}}">
                                         <option select">{{$fcprenatalpostparto->HipertensionArterial}}</option>
                                         @if ($fcprenatalpostparto->HipertensionArterial === 'Si')
@@ -74,7 +74,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="TomaMedicamentos">Toma Medicamentos</label>
+                                        <label for="TomaMedicamentos">Toma médicamentos</label>
                                         <select class="form-control" name="TomaMedicamentos" value="{{$fcprenatalpostparto->TomaMedicamentos}}">
                                         <option select">{{$fcprenatalpostparto->TomaMedicamentos}}</option>
                                         @if ($fcprenatalpostparto->TomaMedicamentos === 'Si')
@@ -88,7 +88,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="TrastornoPiscoSocial">Trastorno PsicoSocial</label>
+                                        <label for="TrastornoPiscoSocial">Trastorno psicosocial</label>
                                         <select class="form-control" name="TrastornoPiscoSocial" value="{{$fcprenatalpostparto->TrastornoPiscoSocial}}">
                                         <option select">{{$fcprenatalpostparto->TrastornoPiscoSocial}}</option>
                                         @if ($fcprenatalpostparto->TrastornoPiscoSocial === 'Si')
@@ -130,7 +130,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="Cardiopatia">Cardiopatia</label>
+                                        <label for="Cardiopatia">Cardiopatía</label>
                                         <select class="form-control" name="Cardiopatia" value="{{$fcprenatalpostparto->Cardiopatia}}">
                                         <option select">{{$fcprenatalpostparto->Cardiopatia}}</option>
                                         @if ($fcprenatalpostparto->Cardiopatia === 'Si')
@@ -158,7 +158,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="Neuropatia">Neuropatia</label>
+                                        <label for="Neuropatia">Neuropatía</label>
                                         <select class="form-control" name="Neuropatia" value="{{$fcprenatalpostparto->Neuropatia}}">
                                         <option select">{{$fcprenatalpostparto->Neuropatia}}</option>
                                         @if ($fcprenatalpostparto->Neuropatia === 'Si')
@@ -172,7 +172,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="InfeccionesUrinarias">Infecciones Urinarias</label>
+                                        <label for="InfeccionesUrinarias">Infecciones urinarias</label>
                                         <select class="form-control" name="InfeccionesUrinarias" value="{{$fcprenatalpostparto->InfeccionesUrinarias}}">
                                         <option select">{{$fcprenatalpostparto->InfeccionesUrinarias}}</option>
                                         @if ($fcprenatalpostparto->InfeccionesUrinarias === 'Si')
@@ -186,7 +186,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="ViolenciaInrtraFamiliar">Violencia InrtraFamiliar</label>
+                                        <label for="ViolenciaInrtraFamiliar">Violencia inrtrafamiliar</label>
                                         <select class="form-control" name="ViolenciaInrtraFamiliar" value="{{$fcprenatalpostparto->ViolenciaInrtraFamiliar}}">
                                         <option select">{{$fcprenatalpostparto->ViolenciaInrtraFamiliar}}</option>
                                         @if ($fcprenatalpostparto->ViolenciaInrtraFamiliar === 'Si')
@@ -200,7 +200,7 @@
 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Tipo de Sangre</label>
+                                        <label for="">Tipo sanguíneo</label>
                                         <select class="form-control" name="TipoSangre" value="{{$fcprenatalpostparto->TipoSangre}}">
                                         <option select">{{$fcprenatalpostparto->TipoSangre}}</option>
                                         <option value="A+">A+</option>
@@ -273,14 +273,14 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Dosis de Vacuna</label>
+                                        <label for="">Dosis de vacuna</label>
                                         {!! Form::text('DosisVacuna', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Dosis de Vacuna', 'autocomplete'=>'off')) !!}
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Fecha de Ultima Dosis (*)</label>
+                                        <label for="">Fecha de última dosis</label>
                                         {!! Form::date('FechaUltimaDosis', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
@@ -301,7 +301,7 @@
                                 
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Quirurgicos (*)</label>
+                                        <label for="">Quirúrgicos</label>
                                         <div class="form-outline w-100 mb-4">
 
                                             <textarea class="form-control" id="Quirurgicos" name="Quirurgicos" style="height: 90px; width: 100%; " maxlength="45" placeholder="Ingrese información quirurgico">{{$fcprenatalpostparto->Quirurgicos}}</textarea>
@@ -312,7 +312,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <label for="">Otros Antecedentes (*)</label>
+                                        <label for="">Otros antecedentes</label>
                                         <div class="form-outline w-100 mb-4">
                                             <textarea class="form-control" id="OtrosAntecedentes" name="OtrosAntecedentes" style="height: 90px; width: 100%; " maxlength="75" placeholder="Describa otros antecedentes">{{$fcprenatalpostparto->OtrosAntecedentes}}</textarea>
                                         </div>

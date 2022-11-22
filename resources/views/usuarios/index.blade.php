@@ -22,6 +22,7 @@
                           
                             @can('crear-usuario')
                             <a class="btn btn-warning" href="{{ route('usuarios.create') }}">Nuevo</a>
+                            <a class="btn btn-success" href="{{ route('personal.index') }}">Listado de personal</a>
                             @endcan
 
                             <div class="row">

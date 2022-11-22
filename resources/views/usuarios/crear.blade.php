@@ -80,9 +80,7 @@
                                     </div>
                                 </div>
                             </div>
-
                             
-
                             <div class="col-xs-12 col-sm-12 col-md-6">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Guardar</button>
                                 <a href="{{ route('usuarios.index') }}" class="btn btn-danger mr-3">Volver</a>

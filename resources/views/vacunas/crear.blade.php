@@ -30,7 +30,7 @@
                             {!! Form::open(array('route'=>'vacunas.store', 'method'=>'POST')) !!}
                             <div class="row ">
 
-                                <div class="col-xs-1 col-sm-6 col-md-4">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="NombreVacuna">Nombre de la vacuna (*)</label>
                                         <select class="form-control" name="NombreVacuna" maxlength="45">
@@ -42,17 +42,17 @@
                                     </div>
                                 </div>
                                 
-                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Tipo de vacuna (*)</label>
-                                        {!! Form::text('TipoVacuna', null, array('class'=>'form-control', 'maxlength'=>'45','placeholder'=>'Ingrese los nombre de la vacuna','autocomplete'=>'off' )) !!}
+                                        {!! Form::text('TipoVacuna', null, array('class'=>'form-control', 'maxlength'=>'45','placeholder'=>'Ingrese el tipo de la vacuna','autocomplete'=>'off' )) !!}
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="" value="EstadoVacuna">Estado de la Vacuna (*)</label>
-                                        <input class="form-control" list="filtroIdVacunas" id="filtroIdVacuna" name="EstadoVacuna" placeholder="Ingrese el nombre de la vacuna" maxlength="45" autocomplete="off">                                        
+                                        <label for="" value="EstadoVacuna">Estado de la vacuna (*)</label>
+                                        <input class="form-control" list="filtroIdVacunas" id="filtroIdVacuna" name="EstadoVacuna" placeholder="Ingrese el estado de la vacuna" maxlength="45" autocomplete="off">                                        
                                         <datalist id="filtroIdVacunas" name="EstadoVacuna">
                                             <option value="Bueno"> Bueno</option>       
                                             <option value="Malo"> Malo</option>      
@@ -60,14 +60,14 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Fecha de ingreso (*)</label>
                                         {!! Form::date('Fechaingreso', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Fecha de vencimiento</label>
                                         {!! Form::date('FechaVencimiento', null, array('class'=>'form-control')) !!}
@@ -75,15 +75,15 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Cantidad (*)</label>
-                                        {!! Form::text('Cantidad', null, array('class'=>'form-control', 'maxlength'=>'5', 'placeholder'=>'Cantidad en números', 'autocomplete'=>'off')) !!}
+                                        {!! Form::text('Cantidad', null, array('class'=>'form-control', 'maxlength'=>'5', 'placeholder'=>'Ingrese cantidad en números', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
                                 <div class="d-none">
-                                    <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <div class="col-xs-12 col-sm-12 col-md-3">
                                         <div class="form-group">
                                             <label for="" value="Usuario_id">Encargado de llenado</label>
                                             <select id="Usuario_id" class="form-control" name="Usuario_id" maxlength="35">

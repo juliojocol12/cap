@@ -7,7 +7,7 @@
     <section class="section">
         
         <div class="section-header">
-            <h3 class="page__heading">INGRESO DE FICHA CLINICA PRENATAL Y/O POSPARTO</h3>
+            <h3 class="page__heading">Ingreso de ficha clínica prenatal</h3>
         </div>
         <div class="section-body">
         <div class="row row-responsive">
@@ -33,11 +33,11 @@
 
                                 {{--
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="" value="ExpedienteNo">No de expediente</label>
+                                        <label for="" value="ExpedienteNo">Número de expediente</label>
 
-                                        <input class="form-control" list="filtroIDCasas" id="filtroIDCasa" name="ExpedienteNo" placeholder="ingrese el cui de la madre" autocomplete="off">                                        
+                                        <input class="form-control" list="filtroIDCasas" id="filtroIDCasa" name="ExpedienteNo" placeholder="Ingrese el DPI de la madre" autocomplete="off">                                        
                                         <datalist id="filtroIDCasas" name="ExpedienteNo">
                                             @foreach($datospacientes as $idpaciente)
                                             <option value="{{$idpaciente->Numerodireccion}}"> {{$idpaciente->CUI}}, {{$idpaciente->NombresPaciente}} {{$idpaciente->ApellidosPaciente}} </option>
@@ -51,9 +51,9 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="" value="DatosPersonalesPacientes_id">Datos de Madre (*)</label>
+                                        <label for="" value="DatosPersonalesPacientes_id">Datos de la paciente (*)</label>
 
-                                        <input class="form-control" list="filtroIDPacientes" id="filtroIDPaciente" name="DatosPersonalesPacientes_id" placeholder="ingrese el cui de la madre" autocomplete="off">                                        
+                                        <input class="form-control" list="filtroIDPacientes" id="filtroIDPaciente" name="DatosPersonalesPacientes_id" placeholder="Ingrese el DPI de la paciente" autocomplete="off">                                        
                                         <datalist id="filtroIDPacientes" name="DatosPersonalesPacientes_id">
                                             @foreach($datospacientes as $idpaciente)
                                             <option value="{{$idpaciente->idDatosPersonalesPacientes}}"> {{$idpaciente->CUI}}, {{$idpaciente->NombresPaciente}} {{$idpaciente->ApellidosPaciente}} </option>

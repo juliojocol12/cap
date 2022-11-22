@@ -94,7 +94,7 @@ class Role extends Model implements RoleContract
     {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
 
-        $role = static::findByParam(['name' => $name, 'Estado' => $Estado, 'guard_name' => $guardName]);
+        $role = static::findByParam(['name' => $name, 'guard_name' => $guardName]);
 
         if (! $role) {
             throw RoleDoesNotExist::named($name);

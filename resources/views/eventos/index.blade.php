@@ -65,7 +65,7 @@
             </div>
 
             <div class="form-group col-md-8">
-              <label>Titulo de la cita:</label> 
+              <label>Título de la cita:</label> 
               <input type="text" class="form-control" name="txtTitulo" id="txtTitulo">
             </div>
     
@@ -109,15 +109,16 @@
                     <option value="{{\Illuminate\Support\Facades\Auth::user()->id}}">{{\Illuminate\Support\Facades\Auth::user()->name}}</option>
                   </select>
                 </div>
+              </div>
 
             
               <div class="col-xs-12 col-sm-12 col-md-2">
                 <div class="form-group">
                   <label>Estado</label>
-                  <input type="text" name="txtEstado" id="txtEstado" value="Si">
+                  <input type="text" name="txtEstado" id="txtEstado" value="Si" class="form-control" >
                 </div>
               </div>
-            </div>
+            
 
             <div class="form-group col-md-12">
               <label>Comunidad:</label> 
@@ -126,7 +127,7 @@
 
             <div class="form-outline w-100 mb-1">
                 <div class="form-group col-md-12">
-                    <label>Descripcion:</label>
+                <label>Descripción:</label>
                         <textarea class="form-control" name="txtDescripcion" 
                         id="txtDescripcion"  style="height:70px; width: 100%; "></textarea>
                 </div>

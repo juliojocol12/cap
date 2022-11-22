@@ -16,11 +16,11 @@
                 <form action="{{ route('vacunas.index') }}" method="GET">
                     <div class="form-row">
                         <div class="col-sm-4 my-1">
-                            <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el Nombre para buscar">
+                            <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el nombre para buscar">
                         </div>
                         <div class="col-sm-4 my-1">
                             <input type="submit" class="btn btn-primary" value="Buscar">
-                            <a href="{{ route('vacunas.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
+                            <a href="{{ route('vacunas.index') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
                         </div>
                     </div>
                 </form>
@@ -32,10 +32,10 @@
                     <th style="color:#fff;">Nombre de la vacuna</th>
                     <th style="color:#fff;">Tipo de vacuna</th>
                     <th style="color:#fff;">Cantidad</th>
-                    <th style="color:#fff;">Estado de la Vacuna</th>
-                    <th style="color:#fff;">Fecha ingreso</th>
-                    <th style="color:#fff;">Fecha vencimiento</th>
-                    <th style="color:#fff;">Usuario que ingreso registro</th>
+                    <th style="color:#fff;">Estado de la vacuna</th>
+                    <th style="color:#fff;">Fecha de ingreso</th>
+                    <th style="color:#fff;">Fecha de vencimiento</th>
+                    <th style="color:#fff;">Usuario que ingreso el registro</th>
 
 
                     <th style="color:#fff;">Acciones</th>

@@ -6,7 +6,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Datos de familiares de pacientes</h3>
+            <h3 class="page__heading">Familiares de pacientes</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -28,8 +28,8 @@
                                     @endcan
                                     <th style="color:#fff;">Nombres</th>
                                     <th style="color:#fff;">Apellidos</th>
-                                    <th style="color:#fff;">CUI</th>
-                                    <th style="color:#fff;">Número de telefono</th>
+                                    <th style="color:#fff;">DPI</th>
+                                    <th style="color:#fff;">Número de teléfono</th>
 
                                     <th style="color:#fff;">Número de celular</th>
 

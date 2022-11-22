@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('title')
-    Ficha clinica prenatal
+    Ficha clínica prenatal
 @endsection
 
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">FICHA CLINICA PRENATAL</h3>
+            <h3 class="page__heading">Ficha clínica prenatal</h3>
         </div>
         <div class="section-body">
             <div class="row row-responsive">
@@ -15,7 +15,7 @@
                     <div class="card">
                         <div class="card-body">
                             
-                            <a class="btn btn-warning" href="{{ route('fcprenatalpostpartos.create') }}">Ingresar ficha</a>
+                            <a class="btn btn-warning" href="{{ route('fcprenatalpostpartos.create') }}">Ingresar nueva ficha</a>
                             @if(session('status'))
                                 <div class="alert alert-success mt-4">
                                     {{ session('status') }}
@@ -27,11 +27,11 @@
                                     <form action="{{ route('fcprenatalpostpartos.index') }}" method="GET">
                                         <div class="form-row">
                                             <div class="col-sm-4 my-1">
-                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el Nombre para buscar">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el DPI para buscar">
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
-                                                <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
+                                                <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
                                             </div>
                                         </div>
                                     </form>
@@ -49,14 +49,19 @@
                                     @can('borrar-fcprenatalpostparto')
                                     <th style="color:#fff;">Borrar</th>
                                     @endcan
-                                    <th style="color:#fff;">No. Expediente</th>
+                                    <th style="color:#fff;">Número de expediente</th>
                                     <th style="color:#fff;">Fecha</th>
                                     <th style="color:#fff;">Datos de paciente</th>
                                     <th style="color:#fff;">DPI</th>
-                                    <th style="color:#fff;">Establecimiento Salud</th>
+                                    <th style="color:#fff;">Establecimiento de salud</th>
                                 </thead>
 
                                 <tbody>
+                                    @if(count($fcprenatalpostpartos)<=0)
+                                        <tr>
+                                            <td colspan="8">No hay resultados</td>
+                                        </tr>
+                                    @else
                                     @foreach($fcprenatalpostpartos as $fcprenatalpostparto)
 
                                     
@@ -86,17 +91,13 @@
                                             <td>{{$fcprenatalpostparto->establecimientosaludos->Nombre}} </td>
 
                                             <td>
-                                                <a class="btn btn-success mr-3" href="{{ route('fcprenatalpostpartos.show', $fcprenatalpostparto->idFCPrenatalPostpartos) }}">Mostar</a>
-                                                <a class="btn btn-info mr-3" href="{{ route('fcprenatalpostpartos.edit', $fcprenatalpostparto->idFCPrenatalPostpartos) }}">Editar</a>
+                                                
                                                 <a class="btn btn-dark mr-3" href="{{ route('fcprenatalpostpartos.pdf', $fcprenatalpostparto->idFCPrenatalPostpartos) }}"><i class="fa-solid fa-download"></i></a>
-                                                <!-- Button trigger modal -->                                                
-                                                <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-ficha">Eliminar</button>
-
-                                            
-              
+                                               
                                         </tr>
                                         @include('fcprenatalpostpartos.delete')
                                     @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                             

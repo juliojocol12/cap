@@ -33,15 +33,15 @@
 
                             <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Fecha (*)</label>
+                                        <label for="">Fecha de suministro</label>
                                         {!! Form::date('FechaSuministro', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="" value="Vacunas_id">Datos de la vacuna (*)</label>
-                                        <input class="form-control" list="filtroIdVacunas" id="filtroIdVacuna" name="Vacunas_id" placeholder="ingrese el nombre de la vacuna" autocomplete="off">                                        
+                                        <input class="form-control" list="filtroIdVacunas" id="filtroIdVacuna" name="Vacunas_id" placeholder="Ingrese el nombre de la vacuna" autocomplete="off">                                        
                                         <datalist id="filtroIdVacunas" name="Vacunas_id">
                                             @foreach($vacunas as $vacuna)
                                                 <option value="{{$vacuna->idVacunas}}"> {{$vacuna->NombreVacuna}} Fecha ingreso {{$vacuna->Fechaingreso}}</option>                                            
@@ -50,10 +50,10 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="" value="Infante_id">Nombre del infante (*)</label>
-                                        <input class="form-control" list="filtroIdInfantes" id="filtroIdInfante" name="Infante_id" placeholder="ingrese el nombre del infante" autocomplete="off">                                        
+                                        <input class="form-control" list="filtroIdInfantes" id="filtroIdInfante" name="Infante_id" placeholder="Ingrese el nombre del infante" autocomplete="off">                                        
                                         <datalist id="filtroIdInfantes" name="Infante_id">
                                             @foreach($infantes as $infante)
                                                 <option value="{{$infante->idInfantes}}"> {{$infante->Nombres}} {{$infante->Apellidos}}</option>                                            

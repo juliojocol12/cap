@@ -13,7 +13,7 @@
         </button>
       </div>
       <div class="modal-body">
-      ¿Desea eliminar el registro de {{$controlpos->NoControl}}?
+      ¿Está seguro que desea eliminar el registro de {{$controlpos->idControlPosparto}}?
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-danger" value="Si">

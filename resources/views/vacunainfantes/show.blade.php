@@ -38,15 +38,15 @@
                                                 <td>{{$infant->Apellidos}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row" ">Genero</th>
+                                                <th scope="row" ">Género</th>
                                                 <td>{{$infant->Genero}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row" ">Fecha de Nacimiento</th>
+                                                <th scope="row" ">Fecha de nacimiento</th>
                                                 <td>{{$infant->FechaNacimiento}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row" ">Hora de Naciemiento</th>
+                                                <th scope="row" ">Hora de naciemiento</th>
                                                 <td>{{$infant->HoraNaciemiento}}</td>
                                             </tr>
                                             <tr>
@@ -54,7 +54,7 @@
                                                 <td>{{$infant->PesoLB}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row" ">Pesoen onzas</th>
+                                                <th scope="row" ">Peso en onzas</th>
                                                 <td>{{$infant->PesoOnz}}</td>
                                             </tr>
                                             <tr>
@@ -66,11 +66,11 @@
                                                 <td>{{$infant->Observaciones}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row" ">FechaEgreso</th>
+                                                <th scope="row" ">Fecha de egreso</th>
                                                 <td>{{$infant->FechaEgreso}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row" ">TipoSanguineo</th>
+                                                <th scope="row" ">Tipo sanguíneo</th>
                                                 <td>{{$infant->TipoSanguineo}}</td>
                                             </tr>
                                             <tr>

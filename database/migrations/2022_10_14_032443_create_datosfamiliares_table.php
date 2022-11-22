@@ -24,6 +24,10 @@ class CreateDatosfamiliaresTable extends Migration
             $table->string('TelefonoFamiliar',12)->nullable();
             $table->string('CelularFamiliar',12);
 
+            $table->string('AntecedentesMedicos',300)->nullable();
+            $table->string('TipoSanguineo',5);
+
+
             $table->unsignedBigInteger('Usuario_id')->nullable();
             $table->foreign('Usuario_id')->references('id')->on('users');
 

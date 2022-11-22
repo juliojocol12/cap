@@ -2,7 +2,7 @@
                         <div class="card-body">
                         <h3 class="page__heading">Examenes de laboratorio o pruebas de gabinete</h3>
                         <div class="row ">
-                                
+                                 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
                                             <label for="PruebasEmbarazo">Prueba de embarazo</label>
@@ -21,7 +21,7 @@
 
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="Hematologia">Hematología (Hemaglobina / Ht)</label>
+                                            <label for="Hematologia">Hematología (Hemaglobina/Ht)</label>
                                                 <select class="form-control" name="Hematologia">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
@@ -30,8 +30,8 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Resultado de Hematología </label>
-                                            {!! Form::text('DescripcionHematologia', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Hematologia (Hemaglobina / Ht)', 'autocomplete'=>'off')) !!}
+                                            <label for="">Resultado de hematología </label>
+                                            {!! Form::text('DescripcionHematologia', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Hematologia (Hemaglobina/Ht)', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
 
@@ -62,7 +62,7 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Resultado de Orina</label>
+                                            <label for="">Resultado de orina</label>
                                             {!! Form::text('DescripcionOrina', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'(Bacteriuria y Proteinuria)', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
@@ -78,14 +78,14 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Resultado de Heces</label>
+                                            <label for="">Resultado de heces</label>
                                             {!! Form::text('DescirpcionHeces', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
 
                                     <div class="col-xs-1 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="GlicemiaAyunas">Glicemia en ayunas</label>
+                                            <label for="GlicemiaAyunas">Glucemia en ayunas</label>
                                                 <select class="form-control" name="GlicemiaAyunas">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-3">
                                         <div class="form-group">
-                                            <label for="">Resultado de Glicemia en ayunas</label>
+                                            <label for="">Resultado de glucemia en ayunas</label>
                                             {!! Form::text('DescripcionGlicemiaAyunas', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Describa el resultado', 'autocomplete'=>'off')) !!}
                                         </div>                                       
                                     </div>
