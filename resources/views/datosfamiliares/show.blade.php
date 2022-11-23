@@ -10,7 +10,7 @@
         </div>
         <div class="section-body">
             <div class="row">
-                <div class="col-lg-3.5 ">
+                <div class="col-lg-12 ">
                     <div class="card">
                         <div class="card-body table-responsive">
 
@@ -26,59 +26,86 @@
                                 </button>
                             </div>
                             @endif
+                            <div class="row ">
 
-                                    <table class="table table-striped table-bordered table-responsive " >
-                                        <tbody >
-                                            <tr>
-                                                <th scope="row" ">Nombres</th>
-                                                <td>{{$datosfamiliare->NombresFamiliar}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Apellidos</th>
-                                                <td>{{$datosfamiliare->ApellidosFamiliar}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">DPI</th>
-                                                <td>{{$datosfamiliare->CUI}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Estado civil</th>
-                                                <td>{{$datosfamiliare->EstadoCivil}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Profesion u oficio</th>
-                                                <td>{{$datosfamiliare->ProfesionOficio}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Domicilio</th>
-                                                <td>{{$datosfamiliare->Domicilio}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Número de teléfono</th>
-                                                <td>{{$datosfamiliare->TelefonoFamiliar}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Número de celular</th>
-                                                <td>{{$datosfamiliare->CelularFamiliar}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    
+                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                    <div class="form-group">
+                                    <label for="">Nombres</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$datosfamiliare->NombresFamiliar}}" disabled>
+                                    </div>                                       
+                                </div>
 
-                        </div>
-                    </div>   
-                </div>
-                <div class="col-lg-3.5 ">
-                    <div class="card">
-                        <div class="card-body table-responsive">
+                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                    <div class="form-group">
+                                    <label for="">Apellidos</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$datosfamiliare->ApellidosFamiliar}}" disabled>
+                                    </div>                                       
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                    <div class="form-group">
+                                    <label for="">DPI</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$datosfamiliare->CUI}}" disabled>
+                                    </div>                                       
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                    <div class="form-group">
+                                    <label for="">Estado</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$datosfamiliare->EstadoCivil}}" disabled>
+                                    </div>                                       
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                    <div class="form-group">
+                                    <label for="">Profesion u oficio</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$datosfamiliare->ProfesionOficio}}" disabled>
+                                    </div>                                       
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                    <div class="form-group">
+                                    <label for="">Domicilio</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$datosfamiliare->Domicilio}}" disabled>
+                                    </div>                                       
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                    <div class="form-group">
+                                    <label for="">Número de teléfono</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$datosfamiliare->TelefonoFamiliar}}" disabled>
+                                    </div>                                       
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                    <div class="form-group">
+                                    <label for="">Número de celular</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$datosfamiliare->CelularFamiliar}}" disabled>
+                                    </div>                                       
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                    <div class="form-group">
+                                    <label for="">Tipo de sangre</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$datosfamiliare->TipoSanguineo}}" disabled>
+                                    </div>                                       
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                    <label for="">Antecentes médicos</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$datosfamiliare->AntecedentesMedicos}}" disabled>
+                                    </div>                                       
+                                </div>
+
+                            </div>
+                               
                             <a href="{{ route('datosfamiliares.index') }}" class="btn btn-success mr-3">Volver</a>
                             <a href="{{ route('datosfamiliares.edit',  $datosfamiliare->idDatosFamiliares) }}" class="btn btn-info mr-3">Editar</a>
-                        </div>
-                    </div>
+
+                        </div>                           
+                    </div>   
                 </div>
-            </div>
-            <div class="row">
-                
             </div>
         </div>
     </section>

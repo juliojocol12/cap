@@ -26,7 +26,7 @@ class PersonaleController extends Controller
     {
         $texto = trim($request->get('texto'));
 
-        $personales = personale::select('idPersonal','Nombre','CUI','Celular','Telefono','Direccion','Cargo','FechaNacimiento','NivelAcademico','Usuario_id')->where('Nombre','LIKE','%'.$texto.'%')
+        $personales = personale::select('idPersonal','Nombre','CUI','Celular','Telefono','Direccion','Cargo','FechaNacimiento','NivelAcademico','Usuario_id','EstadoCivil','TipoSanguineo')->where('Nombre','LIKE','%'.$texto.'%')
         ->where('Nombre','LIKE','%'.$texto.'%')
         ->orwhere('CUI','LIKE','%'.$texto.'%')
         ->orwhere('Cargo','LIKE','%'.$texto.'%')
@@ -64,6 +64,8 @@ class PersonaleController extends Controller
             'FechaNacimiento' => 'required',
             'NivelAcademico' => 'TextoRule2',
             'Usuario_id',
+            'EstadoCivil' => 'required|TextoRule1',
+            'TipoSanguineo' => 'required',
         ]);
     
         personale::create($request->all());
@@ -118,6 +120,8 @@ class PersonaleController extends Controller
                 'FechaNacimiento' => 'required',
                 'NivelAcademico' => 'TextoRule2',
                 'Usuario_id',
+                'EstadoCivil' => 'required|TextoRule1',
+                'TipoSanguineo' => 'required',
                 ]);
                 $input = $request->all();
             $personal = personale::find($idPersonal);
@@ -138,6 +142,8 @@ class PersonaleController extends Controller
                 'FechaNacimiento' => 'required',
                 'NivelAcademico' => 'TextoRule2',
                 'Usuario_id',
+                'EstadoCivil' => 'required|TextoRule1',
+                'TipoSanguineo' => 'required',
             ]);
             $input = $request->all();
             $personal = personale::find($idPersonal);

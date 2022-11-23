@@ -69,12 +69,12 @@
                                                     {{-- Control total --}}
                                                     <tr>                                                        
                                                         <td>Control total</td>
-                                                        <td align="center" onclick="marcar('isApproved')">
+                                                        <td align="center" >
                                                         <input type="checkbox">
                                                         </td> 
                                                         
                                                         <td align="center">
-                                                        <input onclick="marcar('isDeleted')" type="checkbox">
+                                                        <input name="chec" type="checkbox" id="chec" onChange="comprobar(this);"/>
                                                         </td>
                                                         
                                                         <td align="center">
@@ -95,7 +95,7 @@
                                                         <td>Usuarios</td>
                                                         @foreach($permisouno as $valuesuno)
                                                         <td align="center">
-                                                        {{ Form::checkbox('permission[]', $valuesuno->id, false, array('class' => 'name')) }}
+                                                        {{ Form::checkbox('permission[]', $valuesuno->id, false, array('class' => 'name', 'id'=>'boton')) }}
                                                         </td> 
                                                         @endforeach
 

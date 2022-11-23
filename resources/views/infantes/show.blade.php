@@ -142,14 +142,14 @@
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Covid</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$restacovid}} dosis" disabled>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$restacovid}} de 4 dosis" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Td</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$restaTd}} dosis" disabled>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$restaTd}} de 4 dosis" disabled>
                                     </div>                                       
                                 </div>
 
@@ -164,7 +164,7 @@
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">TdAp</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$restaTdAp}} dosis" disabled>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$restaTdAp}} de 1 dosis" disabled>
                                     </div>                                       
                                 </div>
 

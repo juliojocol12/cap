@@ -10,7 +10,7 @@ class datosfamiliare extends Model
     use HasFactory;
     protected $guarded  = [];
     protected $primaryKey = 'idDatosFamiliares';
-    protected $fillable  = ['NombresFamiliar','ApellidosFamiliar','CUI','EstadoCivil','ProfesionOficio','Domicilio','TelefonoFamiliar','CelularFamiliar','Usuario_id', 'Estado'];
+    protected $fillable  = ['NombresFamiliar','ApellidosFamiliar','CUI','EstadoCivil','ProfesionOficio','Domicilio','TelefonoFamiliar','CelularFamiliar','Usuario_id', 'Estado','AntecedentesMedicos','TipoSanguineo'];
 
     public function usuarios()
     {

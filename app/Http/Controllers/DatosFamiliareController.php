@@ -66,6 +66,8 @@ class DatosfamiliareController extends Controller
             'CelularFamiliar' => 'required|NumeroRule',
             'Usuario_id',
             'Estado',
+            'AntecedentesMedicos' => 'TextoRule1',
+            'TipoSanguineo' => 'required',
         ]);
         
         datosfamiliare::create($request->all());
@@ -124,7 +126,9 @@ class DatosfamiliareController extends Controller
             'TelefonoFamiliar' => 'required|NumeroRule',
             'CelularFamiliar' => 'required|NumeroRule',
             'Usuario_id',
-            'Estado',
+            'Estado',            
+            'AntecedentesMedicos' => 'TextoRule1',
+            'TipoSanguineo' => 'required',
         ]);
     }
         $input = $request->all();
@@ -144,7 +148,9 @@ class DatosfamiliareController extends Controller
             'TelefonoFamiliar' => 'required|NumeroRule',
             'CelularFamiliar' => 'required|NumeroRule',
             'Usuario_id',
-            'Estado',
+            'Estado',            
+            'AntecedentesMedicos' => 'TextoRule1',
+            'TipoSanguineo' => 'required',
         ]);
         $input = $request->all();
         $datosfamiliare = datosfamiliare::find($idDatosFamiliares);

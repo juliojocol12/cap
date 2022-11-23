@@ -360,6 +360,17 @@ todos[nombre+'['+x+']'].checked=true;
 }
 }
 
+function comprobar(obj)
+{   
+    if (obj.checked){
+      
+document.getElementById('boton').style.display = "";
+   } else{
+      
+document.getElementById('boton').style.display = "none";
+   }     
+}
+
 
     
 </script>

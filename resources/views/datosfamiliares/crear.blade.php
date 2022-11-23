@@ -84,6 +84,31 @@
                                         {!! Form::text('CelularFamiliar', null, array('class'=>'form-control','minlength'=>'5','maxlength'=>'8', 'placeholder'=>'Ingrese número de celular', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
+                                
+                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Tipo de sangre (*)</label>
+                                        <select class="form-control" name="TipoSanguineo">
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Antecentes médicos</label>
+                                        <div class="form-outline w-100 mb-4">
+                                            <textarea class="form-control" id="AntecedentesMedicos" name="AntecedentesMedicos" style="height:180px; width: 100%; " maxlength="300" placeholder="Describa si existe antecedentes médicos"></textarea>
+                                        </div>
+                                    </div>                                       
+                                </div>
 
                                 <div class="d-none">
                                     <div class="col-xs-12 col-sm-12 col-md-2">
@@ -102,7 +127,7 @@
                                             <label for="" value="Estado">Estado</label>
                                             <input type="text" name="Estado" value="Si">
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">

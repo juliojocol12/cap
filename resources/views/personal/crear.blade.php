@@ -74,17 +74,45 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
                                     <label for="name">Fecha de nacimiento (*)</label>
                                     <input type="date" class="form-control" name="FechaNacimiento" id="FechaNacimiento" aria-describedby="helpId" placeholder="">
                                 </div>
                             </div>
- 
+
+                            <div class="col-xs-1 col-sm-6 col-md-2">
+                                <div class="form-group">
+                                    <label for="">Tipo de sangre (*)</label>
+                                    <select class="form-control" name="TipoSanguineo">
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
-                                    <label for="name">Nivel académico</label>
-                                    {!! Form::text('NivelAcademico', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'30', 'placeholder'=>'Ingrese el nivel académico alcanzado','autocomplete'=>'off')) !!}
+                                    <label for="name">Estado civil (*)</label>
+                                    {!! Form::text('EstadoCivil', null, array('class'=>'form-control','minlength'=>'5', 'maxlength'=>'45', 'placeholder'=>'Ingrese la dirección del colaborador','autocomplete'=>'off')) !!}
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-6 col-md-4">
+                                <div class="form-group">
+                                    <label for="" value="NivelAcademico">Nivel académico (*)</label>
+                                    <input type="text" class="form-control" list="filtroNiveles" id="filtroNivele" name="NivelAcademico" placeholder="Ingrese el nivel académico alcanzado" autocomplete="off">                                        
+                                    <datalist id="filtroNiveles" name="NivelAcademico">
+                                        <option value="Universitario">Universitario</option>       
+                                        <option value="Licenciatura"> Licenciatura</option>
+                                        <option value="Posgrado"> Posgrado</option>    
+                                    </datalist>
                                 </div>
                             </div>
 

@@ -10,7 +10,7 @@ class personale extends Model
     use HasFactory;
     protected $table = 'personales';
     protected $primaryKey = 'idPersonal';
-    protected $fillable = ['Nombre','CUI','Celular','Telefono','Direccion','Cargo','FechaNacimiento','NivelAcademico','CorreoElectronico','Observaciones','Usuario_id', 'Estado'];
+    protected $fillable = ['Nombre','CUI','Celular','Telefono','Direccion','Cargo','FechaNacimiento','NivelAcademico','CorreoElectronico','Observaciones','Usuario_id', 'Estado','EstadoCivil','TipoSanguineo'];
 
     public function usuarios()
     {
