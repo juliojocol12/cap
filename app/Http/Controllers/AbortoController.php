@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Aborto;
 use App\Models\datospersonalespaciente;
+use App\Models\personale;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class AbortoController extends Controller
         if($cant_aborto === 0)
         {
         $texto = trim($request->get('texto'));
-        $abortos = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Usuario_id','Estado')
+        $abortos = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Estado')
         ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','abortos.DatosPersonalesPacientes_id')           
         ->where('CUI','LIKE','%'.$texto.'%')
         ->paginate(10);
@@ -36,7 +37,7 @@ class AbortoController extends Controller
         }
         else{
             $texto = trim($request->get('texto'));
-        $abortos = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Usuario_id','Estado')
+        $abortos = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Estado')
         ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','abortos.DatosPersonalesPacientes_id')           
         ->where('CUI','LIKE','%'.$texto.'%')
         ->where('Estado','Si')
@@ -54,7 +55,9 @@ class AbortoController extends Controller
     {
         //
         $datospacientes = datospersonalespaciente::all();
-        return view ('abortos.crear')->with('datospacientes',$datospacientes);
+        $personaless = personale::all()->where('Cargo','=','Doctor')->where('Estado','Si');
+        return view ('abortos.crear')->with('datospacientes',$datospacientes)->with('personaless',$personaless);
+
     }
 
     /**
@@ -73,6 +76,7 @@ class AbortoController extends Controller
             'FechaAborto' => 'required',
             'Usuario_id',
             'Estado',
+            'Personal_idD',
             
         ]);
         
@@ -85,11 +89,19 @@ class AbortoController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Aborto  $aborto
+     * @param int $idAbortos
      * @return \Illuminate\Http\Response
      */
-    public function show(Aborto $aborto)
+    public function show($idAbortos)
     {
-        //
+        $aborto = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','Nombre')
+        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','abortos.DatosPersonalesPacientes_id')
+        ->join('personales', 'personales.idPersonal', '=','abortos.Personal_idD')
+        ->where('Cargo','=','Doctor')
+        ->find($idAbortos);
+        $datospacientes = datospersonalespaciente::all();
+        $personaless = personale::all()->where('Cargo','=','Doctor')->where('Estado','Si');
+        return view ('abortos.show', compact('aborto'))->with('datospacientes',$datospacientes)->with('personaless',$personaless);
     }
 
     /**
@@ -103,7 +115,8 @@ class AbortoController extends Controller
     {
         $aborto = Aborto::find($idAbortos);
         $datospacientes = datospersonalespaciente::all();
-        return view ('abortos.editar', compact('aborto'))->with('datospacientes',$datospacientes);
+        $personaless = personale::all()->where('Cargo','=','Doctor')->where('Estado','Si');
+        return view ('abortos.editar', compact('aborto'))->with('datospacientes',$datospacientes)->with('personaless',$personaless);
     }
 
     /**
@@ -123,6 +136,7 @@ class AbortoController extends Controller
             'FechaAborto' => 'required',
             'Usuario_id',
             'Estado',
+            'Personal_idD',
         ]);
         $input = $request->all();
         $aborto = Aborto::find($idAbortos);

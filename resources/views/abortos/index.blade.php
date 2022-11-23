@@ -44,6 +44,7 @@
                         <table class="table  table-striped mt-2 table-responsive">
                             <thead style="background-color:#6777ef">                                     
                                 <th style="display: none;">ID</th>
+                                <th style="color:#fff;">Mostrar</th>
                                 @can('editar-Aborto')
                                 <th style="color:#fff;">Editar</th>
                                 @endcan
@@ -69,6 +70,9 @@
                                     <tr>
                                         
                                         <td style="display: none;">{{ $aborto->idAbortos }}</td>  
+                                        <td>
+                                            <a class="btn btn-success" href="{{ route('abortos.show',  $aborto->idAbortos) }}">Mostar</a>
+                                            </td>
                                         @can('editar-Aborto')
                                         <td>                                            
                                             <a class="btn btn-info" href="{{ route('abortos.edit', $aborto->idAbortos) }}">Editar</a>                                            
@@ -84,7 +88,7 @@
                                         <td>{{ $aborto->Antecedente }}</td>
                                         <td>{{ $aborto->Descripcion }}</td>
                                         <td>{{ $aborto->FechaAborto }}</td>
-                                        <td>{{ $aborto->Estado }}</td>   
+                                        
                                                       
                                     </tr>
                                 

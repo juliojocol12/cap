@@ -370,8 +370,6 @@ document.getElementById('boton').style.display = "";
 document.getElementById('boton').style.display = "none";
    }     
 }
-
-
     
 </script>
 </html>

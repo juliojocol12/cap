@@ -7,6 +7,8 @@ use App\Models\datospersonalespaciente;
 use App\Models\datosfamiliare;
 use App\Models\vacunainfante;
 use App\Models\vacuna;
+use App\Models\establecimientosaludo;
+use App\Models\personale;
 use Illuminate\Http\Request;
 
 class InfanteController extends Controller
@@ -29,7 +31,7 @@ class InfanteController extends Controller
         if($cant_infantes === 0)
         {
             $texto = trim($request->get('texto'));
-            $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+            $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado','LugarNacimiento')
             ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
             ->where('CUI','LIKE','%'.$texto.'%')
             ->paginate(10);
@@ -57,9 +59,9 @@ class InfanteController extends Controller
         
         $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
         $datosfamiliares = datosfamiliare::all()->where('Estado','Si');
-        
-
-        return view ('infantes.crear')->with('datosfamiliares',$datosfamiliares)->with('datospacientes',$datospacientes);
+        $personaless = personale::all()->where('Cargo','=','Doctor')->where('Estado','Si');
+        $establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');
+        return view ('infantes.crear')->with('datosfamiliares',$datosfamiliares)->with('datospacientes',$datospacientes)->with('personaless',$personaless)->with('establecimientosaludos',$establecimientosaludos);
     }
 
     /**
@@ -77,8 +79,8 @@ class InfanteController extends Controller
             'Genero' => 'required|TextoRule1',
             'FechaNacimiento' => 'required',
             'HoraNaciemiento',
-            'PesoLB' => 'required||DecimalRule',
-            'Altura' => 'required||DecimalRule',
+            'PesoLB' => 'required|DecimalRule',
+            'Altura' => 'required|DecimalRule',
             'Observaciones',
             'FechaEgreso',
             'TipoSanguineo',
@@ -86,6 +88,9 @@ class InfanteController extends Controller
             'idDatosFamiliares' => 'required',
             'Usuario_id',
             'Estado',
+            'Personal_idD',
+            'Establecimientoid',
+            'LugarNacimiento'=> 'required|TextoRule3',
         ]);
         
         infante::create($request->all());
@@ -105,6 +110,16 @@ class InfanteController extends Controller
     {
         //
         $infant = infante::find($idInfantes);
+
+        $infantxx = infante::select('Nombre')
+        ->join('personales', 'personales.idPersonal', '=','infantes.Personal_idD')
+        ->find($idInfantes);
+
+        $infantbc = infante::select('Nombre')
+        ->join('establecimientosaludos', 'establecimientosaludos.idEstablecimientoSaludos', '=','infantes.Establecimientoid')
+        ->find($idInfantes);
+
+
         $infantsss = infante::select('PesoLB')->find($idInfantes);
 
         $restacovid = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Covid')->where('Infante_id',$idInfantes)->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
@@ -115,9 +130,11 @@ class InfanteController extends Controller
 
         $restaTdAp = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','TdAp')->where('Infante_id',$idInfantes)->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
 
+        $personaless = personale::all()->where('Cargo','=','Doctor')->where('Estado','Si');
+        $establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');
         $datospersonalespacientes = datospersonalespaciente::all()->where('Stado','Si');
         $datosfamiliares = datosfamiliare::all()->where('Estado','Si');
-        return view ('infantes.show', compact('infant','infantsss','restacovid','restaTd','restaInfluenza','restaTdAp'))->with('datospersonalespacientes',$datospersonalespacientes)->with('datosfamiliares',$datosfamiliares);
+        return view ('infantes.show', compact('infant','infantsss','restacovid','restaTd','restaInfluenza','restaTdAp','infantxx','infantbc'))->with('datospersonalespacientes',$datospersonalespacientes)->with('datosfamiliares',$datosfamiliares)->with('personaless',$personaless)->with('establecimientosaludos',$establecimientosaludos);
     }
 
     /**
@@ -133,8 +150,10 @@ class InfanteController extends Controller
         //
         $infant = infante::find($idInfantes);
         $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        $establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');
         $datosfamiliares = datosfamiliare::all()->where('Estado','Si');
-        return view ('infantes.editar', compact('infant'))->with('datospacientes',$datospacientes)->with('datosfamiliares',$datosfamiliares);
+        $personaless = personale::all()->where('Cargo','=','Doctor')->where('Estado','Si');
+        return view ('infantes.editar', compact('infant'))->with('datospacientes',$datospacientes)->with('datosfamiliares',$datosfamiliares)->with('personaless',$personaless)->with('establecimientosaludos',$establecimientosaludos);
     }
 
     /**
@@ -148,7 +167,7 @@ class InfanteController extends Controller
      */
     public function update(Request $request, $idInfantes)
     {
-        //
+        // 
         request()->validate([
             'Nombres' => 'required|TextoRule1',
             'Apellidos' => 'required|TextoRule1',
@@ -164,6 +183,9 @@ class InfanteController extends Controller
             'idDatosFamiliares' => 'required',
             'Usuario_id',
             'Estado',
+            'Personal_idD',
+            'Establecimientoid',
+            'LugarNacimiento'=> 'required|TextoRule3',
 
         ]);
         $input = $request->all();

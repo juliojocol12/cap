@@ -65,9 +65,16 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Hora de naciemiento</label>
+                                        <label for="">Hora de nacimiento</label>
                                         {!! Form::time('HoraNaciemiento', null, array('class'=>'form-control')) !!}
                                         
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">Lugar de nacimiento</label>
+                                        {!! Form::text('LugarNacimiento', null, array('class'=>'form-control', 'maxlength'=>'30', 'placeholder'=>'Ingrese el municipio y el departamento', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
@@ -177,6 +184,8 @@
 
                                 
                             </div>
+                            @include('infantes.editar.nacimientocap')
+
                             <div class="col-xs-12 col-sm-12 col-md-5">
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-actualizar">Actualizar</button>
                                     <a href="{{ route('infantes.index') }}" class="btn btn-danger mr-3">Volver</a>

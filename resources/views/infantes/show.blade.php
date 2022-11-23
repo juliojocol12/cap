@@ -42,70 +42,70 @@
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Género</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->Genero}}" disabled>
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Fecha de nacimiento</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->FechaNacimiento}}" disabled>
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Hora de naciemiento</label>
+                                        <label for="">Hora de nacimiento</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->HoraNaciemiento}}" disabled>
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Fecha de egreso</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->FechaEgreso}}" disabled>
-                                    </div>                                       
+                                        <label for="">Lugar de nacimiento</label>
+                                        {!! Form::text('LugarNacimiento', null, array('class'=>'form-control', 'maxlength'=>'30', 'placeholder'=>'Ingrese el municipio y el departamento', 'autocomplete'=>'off')) !!}
+                                    </div>
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Peso en libras</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->PesoLB}} libras" disabled>
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Peso en onzas</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->PesoLB * 16}} onzas" disabled>
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Altura</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->Altura}} centimetros" disabled>
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Tipo sanguíneo</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->TipoSanguineo}}" disabled>
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Dirección</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->datospersonalespacientes->Descripciondireccion}} {{$infant->datospersonalespacientes->Numerodireccion}} zona {{$infant->datospersonalespacientes->Zonadireccion}} {{$infant->datospersonalespacientes->Municipiodep}}" disabled>
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Nombres de la madre</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->datospersonalespacientes->NombresPaciente}} {{$infant->datospersonalespacientes->ApellidosPaciente}}" disabled>
@@ -113,17 +113,41 @@
                                 </div>
 
 
-                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Nombres de familiar</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->datosfamiliares->NombresFamiliar}} {{$infant->datosfamiliares->ApellidosFamiliar}}" disabled>
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Parentesco</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->Parentesco}}" disabled>
+                                    </div>                                       
+                                </div>
+                                </div> 
+
+                                <h3>Nacimiento en el CAP</h3>
+                                <div class="row ">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label for="" value="EstablecimientoSalud_id">¿En qué establecimiento?</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infantbc}}" disabled>
+                                    </div>
+                                </div>     
+
+                                <div class="col-xs-12 col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <label for="" value="Personal_idD">¿Qué médico atendió?</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infantxx->Nombre}}" disabled>
+                                    </div>
+                                </div>     
+                                
+                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">Fecha de egreso</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->FechaEgreso}}" disabled>
                                     </div>                                       
                                 </div>
 
@@ -133,8 +157,8 @@
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->Observaciones}}" disabled>
                                     </div>                                       
                                 </div>
-
-                            </div> 
+                                </div>
+                            
                             
                             <h3>Datos de vacunación</h3>
                             <div class="row ">
