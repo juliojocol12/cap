@@ -6,7 +6,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Editar aborto</h3>
+            <h3 class="page__heading">Editar ficha aborto</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -66,14 +66,36 @@
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-4">
                                 <div class="form-group" responsive>
-                                    <label for="">Describa</label>
+                                    <label for="">Describa el motivo</label>
                                     <div class="form-outline w-100 mb-4">
-                                        <textarea class="form-control" id="Descripcion" placeholder="Describa el motivo del aborto" name="Descripcion" style="height:150px; width: 100%; " maxlength="250">{{$aborto->Descripcion }}</textarea>
+                                        <textarea class="form-control" id="Descripcion" placeholder="Ingrese infromación sobre el motivo del aborto" name="Descripcion" style="height:150px; width: 100%; " maxlength="250">{{$aborto->Descripcion }}</textarea>
                                     </div>  
                                 </div>                                       
                             </div>
                         </div>
                         
+                        <div class="row ">
+                            <div class="col-xs-12 col-sm-12 col-md-3">
+                                <label for="chec">Active si el aborto se atendió en algún establecimiento del CAP </label>
+                             </div>
+                        <div class="col-xs-12 col-sm-12 col-md-5">
+                             <input class="form-group" name="chec" type="checkbox" id="chec" onChange="comprobar(this);"/>
+                        </div>
+                        </div>
+                        <div class="row " id="boton" readonly style="display:none">
+
+                            <div class="col-xs-12 col-sm-12 col-md-5">
+                                    <div class="form-group">
+                                        <label for="" value="Personal_idD">¿Qué médico atendió el aborto?</label>
+                                        <select class="form-control" name="Personal_idD">
+                                            @foreach($personaless as $personal)
+                                            <option value="{{$personal->idPersonal}}" >{{ $personal->Nombre}} </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>     
+                        </div> 
+
                         <div class="d-none">
                             <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
@@ -96,7 +118,7 @@
     
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-actualizar">Actualizar</button>
-                                <a href="{{ route('personal.index') }}" class="btn btn-danger mr-3">Volver</a>
+                                <a href="{{ route('abortos.index') }}" class="btn btn-danger mr-3">Volver</a>
                             </div>
                             @include('modal.actualizar')
                             {!! Form::close() !!}                        
