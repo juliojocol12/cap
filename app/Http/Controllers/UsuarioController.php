@@ -62,9 +62,9 @@ class UsuarioController extends Controller
     {
         //
         $this->validate($request, [
-            'name' => 'required|UsuarioRule1|max:45|unique:users,name',
-            'email' => 'required|email|unique:users,email|CorreoRule1|max:20',
-            'password' => 'required|same:confirm-password|max:12|ContraseñaRule',
+            'name' => 'required|UsuarioRule1|unique:users,name',
+            'email' => 'required|email|unique:users,email|CorreoRule1',
+            'password' => 'required|same:confirm-password|ContraseñaRule',
             'Estado',
             'roles' => 'required',
         ]);
@@ -117,8 +117,8 @@ class UsuarioController extends Controller
             if ('name' === 'name')
             {
                 $this->validate($request, [
-                    'name' => 'required|UsuarioRule1|max:45',
-                    'email' => 'email|CorreoRule1|max:20'.$id,
+                    'name' => 'required|UsuarioRule1',
+                    'email' => 'email|CorreoRule1'.$id,
                     'password' => 'max:12|ContraseñaRule',
                     'Estado',
                     'roles' => 'required',
@@ -145,8 +145,8 @@ class UsuarioController extends Controller
     catch (\Throwable $th) {
         Log::debug($th -> getMessage());
         return $this->validate($request, [
-            'name' => 'required|UsuarioRule1|max:45|unique:users,name',
-            'email' => 'email|CorreoRule1|max:20'.$id,
+            'name' => 'required|UsuarioRule1|unique:users,name',
+            'email' => 'email|CorreoRule1'.$id,
             'password' => 'max:12|ContraseñaRule',
             'Estado',
             'roles' => 'required',

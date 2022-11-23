@@ -282,15 +282,19 @@ class FcprenatalpostpartoController extends Controller
             'OtrosAntecedentes' => 'required|TextoRule3',
             'Usuario_id',
 			'Estado',
+
             'VacunaTdAp' => 'TextoRule4',
             'DosisVacunaTdAp' => 'TextoRule4',
             'FechaVacunaTdAp',
+
             'VacunaTd' => 'TextoRule4',
             'DosisVacunaTd' => 'TextoRule4',
             'FechaVacunaTd',
+
             'VacunaInfluenza' => 'TextoRule4',
             'DosisVacunaInfluenza' => 'TextoRule4',
             'FechaVacunaInfluenza',
+            
             'VacunaCovid' => 'TextoRule4',
             'DosisVacunaCovid' => 'TextoRule4',
             'FechaVacunaCovid'

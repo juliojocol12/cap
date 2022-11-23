@@ -32,7 +32,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Nombre</label>
-                                        {!! Form::text('name', null, array('class'=>'form-control','maxlength'=>'45')) !!}
+                                        {!! Form::text('name', null, array('class'=>'form-control', 'minlength'=>'3','maxlength'=>'45')) !!}
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Correo electrónico</label>
-                                        {!! Form::text('email', null, array('class'=>'form-control','maxlength'=>'20')) !!}
+                                        {!! Form::text('email', null, array('class'=>'form-control', 'minlength'=>'8','maxlength'=>'20')) !!}
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Contraseña</label>
-                                        {!! Form::password('password', array('class'=>'form-control','maxlength'=>'12')) !!}
+                                        {!! Form::password('password', array('class'=>'form-control', 'minlength'=>'8','maxlength'=>'12')) !!}
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Confirmar contraseña</label>
-                                        {!! Form::password('confirm-password', array('class'=>'form-control')) !!}
+                                        {!! Form::password('confirm-password', array('class'=>'form-control', 'minlength'=>'8', 'maxlength'=>'12', 'placeholder'=>'Asegurese las contraseñas coincidan')) !!}
                                     </div>
                                 </div>
                             </div>

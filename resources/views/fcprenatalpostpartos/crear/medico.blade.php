@@ -2,7 +2,7 @@
                         <div class="card-body">
                         <h3 class="page__heading">Antecedentes médicos</h3>
                         <div class="row ">
-                        <div class="col-xs-1 col-sm-6 col-md-3">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="AsmaBronquial">Asma bronquial (*)</label>
                                         <select class="form-control" name="AsmaBronquial">
@@ -187,11 +187,13 @@
                                         </select>
                                     </div>
                                 </div>
+                            </div>
 
+                            <div class="row ">
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="AntecedentesVacunas">Antecedentes de vacuna Td (*)</label>
-                                        <select class="form-control" name="AntecedentesVacunas">
+                                        <label for="VacunaTdAp">¿Vacuna TdAp?</label>
+                                        <select class="form-control" name="VacunaTdAp">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
                                         </select>
@@ -200,19 +202,117 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Dosis de vacuna (*)</label>
-                                        {!! Form::text('DosisVacuna', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Ingrese dosis de vacuna', 'autocomplete'=>'off')) !!}
+                                        <label for="">Dosis de vacuna</label>
+                                        <select class="form-control" name="DosisVacunaTdAp">
+                                        <option value="Ninguna">Ninguna</option>
+                                        <option value="Primera dosis">1era. Dosis</option>
+                                        <option value="Segunda dosis">2da. Dosis</option>
+                                        <option value="Tercera dosis">3era. Dosis</option>
+                                        <option value="Refuerzo">Refuerzo</option>
+                                        </select>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Fecha de últimas dosis (*)</label>
-                                        {!! Form::date('FechaUltimaDosis', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
+                                        <label for="">Fecha</label>
+                                        {!! Form::date('FechaVacunaTdAp', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row ">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="VacunaTd">¿Vacuna Td?</label>
+                                        <select class="form-control" name="VacunaTd">
+                                        <option value="No">No</option>
+                                        <option value="Si">Si</option>
+                                        </select>
                                     </div>
                                 </div>
 
+                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">Dosis de vacuna</label>
+                                        <select class="form-control" name="DosisVacunaTd">
+                                        <option value="Ninguna">Ninguna</option>
+                                        <option value="Única">Única</option>
+                                        </select>
+                                    </div>                                       
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">Fecha</label>
+                                        {!! Form::date('FechaVacunaTd', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row ">
                                 <div class="col-xs-1 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="VacunaInfluenza">¿Vacuna influenza?</label>
+                                        <select class="form-control" name="VacunaInfluenza">
+                                        <option value="No">No</option>
+                                        <option value="Si">Si</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">Dosis de vacuna</label>
+                                        <select class="form-control" name="DosisVacunaInfluenza">
+                                        <option value="Ninguna">Ninguna</option>
+                                        <option value="Única">Única</option>
+                                        </select>
+                                    </div>                                       
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">Fecha</label>
+                                        {!! Form::date('FechaVacunaInfluenza', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row ">
+                                <div class="col-xs-1 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="VacunaCovid">¿Vacuna Covid-19?</label>
+                                        <select class="form-control" name="VacunaCovid">
+                                        <option value="No">No</option>
+                                        <option value="Si">Si</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">Dosis de vacuna</label>
+                                        <select class="form-control" name="DosisVacunaCovid">
+                                        <option value="Ninguna">Ninguna</option>
+                                        <option value="Primera dosis">1era. Dosis</option>
+                                        <option value="Segunda dosis">2da. Dosis</option>
+                                        <option value="Tercera dosis">3era. Dosis</option>
+                                        <option value="Refuerzo">Refuerzo</option>
+                                        </select>
+                                    </div>                                       
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">Fecha</label>
+                                        {!! Form::date('FechaVacunaCovid', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row ">
+                                <div class="col-xs-1 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="SR">SR</label>
                                         <select class="form-control" name="SR">

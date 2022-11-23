@@ -72,7 +72,8 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="" value="EstablecimientoSalud_id">Establecimiento</label>
-                                        <select class="form-control" name="EstablecimientoSalud_id">
+                                        <select class="form-control" name="EstablecimientoSalud_id" >
+                                            <option value="{{$fcprenatalpostparto->EstablecimientoSalud_id}}">{{$fcprenatalpostparto->establecimientosaludos->Nombre}}, {{$fcprenatalpostparto->establecimientosaludos->PuestoSalud}}</option>
                                             @foreach($establecimientosaludos as $establecimiento)
                                             <option value="{{$establecimiento->idEstablecimientoSaludos}}" >{{ $establecimiento->Nombre}}, {{ $establecimiento->PuestoSalud}} </option>
                                             @endforeach

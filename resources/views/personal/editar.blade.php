@@ -39,7 +39,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="name">DPI</label>
-                                    {!! Form::text('CUI', null, array('class'=>'form-control','maxlength'=>'15','minlength'=>'13', 'maxlength'=>'14', 'placeholder'=>'Ingrese el CUI en números y sin espacios','autocomplete'=>'off' )) !!}
+                                    {!! Form::text('CUI', null, array('class'=>'form-control','maxlength'=>'13','minlength'=>'13', 'placeholder'=>'Ingrese el CUI en números y sin espacios','autocomplete'=>'off' )) !!}
                                 </div>
                             </div>
 
