@@ -219,6 +219,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Guardar</button>
                                 <a href="{{ route('pacientes.index') }}" class="btn btn-danger mr-3">Volver</a>
+                                <a href="{{ route('pacientes.edad') }}">Edad</a>
                                 </div>
                             @include('modal.guardar')
                             {!! Form::close() !!}                    
@@ -229,3 +230,4 @@
         </div>
     </section>
 @endsection
+

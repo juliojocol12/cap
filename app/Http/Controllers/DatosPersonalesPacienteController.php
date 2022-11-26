@@ -8,6 +8,7 @@ use App\Models\DatosFamiliare;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
 
 class DatospersonalespacienteController extends Controller
 {
@@ -55,8 +56,18 @@ class DatospersonalespacienteController extends Controller
     {
         $pueblos = pueblo::select('idPueblo','Nombre')->where('Estado','Si')->get();
         $datosfamiliares = DatosFamiliare::all()->where('Estado','Si');
-        return view ('pacientes.crear')->with('pueblos',$pueblos)->with('datosfamiliares',$datosfamiliares);
+        $pacientes = datospersonalespaciente::all()->where('Stado','Si');
+
+        return view ('pacientes.crear')->with('pueblos',$pueblos)->with('datosfamiliares',$datosfamiliares)->with('pacientes',$pacientes);
     }
+
+    public function edad()
+    {
+        $nacimiento = "1996-07-05";
+        $actual = Carbon::parse($nacimiento)->age;
+        dump($actual);
+    }
+
 
     /**
      * Store a newly created resource in storage.

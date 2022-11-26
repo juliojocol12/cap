@@ -26,9 +26,12 @@ class EventosController extends Controller
      */
     public function index()
     {
-        $datospacientes = datospersonalespaciente::all()->where('Stado','Si');
-        $establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');
-        return view("eventos.index");
+        $datospacientes = datospersonalespaciente::all();
+        $establecimientosaludos = establecimientosaludo::all();
+        return view("eventos.index")->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes);
+        //$datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        ///$establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');
+        //return view("eventos.index");
     }
 
     /**

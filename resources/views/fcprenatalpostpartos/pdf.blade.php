@@ -24,50 +24,52 @@
     
      <!--Tabla 1-->
     <table >
-        <h3 class="page__heading">Datos generales</h3> <p></p> 
+        <div class="container">
+            <h3 class="page__heading">Datos generales</h3> <p></p>
+        </div> 
         <tbody >
             @foreach($fcprenatalpostpartos as $fcprenatalpostparto)
             <tr>
-                <th scope="row" ">No. Expediente</th>
-                <td>{{$fcprenatalpostparto->Numerodireccion}}</td>
+                <th scope="row" align="left">No. Expediente</th>
+                <td width="350" height="10">{{$fcprenatalpostparto->Numerodireccion}}</td>
             </tr>
             <tr>
-                <th scope="row" ">Fecha</th>
+                <th scope="row" align="left">Fecha</th>
                 <td>{{$fcprenatalpostparto->Fecha}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Establecimiento Salud</th>
+                <th scope="row" align="left">Establecimiento Salud</th>
                 <td>{{$fcprenatalpostparto->establecimientosaludos->Nombre}}</td>
             </tr>    
 
             <tr>
-                <th scope="row" ">Datos de paciente</th>
+                <th scope="row" align="left">Datos de paciente</th>
                 <td>{{$fcprenatalpostparto->NombresPaciente}} {{$fcprenatalpostparto->ApellidosPaciente}}</td>
             </tr>    
 
             <tr>
-                <th scope="row" ">Fecha de nacimiento</th>
+                <th scope="row" align="left">Fecha de nacimiento</th>
                 <td data-order="DD/MM/YYYY">{{$fcprenatalpostparto->Fecha}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">DPI</th>
+                <th scope="row" align="left">DPI</th>
                 <td>{{$fcprenatalpostparto->CUI}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Direccion</th>
+                <th scope="row" align="left">Direccion</th>
                 <td>{{$fcprenatalpostparto->Descripciondireccion}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Teléfono</th>
+                <th scope="row" align="left">Teléfono</th>
                 <td>{{$fcprenatalpostparto->Telefono}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Celular</th>
+                <th scope="row" align="left">Celular</th>
                 <td>{{$fcprenatalpostparto->Celular}}</td>
             </tr>
             @endforeach
@@ -75,13 +77,15 @@
     </table>
 
     <!--Tabla 2 -->
-    <table >
-        <h3 class="page__heading">Evaluación de signos y sintomas de peligro</h3> <p></p> 
+    <table>
+        <div class="container">
+            <h3 class="page__heading">Evaluación de signos y sintomas de peligro</h3> <p></p> 
+        </div>
         <tbody >
             @foreach($fcprenatalpostpartos as $fcprenatalpostparto)
             <tr>
                 <th scope="row" ">Hemorragia vaginal</th>
-                <td>{{$fcprenatalpostparto->HemorragiaVaginal}}</td>
+                <td width="300" height="10">{{$fcprenatalpostparto->HemorragiaVaginal}}</td>
             </tr>
             <tr>
                 <th scope="row" ">Dolor de cabeza severa</th>
@@ -119,7 +123,7 @@
             </tr>
 
             <tr>
-                <th scope="row" ">Si refirio a la paciente registre manejo y estabilización </th>
+                <th scope="row" ">Si refirio a la paciente</th>
                 <td>{{$fcprenatalpostparto->RegistrodeReferencia}}</td>
             </tr>
 
@@ -135,16 +139,19 @@
             @endforeach
         </tbody>
     </table>
+
 <br> <br> <br> <br><br><br> 
     <!--tabla 3 -->
 
     <table >
-        <h3 class="page__heading">Antrecedentes: Gineco/Obstétricos</h3> <p></p> 
+        <div class="container">
+            <h3 class="page__heading">Antrecedentes: Gineco/Obstétricos</h3> <p></p> 
+        </div>
         <tbody >
             @foreach($fcprenatalpostpartos as $fcprenatalpostparto)
             <tr>
                 <th scope="row" ">Fecha ultima regla</th>
-                <td>{{$fcprenatalpostparto->FechaUltimaRegla}}</td>
+                <td width="300" height="10">{{$fcprenatalpostparto->FechaUltimaRegla}}</td>
             </tr>
             <tr>
                 <th scope="row" ">Número de gestas</th>
@@ -257,12 +264,14 @@
     <br> <br> <br> <br><br><br> <br><br><br><br>
     <!--tabla 4 -->
     <table >
-        <h3 class="page__heading">Antrecedentes: Médicos</h3> <p></p> 
+        <div class="container">
+            <h3 class="page__heading">Antrecedentes: Médicos</h3> <p></p> 
+        </div>
         <tbody >
             @foreach($fcprenatalpostpartos as $fcprenatalpostparto)
             <tr>
                 <th scope="row" ">Asma Bronquial</th>
-                <td>{{$fcprenatalpostparto->AsmaBronquial}}</td>
+                <td width="300" height="10">{{$fcprenatalpostparto->AsmaBronquial}}</td>
             </tr>
             <tr>
                 <th scope="row" ">Hipertensión Arterial</th>

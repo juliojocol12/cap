@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('pueblos', PuebloController::class);
     Route::resource('pacientes', DatospersonalespacienteController::class);
     Route::resource('datosfamiliares', DatosfamiliareController::class);
+    Route::get('/fcprenatalpostpartos/pdf', [App\Http\Controllers\FcprenatalpostpartoController::class, 'pdf'])->name('fcprenatalpostpartos.pdf');
     Route::resource('fcprenatalpostpartos', FcprenatalpostpartoController::class);
     Route::resource('controles', ControleController::class);
     Route::resource('pospartos', FcevaluacionpospartoController::class);
@@ -82,7 +83,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('eventos', EventosController::class);
     Route::resource('abortos', AbortoController::class);
 
-    Route::get('pdf/fcprenatalpostpartos', [App\Http\Controllers\FcprenatalpostpartoController::class, 'pdf'])->name('fcprenatalpostpartos.pdf');
+    
+
+    Route::get('edad/pacientes', [App\Http\Controllers\DatospersonalespacienteController::class, 'edad'])->name('pacientes.edad');
     
     //rutas para vistas de reportes
     Route::get('r1/reportes', [App\Http\Controllers\ReportesController::class, 'r1'])->name('reportes.r1');

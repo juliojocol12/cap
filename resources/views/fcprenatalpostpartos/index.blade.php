@@ -54,6 +54,7 @@
                                     <th style="color:#fff;">Datos de paciente</th>
                                     <th style="color:#fff;">DPI</th>
                                     <th style="color:#fff;">Establecimiento de salud</th>
+                                    <th style="color:#fff;">Descargar</th>
                                 </thead>
 
                                 <tbody>
@@ -92,7 +93,7 @@
 
                                             <td>
                                                 
-                                                <a class="btn btn-dark mr-3" href="{{ route('fcprenatalpostpartos.pdf', $fcprenatalpostparto->idFCPrenatalPostpartos) }}"><i class="fa-solid fa-download"></i></a>
+                                                <a target="_blank" class="btn btn-dark mr-3" href="{{ route('fcprenatalpostpartos.pdf', $fcprenatalpostparto->idFCPrenatalPostpartos) }}"><i class="fa-solid fa-download"></i></a>
                                                
                                         </tr>
                                         @include('fcprenatalpostpartos.delete')

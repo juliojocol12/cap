@@ -68,6 +68,9 @@
             locale: 'es',
             plugins: ["interaction", "dayGrid", "timeGrid", "list"],
             selectable: true,
+            weekMode: "liquid",
+            allDaySlot: false,
+            
             header: {
             left: "prev,next today ",
             center: "title",
@@ -113,11 +116,10 @@
                 console.log(info.event.backgroundColor);
 
                 console.log(info.event.extendedProps.descripcion);
-
+                
                 $('#txtID').val(info.event.id);
                 $('#txtTitulo').val(info.event.title);
                 $('#txtDatosP').val(info.event.extendedProps.datosPersonalesPacientes_id);
-                $('#txtEstablecimiento').val(info.event.extendedProps.establecimiento);
                 $('#txtEstable').val(info.event.extendedProps.Establecimientoid);
                 $('#txtUsuario').val(info.event.extendedProps.Usuario_id);
                 $('#txtEstado').val(info.event.extendedProps.Estado);

@@ -14,4 +14,14 @@ class evento extends Model
     {
         return $this->belongsTo('App\Models\User', 'Usuario_id', 'id');
     }
+
+    public function datospersonalespacientes()
+    {
+        return $this->belongsTo('App\Models\datospersonalespaciente', 'datosPersonalesPacientes_id', 'idDatosPersonalesPacientes');
+    }
+    
+    public function establecimientosaludos()
+    {
+        return $this->belongsTo('App\Models\establecimientosaludo', 'Establecimientoid', 'idEstablecimientoSaludos');
+    }
 }

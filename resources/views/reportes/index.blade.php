@@ -118,16 +118,6 @@
                                 <div class="col-md-4 col-xl-3">
                                     <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
                                         <div class="card-block">
-                                            <h5>Ausencia de pacientes a citas </h5> 
-                                            <h2 class="text-right"><i class="fa fa-users f-left"></i></h2>
-                                            <p class="m-b-0 text-right"><a href="{{ route('reportes.r11') }}" class="text-white">Generar</a></p>
-                                        </div>                                            
-                                    </div>                                    
-                                </div>
-
-                                <div class="col-md-4 col-xl-3">
-                                    <div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
-                                        <div class="card-block">
                                             <h5>Insumos que se estén agotando</h5> 
                                             <h2 class="text-right"><i class="fa fa-users f-left"></i></h2>
                                             <p class="m-b-0 text-right"><a href="{{ route('reportes.r12') }}" class="text-white">Generar</a></p>
@@ -136,7 +126,7 @@
                                 </div>
 
                                 <div class="col-md-4 col-xl-3">
-                                    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                                    <div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
                                         <div class="card-block">
                                             <h5>Inventario de insumos médicos</h5> 
                                             <h2 class="text-right"><i class="fa fa-users f-left"></i></h2>
