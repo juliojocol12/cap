@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DatosFamiliare;
+use App\Models\datosfamiliare;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
-class DatosFamiliareController extends Controller
+class DatosfamiliareController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-datosfamiliare', ['only'=>['index']]);
+        $this->middleware('permission:crear-datosfamiliare', ['only'=>['create','store']]);
+        $this->middleware('permission:editar-datosfamiliare', ['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-datosfamiliare', ['only'=>['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,17 @@ class DatosFamiliareController extends Controller
      */
     public function index()
     {
-        //
+        $cant_familiares = datosfamiliare::count();
+        if($cant_familiares === 0)
+        {
+            $datosfamiliares = datosfamiliare::paginate(10);
+            return view('datosfamiliares.index', compact('datosfamiliares'));
+        }
+        else{
+            $datosfamiliares = datosfamiliare::where('Estado','Si')
+            ->paginate(10);
+            return view('datosfamiliares.index', compact('datosfamiliares'));
+        }
     }
 
     /**
@@ -25,6 +43,7 @@ class DatosFamiliareController extends Controller
     public function create()
     {
         //
+        return view ('datosfamiliares.crear');
     }
 
     /**
@@ -36,50 +55,122 @@ class DatosFamiliareController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'NombresFamiliar' => 'required|TextoRule1',
+            'ApellidosFamiliar' => 'required|TextoRule1',
+            'CUI' => 'required|Unique:datosfamiliares|NumeroRule',
+            'EstadoCivil' => 'required|TextoRule1',
+            'ProfesionOficio' => 'required|TextoRule1',
+            'Domicilio' => 'required',
+            'TelefonoFamiliar' => 'required|NumeroRule',
+            'CelularFamiliar' => 'required|NumeroRule',
+            'Usuario_id',
+            'Estado',
+            'AntecedentesMedicos' => 'TextoRule2',
+            'TipoSanguineo' => 'required',
+        ]);
+        
+        datosfamiliare::create($request->all());
+
+        return redirect()->route('datosfamiliares.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\DatosFamiliare  $datosFamiliare
+     * @param  \App\Models\datosfamiliare  $datosfamiliare
+     * @param  int  $idDatosFamiliares
      * @return \Illuminate\Http\Response
      */
-    public function show(DatosFamiliare $datosFamiliare)
+    public function show($idDatosFamiliares)
     {
         //
+        $datosfamiliare = datosfamiliare::find($idDatosFamiliares);
+        return view ('datosfamiliares.show', compact('datosfamiliare'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\DatosFamiliare  $datosFamiliare
+     * @param  \App\Models\datosfamiliare  $datosfamiliare
+     * @param  int  $idDatosFamiliares
      * @return \Illuminate\Http\Response
      */
-    public function edit(DatosFamiliare $datosFamiliare)
+    public function edit($idDatosFamiliares)
     {
         //
+        $datosfamiliare = datosfamiliare::find($idDatosFamiliares);
+
+        return view ('datosfamiliares.editar', compact('datosfamiliare'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DatosFamiliare  $datosFamiliare
+     * @param  \App\Models\datosfamiliare  $datosfamiliare
+     * @param  int  $idDatosFamiliares
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DatosFamiliare $datosFamiliare)
+    public function update(Request $request, $idDatosFamiliares)
     {
-        //
+        try {
+            if ('CUI' === 'CUI') {
+        $this->validate($request,[
+            'NombresFamiliar' => 'required|TextoRule1',
+            'ApellidosFamiliar' => 'required|TextoRule1',
+            'CUI' => 'required|NumeroRule',
+            'EstadoCivil' => 'required|TextoRule1',
+            'ProfesionOficio' => 'required|TextoRule1',
+            'Domicilio' => 'required',
+            'TelefonoFamiliar' => 'required|NumeroRule',
+            'CelularFamiliar' => 'required|NumeroRule',
+            'Usuario_id',
+            'Estado',            
+            'AntecedentesMedicos' => 'TextoRule2',
+            'TipoSanguineo' => 'required',
+        ]);
     }
+        $input = $request->all();
+        $datosfamiliare = datosfamiliare::find($idDatosFamiliares);
+        $datosfamiliare->update($input);
+        return redirect()->route('datosfamiliares.index');
+
+    } catch (\Throwable $th) {
+        Log::debug($th -> getMessage());
+       return $this->validate($request,[
+            'NombresFamiliar' => 'required|TextoRule1',
+            'ApellidosFamiliar' => 'required|TextoRule1',
+            'CUI' => 'required|Unique:datosfamiliares|NumeroRule',
+            'EstadoCivil' => 'required|TextoRule1',
+            'ProfesionOficio' => 'required|TextoRule1',
+            'Domicilio' => 'required',
+            'TelefonoFamiliar' => 'required|NumeroRule',
+            'CelularFamiliar' => 'required|NumeroRule',
+            'Usuario_id',
+            'Estado',            
+            'AntecedentesMedicos' => 'TextoRule2',
+            'TipoSanguineo' => 'required',
+        ]);
+        $input = $request->all();
+        $datosfamiliare = datosfamiliare::find($idDatosFamiliares);
+        $datosfamiliare->update($input);
+        return redirect()->route('datosfamiliares.index');
+    }
+}
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\DatosFamiliare  $datosFamiliare
+     * @param  \App\Models\datosfamiliare  $datosfamiliare
+     * @param  int  $idDatosFamiliares
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DatosFamiliare $datosFamiliare)
+    public function destroy($idDatosFamiliares)
     {
-        //
+        $familiares = datosfamiliare::findOrFail($idDatosFamiliares);
+        $familiares->Estado='No';
+        $familiares->update();
+        return redirect()->route('datosfamiliares.index')->with('status');
     }
 }

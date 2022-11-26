@@ -1,6 +1,8 @@
 <form class="form-inline mr-auto" action="#">
-    <ul class="navbar-nav mr-3">
-        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+    <ul class="navbar-nav mr-2" >
+        <a href="{{ url('/home') }}" class="small-sidebar-text">
+            <img class="navbar-brand-full" src="{{ asset('img/images.png') }}" width="45px" alt=""/>
+        </a>
     </ul>
 </form>
 <ul class="navbar-nav navbar-right">

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Ingresar nuevo usuario
+@endsection
 
 @section('content')
     <section class="section">
@@ -9,8 +12,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-body">
-                            {{-- Validacion para ingreso de campos --}}
+                        <div class="card-body" onkeypress="return pulsar(event)">
+                            
                             @if($errors->any())
                             <div class="alert alert-dark alert-dismissible fade show" role="alert">
                                 <strong>¡Revise los campos!</strong>
@@ -18,53 +21,71 @@
                                     <span classs="badge badge-danger">{{$error}}</span>
                                 @endforeach
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
+                                    <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             @endif
 
-                            {!! Form::open(array('route'=>'usuarios.store', 'method'=>'POST')) !!}
+                            {!! Form::open(array('route'=>'usuarios.store', 'method'=>'POST',)) !!}
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Nombre</label>
-                                        {!! Form::text('name', null, array('class'=>'form-control', 'pattern'=>'[a-z]+', 'maxlength'=>'20', 'placeholder'=>'ingrese el nombre de usuario')) !!}
+                                        <label for="name">Nombre (*)</label>
+                                        {!! Form::text('name', null, array('class'=>'form-control', 'minlength'=>'3','maxlength'=>'20', 'placeholder'=>'Ingrese el nombre de usuario','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Email</label>
-                                        {!! Form::text('email', null, array('class'=>'form-control', 'size'=>'64', 'maxlength'=>'191', 'pattern'=>'[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$', 'placeholder'=>'ingrese una direccion de correo')) !!}
+                                        <label for="name">Correo electrónico (*)</label>
+                                        {!! Form::text('email', null, array('class'=>'form-control', 'minlength'=>'8','maxlength'=>'80','placeholder'=>'Ingrese la dirección de correo electrónico','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Contraseña</label>
-                                        {!! Form::password('password', array('class'=>'form-control', 'pattern'=>'?=.*[a-z])(?=.*[A-Z]', 'maxlength'=>'12', 'placeholder'=>'ingrese la contraseña')) !!}
+                                        <label for="name">Contraseña (*)</label>
+                                        {!! Form::password('password', array('class'=>'form-control', 'minlength'=>'8', 'maxlength'=>'12','placeholder'=>'Debe contener al menos una mayúscula y números','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Confirmar contraseña</label>
-                                        {!! Form::password('confirm-password', array('class'=>'form-control', 'maxlength'=>'12',    'placeholder'=>'vuelva a ingresar la contraseña')) !!}
+                                        <label for="name">Confirmar contraseña (*)</label>
+                                        {!! Form::password('confirm-password', array('class'=>'form-control', 'minlength'=>'8', 'maxlength'=>'12', 'placeholder'=>'Asegurese las contraseñas coincidan')) !!}
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Roles</label>
+                                        <label for="name">Rol a desempeñar (*)</label>
                                         {!! Form::select('roles[]', $roles,[], array('class'=>'form-control')) !!}
                                     </div>
-                                </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                </div>
-                                
+                                </div>                                
                             </div>
+
+                            <div class="d-none">
+                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <div class="form-group">
+                                        <label for="" value="Estado">Estado</label>
+                                        <input type="text" name="Estado" value="Si">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Guardar</button>
+                                <a href="{{ route('usuarios.index') }}" class="btn btn-danger mr-3">Volver</a>
+                            </div>
+                            @include('modal.guardar')
                             {!! Form::close() !!}                    
                         </div>
                     </div>

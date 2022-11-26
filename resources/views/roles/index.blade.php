@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Roles
+@endsection
 
 @section('content')
     <section class="section">
@@ -15,10 +18,15 @@
                                 <a class="btn btn-warning" href="{{ route('roles.create') }}">Nuevo</a>
                             @endcan
                             
-                            <table class="table table-striped mt-2">
+                            <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="color:#fff;">Roles</th>
-                                    <th style="color:#fff;">Acciones</th>
+                                    @can('editar-rol')
+                                    <th style="color:#fff;">Editar</th>
+                                    @endcan
+                                    @can('borrar-rol')
+                                    <th style="color:#fff;">Borrar</th>
+                                    @endcan
                                 </thead>
                                 <tbody>
                                     @foreach($roles as $role)
@@ -28,13 +36,14 @@
                                                 @can('editar-rol')
                                                     <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Editar</a>
                                                 @endcan()
+                                            </td>
+                                            <td>
                                                 @can('borrar-rol')
-                                                {!! Form::open(['method'=> 'DELETE', 'route'=> ['roles.destroy', $role->id], 'style'=>'display:inline' ]) !!}
-                                                    {!! Form::submit('Borrar', ['class'=>'btn btn-danger']) !!}
-                                                {!! Form::close() !!}
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$role->id}}">Eliminar</button>
                                                 @endcan()
                                             </td>
                                         </tr>
+                                    @include('roles.delete')
                                     @endforeach
                                 </tbody>
                             </table>

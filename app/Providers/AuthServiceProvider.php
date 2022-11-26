@@ -21,6 +21,8 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+     ///SuperUsuario
     public function boot()
     {
         $this->registerPolicies();

@@ -12,7 +12,18 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-
+    'usuario_rule1' => 'El campo :attribute solo letras minúsculas.',
+    'decimal_rule' => 'El campo :attribute solo acepta decimales.',
+    'decimal_rule2' => 'El campo :attribute solo acepta decimales.',
+    'contraseña_rule' => 'El campo :attribute solo acepta contraseñas.',
+    'correo_rule1' => 'El campo :attribute solo acepta formato de correos electronicos.',
+    'correo_rule2' => 'El campo :attribute solo acepta formato de correos electronicos.',
+    'numero_rule' => 'El campo :attribute solo acepta números.',
+    'numero_rule2' => 'El campo :attribute solo acepta números.',
+    'texto_rule1' => 'El campo :attribute solo acepta letras.',
+    'texto_rule2' => 'El campo :attribute solo acepta letras.',
+    'texto_rule3' => 'El campo :attribute solo acepta letras y numeros.',
+    'texto_rule4' => 'El campo :attribute solo acepta letras y numeros.',
     'accepted' => 'The :attribute must be accepted.',
     'accepted_if' => 'The :attribute must be accepted when :other is :value.',
     'active_url' => 'The :attribute is not a valid URL.',

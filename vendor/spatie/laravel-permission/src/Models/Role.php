@@ -38,7 +38,7 @@ class Role extends Model implements RoleContract
     {
         $attributes['guard_name'] = $attributes['guard_name'] ?? Guard::getDefaultName(static::class);
 
-        $params = ['name' => $attributes['name'], 'guard_name' => $attributes['guard_name']];
+        $params = ['name' => $attributes['name'], 'Estado' => $attributes['Estado'], 'guard_name' => $attributes['guard_name']];
         if (PermissionRegistrar::$teams) {
             if (array_key_exists(PermissionRegistrar::$teamsKey, $attributes)) {
                 $params[PermissionRegistrar::$teamsKey] = $attributes[PermissionRegistrar::$teamsKey];
@@ -47,7 +47,7 @@ class Role extends Model implements RoleContract
             }
         }
         if (static::findByParam($params)) {
-            throw RoleAlreadyExists::create($attributes['name'], $attributes['guard_name']);
+            throw RoleAlreadyExists::create($attributes['name'], $attributes['Estado'], $attributes['guard_name']);
         }
 
         return static::query()->create($attributes);
@@ -136,10 +136,10 @@ class Role extends Model implements RoleContract
     {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
 
-        $role = static::findByParam(['name' => $name, 'guard_name' => $guardName]);
+        $role = static::findByParam(['name' => $name, 'Estado' => $Estado, 'guard_name' => $guardName]);
 
         if (! $role) {
-            return static::query()->create(['name' => $name, 'guard_name' => $guardName] + (PermissionRegistrar::$teams ? [PermissionRegistrar::$teamsKey => getPermissionsTeamId()] : []));
+            return static::query()->create(['name' => $name, 'Estado' => $Estado, 'guard_name' => $guardName] + (PermissionRegistrar::$teams ? [PermissionRegistrar::$teamsKey => getPermissionsTeamId()] : []));
         }
 
         return $role;

@@ -15,7 +15,13 @@ class CreatePueblosTable extends Migration
     {
         Schema::create('pueblos', function (Blueprint $table) {
             $table->increments('idPueblo');
-            $table->string('Nombre',15);
+            $table->string('Nombre',15)->unique();
+
+            $table->unsignedBigInteger('Usuario_id')->nullable();
+            $table->foreign('Usuario_id')->references('id')->on('users');
+
+            $table->string('Estado',2);
+            
             $table->timestamps();
         });
     }

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Usuarios
+@endsection
 
 @section('content')
     <section class="section">
@@ -10,21 +13,61 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            
-                            <a class="btn btn-warning" href="{{ route('usuarios.create') }}">Ingresar Usuario</a>
 
-                            <table class="table table-striped mt-2">
+                            @if(session('status'))
+                                    <div class="alert alert-success mt-4">
+                                        {{ session('status') }}
+                                    </div>
+                            @endif
+                          
+                            @can('crear-usuario')
+                            <a class="btn btn-warning" href="{{ route('usuarios.create') }}">Nuevo</a>
+                            <a class="btn btn-success" href="{{ route('personal.index') }}">Listado de personal</a>
+                            @endcan
+
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <form action="{{ route('usuarios.index') }}" method="GET">
+                                        <div class="form-row">
+                                            <div class="col-sm-4 my-1">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el nombre del usuario a buscar">
+                                            </div>
+                                            <div class="col-sm-4 my-1">
+                                                <input type="submit" class="btn btn-primary" value="Buscar">
+                                                <a href="{{ route('usuarios.index') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
+                                    @can('editar-usuario')
+                                    <th style="color:#fff;">Editar</th>
+                                    @endcan
+                                    @can('borrar-usuario')
+                                    <th style="color:#fff;">Borrar</th>
+                                    @endcan
                                     <th style="color:#fff;">Nombre</th>
-                                    <th style="color:#fff;">E-mail</th>
+                                    <th style="color:#fff;">Correo electrónico</th>
                                     <th style="color:#fff;">Rol</th>
-                                    <th style="color:#fff;">Acciones</th>
                                 </thead>
                                 <tbody>
                                     @foreach($usuarios as $usuario)
                                         <tr>
                                             <td style="display: none;">{{ $usuario->id }}</td>
+                                            @can('editar-usuario')
+                                                <td>
+                                                <a class="btn btn-info" href="{{ route('usuarios.edit', $usuario->id) }}">Editar</a>
+                                                </td>
+                                            @endcan
+                                            @can('borrar-usuario')
+                                                <td>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$usuario->id}}">Eliminar</button>
+                                                </td>
+                                            @endcan
                                             <td>{{$usuario->name}}</td>
                                             <td>{{$usuario->email}}</td>
                                             <td>
@@ -34,13 +77,8 @@
                                                     @endforeach
                                                 @endif
                                             </td>
-                                            <td>
-                                                <a class="btn btn-info" href="{{ route('usuarios.edit', $usuario->id) }}">Editar</a>
-                                                {!! Form::open(['method'=> 'DELETE', 'route'=> ['usuarios.destroy', $usuario->id], 'style'=>'display:inline' ]) !!}
-                                                    {!! Form::submit('Borrar', ['class'=>'btn btn-danger']) !!}
-                                                {!! Form::close() !!}
-                                            </td>
                                         </tr>
+                                        @include('usuarios.delete')
                                     @endforeach
                                 </tbody>
                             </table>
