@@ -46,7 +46,9 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="">Fecha de nacimiento (*)</label>
-                                        {!! Form::date('FechaNaciemientoPaciente', null, array('class'=>'form-control')) !!}
+                                        {!! Form::date('', null, array('class'=>'form-control', 'min'=>'{{date("2022-11-01")}}', 'max'=>'{{date("2022-11-24")}}' )) !!}
+                                        <input type="date" id="datePickerId" class="form-control" name="FechaNaciemientoPaciente" /> 
+                                        <input type="date" name="arrival_date" id="arrival_date" class="form-control" aria-label="...">
                                     </div>
                                 </div>
 
@@ -174,13 +176,13 @@
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
                                         <label for="" value="idDatosFamiliares">Nombre del familiar</label>
-                                        <input class="form-control" list="filtroIdFamiliares" id="filtroIdFamiliare" name="idDatosFamiliares" placeholder="Ingrese el nombre del familiar" autocomplete="off">                                        
+                                        <input class="form-control" list="filtroIdFamiliares" id="filtroIdFamiliare" placeholder="Ingrese el nombre del familiar" autocomplete="off">
                                         <datalist id="filtroIdFamiliares" name="idDatosFamiliares">
                                             @foreach($datosfamiliares as $idfamliar)
-                                                <option value="{{$idfamliar->idDatosFamiliares}}"> {{$idfamliar->CUI}}, {{$idfamliar->NombresFamiliar}}</
-                                                option>                                            
+                                                <option > {{$idfamliar->CUI}}, {{$idfamliar->NombresFamiliar}} </option>
                                             @endforeach
-                                        </datalist>                                        
+                                        </datalist>
+                                        <input class="form-control" list="filtroIdFamiliare" name="idDatosFamiliares" placeholder="Ingrese el nombre del familiar" autocomplete="off">
                                     </div>
                                 </div>
 

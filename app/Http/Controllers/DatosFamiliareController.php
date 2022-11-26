@@ -66,7 +66,7 @@ class DatosfamiliareController extends Controller
             'CelularFamiliar' => 'required|NumeroRule',
             'Usuario_id',
             'Estado',
-            'AntecedentesMedicos' => 'TextoRule1',
+            'AntecedentesMedicos' => 'TextoRule2',
             'TipoSanguineo' => 'required',
         ]);
         
@@ -127,7 +127,7 @@ class DatosfamiliareController extends Controller
             'CelularFamiliar' => 'required|NumeroRule',
             'Usuario_id',
             'Estado',            
-            'AntecedentesMedicos' => 'TextoRule1',
+            'AntecedentesMedicos' => 'TextoRule2',
             'TipoSanguineo' => 'required',
         ]);
     }
@@ -149,7 +149,7 @@ class DatosfamiliareController extends Controller
             'CelularFamiliar' => 'required|NumeroRule',
             'Usuario_id',
             'Estado',            
-            'AntecedentesMedicos' => 'TextoRule1',
+            'AntecedentesMedicos' => 'TextoRule2',
             'TipoSanguineo' => 'required',
         ]);
         $input = $request->all();

@@ -39,7 +39,9 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row" ">Fecha de nacimiento</th>
-                                                <td data-order="DD/MM/YYYY">{{$pacientes->FechaNaciemientoPaciente}}</td>
+                                                <td data-date-format="mm/dd/yy">{{$pacientes->FechaNaciemientoPaciente}}</td>
+                                                
+                                                <input type="text" value="{{$pacientes->FechaNaciemientoPaciente}}" data-date-format="d-m-Y" id="dp2">
                                             </tr>
                                             <tr>
                                                 <th scope="row" ">DPI</th>
