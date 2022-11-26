@@ -64,45 +64,55 @@
               <input type="text" class="form-control" name="txtFecha" id="txtFecha" >
             </div>
 
-            <div class="form-group col-md-8">
-              <label>Título de la cita:</label> 
-              <input type="text" class="form-control" name="txtTitulo" id="txtTitulo">
-            </div>
-    
             <div class="form-group col-md-4">
               <label>Hora:</label>
               <input type="time" class="form-control" name="txtHora" id="txtHora">
             </div>
 
-            {{--
-            <div class="form-group col-md-6">
-              <label>Datos de la paciente:</label> 
-              <input type="text" class="form-control" name="txtDatosP" id="txtDatosP">
-            </div>
-            --}}
-
-            <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
-                  <label>Datos de la paciente (*)</label>
-                  <input class="form-control" list="filtroIDPacientes" id="txtDatosP" name="txtDatosP" placeholder="ingrese el cui de la madre" autocomplete="off">
-              </div>
+            <div class="form-group col-md-12">
+              <label>Título de la cita:</label> 
+              <input type="text" class="form-control" name="txtTitulo" id="txtTitulo">
             </div>
 
-            <div class="form-group col-md-6">
-              <label>Establecimiento:</label> 
-              <input type="text" class="form-control" name="txtEstablecimiento" id="txtEstablecimiento">
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="col-xs-6 col-sm-6 col-md-10">
               <div class="form-group">
-                <label>Establecimiento (*)</label>
-                <input class="form-control" list="filtroIDPacientes" id="txtEstable" name="txtEstable" placeholder="ingrese" autocomplete="off">
+                  <label for="" value="txtDatosP">Datos de Madre (*)</label>
+                  <input class="form-control" list="filtroIDPacientes" id="txtDatosP" name="txtDatosP" placeholder="Ingrese datos" autocomplete="off">                                        
+                  <datalist id="filtroIDPacientes" name="txtDatosP">
+                    @foreach($datospacientes as $idpaciente)
+                      <option value="{{$idpaciente->idDatosPersonalesPacientes}}"> {{$idpaciente->NombresPaciente}} {{$idpaciente->ApellidosPaciente}}</option>
+                      @endforeach
+                    </datalist>
               </div>
             </div>
+
+          <div class="col-xs-6 col-sm-6 col-md-10">
+            <div class="form-group">
+                <label for="" value="txtEstable">Establecimiento (*)</label>
+
+                <input class="form-control" list="filtroIDEstable" id="txtEstable" name="txtEstable" placeholder="Ingrese datos" autocomplete="off">                                        
+                <datalist id="filtroIDEstable" name="txtEstable">
+                  @foreach($establecimientosaludos as $establecimiento)
+                  <option value="{{$establecimiento->idEstablecimientoSaludos}}" >{{ $establecimiento->Nombre}}, {{ $establecimiento->PuestoSalud}} </option>
+                  @endforeach
+                </datalist>
+            </div>
+        </div>
+
+         <!--- <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="form-group">
+                <label for="" value="txtEstable">Establecimiento (*)</label>
+                <select class="form-control" name="txtEstable">
+                    @foreach($establecimientosaludos as $establecimiento)
+                    <option value="{{$establecimiento->idEstablecimientoSaludos}}" >{{ $establecimiento->Nombre}}, {{ $establecimiento->PuestoSalud}} </option>
+                    @endforeach
+                </select>
+            </div>
+          </div> -->
 
 
             	
-              <div class="col-xs-12 col-sm-12 col-md-2">
+              <div class="col-xs-12 col-sm-12 col-md-8">
                 <div class="form-group">
                   <label>Encargado de llenado</label>
                   <select id="txtUsuario" class="form-control" name="txtUsuario"  maxlength="35">

@@ -42,6 +42,10 @@
                                                 <td data-order="DD/MM/YYYY">{{$pacientes->FechaNaciemientoPaciente}}</td>
                                             </tr>
                                             <tr>
+                                                <th scope="row" ">Edad</th>
+                                                <td>{{$pacientes->FechaNaciemientoPaciente}}</td>
+                                            </tr>
+                                            <tr>
                                                 <th scope="row" ">DPI</th>
                                                 <td>{{$pacientes->CUI}}</td>
                                             </tr>

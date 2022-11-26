@@ -43,7 +43,6 @@ class FcprenatalpostpartoController extends Controller
             ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcprenatalpostpartos.DatosPersonalesPacientes_id')
             ->where('CUI','LIKE','%'.$texto.'%')
             ->where('Estado','Si')
-
             ->paginate(10);
             return view('fcprenatalpostpartos.index', compact('fcprenatalpostpartos','texto'));
         }
@@ -57,14 +56,13 @@ class FcprenatalpostpartoController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function pdf()
+    public function pdf( $idFCPrenatalPostpartos)
     {
-        $fcprenatalpostpartos = fcprenatalpostparto::select('idFCPrenatalPostpartos','Fecha',
-        'NombresPaciente','ApellidosPaciente','CUI','Numerodireccion','idDatosPersonalesPacientes','EstablecimientoSalud_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterial','Fiebre','PresentacionesFetales','RegistrodeReferencia','MotivoConsulta','HistoriaEnfermedadActual','FechaUltimaRegla','NoGestas','Partos','Aborto','AbortoConsecutivo','NoLIU','NacidosVivos','NacidosMuertos','HijosVivos','HijosMuertos','NoCesareas','EmbarazoMultiples','FechaUltimoParto','NacidosAntesOchoMeses','PreEclampsia','UltimoRNPesoCincolb','UltimoRNPesoSietelb','DeteccionCancerCervix','FechaDeteccionCancer','ResultadoNormal','MetodoPlanificacionFamiliar','CualMetodoPlanificacionF','AsmaBronquial','HipertensionArterial','Cancer','ITS','Chagas','TomaMedicamentos','TrastornoPiscoSocial','ViolenciaGenero','Diabetes','Cardiopatia','Tuberculosis','Neuropatia','InfeccionesUrinarias','ViolenciaInrtraFamiliar','TipoSangre','Quirurgicos','Fuma','BebidasAlcoholicas','ConsumoDrogas','SR','OtrosAntecedentes','VacunaTdAp','DosisVacunaTdAp','FechaVacunaTdAp','VacunaTd','DosisVacunaTd','FechaVacunaTd','VacunaInfluenza','DosisVacunaInfluenza','FechaVacunaInfluenza','VacunaCovid','DosisVacunaCovid','FechaVacunaCovid')
-        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcprenatalpostpartos.DatosPersonalesPacientes_id')
-        ->where(['idFCPrenatalPostpartos' => 1])
-        ->paginate(10);
-        //return view('fcprenatalpostpartos.pdf', compact('fcprenatalpostpartos'));
+        $fcprenatalpostpartos = fcprenatalpostparto::select('Fecha','NombresPaciente','ApellidosPaciente','CUI','Numerodireccion','idDatosPersonalesPacientes','EstablecimientoSalud_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterial','Fiebre','PresentacionesFetales','RegistrodeReferencia','MotivoConsulta','HistoriaEnfermedadActual','FechaUltimaRegla','NoGestas','Partos','Aborto','AbortoConsecutivo','NoLIU','NacidosVivos','NacidosMuertos','HijosVivos','HijosMuertos','NoCesareas','EmbarazoMultiples','FechaUltimoParto','NacidosAntesOchoMeses','PreEclampsia','UltimoRNPesoCincolb','UltimoRNPesoSietelb','DeteccionCancerCervix','FechaDeteccionCancer','ResultadoNormal','MetodoPlanificacionFamiliar','CualMetodoPlanificacionF','AsmaBronquial','HipertensionArterial','Cancer','ITS','Chagas','TomaMedicamentos','TrastornoPiscoSocial','ViolenciaGenero','Diabetes','Cardiopatia','Tuberculosis','Neuropatia','InfeccionesUrinarias','ViolenciaInrtraFamiliar','TipoSangre','Quirurgicos','Fuma','BebidasAlcoholicas','ConsumoDrogas','SR','OtrosAntecedentes', 'Estado','VacunaTdAp','DosisVacunaTdAp','FechaVacunaTdAp','VacunaTd','DosisVacunaTd','FechaVacunaTd','VacunaInfluenza','DosisVacunaInfluenza','FechaVacunaInfluenza','VacunaCovid','DosisVacunaCovid','FechaVacunaCovid')
+        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcprenatalpostpartos.DatosPersonalesPacientes_id')->find($idFCPrenatalPostpartos);
+
+        //$datospacientes = datospersonalespaciente::all()->where('Stado','Si');
+        //$establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');
 
         $pdf = PDF::loadView('fcprenatalpostpartos.pdf', compact('fcprenatalpostpartos'));
         $date = Carbon::now();

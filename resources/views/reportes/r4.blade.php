@@ -15,6 +15,23 @@
                         <div class="card-body">
 
                             <h3>Mujeres embarazadas</h3>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <form action="{{ route('reportes.r4') }}" method="GET">
+                                        <div class="form-row">
+                                            <div class="col-sm-4 my-1">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el DPI para buscar">
+                                            </div>
+                                            <div class="col-sm-4 my-1">
+                                                <input type="submit" class="btn btn-primary" value="Buscar">
+                                                <a href="{{ route('reportes.r4') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+
                         
                             <div align="right">
                                 <a href="{{ route('reportes.index') }}" class="btn btn-success mr-3">Volver</a>

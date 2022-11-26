@@ -40,22 +40,30 @@ class ReportesController extends Controller
     }
 
     //Reporte general de mujeres embarazadas
-    public function r4()
+    public function r4(Request $request)
     {
+        $texto = trim($request->get('texto'));
         $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente',
         'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
         'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente',
         'Migrante','Nombre')
         ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+        ->where('FechaNaciemientoPaciente','LIKE','%'.$texto.'%')
         ->paginate(10);
 
-        return view('reportes.r4', compact('datospersonalespacientes'));
+        return view('reportes.r4', compact('datospersonalespacientes','texto'));
     }
 
     public function pdf4(){
-        $datospersonalespacientes = datospersonalespaciente::all();
+        
+        $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente',
+        'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
+        'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente',
+        'Migrante','Nombre')
+        ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+        ->where('FechaNaciemientoPaciente');
 
-        $pdf = PDF::loadView('reportes/pdf/pdf1', compact('datospersonalespacientes'));
+        $pdf = PDF::loadView('reportes/pdf/pdf4', compact('datospersonalespacientes'));
         return $pdf->stream('Pacientes.pdf');
         //return $pdf->download('Ficha_Clinia.pdf');
     }
