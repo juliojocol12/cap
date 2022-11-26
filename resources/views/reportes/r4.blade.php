@@ -35,7 +35,7 @@
                         
                             <div align="right">
                                 <a href="{{ route('reportes.index') }}" class="btn btn-success mr-3">Volver</a>
-                                <a class="btn btn-danger mr-3" href="{{ route('datospersonalespacientes.pdf4') }}"><h8 style="color: white"><strong>Descargar: </strong></h8><i style="color: white" class="fa fa-download"></i></a>
+                                <a class="btn btn-danger mr-3" target="_blank" href="{{ route('datospersonalespacientes.pdf4') }}"><h8 style="color: white"><strong>Descargar: </strong></h8><i style="color: white" class="fa fa-download"></i></a>
                             </div>
 
                             <table class="table  table-striped mt-2 table-responsive">

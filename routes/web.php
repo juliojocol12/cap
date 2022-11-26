@@ -64,7 +64,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('pueblos', PuebloController::class);
     Route::resource('pacientes', DatospersonalespacienteController::class);
     Route::resource('datosfamiliares', DatosfamiliareController::class);
-    Route::get('/fcprenatalpostpartos/pdf', [App\Http\Controllers\FcprenatalpostpartoController::class, 'pdf'])->name('fcprenatalpostpartos.pdf');
+    Route::get('fcprenatalpostpartos/pdf/{idFCPrenatalPostpartos}', [App\Http\Controllers\FcprenatalpostpartoController::class, 'pdf'])->name('fcprenatalpostpartos.pdf');
     Route::resource('fcprenatalpostpartos', FcprenatalpostpartoController::class);
     Route::resource('controles', ControleController::class);
     Route::resource('pospartos', FcevaluacionpospartoController::class);

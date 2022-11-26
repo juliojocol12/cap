@@ -15,9 +15,7 @@
 <body>
     <center>
         <h2>Ficha Clinica Prenatal</h2>
-        @foreach($fcprenatalpostpartos as $fcprenatalpostparto)
-        <h3>Datos de la paciente: {{$fcprenatalpostparto->NombresPaciente}} {{$fcprenatalpostparto->ApellidosPaciente}} </h3>
-        @endforeach
+        <h3>Datos de la paciente: {{$fcprenatalpostpartos->NombresPaciente}} {{$fcprenatalpostpartos->ApellidosPaciente}}</h3>
     </center>
 
     <div id="mostrarFecha"><h5>Fecha de emisión:</h5><script type="text/javascript">mostrarFecha();</script></div>
@@ -28,51 +26,49 @@
             <h3 class="page__heading">Datos generales</h3> <p></p>
         </div> 
         <tbody >
-            @foreach($fcprenatalpostpartos as $fcprenatalpostparto)
             <tr>
                 <th scope="row" align="left">No. Expediente</th>
-                <td width="350" height="10">{{$fcprenatalpostparto->Numerodireccion}}</td>
+                <td width="350" height="10">{{$fcprenatalpostpartos->Numerodireccion}}</td>
             </tr>
             <tr>
                 <th scope="row" align="left">Fecha</th>
-                <td>{{$fcprenatalpostparto->Fecha}}</td>
+                <td>{{$fcprenatalpostpartos->Fecha}}</td>
             </tr>
 
             <tr>
                 <th scope="row" align="left">Establecimiento Salud</th>
-                <td>{{$fcprenatalpostparto->establecimientosaludos->Nombre}}</td>
+                <td>{{$fcprenatalpostpartos->establecimientosaludos->Nombre}}</td>
             </tr>    
 
             <tr>
                 <th scope="row" align="left">Datos de paciente</th>
-                <td>{{$fcprenatalpostparto->NombresPaciente}} {{$fcprenatalpostparto->ApellidosPaciente}}</td>
+                <td>{{$fcprenatalpostpartos->NombresPaciente}} {{$fcprenatalpostpartos->ApellidosPaciente}}</td>
             </tr>    
 
             <tr>
                 <th scope="row" align="left">Fecha de nacimiento</th>
-                <td data-order="DD/MM/YYYY">{{$fcprenatalpostparto->Fecha}}</td>
+                <td data-order="DD/MM/YYYY">{{$fcprenatalpostpartos->Fecha}}</td>
             </tr>
 
             <tr>
                 <th scope="row" align="left">DPI</th>
-                <td>{{$fcprenatalpostparto->CUI}}</td>
+                <td>{{$fcprenatalpostpartos->CUI}}</td>
             </tr>
 
             <tr>
                 <th scope="row" align="left">Direccion</th>
-                <td>{{$fcprenatalpostparto->Descripciondireccion}}</td>
+                <td>{{$fcprenatalpostpartos->Descripciondireccion}}</td>
             </tr>
 
             <tr>
                 <th scope="row" align="left">Teléfono</th>
-                <td>{{$fcprenatalpostparto->Telefono}}</td>
+                <td>{{$fcprenatalpostpartos->Telefono}}</td>
             </tr>
 
             <tr>
                 <th scope="row" align="left">Celular</th>
-                <td>{{$fcprenatalpostparto->Celular}}</td>
+                <td>{{$fcprenatalpostpartos->Celular}}</td>
             </tr>
-            @endforeach
         </tbody>
     </table>
 
@@ -82,61 +78,59 @@
             <h3 class="page__heading">Evaluación de signos y sintomas de peligro</h3> <p></p> 
         </div>
         <tbody >
-            @foreach($fcprenatalpostpartos as $fcprenatalpostparto)
             <tr>
                 <th scope="row" ">Hemorragia vaginal</th>
-                <td width="300" height="10">{{$fcprenatalpostparto->HemorragiaVaginal}}</td>
+                <td width="300" height="10">{{$fcprenatalpostpartos->HemorragiaVaginal}}</td>
             </tr>
             <tr>
                 <th scope="row" ">Dolor de cabeza severa</th>
-                <td>{{$fcprenatalpostparto->DolordeCabeza}}</td>
+                <td>{{$fcprenatalpostpartos->DolordeCabeza}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Vision borrosa</th>
-                <td>{{$fcprenatalpostparto->VisionBorrosa}}</td>
+                <td>{{$fcprenatalpostpartos->VisionBorrosa}}</td>
             </tr>    
 
             <tr>
                 <th scope="row" ">Convulsion</th>
-                <td>{{$fcprenatalpostparto->Convulsion}}</td>
+                <td>{{$fcprenatalpostpartos->Convulsion}}</td>
             </tr>    
 
             <tr>
                 <th scope="row" ">Dolor abdominal severo</th>
-                <td>{{$fcprenatalpostparto->DolorAbdominal}}</td>
+                <td>{{$fcprenatalpostpartos->DolorAbdominal}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Presion arterial alta</th>
-                <td>{{$fcprenatalpostparto->PresionArterial}}</td>
+                <td>{{$fcprenatalpostpartos->PresionArterial}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Fiebre</th>
-                <td>{{$fcprenatalpostparto->Fiebre}}</td>
+                <td>{{$fcprenatalpostpartos->Fiebre}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Presentaciones fetales</th>
-                <td>{{$fcprenatalpostparto->PresentacionesFetales}}</td>
+                <td>{{$fcprenatalpostpartos->PresentacionesFetales}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Si refirio a la paciente</th>
-                <td>{{$fcprenatalpostparto->RegistrodeReferencia}}</td>
+                <td>{{$fcprenatalpostpartos->RegistrodeReferencia}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Motivo consulta</th>
-                <td>{{$fcprenatalpostparto->MotivoConsulta}}</td>
+                <td>{{$fcprenatalpostpartos->MotivoConsulta}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Historia de la enfermedad actual</th>
-                <td>{{$fcprenatalpostparto->HistoriaEnfermedadActual}}</td>
+                <td>{{$fcprenatalpostpartos->HistoriaEnfermedadActual}}</td>
             </tr>
-            @endforeach
         </tbody>
     </table>
 
@@ -148,116 +142,114 @@
             <h3 class="page__heading">Antrecedentes: Gineco/Obstétricos</h3> <p></p> 
         </div>
         <tbody >
-            @foreach($fcprenatalpostpartos as $fcprenatalpostparto)
             <tr>
                 <th scope="row" ">Fecha ultima regla</th>
-                <td width="300" height="10">{{$fcprenatalpostparto->FechaUltimaRegla}}</td>
+                <td width="300" height="10">{{$fcprenatalpostpartos->FechaUltimaRegla}}</td>
             </tr>
             <tr>
                 <th scope="row" ">Número de gestas</th>
-                <td>{{$fcprenatalpostparto->NoGestas}}</td>
+                <td>{{$fcprenatalpostpartos->NoGestas}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Número de partos</th>
-                <td>{{$fcprenatalpostparto->Partos}}</td>
+                <td>{{$fcprenatalpostpartos->Partos}}</td>
             </tr>    
 
             <tr>
                 <th scope="row" ">Abortos</th>
-                <td>{{$fcprenatalpostparto->Aborto}}</td>
+                <td>{{$fcprenatalpostpartos->Aborto}}</td>
             </tr>    
 
             <tr>
                 <th scope="row" ">Aborto consecutivo</th>
-                <td>{{$fcprenatalpostparto->AbortoConsecutivo}}</td>
+                <td>{{$fcprenatalpostpartos->AbortoConsecutivo}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Número de LIU</th>
-                <td>{{$fcprenatalpostparto->NoLIU}}</td>
+                <td>{{$fcprenatalpostpartos->NoLIU}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Número de nacidos vivos</th>
-                <td>{{$fcprenatalpostparto->NacidosVivos}}</td>
+                <td>{{$fcprenatalpostpartos->NacidosVivos}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Número de nacidos muertos</th>
-                <td>{{$fcprenatalpostparto->NacidosMuertos}}</td>
+                <td>{{$fcprenatalpostpartos->NacidosMuertos}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Número de hijos vivos</th>
-                <td>{{$fcprenatalpostparto->HijosVivos}}</td>
+                <td>{{$fcprenatalpostpartos->HijosVivos}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Número de hijos muertos</th>
-                <td>{{$fcprenatalpostparto->HijosMuertos}}</td>
+                <td>{{$fcprenatalpostpartos->HijosMuertos}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Número de No. cesareas</th>
-                <td>{{$fcprenatalpostparto->NoCesareas}}</td>
+                <td>{{$fcprenatalpostpartos->NoCesareas}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Embarazo multiple</th>
-                <td>{{$fcprenatalpostparto->EmbarazoMultiples}}</td>
+                <td>{{$fcprenatalpostpartos->EmbarazoMultiples}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Fecha de ultimo parto</th>
-                <td>{{$fcprenatalpostparto->FechaUltimoParto}}</td>
+                <td>{{$fcprenatalpostpartos->FechaUltimoParto}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Número de nacidos antes de 8 meses</th>
-                <td>{{$fcprenatalpostparto->NacidosAntesOchoMeses}}</td>
+                <td>{{$fcprenatalpostpartos->NacidosAntesOchoMeses}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Pre eclampsia</th>
-                <td>{{$fcprenatalpostparto->PreEclampsia}}</td>
+                <td>{{$fcprenatalpostpartos->PreEclampsia}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Último RN Peso (-) 5 lb y media</th>
-                <td>{{$fcprenatalpostparto->UltimoRNPesoCincolb}}</td>
+                <td>{{$fcprenatalpostpartos->UltimoRNPesoCincolb}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Último RN Peso (+) 7 lb 12 onz</th>
-                <td>{{$fcprenatalpostparto->UltimoRNPesoSietelb}}</td>
+                <td>{{$fcprenatalpostpartos->UltimoRNPesoSietelb}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Detección de cancer de cervix</th>
-                <td>{{$fcprenatalpostparto->DeteccionCancerCervix}}</td>
+                <td>{{$fcprenatalpostpartos->DeteccionCancerCervix}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Fecha de deteccion de cancer</th>
-                <td>{{$fcprenatalpostparto->FechaDeteccionCancer}}</td>
+                <td>{{$fcprenatalpostpartos->FechaDeteccionCancer}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Resultado normal</th>
-                <td>{{$fcprenatalpostparto->ResultadoNormal}}</td>
+                <td>{{$fcprenatalpostpartos->ResultadoNormal}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Método de planificación familiar</th>
-                <td>{{$fcprenatalpostparto->MetodoPlanificacionFamiliar}}</td>
+                <td>{{$fcprenatalpostpartos->MetodoPlanificacionFamiliar}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Cuál fue el método que utilizo</th>
-                <td>{{$fcprenatalpostparto->CualMetodoPlanificacionF}}</td>
+                <td>{{$fcprenatalpostpartos->CualMetodoPlanificacionF}}</td>
             </tr>
-            @endforeach
         </tbody>
     </table>
 
@@ -268,126 +260,124 @@
             <h3 class="page__heading">Antrecedentes: Médicos</h3> <p></p> 
         </div>
         <tbody >
-            @foreach($fcprenatalpostpartos as $fcprenatalpostparto)
             <tr>
                 <th scope="row" ">Asma Bronquial</th>
-                <td width="300" height="10">{{$fcprenatalpostparto->AsmaBronquial}}</td>
+                <td width="300" height="10">{{$fcprenatalpostpartos->AsmaBronquial}}</td>
             </tr>
             <tr>
                 <th scope="row" ">Hipertensión Arterial</th>
-                <td>{{$fcprenatalpostparto->HipertensionArterial}}</td>
+                <td>{{$fcprenatalpostpartos->HipertensionArterial}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Cáncer</th>
-                <td>{{$fcprenatalpostparto->Cancer}}</td>
+                <td>{{$fcprenatalpostpartos->Cancer}}</td>
             </tr>    
 
             <tr>
                 <th scope="row" ">ITS</th>
-                <td>{{$fcprenatalpostparto->ITS}}</td>
+                <td>{{$fcprenatalpostpartos->ITS}}</td>
             </tr>    
 
             <tr>
                 <th scope="row" ">Chagas</th>
-                <td>{{$fcprenatalpostparto->Chagas}}</td>
+                <td>{{$fcprenatalpostpartos->Chagas}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Toma Medicamentos</th>
-                <td>{{$fcprenatalpostparto->TomaMedicamentos}}</td>
+                <td>{{$fcprenatalpostpartos->TomaMedicamentos}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Trastorno PsicoSocial</th>
-                <td>{{$fcprenatalpostparto->TrastornoPiscoSocial}}</td>
+                <td>{{$fcprenatalpostpartos->TrastornoPiscoSocial}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Violencia basada en género</th>
-                <td>{{$fcprenatalpostparto->ViolenciaGenero}}</td>
+                <td>{{$fcprenatalpostpartos->ViolenciaGenero}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Diabetes</th>
-                <td>{{$fcprenatalpostparto->Diabetes}}</td>
+                <td>{{$fcprenatalpostpartos->Diabetes}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Cardiopatia</th>
-                <td>{{$fcprenatalpostparto->Cardiopatia}}</td>
+                <td>{{$fcprenatalpostpartos->Cardiopatia}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Tuberculosis</th>
-                <td>{{$fcprenatalpostparto->Tuberculosis}}</td>
+                <td>{{$fcprenatalpostpartos->Tuberculosis}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Neuropatia</th>
-                <td>{{$fcprenatalpostparto->Neuropatia}}</td>
+                <td>{{$fcprenatalpostpartos->Neuropatia}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Infecciones Urinarias</th>
-                <td>{{$fcprenatalpostparto->InfeccionesUrinarias}}</td>
+                <td>{{$fcprenatalpostpartos->InfeccionesUrinarias}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Violencia InrtraFamiliar</th>
-                <td>{{$fcprenatalpostparto->ViolenciaInrtraFamiliar}}</td>
+                <td>{{$fcprenatalpostpartos->ViolenciaInrtraFamiliar}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Tipo de Sangre</th>
-                <td>{{$fcprenatalpostparto->TipoSangre}}</td>
+                <td>{{$fcprenatalpostpartos->TipoSangre}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Fuma</th>
-                <td>{{$fcprenatalpostparto->Fuma}}</td>
+                <td>{{$fcprenatalpostpartos->Fuma}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Ingiere bebidas alcohólicas</th>
-                <td>{{$fcprenatalpostparto->BebidasAlcoholicas}}</td>
+                <td>{{$fcprenatalpostpartos->BebidasAlcoholicas}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Consumo de drogas</th>
-                <td>{{$fcprenatalpostparto->ConsumoDrogas}}</td>
+                <td>{{$fcprenatalpostpartos->ConsumoDrogas}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Antecedentes de vacuna Td</th>
-                <td>{{$fcprenatalpostparto->AntecedentesVacunas}}</td>
+                <td>{{$fcprenatalpostpartos->AntecedentesVacunas}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Dosis de Vacuna</th>
-                <td>{{$fcprenatalpostparto->DosisVacuna}}</td>
+                <td>{{$fcprenatalpostpartos->DosisVacuna}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Fecha de Ultima Dosis</th>
-                <td>{{$fcprenatalpostparto->FechaUltimaDosis}}</td>
+                <td>{{$fcprenatalpostpartos->FechaUltimaDosis}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">SR</th>
-                <td>{{$fcprenatalpostparto->SR}}</td>
+                <td>{{$fcprenatalpostpartos->SR}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Quirurgicos</th>
-                <td>{{$fcprenatalpostparto->Quirurgicos}}</td>
+                <td>{{$fcprenatalpostpartos->Quirurgicos}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Otros Antecedentes</th>
-                <td>{{$fcprenatalpostparto->OtrosAntecedentes}}</td>
+                <td>{{$fcprenatalpostpartos->OtrosAntecedentes}}</td>
             </tr>
-            @endforeach
         </tbody>
     </table>
 

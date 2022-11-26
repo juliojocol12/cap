@@ -60,8 +60,7 @@ class ReportesController extends Controller
         'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
         'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente',
         'Migrante','Nombre')
-        ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
-        ->where('FechaNaciemientoPaciente');
+        ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id');
 
         $pdf = PDF::loadView('reportes/pdf/pdf4', compact('datospersonalespacientes'));
         return $pdf->stream('Pacientes.pdf');
