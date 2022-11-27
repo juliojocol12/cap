@@ -12,6 +12,7 @@
             <div class="row row-responsive">
                 <div class="col-lg-12 col-responsive">
                     <div class="card">
+                    <a href="{{ route('reportes.index') }}" class="btn btn-success mr-3">Volver</a>
                         <div class="card-body">
 
                             <h3>Mujeres embarazadas</h3>
@@ -19,14 +20,45 @@
                                 <div class="col-xl-12">
                                     <form action="{{ route('reportes.r4') }}" method="GET">
                                         <div class="form-row">
-                                            <div class="col-sm-4 my-1">
-                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el DPI para buscar">
+                                            <div class="col-sm-2 my-1">
+                                                <label for="">Filtrar por Nombres</label>
+                                                <input type="text" class="form-control" name="filtroNombre" autocomplete="off" value="{{$busquedaNombre}}" placeholder="Ingrese el nombre de la paciente a buscar">
                                             </div>
-                                            <div class="col-sm-4 my-1">
+                                            <div class="col-sm-2 my-1">
+                                                <label for="">Filtrar por Apellidos</label>
+                                                <input type="text" class="form-control" name="filtroApellido" autocomplete="off" value="{{$busquedaApellido}}" placeholder="Ingrese el apellido de la paciente a buscar">
+                                            </div>
+                                            <div class="col-sm-2 my-1">
+                                                <label for="">Filtrar por fecha</label>
+                                                <input type="text" class="form-control" name="filtro" autocomplete="off" value="{{$busqueda}}" placeholder="Ingrese la fecha para buscar">
+                                            </div>
+                                            <div class="col-sm-2 my-1">
+                                                <label for="">Filtrar por DPI</label>
+                                                <input type="text" class="form-control" name="filtroDPI" autocomplete="off" value="{{$busquedaDPI}}" placeholder="Ingrese el DPI a buscar">
+                                            </div>
+                                            <div class="col-sm-2 my-1">
+                                                <label for="">Filtrar por profesión</label>
+                                                <input type="text" class="form-control" name="filtroProfesion" autocomplete="off" value="{{$busquedaProfesion}}" placeholder="Ingrese por profesión a buscar">
+                                            </div>
+                                            <div class="col-sm-2 my-1">
+                                                <label for="">Filtrar por pueblo</label>
+                                                <input type="text" class="form-control" name="filtroPueblo" autocomplete="off" value="{{$busquedaPueblo}}" placeholder="Ingrese por profesión a buscar">
+                                            </div>
+                                            <div class="col-sm-2 my-1">
+                                                <label for="">Filtrar por estado civil</label>
+                                                <input type="text" class="form-control" name="filtroEstadoCivil" autocomplete="off" value="{{$busquedaEstadoCivil}}" placeholder="Ingrese por estado civil a buscar">
+                                            </div>
+                                            <div class="col-sm-2 my-1">
+                                                <label for="">Filtrar por tipo de sangre</label>
+                                                <input type="text" class="form-control" name="filtroSangre" autocomplete="off" value="{{$busquedaSangre}}" placeholder="Ingrese por tipo de sangre a buscar">
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
                                                 <a href="{{ route('reportes.r4') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
                                             </div>
-                                        </div>
                                     </form>
                                 </div>
 
@@ -34,8 +66,45 @@
 
                         
                             <div align="right">
-                                <a href="{{ route('reportes.index') }}" class="btn btn-success mr-3">Volver</a>
-                                <a class="btn btn-danger mr-3" target="_blank" href="{{ route('datospersonalespacientes.pdf4') }}"><h8 style="color: white"><strong>Descargar: </strong></h8><i style="color: white" class="fa fa-download"></i></a>
+                                <form action="{{ route('datospersonalespacientes.pdf4') }}" method="GET">
+                                    <div class="d-none">
+                                            <div class="col-sm-2 my-1">
+                                                <label for="">Filtrar por Nombres</label>
+                                                <input type="text" class="form-control" name="filtroNombre" autocomplete="off" value="{{$busquedaNombre}}" placeholder="Ingrese el nombre de la paciente a buscar">
+                                            </div>
+                                            <div class="col-sm-2 my-1">
+                                                <label for="">Filtrar por Apellidos</label>
+                                                <input type="text" class="form-control" name="filtroApellido" autocomplete="off" value="{{$busquedaApellido}}" placeholder="Ingrese el apellido de la paciente a buscar">
+                                            </div>    
+
+
+                                            <div class="col-sm-2 my-1">                                            
+                                                <input type="text" class="form-control" name="filtro" autocomplete="off" value="{{$busqueda}}" placeholder="Ingrese la fecha para buscar">
+                                            </div>
+                                            <div class="col-sm-2 my-1">
+                                                <input type="text" class="form-control" name="filtroDPI" autocomplete="off" value="{{$busquedaDPI}}" placeholder="Ingrese el DPI para buscar">
+                                            </div>
+                                            <div class="col-sm-2 my-1">
+                                                <label for="">Filtrar por profesión</label>
+                                                <input type="text" class="form-control" name="filtroProfesion" autocomplete="off" value="{{$busquedaProfesion}}" placeholder="Ingrese por profesión a buscar">
+                                            </div>
+                                            <div class="col-sm-2 my-1">
+                                                <label for="">Filtrar por pueblo</label>
+                                                <input type="text" class="form-control" name="filtroPueblo" autocomplete="off" value="{{$busquedaPueblo}}" placeholder="Ingrese por profesión a buscar">
+                                            </div>
+                                            <div class="col-sm-2 my-1">
+                                                <label for="">Filtrar por estado civil</label>
+                                                <input type="text" class="form-control" name="filtroEstadoCivil" autocomplete="off" value="{{$busquedaEstadoCivil}}" placeholder="Ingrese por estado civil a buscar">
+                                            </div>
+                                            <div class="col-sm-2 my-1">
+                                                <label for="">Filtrar por tipo de sangre</label>
+                                                <input type="text" class="form-control" name="filtroSangre" autocomplete="off" value="{{$busquedaSangre}}" placeholder="Ingrese por tipo de sangre a buscar">
+                                            </div>
+                                    </div>
+                                    <div class="col-sm-4 my-1">
+                                        <input formtarget="_blank" type="submit"  class="btn btn-warning" value="Descargar reporte">
+                                    </div>
+                                </form>
                             </div>
 
                             <table class="table  table-striped mt-2 table-responsive">

@@ -74,9 +74,8 @@
 
     <!--Tabla 2 -->
     <table>
-        <div class="container">
             <h3 class="page__heading">Evaluación de signos y sintomas de peligro</h3> <p></p> 
-        </div>
+        
         <tbody >
             <tr>
                 <th scope="row" ">Hemorragia vaginal</th>

@@ -15,9 +15,34 @@
 <body>
     <center>
         <h2>Ficha Clinica Prenatal</h2>
-        @foreach($datospersonalespacientes as $pacientse)
-        <h3>Datos de la paciente: {{$pacientse->NombresPaciente}} {{$pacientse->ApellidosPaciente}} </h3>
-        @endforeach
+        <h2>Total de registros: {{$totalpacientes}}</h2>
     </center>
+
+    <table class="table  table-striped mt-2 table-responsive">
+                                <thead style="background-color: #6777ef;">
+                                    <th style="color:#fff;">Nombres</th>
+                                    <th style="color:#fff;">Apellidos</th>
+                                    <th style="color:#fff;">DPI</th>
+                                    <th style="color:#fff;">Profesión</th>
+                                    <th style="color:#fff;">Celular</th>
+                                    <th style="color:#fff;">Estado civil</th>
+                                    <th style="color:#fff;">Tipo sanguíneo</th>
+                                </thead>
+
+                                <tbody>
+                                    @foreach($datospersonalespacientes as $paciente)
+                                        <tr "table-active">
+                                      
+                                            <td>{{$paciente->NombresPaciente}}</td>
+                                            <td>{{$paciente->ApellidosPaciente}}</td> 
+                                            <td>{{$paciente->CUI}}</td> 
+                                            <td>{{$paciente->ProfesionOficio}}</td>                               
+                                            <td align="center">{{$paciente->Celular}}</td>
+                                            <td align="center">{{$paciente->EstadoCivil}}</td>
+                                            <td align="center">{{$paciente->TipoSanguineo}}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
 </body>
 </html>

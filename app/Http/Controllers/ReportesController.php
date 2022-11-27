@@ -39,31 +39,101 @@ class ReportesController extends Controller
         return view('reportes.r3');
     }
 
+    public function buscador4(Request $request){
+        $texto1 = trim($request->get('texto'));
+    }
+
     //Reporte general de mujeres embarazadas
     public function r4(Request $request)
     {
-        $texto = trim($request->get('texto'));
+        $busqueda = trim($request->get('filtro'));
+        $busquedaDPI = trim($request->get('filtroDPI'));
+        $busquedaProfesion = trim($request->get('filtroProfesion'));
+        $busquedaPueblo = trim($request->get('filtroPueblo'));
+        $busquedaEstadoCivil = trim($request->get('filtroEstadoCivil'));
+        $busquedaSangre = trim($request->get('filtroSangre'));
+        $busquedaNombre = trim($request->get('filtroNombre'));
+        $busquedaApellido = trim($request->get('filtroApellido'));
+
         $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente',
         'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
         'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente',
         'Migrante','Nombre')
         ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
-        ->where('FechaNaciemientoPaciente','LIKE','%'.$texto.'%')
+        ->where('FechaNaciemientoPaciente','LIKE','%'.$busqueda.'%')
+        ->where('CUI','LIKE','%'.$busquedaDPI.'%')
+        ->where('ProfesionOficio','LIKE','%'.$busquedaProfesion.'%')
+        ->where('Nombre','LIKE','%'.$busquedaPueblo.'%')
+        ->where('EstadoCivil','LIKE','%'.$busquedaEstadoCivil.'%')
+        ->where('TipoSanguineo','LIKE','%'.$busquedaSangre.'%')
+        ->where('NombresPaciente','LIKE','%'.$busquedaNombre.'%')
+        ->where('ApellidosPaciente','LIKE','%'.$busquedaApellido.'%')
         ->paginate(10);
 
-        return view('reportes.r4', compact('datospersonalespacientes','texto'));
+        $totalpacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente',
+        'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
+        'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente',
+        'Migrante','Nombre')
+        ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+        ->where('FechaNaciemientoPaciente','LIKE','%'.$busqueda.'%')
+        ->where('CUI','LIKE','%'.$busquedaDPI.'%')
+        ->where('ProfesionOficio','LIKE','%'.$busquedaProfesion.'%')
+        ->where('Nombre','LIKE','%'.$busquedaPueblo.'%')
+        ->where('EstadoCivil','LIKE','%'.$busquedaEstadoCivil.'%')
+        ->where('TipoSanguineo','LIKE','%'.$busquedaSangre.'%')
+        ->where('NombresPaciente','LIKE','%'.$busquedaNombre.'%')
+        ->where('ApellidosPaciente','LIKE','%'.$busquedaApellido.'%')
+        ->count('idDatosPersonalesPacientes');
+
+        $union = compact('datospersonalespacientes','busqueda','busquedaDPI','busquedaProfesion','busquedaPueblo','busquedaEstadoCivil','busquedaSangre','totalpacientes','busquedaNombre','busquedaApellido');
+        return view('reportes.r4', $union );
     }
 
-    public function pdf4(){
-        
+    public function pdf4(Request $request){
+        $busqueda = trim($request->get('filtro'));
+        $busquedaDPI = trim($request->get('filtroDPI'));
+        $busquedaProfesion = trim($request->get('filtroProfesion'));        
+        $busquedaPueblo = trim($request->get('filtroPueblo'));
+        $busquedaEstadoCivil = trim($request->get('filtroEstadoCivil'));
+        $busquedaSangre = trim($request->get('filtroSangre'));
+        $busquedaNombre = trim($request->get('filtroNombre'));
+        $busquedaApellido = trim($request->get('filtroApellido'));
+
         $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente',
         'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
         'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente',
         'Migrante','Nombre')
-        ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id');
+        ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+        ->where('FechaNaciemientoPaciente','LIKE','%'.$busqueda.'%')
+        ->where('CUI','LIKE','%'.$busquedaDPI.'%')
+        ->where('ProfesionOficio','LIKE','%'.$busquedaProfesion.'%')
+        ->where('Nombre','LIKE','%'.$busquedaPueblo.'%')
+        ->where('EstadoCivil','LIKE','%'.$busquedaEstadoCivil.'%')
+        ->where('TipoSanguineo','LIKE','%'.$busquedaSangre.'%')
+        ->where('NombresPaciente','LIKE','%'.$busquedaNombre.'%')
+        ->where('ApellidosPaciente','LIKE','%'.$busquedaApellido.'%')
+        ->paginate(10);
 
-        $pdf = PDF::loadView('reportes/pdf/pdf4', compact('datospersonalespacientes'));
-        return $pdf->stream('Pacientes.pdf');
+        $totalpacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente',
+        'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
+        'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente',
+        'Migrante','Nombre')
+        ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+        ->where('FechaNaciemientoPaciente','LIKE','%'.$busqueda.'%')
+        ->where('CUI','LIKE','%'.$busquedaDPI.'%')
+        ->where('ProfesionOficio','LIKE','%'.$busquedaProfesion.'%')
+        ->where('Nombre','LIKE','%'.$busquedaPueblo.'%')
+        ->where('EstadoCivil','LIKE','%'.$busquedaEstadoCivil.'%')
+        ->where('TipoSanguineo','LIKE','%'.$busquedaSangre.'%')
+        ->where('NombresPaciente','LIKE','%'.$busquedaNombre.'%')
+        ->where('ApellidosPaciente','LIKE','%'.$busquedaApellido.'%')
+        ->count('idDatosPersonalesPacientes');
+
+        $union = compact('datospersonalespacientes','busqueda','busquedaDPI','busquedaProfesion','busquedaPueblo','busquedaEstadoCivil','busquedaSangre','totalpacientes','busquedaNombre','busquedaApellido');
+
+
+        $pdf = PDF::loadView('reportes/pdf/pdf4', $union);
+        return $pdf->stream('Reporte de pacientes.pdf');
         //return $pdf->download('Ficha_Clinia.pdf');
     }
 
