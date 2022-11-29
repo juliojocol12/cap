@@ -19,6 +19,7 @@ use App\Models\establecimientosaludo;
 use App\Models\personale;
 use App\Models\Infante;
 
+
 use Carbon\Carbon;
 
 class ReportesController extends Controller
@@ -114,9 +115,9 @@ class ReportesController extends Controller
             $busquedaApellido = trim($request->get('filtroApellido'));
             $busquedaDPI = trim($request->get('filtroDPI'));
             $busquedaNoControl = trim($request->get('filtroNoControl'));
-            $busquedaPagina = trim($request->get('filtroPagina'));
-            
+            $busquedaPagina = trim($request->get('filtroPagina'));            
             $busquedaSemana = trim($request->get('filtroSemana'));
+            
             if($busquedaSemana === '1')
             {
                 $controles = controle::select('idControles','NoControl','SemanasEmbarazo','FechaVisita','NombresPaciente','ApellidosPaciente','CUI' ,'Numerodireccion','FCPrenatalPostparto_id','FechaPosibleParto','CircuferenciaBrazo','EvaluacionInicialRapida','DescripcionEvaluacion','PresionArterial','Temperatura','RespiracionPorMinuto','FrecuenciaCardiacaMaternal','Pesolb','Talla','CMB','Diagnostico','IMC_Diagnostico','Accionesicm','GananciaPeso','Accionesganancia','Anemia','DescripcionAnemia','ExamenCardioPulmonar','ExamenMamas','ObservacionAbdominal','AlturaUterina','PresenciaMovimientoFetales','FrecuenciaCardiacaFetal','ManiobrasLeopold','TrazasSangreManchado','DescripcionTrazasSangreManchado','EnfermedadesGinecologicos','DescripcionEnfermedadesGinecologicos','FlujoVaginal','PruebasEmbarazo','DecripcionPruebasEmbarazo','Hematologia','DescripcionHematologia','GrupoRH','DescripcionGrupoRH','Orina','DescripcionOrina','Heces','DescirpcionHeces','GlicemiaAyunas','DescripcionGlicemiaAyunas','VDLR','DescripcionVDLR','VIH','DescipcionVIH','TORCH','DescripcionTORCH','PapanicolaouIVAA','DescripcionPapanicolaouIVAA','HepatitisB','DescripcionHepatitisB','OtrosEstudios','SemanasEmbarazoFURAU','ProblemasDetectados','SulfatoFerroso','AcidoFolico','VacunacionTdTdap','VacunacionInfluenza','OtrosTratamientos','Referencia','AlimentacionEmbarazo','DescripcionAlimentacionEmbarazo','CuidadosPersonales','DescripcionCuidadosPersonales','SintomasComunes','DescipcionSintomasComunes','SenalesPeligro','DescripcionSenalesPeligro','ConsejeriaPrePostVIH','DescripcionConsejeriaPrePostVIH','PlanParto','DescrpcionPlanParto','PlanEmergencia','DescpcionPlanEmergencia','LactanciaMaterna','DescripcionLactanciaMaterna','ViolenciaSexual','DescipcionViolenciaSexual','MetodosPlanificcion','ImportanciaControlPos','VacunacionRecienNacido', 'Estado')
@@ -504,9 +505,244 @@ class ReportesController extends Controller
     }
 
     //Cantidad de nacimientos por fechas
-    public function r6()
+    public function r6(Request $request)
     {
-        return view('reportes.r6');
+        /*$cant_infantes = infante::count();
+        if($cant_infantes === 0)
+        {
+            $busquedar6Pag = trim($request->get('filtror6Pag'));
+            $busquedar6FechaI = trim($request->get('filtror6FechaI'));
+            $busquedar6FechaF = trim($request->get('filtror6FechaF'));
+            if($busquedar6FechaI === '' && $busquedar6FechaF === '' )
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('Estado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate($busquedar6Pag);
+                return view('reportes.r6', compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF'));
+            }
+            elseif($busquedar6FechaI === '' && $busquedar6FechaF === $busquedar6FechaF )
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','<=',$busquedar6FechaF)
+                ->orderByDesc('FechaNacimiento')
+                ->where('Estado','Si')
+                ->paginate($busquedar6Pag);
+                return view('reportes.r6', compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF'));
+            }
+            elseif($busquedar6FechaI === $busquedar6FechaI && $busquedar6FechaF === '')
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','>=',$busquedar6FechaI)
+                ->orderByDesc('FechaNacimiento')
+                ->where('Estado','Si')
+                ->paginate($busquedar6Pag);
+                return view('reportes.r6', compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF'));
+            }
+            else{
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','>=',$busquedar6FechaI)
+                ->where('FechaNacimiento','<=',$busquedar6FechaF)
+                ->orderByDesc('FechaNacimiento')
+                ->where('Estado','Si')
+                ->paginate($busquedar6Pag);
+                return view('reportes.r6', compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF'));
+            }
+        }
+        else{*/
+            $busquedar6Pag = trim($request->get('filtror6Pag'));
+            $busquedar6FechaI = trim($request->get('filtror6FechaI'));
+            $busquedar6FechaF = trim($request->get('filtror6FechaF'));
+            if($busquedar6FechaI === '' && $busquedar6FechaF === '' )
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('Estado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate($busquedar6Pag);
+                return view('reportes.r6', compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF'));
+            }
+            elseif($busquedar6FechaI === '' && $busquedar6FechaF === $busquedar6FechaF )
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','<=',$busquedar6FechaF)
+                ->orderByDesc('FechaNacimiento')
+                ->where('Estado','Si')
+                ->paginate($busquedar6Pag);
+                return view('reportes.r6', compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF'));
+            }
+            elseif($busquedar6FechaI === $busquedar6FechaI && $busquedar6FechaF === '')
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','>=',$busquedar6FechaI)
+                ->orderByDesc('FechaNacimiento')
+                ->where('Estado','Si')
+                ->paginate($busquedar6Pag);
+                return view('reportes.r6', compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF'));
+            }
+            else{
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','>=',$busquedar6FechaI)
+                ->where('FechaNacimiento','<=',$busquedar6FechaF)
+                ->orderByDesc('FechaNacimiento')
+                ->where('Estado','Si')
+                ->paginate($busquedar6Pag);
+                return view('reportes.r6', compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF'));
+            }
+            
+        //}
+    }
+
+    public function pdf6(Request $request){
+        /*$cant_infantes = infante::count();
+        if($cant_infantes === 0)
+        {
+            $busquedar6Pag = trim($request->get('filtror6Pag'));
+            $busquedar6FechaI = trim($request->get('filtror6FechaI'));
+            $busquedar6FechaF = trim($request->get('filtror6FechaF'));
+            if($busquedar6FechaI === '' && $busquedar6FechaF === '' )
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('Estado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate($busquedar6Pag);
+                return view('reportes.r6', compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF'));
+            }
+            elseif($busquedar6FechaI === '' && $busquedar6FechaF === $busquedar6FechaF )
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','<=',$busquedar6FechaF)
+                ->orderByDesc('FechaNacimiento')
+                ->where('Estado','Si')
+                ->paginate($busquedar6Pag);
+                return view('reportes.r6', compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF'));
+            }
+            elseif($busquedar6FechaI === $busquedar6FechaI && $busquedar6FechaF === '')
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','>=',$busquedar6FechaI)
+                ->orderByDesc('FechaNacimiento')
+                ->where('Estado','Si')
+                ->paginate($busquedar6Pag);
+                return view('reportes.r6', compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF'));
+            }
+            else{
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','>=',$busquedar6FechaI)
+                ->where('FechaNacimiento','<=',$busquedar6FechaF)
+                ->orderByDesc('FechaNacimiento')
+                ->where('Estado','Si')
+                ->paginate($busquedar6Pag);
+                return view('reportes.r6', compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF'));
+            }
+        }
+        else{*/
+            $busquedar6Pag = trim($request->get('filtror6Pag'));
+            $busquedar6FechaI = trim($request->get('filtror6FechaI'));
+            $busquedar6FechaF = trim($request->get('filtror6FechaF'));
+            if($busquedar6FechaI === '' && $busquedar6FechaF === '' )
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('Estado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate($busquedar6Pag);
+
+                $infantescount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('Estado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+
+
+                $pdf = PDF::loadView('reportes/pdf/pdf6',compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF','infantescount'));
+                //pagina lado horizontal
+                $pdf->setPaper('A4', 'landscape');
+                return $pdf->stream('Reporte de pacientes.pdf');
+
+            }
+            elseif($busquedar6FechaI === '' && $busquedar6FechaF === $busquedar6FechaF )
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','<=',$busquedar6FechaF)
+                ->orderByDesc('FechaNacimiento')
+                ->where('Estado','Si')
+                ->paginate($busquedar6Pag);
+
+                $infantescount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','<=',$busquedar6FechaF)
+                ->where('Estado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+
+
+                $pdf = PDF::loadView('reportes/pdf/pdf6',compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF','infantescount','busquedar6FechaI','busquedar6FechaF'));
+                //pagina lado horizontal
+                $pdf->setPaper('A4', 'landscape');
+                return $pdf->stream('Reporte de pacientes.pdf');
+            }
+            elseif($busquedar6FechaI === $busquedar6FechaI && $busquedar6FechaF === '')
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','>=',$busquedar6FechaI)
+                ->orderByDesc('FechaNacimiento')
+                ->where('Estado','Si')
+                ->paginate($busquedar6Pag);
+
+                $infantescount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','>=',$busquedar6FechaI)
+                ->where('Estado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+
+
+                $pdf = PDF::loadView('reportes/pdf/pdf6',compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF','infantescount','busquedar6FechaI','busquedar6FechaF'));
+                //pagina lado horizontal
+                $pdf->setPaper('A4', 'landscape');
+                return $pdf->stream('Reporte de pacientes.pdf');
+            }
+            else{
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','>=',$busquedar6FechaI)
+                ->where('FechaNacimiento','<=',$busquedar6FechaF)
+                ->orderByDesc('FechaNacimiento')
+                ->where('Estado','Si')
+                ->paginate($busquedar6Pag);
+
+                $infantescount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','NombresPaciente','ApellidosPaciente','CUI','Estado')
+                ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','infantes.DatosPersonalesPacientes_id')
+                ->where('FechaNacimiento','>=',$busquedar6FechaI)
+                ->where('FechaNacimiento','<=',$busquedar6FechaF)
+                ->orderByDesc('FechaNacimiento')
+                ->where('Estado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+
+
+                $pdf = PDF::loadView('reportes/pdf/pdf6',compact('infantes','busquedar6Pag','busquedar6FechaI','busquedar6FechaF','infantescount','busquedar6FechaI','busquedar6FechaF'));
+                //pagina lado horizontal
+                $pdf->setPaper('A4', 'landscape');
+                return $pdf->stream('Reporte de pacientes.pdf');
+            }
+            
+        //}
+
     }
 
     //Infantes atendidos menores a cinco años
@@ -516,9 +752,592 @@ class ReportesController extends Controller
     }
 
     //Infantes que concluyen con la etapa de vacunación
-    public function r8()
+    public function r8(Request $request)
     {
-        return view('reportes.r8');
+        $cant_infantes = infante::count();
+        if($cant_infantes === 0)
+        {
+            $busquedar8Nombre = trim($request->get('filtror8Nombre'));
+            $busquedar8Apellido = trim($request->get('filtror8Apellido'));
+
+            if ($busquedar8Nombre === '' && $busquedar8Apellido === '')
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Td')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+    
+                $infantesinfluenzas = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Influenza')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+                
+                $infantesCovids = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Covid')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+    
+                $infantesTdAps = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','TdAp')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+    
+                return view('reportes.r8', compact('infantes','infantesinfluenzas','infantesCovids','infantesTdAps','busquedar8Nombre','busquedar8Apellido'));
+            }
+            elseif ($busquedar8Nombre === $busquedar8Nombre && $busquedar8Apellido === '')
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Td')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesinfluenzas = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Influenza')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+                
+                $infantesCovids = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Covid')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesTdAps = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','TdAp')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                return view('reportes.r8', compact('infantes','infantesinfluenzas','infantesCovids','infantesTdAps','busquedar8Nombre','busquedar8Apellido'));
+            }
+            elseif ($busquedar8Nombre === '' && $busquedar8Apellido === $busquedar8Apellido)
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Td')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesinfluenzas = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Influenza')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+                
+                $infantesCovids = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Covid')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesTdAps = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','TdAp')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                return view('reportes.r8', compact('infantes','infantesinfluenzas','infantesCovids','infantesTdAps','busquedar8Nombre','busquedar8Apellido'));
+            }
+            else{
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Td')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesinfluenzas = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Influenza')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+                
+                $infantesCovids = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Covid')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesTdAps = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','TdAp')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                return view('reportes.r8', compact('infantes','infantesinfluenzas','infantesCovids','infantesTdAps','busquedar8Nombre','busquedar8Apellido'));
+            }
+        }
+        else{
+            $busquedar8Nombre = trim($request->get('filtror8Nombre'));
+            $busquedar8Apellido = trim($request->get('filtror8Apellido'));
+
+            if ($busquedar8Nombre === '' && $busquedar8Apellido === '')
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Td')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+    
+                $infantesinfluenzas = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Influenza')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+                
+                $infantesCovids = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Covid')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+    
+                $infantesTdAps = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','TdAp')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+    
+                return view('reportes.r8', compact('infantes','infantesinfluenzas','infantesCovids','infantesTdAps','busquedar8Nombre','busquedar8Apellido'));
+            }
+            elseif ($busquedar8Nombre === $busquedar8Nombre && $busquedar8Apellido === '')
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Td')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesinfluenzas = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Influenza')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+                
+                $infantesCovids = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Covid')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesTdAps = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','TdAp')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                return view('reportes.r8', compact('infantes','infantesinfluenzas','infantesCovids','infantesTdAps','busquedar8Nombre','busquedar8Apellido'));
+            }
+            elseif ($busquedar8Nombre === '' && $busquedar8Apellido === $busquedar8Apellido)
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Td')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesinfluenzas = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Influenza')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+                
+                $infantesCovids = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Covid')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesTdAps = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','TdAp')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                return view('reportes.r8', compact('infantes','infantesinfluenzas','infantesCovids','infantesTdAps','busquedar8Nombre','busquedar8Apellido'));
+            }
+            else{
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Td')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesinfluenzas = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Influenza')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+                
+                $infantesCovids = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Covid')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesTdAps = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','TdAp')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                return view('reportes.r8', compact('infantes','infantesinfluenzas','infantesCovids','infantesTdAps','busquedar8Nombre','busquedar8Apellido'));
+            }
+        }
+    }
+
+    public function pdf8(Request $request){
+        
+            $busquedar8Nombre = trim($request->get('filtror8Nombre'));
+            $busquedar8Apellido = trim($request->get('filtror8Apellido'));
+
+            if ($busquedar8Nombre === $busquedar8Nombre && $busquedar8Apellido === '')
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Td')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantescount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Td')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+
+                $infantesinfluenzas = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Influenza')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesinfluenzascount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Influenza')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+                
+                $infantesCovids = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Covid')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+                
+                $infantesCovidscount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Covid')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+
+                $infantesTdAps = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','TdAp')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesTdApscount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','TdAp')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+
+                $pdf = PDF::loadView('reportes/pdf/pdf8',compact('infantes','infantesinfluenzas','infantesCovids','infantesTdAps','busquedar8Nombre','busquedar8Apellido','infantesTdApscount','infantesCovidscount','infantesinfluenzascount','infantescount'));
+                //pagina lado horizontal
+                //$pdf->setPaper('A4', 'landscape');
+                return $pdf->stream('Reporte de pacientes.pdf');
+            }
+            elseif ($busquedar8Nombre === '' && $busquedar8Apellido === $busquedar8Apellido)
+            {
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Td')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantescount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Td')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+
+                $infantesinfluenzas = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Influenza')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesinfluenzascount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Influenza')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+                
+                $infantesCovids = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Covid')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesCovidscount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Covid')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+
+                $infantesTdAps = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','TdAp')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesTdApscount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','TdAp')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+
+                $pdf = PDF::loadView('reportes/pdf/pdf8',compact('infantes','infantesinfluenzas','infantesCovids','infantesTdAps','busquedar8Nombre','busquedar8Apellido','infantesTdApscount','infantesCovidscount','infantesinfluenzascount','infantescount'));
+                //pagina lado horizontal
+                //$pdf->setPaper('A4', 'landscape');
+                return $pdf->stream('Reporte de pacientes.pdf');
+            }
+            else{
+                $infantes = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Td')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+                
+                $infantescount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Td')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+
+                $infantesinfluenzas = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Influenza')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesinfluenzascount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Influenza')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+                
+                $infantesCovids = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Covid')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesCovidscount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','Covid')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+
+                $infantesTdAps = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','TdAp')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->paginate(100);
+
+                $infantesTdApscount = infante::select('idInfantes','Nombres','Apellidos','Genero','FechaNacimiento','HoraNaciemiento','PesoLB','Altura','Observaciones','FechaEgreso','infantes.TipoSanguineo','infantes.DatosPersonalesPacientes_id','infantes.idDatosFamiliares','infantes.Parentesco','vacunainfantes.Tado','vacunainfantes.Vacunas_id','NombreVacuna')
+                ->join('vacunainfantes', 'vacunainfantes.Infante_id', '=','infantes.idInfantes')
+                ->join('vacunas', 'vacunas.idVacunas', '=','vacunainfantes.Vacunas_id')
+                ->where('NombreVacuna','TdAp')
+                ->where('Nombres','LIKE','%'.$busquedar8Nombre.'%')
+                ->where('Apellidos','LIKE','%'.$busquedar8Apellido.'%')
+                ->where('vacunainfantes.Tado','Si')
+                ->orderByDesc('FechaNacimiento')
+                ->count('idInfantes');
+
+
+
+                $pdf = PDF::loadView('reportes/pdf/pdf8',compact('infantes','infantesinfluenzas','infantesCovids','infantesTdAps','busquedar8Nombre','busquedar8Apellido','infantesTdApscount','infantesCovidscount','infantesinfluenzascount','infantescount'));
+                //pagina lado horizontal
+                //$pdf->setPaper('A4', 'landscape');
+                return $pdf->stream('Reporte de pacientes.pdf');
+            }
+
     }
 
     //Índice de muertes maternas

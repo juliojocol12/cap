@@ -72,6 +72,7 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::resource('fichamspasriesgos', FichamspasriegoController::class);
     Route::resource('vacunas', VacunaController::class);
+    Route::get('vacunas/registro', [App\Http\Controllers\VacunaController::class, 'vacunas'])->name('vacunas.registro');
     Route::resource('vacunainfantes', VacunainfanteController::class);
 
     Route::get('/evento', [App\Http\Controllers\EventoController::class, 'index']);
@@ -107,6 +108,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('pdf13/reportes', [App\Http\Controllers\ReportesController::class, 'pdf13'])->name('vacunas.pdf13');
     Route::get('pdf2/reportes', [App\Http\Controllers\ReportesController::class, 'pdf2'])->name('pacientes.pdf2');
     Route::get('pdf5/reportes', [App\Http\Controllers\ReportesController::class, 'pdf5'])->name('posparto.pdf5');
+    Route::get('pdf6/reportes', [App\Http\Controllers\ReportesController::class, 'pdf6'])->name('nacidos.pdf6');
+    Route::get('pdf8/reportes', [App\Http\Controllers\ReportesController::class, 'pdf8'])->name('vacunainfante.pdf8');
 
 
 });

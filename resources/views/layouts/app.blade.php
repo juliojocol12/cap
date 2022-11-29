@@ -381,11 +381,13 @@ document.getElementById('boton').style.display = "none";
 
 //Fecha Maxima
 datePickerId.max = new Date().toISOString().split("T")[0];
+datePickerId2.max = new Date().toISOString().split("T")[0];
 
 //Fecha Minima
 $('#arrival_date').attr('min', new Date().toISOString().split('T')[0])
 
 var date = $('#datepicker').datepicker({ dateFormat: 'd-m-Y' }).val();
+var date = $('#datepicker2').datepicker({ dateFormat: 'd-m-Y' }).val();
     
 </script>
 </html>

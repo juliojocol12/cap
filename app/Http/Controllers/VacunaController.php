@@ -44,6 +44,14 @@ class VacunaController extends Controller
         $sumatdap = vacuna::where('NombreVacuna', 'TdAp')->where('Estado','Si')->sum('Cantidad');
         $vacunastdap =  $sumatdap - $restatdap;
 
+        $restacovid = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Covid')->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
+        $sumacovid = vacuna::where('NombreVacuna', 'Covid')->where('Estado','Si')->sum('Cantidad');
+        $vacunascovid = $sumacovid - $restacovid;
+
+
+        
+        $sumacovid = vacuna::where('NombreVacuna', 'Covid')->where('Estado','Si')->sum('Cantidad');
+
         return view('vacunas.index', compact('vacunas','texto','vacunastd','vacunascovid','vacunainfluenza','vacunastdap'));
         
     }
@@ -53,9 +61,32 @@ class VacunaController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function vacunas()
+    public function vacunas(Request $request)
     {
-        return view('vacunas.vacunas', compact('vacunas','vacunassum','vacunastd'));
+        $texto = trim($request->get('texto'));
+        $vacunas = vacuna::where('NombreVacuna','LIKE','%'.$texto.'%')->where('Estado','Si')->paginate(10);
+
+        $restacovid = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Covid')->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
+        $sumacovid = vacuna::where('NombreVacuna', 'Covid')->where('Estado','Si')->sum('Cantidad');
+        $vacunascovid = $sumacovid - $restacovid;
+
+        $restatd = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Td')->where('Tado','Si')->count('vacunainfantes.Vacunas_id');        
+        $sumatd = vacuna::where('NombreVacuna', 'Td')->where('Estado','Si')->sum('Cantidad');
+        $vacunastd = $sumatd - $restatd;
+
+        $restainfluenza = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Influenza')->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
+        $sumainfluenza = vacuna::where('NombreVacuna', 'Influenza')->where('Estado','Si')->sum('Cantidad');
+        $vacunainfluenza = $sumainfluenza - $restainfluenza;
+
+        $restatdap = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','TdAp')->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
+        $sumatdap = vacuna::where('NombreVacuna', 'TdAp')->where('Estado','Si')->sum('Cantidad');
+        $vacunastdap =  $sumatdap - $restatdap;
+
+        $restacovid = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Covid')->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
+        $sumacovid = vacuna::where('NombreVacuna', 'Covid')->where('Estado','Si')->sum('Cantidad');
+        $vacunascovid = $sumacovid - $restacovid;
+
+        return view('vacunas.vacunas', compact('vacunas','texto','vacunastd','vacunascovid','vacunainfluenza','vacunastdap'));
         
         
     }
