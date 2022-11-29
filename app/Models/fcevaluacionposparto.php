@@ -10,11 +10,10 @@ class fcevaluacionposparto extends Model
     use HasFactory; 
     protected $table = 'fcevaluacionpospartos';
     protected $primaryKey = 'idFCEvaluacionPosparto';
-    protected $fillable  = ['FechaEvaluacionPosparto','DatosPersonalesPacientes_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterialSignos','Fiebre','Coagulos','RegistroReferencia','NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Personal_idD',
+    protected $fillable  = ['FechaEvaluacionPosparto','DatosPersonalesPacientes_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterialSignos','Fiebre','Coagulos','RegistroReferencia','NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Medico',
     'HeridaOperatoria','InvolucionUterina','PresionArterial','FrecuenciaCardiaca','Temperatura',
     'ExamenMamas','ExamenGinecologico','LactanciaMaterna','PorqueNoLactanciaMaterna','Diagnostico',
-    'ConductaTratamiento','Usuario_id','SulfatoFerroso','AcidoFolico','OtroMedicamento','Tdap','ConsejeriaPF_Posparto','ConsejeriaLactanciaAlimentacion','ConsejeriaLactanciaMujerVIH','ConsejeriaMujerVIH', 'Estado'];
-
+    'ConductaTratamiento','Usuario_id','SulfatoFerroso','AcidoFolico','OtroMedicamento','Tdap','ConsejeriaPF_Posparto','ConsejeriaLactanciaAlimentacion','ConsejeriaLactanciaMujerVIH','ConsejeriaMujerVIH', 'Estado','AtencionPsicologica','ObservacionAtencion','Seguimiento','ObservacionSeguimiento'];
           
     public function datospersonalespacientes()
     {
@@ -31,8 +30,4 @@ class fcevaluacionposparto extends Model
         return $this->belongsTo('App\Models\User', 'Usuario_id', 'id');
     }
 
-    public function personaless()
-    {
-        return $this->belongsTo('App\Models\personale', 'Personal_idD', 'idPersonal');
-    }
 }

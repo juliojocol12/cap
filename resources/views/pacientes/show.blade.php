@@ -9,6 +9,10 @@
             <h4 class="page__heading">Información de {{$pacientes->NombresPaciente}} {{$pacientes->ApellidosPaciente}} </h4>
         </div>
         <div class="section-body">
+        <a href="{{ route('pacientes.index') }}" class="btn btn-success mr-3">Volver</a>
+                <a href="{{ route('pacientes.edit', $pacientes->idDatosPersonalesPacientes) }}" class="btn btn-info mr-3">Editar</a>
+                <a href="{{ route('fcprenatalpostpartos.create') }}" class="btn btn-primary mr-3">Ingresar ficha clínica</a>
+                <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-primary mr-3">Ver ficha clínica</a> 
             <div class="row">
                 {{-- Validacion para ingreso de campos --}}
                     @if($errors->any())
@@ -22,143 +26,184 @@
                         </button>
                     </div>
                 @endif
-                <div class="col-lg-3.5 ">
+                <div class="col-lg-12 ">
                     <div class="card">
-                        <div class="card-body table-responsive">
-                            
-                                    <table class="table table-striped table-bordered table-responsive " >
-                                        <h4 class="page__heading">Datos personales</h4>
-                                        <tbody >
-                                            <tr>
-                                                <th scope="row" ">Nombres</th>
-                                                <td>{{$pacientes->NombresPaciente}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Apellidos</th>
-                                                <td>{{$pacientes->ApellidosPaciente}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Fecha de nacimiento</th>
-                                                <td data-date-format="mm/dd/yy">{{$pacientes->FechaNaciemientoPaciente}}</td>
-                                                
-                                                <input type="text" value="{{$pacientes->FechaNaciemientoPaciente}}" data-date-format="d-m-Y" id="dp2">
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Edad</th>
-                                                <td>{{$pacientes->FechaNaciemientoPaciente}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">DPI</th>
-                                                <td>{{$pacientes->CUI}}</td>
-                                            </tr>
-                                            
-                                            
-                                            <tr>
-                                                <th scope="row" ">Estado civil</th>
-                                                <td>{{$pacientes->EstadoCivil}}</td>
-                                            </tr>
+                        <div class="card-body">
+                        <h4 class="page__heading">Datos personales</h4>
+                            <div class="row ">                                
 
+                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for=""><b>Nombre </b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->NombresPaciente}}" disabled>
+                                    </div>
+                                </div>
 
-                                        </tbody>
-                                    </table>
-                                    
-                                    <h4 class="page__heading">Datos de contacto</h4>
-                                    <table class="table table-striped table-bordered table-responsive " >
-                                        <tbody >   
-                                            <tr>
-                                                <th scope="row" ">Descripción dirección</th>
-                                                <td>{{$pacientes->Descripciondireccion}}</td>
-                                            </tr>
+                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for=""><b>Apellidos</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->ApellidosPaciente}}" disabled>
+                                    </div>
+                                </div>
 
-                                            <tr>
-                                                <th scope="row" ">Grupo dirección</th>
-                                                <td>{{$pacientes->Grupodireccion}}</td>
-                                            </tr>
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for=""><b>Fecha de nacimiento</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{ date('d-m-Y', strtotime($pacientes->FechaNaciemientoPaciente))}}" disabled>
+                                    </div>
+                                </div>
 
-                                            <tr>
-                                                <th scope="row" ">Número de casa</th>
-                                                <td>{{$pacientes->Numerodireccion}}</td>
-                                            </tr>
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for=""><b>DPI</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->CUI}}" disabled>
+                                    </div>
+                                </div>
 
-                                            <tr>
-                                                <th scope="row" ">Zona</th>
-                                                <td>{{$pacientes->Zonadireccion}}</td>
-                                            </tr>
-
-                                            <tr>
-                                                <th scope="row" ">Municipio y departamento</th>
-                                                <td>{{$pacientes->Municipiodep}}</td>
-                                            </tr>
-
-                                            <tr>
-                                                <th scope="row" ">Teléfono</th>
-                                                <td>{{$pacientes->Telefono}}</td>
-                                                
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Celular</th>
-                                                <td>{{$pacientes->Celular}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Profesión u oficio</th>
-                                                <td>{{$pacientes->ProfesionOficio}}</td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <th scope="row" ">Nombre de familiar</th>
-                                                <td>{{$pacientes->datosfamiliares->NombresFamiliar}} {{$pacientes->datosfamiliares->ApellidosFamiliar}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Parentesco</th>
-                                                <td>{{$pacientes->Parentesco}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <h4 class="page__heading">Otros datos</h4>
-                                    <table class="table table-striped table-bordered table-responsive " >
-                                        <tbody >
-                                            
-                                            <tr>
-                                                <th scope="row" ">Peso</th>
-                                                <td>{{$pacientes->Peso}} Libras</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Tipo de sangre</th>
-                                                <td>{{$pacientes->TipoSanguineo}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Medicamentos en uso</th>
-                                                <td>{{$pacientes->MedicamentosActualmente}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Migrante</th>
-                                                <td>{{$pacientes->Migrante}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" ">Pueblo</th>
-                                                <td>{{$pacientes->pueblos->Nombre}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                        </div>
-                    </div>   
-                    <div class="card">
-                        
-                    </div> 
-                </div>
-
-
-                
-                <div class="col-lg-3.5 ">
-                    <div class="card">
-                        <div class="card-body table-responsive">
-                            <a href="{{ route('pacientes.index') }}" class="btn btn-success mr-3">Volver</a>
-                            <a href="{{ route('pacientes.edit', $pacientes->idDatosPersonalesPacientes) }}" class="btn btn-info mr-3">Editar</a>
-                            <a href="{{ route('fcprenatalpostpartos.create') }}" class="btn btn-primary mr-3">Ingresar ficha clínica</a>
-                            <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-primary mr-3">Ver ficha clínica</a> 
-                        </div>
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for=""><b>Estado civil</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->EstadoCivil}}" disabled>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>                        
                     </div>
                 </div>
+
+                <div class="col-lg-12 ">
+                    <div class="card">
+                        <div class="card-body">
+                        <h4 class="page__heading">Datos de contacto</h4>
+                            <div class="row ">                                
+
+                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for=""><b>Comunidad</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->Descripciondireccion}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for=""><b>Sector</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->Grupodireccion}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for=""><b>Número de casa</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->Numerodireccion}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for=""><b>Zona</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->Zonadireccion}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                    <div class="form-group">
+                                        <label for=""><b>Municipio y departamento</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->Municipiodep}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for=""><b>Teléfono</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->Telefono}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for=""><b>Celular</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->Celular}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for=""><b>Profesión u oficio</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->ProfesionOficio}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                    <div class="form-group">
+                                        <label for=""><b>Nombre de familiar</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->datosfamiliares->ApellidosFamiliar}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for=""><b>Parentesco</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->Parentesco}}" disabled>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+
+                <div class="col-lg-12 ">
+                    <div class="card">
+                        <div class="card-body">
+                        <h4 class="page__heading">Otros datos</h4>
+                            <div class="row ">                                
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for=""><b>Peso</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->Peso}} Libras" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for=""><b>Tipo de sangre</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->TipoSanguineo}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for=""><b>Historial de medicamentos</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->MedicamentosActualmente}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for=""><b>Migrante</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->Migrante}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for=""><b>Pueblo</b> </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$pacientes->pueblos->Nombre}}" disabled>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+
+                <a href="{{ route('pacientes.index') }}" class="btn btn-success mr-3">Volver</a>
+                <a href="{{ route('pacientes.edit', $pacientes->idDatosPersonalesPacientes) }}" class="btn btn-info mr-3">Editar</a>
+                <a href="{{ route('fcprenatalpostpartos.create') }}" class="btn btn-primary mr-3">Ingresar ficha clínica</a>
+                <a href="{{ route('fcprenatalpostpartos.index') }}" class="btn btn-primary mr-3">Ver ficha clínica</a> 
+                        
             </div>
             <div class="row">
                 

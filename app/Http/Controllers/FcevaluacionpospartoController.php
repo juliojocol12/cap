@@ -32,10 +32,10 @@ class FcevaluacionpospartoController extends Controller
         if($cant_posparto === 0)
         {
             $texto = trim($request->get('texto'));
-            $fcevaluacionpospartos = fcevaluacionposparto::select('idFCEvaluacionPosparto','FechaEvaluacionPosparto','Numerodireccion','NombresPaciente','ApellidosPaciente','CUI','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterialSignos','Fiebre','Coagulos','RegistroReferencia','NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Personal_idD',
+            $fcevaluacionpospartos = fcevaluacionposparto::select('idFCEvaluacionPosparto','FechaEvaluacionPosparto','Numerodireccion','NombresPaciente','ApellidosPaciente','CUI','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterialSignos','Fiebre','Coagulos','RegistroReferencia','NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Medico',
             'HeridaOperatoria','InvolucionUterina','PresionArterial','FrecuenciaCardiaca','Temperatura',
             'ExamenMamas','ExamenGinecologico','LactanciaMaterna','PorqueNoLactanciaMaterna','Diagnostico',
-            'ConductaTratamiento','SulfatoFerroso','AcidoFolico','OtroMedicamento','Tdap','ConsejeriaPF_Posparto','ConsejeriaLactanciaAlimentacion','ConsejeriaLactanciaMujerVIH','ConsejeriaMujerVIH','Estado')
+            'ConductaTratamiento','SulfatoFerroso','AcidoFolico','OtroMedicamento','Tdap','ConsejeriaPF_Posparto','ConsejeriaLactanciaAlimentacion','ConsejeriaLactanciaMujerVIH','ConsejeriaMujerVIH','Estado','AtencionPsicologica','ObservacionAtencion','Seguimiento','ObservacionSeguimiento')
             ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcevaluacionpospartos.DatosPersonalesPacientes_id')
             ->where('CUI','LIKE','%'.$texto.'%')
             ->paginate(10);
@@ -43,10 +43,10 @@ class FcevaluacionpospartoController extends Controller
         }
         else{
             $texto = trim($request->get('texto'));
-            $fcevaluacionpospartos = fcevaluacionposparto::select('idFCEvaluacionPosparto','FechaEvaluacionPosparto','Numerodireccion','NombresPaciente','ApellidosPaciente','CUI','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterialSignos','Fiebre','Coagulos','RegistroReferencia','NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Personal_idD',
+            $fcevaluacionpospartos = fcevaluacionposparto::select('idFCEvaluacionPosparto','FechaEvaluacionPosparto','Numerodireccion','NombresPaciente','ApellidosPaciente','CUI','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterialSignos','Fiebre','Coagulos','RegistroReferencia','NombreServicio','DiasDespuesParto','EstablecimientoSalud_id','Medico',
             'HeridaOperatoria','InvolucionUterina','PresionArterial','FrecuenciaCardiaca','Temperatura',
             'ExamenMamas','ExamenGinecologico','LactanciaMaterna','PorqueNoLactanciaMaterna','Diagnostico',
-            'ConductaTratamiento','SulfatoFerroso','AcidoFolico','OtroMedicamento','Tdap','ConsejeriaPF_Posparto','ConsejeriaLactanciaAlimentacion','ConsejeriaLactanciaMujerVIH','ConsejeriaMujerVIH','Estado')
+            'ConductaTratamiento','SulfatoFerroso','AcidoFolico','OtroMedicamento','Tdap','ConsejeriaPF_Posparto','ConsejeriaLactanciaAlimentacion','ConsejeriaLactanciaMujerVIH','ConsejeriaMujerVIH','Estado','AtencionPsicologica','ObservacionAtencion','Seguimiento','ObservacionSeguimiento')
             ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcevaluacionpospartos.DatosPersonalesPacientes_id')
             ->where('CUI','LIKE','%'.$texto.'%')
             ->where('Estado','Si')
@@ -95,7 +95,7 @@ class FcevaluacionpospartoController extends Controller
             'NombreServicio' => 'required|TextoRule1',
             'DiasDespuesParto' => 'required|NumeroRule',
             'EstablecimientoSalud_id' => 'required',
-            'Personal_idD' => 'required',
+            'Medico' => 'required',
             'HeridaOperatoria' => 'required|TextoRule3',
             'InvolucionUterina' => 'required|TextoRule3',
             'PresionArterial' => 'required|TextoRule3',
@@ -117,6 +117,10 @@ class FcevaluacionpospartoController extends Controller
             'ConsejeriaLactanciaMujerVIH' => 'required',
             'ConsejeriaMujerVIH' => 'required',
 			'Estado',
+            'AtencionPsicologica' => 'required',
+            'ObservacionAtencion' => 'TextoRule4',
+            'Seguimiento' => 'required',
+            'ObservacionSeguimiento' => 'TextoRule4',
         ]);
         
         fcevaluacionposparto::create($request->all());
@@ -189,7 +193,7 @@ class FcevaluacionpospartoController extends Controller
             'NombreServicio' => 'required|TextoRule1',
             'DiasDespuesParto' => 'required|NumeroRule',
             'EstablecimientoSalud_id' => 'required',
-            'Personal_idD' => 'required',
+            'Medico' => 'required',
             'HeridaOperatoria' => 'required|TextoRule3',
             'InvolucionUterina' => 'required|TextoRule3',
             'PresionArterial' => 'required|TextoRule3',
@@ -211,6 +215,10 @@ class FcevaluacionpospartoController extends Controller
             'ConsejeriaLactanciaMujerVIH' => 'required',
             'ConsejeriaMujerVIH' => 'required',
 			'Estado',
+            'AtencionPsicologica' => 'required',
+            'ObservacionAtencion' => 'TextoRule4',
+            'Seguimiento' => 'required',
+            'ObservacionSeguimiento' => 'TextoRule4',
         ]);
         $input = $request->all();
         $fcevaluacionposparto = fcevaluacionposparto::find($idFCEvaluacionPosparto);

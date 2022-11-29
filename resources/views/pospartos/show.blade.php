@@ -36,6 +36,9 @@ Datos del expediente No. {{$fcevaluacionposparto->datospersonalespacientes->Nume
                     @include('pospartos.show.primer')
                     @include('pospartos.show.suplementacion')
 
+                    <a href="{{ route('pospartos.index') }}" class="btn btn-success mr-3">Volver</a>
+                    <a class="btn btn-info mr-3" href="{{ route('pospartos.edit', $fcevaluacionposparto->idFCEvaluacionPosparto) }}">Editar</a>
+
                 </div>
             </div>
             <div class="row">

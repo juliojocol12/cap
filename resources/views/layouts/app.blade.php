@@ -107,6 +107,7 @@
                 console.log(info.event.datosPersonalesPacientes_id);
                 console.log(info.event.establecimiento);
                 console.log(info.event.Establecimientoid);
+                console.log(info.event.Celular);
                 console.log(info.event.Usuario_id);
                 console.log(info.event.Estado);
                 console.log(info.event.comunidad);
@@ -120,6 +121,7 @@
                 $('#txtID').val(info.event.id);
                 $('#txtTitulo').val(info.event.title);
                 $('#txtDatosP').val(info.event.extendedProps.datosPersonalesPacientes_id);
+                $('#txtCelular').val(info.event.extendedProps.Celular);
                 $('#txtEstable').val(info.event.extendedProps.Establecimientoid);
                 $('#txtUsuario').val(info.event.extendedProps.Usuario_id);
                 $('#txtEstado').val(info.event.extendedProps.Estado);
@@ -182,6 +184,7 @@
                 title:$('#txtTitulo').val(),
                 descripcion:$('#txtDescripcion').val(),
                 datosPersonalesPacientes_id:$('#txtDatosP').val(),	
+                Celular:$('#txtCelular').val(),
                 establecimiento:$('#txtEstablecimiento').val(),	
                 Establecimientoid:$('#txtEstable').val(),	
                 Usuario_id:$('#txtUsuario').val(),	
@@ -220,6 +223,7 @@
                 $('#txtTitulo').val("");
                 $('#txtFecha').val("");
                 $('#txtDatosP').val("");
+                $('#txtCelular').val("");
                 $('#txtEstablecimiento').val("");
                 $('#txtEstable').val("");
                 $('#txtUsuario').val("");

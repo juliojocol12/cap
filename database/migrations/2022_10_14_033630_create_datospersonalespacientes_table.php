@@ -38,10 +38,10 @@ class CreateDatospersonalespacientesTable extends Migration
             $table->unsignedInteger('pueblo_id');
             $table->foreign('pueblo_id')->references('idPueblo')->on('pueblos');
 
-            $table->unsignedInteger('idDatosFamiliares');
+            $table->unsignedInteger('idDatosFamiliares')->nullable();
             $table->foreign('idDatosFamiliares')->references('idDatosFamiliares')->on('datosfamiliares');
             
-            $table->string('Parentesco',20);
+            $table->string('Parentesco',20)->nullable();
 
             $table->unsignedBigInteger('Usuario_id')->nullable();
             $table->foreign('Usuario_id')->references('id')->on('users');

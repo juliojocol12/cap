@@ -1,6 +1,6 @@
 <div class="card">
                         <div class="card-body">
-                            <h4 class="page__heading">Datos de evaluación posparto</h4>
+                            <h3 class="page__heading">Datos de evaluación posparto</h3>
                             <div class="row ">
                                 <div class="col-xs-6 col-sm-6 col-md-1">
                                     <div class="form-group">

@@ -70,6 +70,8 @@
                                     <datalist id="filtroIdPacientes" name="Cargo">
                                         <option value="Doctor"> Doctor</option>       
                                         <option value="Enfermero"> Enfermero</option>      
+                                        <option value="EPS"> EPS </option> 
+                                        <option value="Auxiliar de enfermería"> Auxiliar de enfermería</option>
                                     </datalist>
                                 </div>
                             </div>

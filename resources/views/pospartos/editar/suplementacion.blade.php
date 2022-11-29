@@ -117,6 +117,54 @@
                                 </div>
                             </div>
 
+                            <div class="col-xs-1 col-sm-6 col-md-4">
+                                <div class="form-group">
+                                    <label for="AtencionPsicologica">Atención psicológica (*)</label>
+                                    <select class="form-control" name="AtencionPsicologica">
+                                        <option select">{{$fcevaluacionposparto->AtencionPsicologica}}</option>
+                                        @if ($fcevaluacionposparto->AtencionPsicologica === 'Si')
+                                            <option value="No">No</option>
+                                        @else
+                                            <option value="Si">Si</option>
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-xs-6 col-sm-6 col-md-4">                            
+                                <div class="form-group">
+                                    <div class="form-outline w-100 mb-4">
+                                        <label for="ConsejeriaLactanciaAlimentacion">Observaciones de la atención</label>
+                                        <textarea class="form-control" id="ObservacionAtencion" name="ObservacionAtencion" style="height:120px; width: 100%; " maxlength="150" placeholder="Ingrese la observación de la atención psicológica">{{ $fcevaluacionposparto->ObservacionAtencion }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-1 col-sm-6 col-md-4">
+                                <div class="form-group">
+                                    <label for="Seguimiento">Seguimiento de trabajo social (*)</label>
+                                    <select class="form-control" name="Seguimiento">
+                                        <option select">{{$fcevaluacionposparto->Seguimiento}}</option>
+                                        @if ($fcevaluacionposparto->Seguimiento === 'Si')
+                                            <option value="No">No</option>
+                                        @else
+                                            <option value="Si">Si</option>
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-xs-6 col-sm-6 col-md-4">                            
+                                <div class="form-group">
+                                    <div class="form-outline w-100 mb-4">
+                                        <label for="ConsejeriaLactanciaAlimentacion">Observaciones del seguimiento</label>
+                                        <textarea class="form-control" id="ObservacionSeguimiento" name="ObservacionSeguimiento" style="height:120px; width: 100%; " maxlength="150" placeholder="Ingrese la observación del seguimiento del trabajo social">{{ $fcevaluacionposparto->ObservacionSeguimiento }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+
                                 </div>
                         </div>
                     </div>

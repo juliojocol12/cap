@@ -35,7 +35,11 @@ class ControlpospartoController extends Controller
         }
         else{
             $texto = trim($request->get('texto'));
-            $controlpospartos = controlposparto::select('idControlPosparto','NoControl','FCEvaluacionPosparto_id','SemanasDespuesParto','FechaVisita','InvolucionUterina','ExamenMamas','HeridaOperatiria','ExamenGInecológico','PresionArterial','MMHG','FrecuenciaCardiaca','Temperatura','LactanciaMaterna','ProblemasDetectados','SulfatoFerroso','AcidoFolico','VacuncacionTdapMadre','Medicamento','LactanciaMaternaExclusiva','PlanificacionFamiliarPosparto','AlimentacionMadreLactante','LactanciaMaternaVIH','MujerVIH','Usuario_id','Estado')->where('idControlPosparto','LIKE','%'.$texto.'%')->where('Estado','Si')->paginate(10);
+            $controlpospartos = controlposparto::select('controlpospartos.idControlPosparto','controlpospartos.NoControl','controlpospartos.FCEvaluacionPosparto_id','controlpospartos.SemanasDespuesParto','controlpospartos.FechaVisita','controlpospartos.InvolucionUterina','controlpospartos.ExamenMamas','controlpospartos.HeridaOperatiria','controlpospartos.ExamenGInecológico','controlpospartos.PresionArterial','controlpospartos.MMHG','controlpospartos.FrecuenciaCardiaca','controlpospartos.Temperatura','controlpospartos.LactanciaMaterna','controlpospartos.ProblemasDetectados','controlpospartos.SulfatoFerroso','controlpospartos.AcidoFolico','controlpospartos.VacuncacionTdapMadre','controlpospartos.Medicamento','controlpospartos.LactanciaMaternaExclusiva','controlpospartos.PlanificacionFamiliarPosparto','controlpospartos.AlimentacionMadreLactante','controlpospartos.LactanciaMaternaVIH','controlpospartos.MujerVIH','controlpospartos.Usuario_id','controlpospartos.Estado','FechaEvaluacionPosparto','NombresPaciente','ApellidosPaciente','Numerodireccion')
+            ->join('fcevaluacionpospartos', 'fcevaluacionpospartos.idFCEvaluacionPosparto', '=','controlpospartos.FCEvaluacionPosparto_id')
+            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcevaluacionpospartos.idFCEvaluacionPosparto')
+            ->where('idControlPosparto','LIKE','%'.$texto.'%')
+            ->where('controlpospartos.Estado','Si')->paginate(10);
             return view('controlpospartos.index', compact('controlpospartos','texto'));
         }
 

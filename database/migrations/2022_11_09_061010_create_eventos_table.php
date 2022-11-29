@@ -21,6 +21,8 @@ class CreateEventosTable extends Migration
             $table->unsignedInteger('datosPersonalesPacientes_id');
             $table->foreign('datosPersonalesPacientes_id')->references('idDatosPersonalesPacientes')->on('datospersonalespacientes');
 
+            $table->string('Celular',15);
+
             $table->unsignedInteger('Establecimientoid');
             $table->foreign('Establecimientoid')->references('idEstablecimientoSaludos')->on('establecimientosaludos');
 

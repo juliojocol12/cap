@@ -31,8 +31,32 @@
                                     <form action="{{ route('personal.index') }}" method="GET">
                                         <div class="form-row">
                                             <div class="col-sm-4 my-1">
-                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese algún valor para buscar">
+                                                <label for=""><b>Filtrar por nombre</b> </label>
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese un nombre para buscar">
                                             </div>
+
+                                            <div class="col-sm-4 my-1">
+                                                <label for=""><b>Filtrar por DPI</b> </label>
+                                                <input type="text" class="form-control" name="CUI" autocomplete="off" value="{{$CUI}}" placeholder="Ingrese algún valor para buscar">
+                                            </div>
+
+                                            <div class="col-sm-4 my-1">
+                                                <label for=""><b>Filtrar por cargo</b> </label>
+                                                <input type="text" class="form-control" name="Cargo" autocomplete="off" value="{{$Cargo}}" placeholder="Ingrese algún valor para buscar">
+                                            </div>
+
+                                            <div class="col-sm-4 my-1">
+                                                <label for=""><b>Filtrar por celular</b> </label>
+                                                <input type="text" class="form-control" name="Celular" autocomplete="off" value="{{$Celular}}" placeholder="Ingrese algún valor para buscar">
+                                            </div>
+
+                                            <div class="col-sm-4 my-1">
+                                                <label for=""><b>Filtrar por tipo de sangre</b> </label>
+                                                <input type="text" class="form-control" name="Sangre" autocomplete="off" value="{{$Sangre}}" placeholder="Ingrese algún valor para buscar">
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="form-row">
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
                                                 <a href="{{ route('personal.index') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
@@ -45,6 +69,7 @@
                         <table class="table  table-striped mt-2 table-responsive">
                             <thead style="background-color:#6777ef">                                     
                                 <th style="display: none;">ID</th>
+                                <th style="color:#fff;">Mostrar</th>
                                 @can('editar-personal')
                                 <th style="color:#fff;">Editar</th>
                                 @endcan
@@ -53,12 +78,8 @@
                                 @endcan
                                 <th style="color:#fff;">Nombre</th>
                                 <th style="color:#fff;">DPI</th>   
-                                <th style="color:#fff;">Celular</th>                                 
-                                <th style="color:#fff;">Teléfono</th>
-                                <th style="color:#fff;">Dirección</th>
+                                <th style="color:#fff;">Celular</th>
                                 <th style="color:#fff;">Cargo</th>
-                                <th style="color:#fff;">Fecha de nacimiento</th>  
-                                <th style="color:#fff;">Nivel académico</th>
                                                                                             
                             </thead>
                             <tbody>
@@ -70,6 +91,9 @@
                                 @foreach ($personales as $personal)
                                     <tr>
                                         <td style="display: none;">{{ $personal->idPersonal }}</td>  
+                                        <td>
+                                            <a class="btn btn-success mr-3" href="{{ route('personal.show', $personal->idPersonal) }}">Mostar</a>
+                                            </td>
                                         @can('editar-personal')
                                         <td>                                            
                                             <a class="btn btn-info" href="{{ route('personal.edit', $personal->idPersonal) }}">Editar</a>                                            
@@ -83,11 +107,7 @@
                                         <td>{{ $personal->Nombre }}</td>
                                         <td>{{ $personal->CUI }}</td>
                                         <td>{{ $personal->Celular }}</td>
-                                        <td>{{ $personal->Telefono }}</td>
-                                        <td>{{ $personal->Direccion }}</td>
-                                        <td>{{ $personal->Cargo }}</td>
-                                        <td>{{ $personal->FechaNacimiento }}</td>
-                                        <td>{{ $personal->NivelAcademico }}</td>                   
+                                        <td>{{ $personal->Cargo }}</td>                 
                                     </tr>
                                 @include('personal.delete')
                                 @endforeach

@@ -1,15 +1,16 @@
 <div class="card">
                         <div class="card-body">
-                            <h4 class="page__heading">Datos generales de la paciente</h4>
+                            <h3 class="page__heading">Datos generales de la paciente</h3>
                             <div class="row ">                                
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Nombre</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->datospersonalespacientes->NombresPaciente}}" disabled>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->datospersonalespacientes->NombresPaciente}} {{$fcevaluacionposparto->datospersonalespacientes->ApellidosPaciente}}" disabled>
                                     </div>                                       
                                 </div>
 
+                                
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Fecha nacimiento</label>
@@ -20,7 +21,7 @@
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
                                         <label for="">Direccion</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->datospersonalespacientes->Descripciondireccion}} {{$fcevaluacionposparto->datospersonalespacientes->Grupodireccion}} {{$fcevaluacionposparto->datospersonalespacientes->Numerodireccion}} zona {{$fcevaluacionposparto->datospersonalespacientes->Zonadireccion}} {{$fcevaluacionposparto->datospersonalespacientes->Municipiodep}}" disabled>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->datospersonalespacientes->Numerodireccion}} zona {{$fcevaluacionposparto->datospersonalespacientes->Zonadireccion}} {{$fcevaluacionposparto->datospersonalespacientes->Descripciondireccion}} {{$fcevaluacionposparto->datospersonalespacientes->Grupodireccion}} {{$fcevaluacionposparto->datospersonalespacientes->Municipiodep}}" disabled>
                                     </div>                                       
                                 </div>
 
@@ -52,6 +53,7 @@
                                     </div>                                       
                                 </div>
 
+                                {{--
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Pueblo</label>
@@ -121,7 +123,8 @@
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->fcprenatalpostpartos->NacidosMuertos}}" disabled>
                                     </div>                                       
                                 </div>
-                                
+                                --}}
+
                             </div>    
 
                         </div>                    

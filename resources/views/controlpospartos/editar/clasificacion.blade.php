@@ -1,6 +1,6 @@
 <div class="card">
                         <div class="card-body">
-                        <h3 class="page__heading">Clasificicación</h3>
+                        <h3 class="page__heading">Clasificación</h3>
                         <div class="row ">
                                      
                                     <div class="col-xs-6 col-sm-6 col-md-12">                            

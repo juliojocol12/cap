@@ -48,10 +48,11 @@ Control posparto
                                     @can('borrar-controlposparto')
                                     <th style="color:#fff;">Borrar</th>
                                     @endcan
+                                    <th style="color:#fff;">Número de expediente</th>
                                     <th style="color:#fff;">Número de control</th>
-                                    <th style="color:#fff;">Ficha evaluación posparto</th>
                                     <th style="color:#fff;">Semanas despúes del parto</th>
                                     <th style="color:#fff;">Fecha de visita</th>
+                                    <th style="color:#fff;">Nombre</th>
                                 </thead>
 
                                 <tbody>
@@ -78,10 +79,12 @@ Control posparto
                                              <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#modal-delete-control">Eliminar</button>
                                             </td>
                                             @endcan
-                                            <td>{{$controlpos->NoControl}}</td>
-                                            <td>{{$controlpos->FCEvaluacionPosparto_id}}</td>
-                                            <td>{{$controlpos->SemanasDespuesParto}}</td>
-                                            <td>{{$controlpos->FechaVisita}}</td>
+                                            <td align="center">{{$controlpos->Numerodireccion}}</td>
+                                            <td align="center">{{$controlpos->NoControl}}</td>
+                                            <td align="center">{{$controlpos->SemanasDespuesParto}}</td>
+                                            <td align="center">{{$controlpos->FechaVisita}}</td>
+                                            <td align="center">{{$controlpos->NombresPaciente}} {{$controlpos->ApellidosPaciente}}</td>
+                                            
 
                                             
               

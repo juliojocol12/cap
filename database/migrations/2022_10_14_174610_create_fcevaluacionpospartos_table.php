@@ -38,8 +38,7 @@ class CreateFcevaluacionpospartosTable extends Migration
             $table->foreign('EstablecimientoSalud_id')->references('idEstablecimientoSaludos')->on('establecimientosaludos');
             
 
-            $table->unsignedInteger('Personal_idD');
-            $table->foreign('Personal_idD')->references('idPersonal')->on('personales');
+            $table->string("Medico",45);
             $table->string("HeridaOperatoria",45);
             $table->string("InvolucionUterina",25);
             $table->String("PresionArterial",20);
@@ -62,6 +61,10 @@ class CreateFcevaluacionpospartosTable extends Migration
             $table->string('ConsejeriaLactanciaAlimentacion',2);
             $table->string('ConsejeriaLactanciaMujerVIH',2);
             $table->string('ConsejeriaMujerVIH',2);
+            $table->string('AtencionPsicologica',2);
+            $table->string('ObservacionAtencion',150)->nullable();
+            $table->string('Seguimiento',2);
+            $table->string('ObservacionSeguimiento',150)->nullable();
 
             $table->string('Estado',2);
 

@@ -31,54 +31,56 @@
                             <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
-                                    <label for="name">Nombres y apellidos</label>
+                                    <label for="name">Nombres y apellidos (*)</label>
                                     {!! Form::text('Nombre', null, array('class'=>'form-control','maxlength'=>'45', 'placeholder'=>'Ingrese el nombre completo del colaborador','autocomplete'=>'off' ))!!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
-                                    <label for="name">DPI</label>
+                                    <label for="name">DPI (*)</label>
                                     {!! Form::text('CUI', null, array('class'=>'form-control','maxlength'=>'13','minlength'=>'13', 'placeholder'=>'Ingrese el CUI en números y sin espacios','autocomplete'=>'off' )) !!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
-                                    <label for="name">Celular</label>
+                                    <label for="name">Celular (*)</label>
                                     {!! Form::text('Celular', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'8', 'placeholder'=>'Ingrese número de celular','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
-                                    <label for="name">Teléfono</label>
+                                    <label for="name">Teléfono (*)</label>
                                     {!! Form::text('Telefono', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'8', 'placeholder'=>'Ingrese número de teléfono','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-group">
-                                    <label for="name">Dirección</label>
+                                    <label for="name">Dirección (*)</label>
                                     {!! Form::text('Direccion', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'45', 'placeholder'=>'Ingrese la dirección del colaborador','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
 
                             <div class="col-xs-6 col-sm-6 col-md-4">
                                 <div class="form-group">
-                                    <label for="" value="Cargo">Cargo que desempeña en el CAP</label>
+                                    <label for="" value="Cargo">Cargo que desempeña en el CAP (*)</label>
                                     <input class="form-control" list="filtroIdPacientes" id="filtroIdPaciente" name="Cargo" value="{{$personal->Cargo}}">
                                     <datalist id="filtroIdPacientes" name="Cargo" value="{{$personal->Cargo}}" {{$personal->Cargo}}>
                                     
                                         <option value="Doctor"> Doctor</option>       
-                                        <option value="Enfermero"> Enfermero</option>      
+                                        <option value="Enfermero"> Enfermero</option>  
+                                        <option value="EPS"> EPS </option> 
+                                        <option value="Auxiliar de enfermería"> Auxiliar de enfermería</option>    
                                     </datalist>
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
-                                    <label for="name">Fecha de nacimiento</label>
+                                    <label for="name">Fecha de nacimiento (*)</label>
                                     {!! Form::date('FechaNacimiento', null, array('class'=>'form-control')) !!}
                                 </div>
                             </div>
@@ -87,6 +89,7 @@
                                 <div class="form-group">
                                     <label for="">Tipo de sangre (*)</label>
                                     <select class="form-control" name="TipoSanguineo">
+                                    <option select">{{$personal->TipoSanguineo}}</option>
                                     <option value="A+">A+</option>
                                     <option value="A-">A-</option>
                                     <option value="B+">B+</option>

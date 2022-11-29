@@ -26,10 +26,23 @@ Ingreso de control posparto
                     @endif
 
                     {!! Form::open(array('route'=>'controlpospartos.store', 'method'=>'POST')) !!}
+
                         @include('controlpospartos.crear.control')
                         @include('controlpospartos.crear.clasificacion')
                         @include('controlpospartos.crear.conducta')
                         @include('controlpospartos.crear.consejeria')
+
+                        <div class="d-none">	
+                            <div class="col-xs-12 col-sm-12 col-md-2">
+                                <div class="form-group">
+                                    <label for="" value="Usuario_id">Encargado de llenado</label>
+                                    <select id="Usuario_id" class="form-control" name="Usuario_id" maxlength="35">
+                                        <option value="{{\Illuminate\Support\Facades\Auth::user()->id}}">{{\Illuminate\Support\Facades\Auth::user()->name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="d-none">
                             <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
@@ -40,14 +53,14 @@ Ingreso de control posparto
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Guardar</button>
-                                    <a href="{{ route('controlpospartos.index') }}" class="btn btn-danger mr-3">Volver</a>
-                                </div>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Guardar</button>
+                            <a href="{{ route('controlpospartos.index') }}" class="btn btn-danger mr-3">Volver</a>
+                        </div>
                         
-
+                        @include('modal.guardar')
                     {!! Form::close() !!}
 
-                    @include('modal.guardar')
+                    
 
                 </div>
             </div>

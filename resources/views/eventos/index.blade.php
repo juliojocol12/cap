@@ -70,7 +70,7 @@
             </div>
 
             <div class="form-group col-md-12">
-              <label>Título de la cita:</label> 
+              <label>Tipo de consulta:</label> 
               <input type="text" class="form-control" name="txtTitulo" id="txtTitulo">
             </div>
 
@@ -84,6 +84,11 @@
                       @endforeach
                     </datalist>
               </div>
+            </div>
+
+            <div class="form-group col-md-12">
+              <label>Celular:</label> 
+              <input type="text" class="form-control" name="txtCelular" id="txtCelular" minlength="8" maxlength="8">
             </div>
 
           <div class="col-xs-6 col-sm-6 col-md-10">

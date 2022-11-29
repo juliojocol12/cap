@@ -30,13 +30,14 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
-                                    <label for="" value="Personal_idD">Quien Atendio Parto (*)</label>                  
-                                    <select class="form-control" name="Personal_idD" maxlength="35">
-                                        @foreach($personaless as $per)
-                                        <option value="{{$per->idPersonal}}">Dr. 
-                                            {{$per->Nombre}} </option>
-                                        @endforeach
-                                    </select>
+                                    <label for="" value="Medico">Persona que atendió el parto (*)</label>                  
+                                    <input type="text" class="form-control" list="filtroMedicos" id="filtroMedico" name="Medico" placeholder="Ingrese el tipo de persona" autocomplete="off">                                        
+                                    <datalist id="filtroMedicos" name="Medico">
+                                        <option value="Médico"> Médico</option>       
+                                        <option value="Comadrona"> Comadrona</option>      
+                                        <option value="Enfermero(a)"> Enfermero(a) </option> 
+                                        <option value="Ninguno"> Ninguno</option>
+                                    </datalist>
                                 </div>
                             </div>
 

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Usuarios
+Usuarios
 @endsection
 
 @section('content')
@@ -29,9 +29,17 @@
                                 <div class="col-xl-12">
                                     <form action="{{ route('usuarios.index') }}" method="GET">
                                         <div class="form-row">
-                                            <div class="col-sm-4 my-1">
+                                            <div class="col-sm-3 my-1">
+                                                <label for=""><b>Filtrar por nombre</b> </label>
                                                 <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el nombre del usuario a buscar">
                                             </div>
+                                            
+                                            <div class="col-sm-4 my-1">
+                                                <label for=""><b>Filtrar por correo</b> </label>
+                                                <input type="text" class="form-control" name="Nombre" autocomplete="off" value="{{$Nombre}}" placeholder="Ingrese el nombre del usuario a buscar">
+                                            </div>                                            
+                                        </div>
+                                        <div class="form-row">
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
                                                 <a href="{{ route('usuarios.index') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
@@ -55,6 +63,11 @@
                                     <th style="color:#fff;">Rol</th>
                                 </thead>
                                 <tbody>
+                                    @if(count($usuarios)<=0)
+                                        <tr>
+                                            <td colspan="8">No hay resultados</td>
+                                        </tr>
+                                    @else
                                     @foreach($usuarios as $usuario)
                                         <tr>
                                             <td style="display: none;">{{ $usuario->id }}</td>
@@ -80,6 +93,7 @@
                                         </tr>
                                         @include('usuarios.delete')
                                     @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                             

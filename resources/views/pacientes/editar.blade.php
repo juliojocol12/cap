@@ -31,7 +31,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Nombres</label>
+                                        <label for="">Nombres (*)</label>
                                         {!! Form::text('NombresPaciente', null, array('class'=>'form-control','minlength'=>'10','maxlength'=>'25','placeholder'=>'Ingrese los nombres del paciente','autocomplete'=>'off')) !!}
                                     </div>
                                        
@@ -39,28 +39,28 @@
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Apellidos</label>
+                                        <label for="">Apellidos (*)</label>
                                         {!! Form::text('ApellidosPaciente', null, array('class'=>'form-control','maxlength'=>'25','placeholder'=>'Ingrese los apellidos del paciente','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Fecha de nacimiento</label>
-                                        {!! Form::date('FechaNaciemientoPaciente', null, array('class'=>'form-control')) !!}
+                                        <label for="">Fecha de nacimiento (*)</label>
+                                        {!! Form::date('FechaNaciemientoPaciente', null, array('class'=>'form-control', 'id'=>'datePickerId')) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">DPI</label>
+                                        <label for="">DPI (*)</label>
                                         {!! Form::text('CUI', null, array('class'=>'form-control','minlength'=>'13', 'maxlength'=>'15','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>   
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Profesión u oficio</label>
+                                        <label for="">Profesión u oficio (*)</label>
                                         {!! Form::text('ProfesionOficio', null, array('class'=>'form-control','minlength'=>'5', 'maxlength'=>'25','autocomplete'=>'off')) !!}
                                     </div>
                                 </div> 
@@ -69,45 +69,42 @@
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Descripción de la dirección</label>
+                                        <label for="">Comunidad  (*)</label>
                                         {!! Form::text('Descripciondireccion', null, array('class'=>'form-control', 'maxlength'=>'45','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>   
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Grupo de la dirección</label>
+                                        <label for="">Sector (*)</label>
                                         {!! Form::text('Grupodireccion', null, array('class'=>'form-control', 'maxlength'=>'45','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>   
 
                                 <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Número de casa</label>
+                                        <label for="">Número de casa (*)</label>
                                         {!! Form::text('Numerodireccion', null, array('class'=>'form-control', 'maxlength'=>'45','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>   
 
                                 <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Zona</label>
+                                        <label for="">Zona  (*)</label>
                                         {!! Form::text('Zonadireccion', null, array('class'=>'form-control', 'maxlength'=>'45','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>  
                                 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">>Municipio y departamento</label>
+                                        <label for="">Municipio y departamento (*)</label>
                                         {!! Form::text('Municipiodep', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'45','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
-
-
-
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Teléfono</label>
+                                        <label for="">Teléfono (*)</label>
                                         {!! Form::text('Telefono', null, array('class'=>'form-control','minlength'=>'8', 'maxlength'=>'15','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>     
@@ -121,21 +118,21 @@
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Estado Civil</label>
+                                        <label for="">Estado Civil (*)</label>
                                         {!! Form::text('EstadoCivil', null, array('class'=>'form-control','minlength'=>'2','maxlength'=>'7','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>     
 
                                 <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Peso</label>
+                                        <label for="">Peso (*)</label>
                                         {!! Form::text('Peso', null, array('class'=>'form-control','minlength'=>'4','maxlength'=>'5','placeholder'=>'Ingrese peso en libras','autocomplete'=>'off')) !!}
                                     </div>
                                 </div> 
                                 
                                 <div class="col-xs-1 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Tipo de Sangre</label>
+                                        <label for="">Tipo de Sangre  (*)</label>
                                         <select class="form-control" name="TipoSanguineo" value="{{$paciente->TipoSanguineo}}">
                                         <option select">{{$paciente->TipoSanguineo}}</option>
                                             
@@ -153,14 +150,14 @@
                                 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">¿Toma medicamentos actualmente?</label>
+                                        <label for="">Historial de medicamentos</label>
                                         {!! Form::text('MedicamentosActualmente', null, array('class'=>'form-control','minlength'=>'2','maxlength'=>'100', 'placeholder'=>'Ingrese el nombre y la dosis, de lo contrario coloque un "No"')) !!}
                                     </div>
                                 </div>   
 
                                 <div class="col-xs-1 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="" >Migrante</label>
+                                        <label for="" >Migrante (*)</label>
                                         <select class="form-control" name="Migrante" value="{{$paciente->Migrante}}">
                                         <option select">{{$paciente->Migrante}}</option>
                                         @if ($paciente->Migrante === 'Si')
@@ -175,7 +172,7 @@
 
                                 <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Pueblo</label> 
+                                        <label for="">Pueblo (*)</label> 
                                         {!! Form::select ('pueblo_id', $pueblos->pluck('Nombre', 'idPueblo')->all(), $paciente->pueblo_id, array('class'=>'form-control'))  !!}
                                     </div>
                                 </div>

@@ -93,7 +93,7 @@ class AppServiceProvider extends ServiceProvider
             return preg_match('/^[0-9]+([.][0-9]+)?$/',$value);
         });
         Validator::extend('UsuarioRule1', function ($attribute, $value, $parameters) {
-            return preg_match('/^[ a-z]+$/',$value);;
+            return preg_match('/^[a-z]+$/',$value);;
         });
         Validator::extend('ContraseñaRule', function ($attribute, $value, $parameters) {
             return preg_match('/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}+$/',$value);

@@ -46,9 +46,8 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="">Fecha de nacimiento (*)</label>
-                                        {!! Form::date('', null, array('class'=>'form-control', 'min'=>'{{date("2022-11-01")}}', 'max'=>'{{date("2022-11-24")}}' )) !!}
                                         <input type="date" id="datePickerId" class="form-control" name="FechaNaciemientoPaciente" /> 
-                                        <input type="date" name="arrival_date" id="arrival_date" class="form-control" aria-label="...">
+                                        
                                     </div>
                                 </div>
 
@@ -66,20 +65,6 @@
                                     </div>
                                 </div> 
 
-                                <div class="col-xs-12 col-sm-12 col-md-4">
-                                    <div class="form-group">
-                                        <label for="">Descripción de la dirección (*)</label>
-                                        {!! Form::text('Descripciondireccion', null, array('class'=>'form-control', 'maxlength'=>'60','placeholder'=>'Ingrese la dirección de la paciente','autocomplete'=>'off')) !!}
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-4">
-                                    <div class="form-group">
-                                        <label for="">Grupo de la dirección (*)</label>
-                                        {!! Form::text('Grupodireccion', null, array('class'=>'form-control', 'maxlength'=>'20','placeholder'=>'Ingrese el grupo de la dirección','autocomplete'=>'off')) !!}
-                                    </div>
-                                </div>
-
                                 <div class="col-xs-12 col-sm-12 col-md-2">
                                     <div class="form-group">
                                         <label for="">Número de casa (*)</label>
@@ -93,6 +78,22 @@
                                         {!! Form::text('Zonadireccion', null, array('class'=>'form-control', 'maxlength'=>'3','placeholder'=>'Ingrese la zona','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label for="">Comunidad (*)</label>
+                                        {!! Form::text('Descripciondireccion', null, array('class'=>'form-control', 'maxlength'=>'60','placeholder'=>'Ingrese la comunidad','autocomplete'=>'off')) !!}
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label for="">Sector (*)</label>
+                                        {!! Form::text('Grupodireccion', null, array('class'=>'form-control', 'maxlength'=>'20','placeholder'=>'Ingrese el sector','autocomplete'=>'off')) !!}
+                                    </div>
+                                </div>
+
+                                
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
@@ -147,7 +148,7 @@
                             
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">¿Toma medicamentos actualmente?</label>
+                                        <label for="">Historial de medicamentos</label>
                                         {!! Form::text('MedicamentosActualmente', null, array('class'=>'form-control','maxlength'=>'100', 'placeholder'=>'Ingrese el nombre y la dosis, de lo contrario coloque "No"','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>   

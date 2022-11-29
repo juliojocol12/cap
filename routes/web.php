@@ -104,6 +104,9 @@ Route::group(['middleware' => ['auth']], function(){
 
     //rutas para generar reportes
     Route::get('pdf4/reportes', [App\Http\Controllers\ReportesController::class, 'pdf4'])->name('datospersonalespacientes.pdf4');
+    Route::get('pdf13/reportes', [App\Http\Controllers\ReportesController::class, 'pdf13'])->name('vacunas.pdf13');
+    Route::get('pdf2/reportes', [App\Http\Controllers\ReportesController::class, 'pdf2'])->name('pacientes.pdf2');
+    Route::get('pdf5/reportes', [App\Http\Controllers\ReportesController::class, 'pdf5'])->name('posparto.pdf5');
 
 
 });

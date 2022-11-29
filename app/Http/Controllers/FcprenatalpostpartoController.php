@@ -67,7 +67,7 @@ class FcprenatalpostpartoController extends Controller
         $pdf = PDF::loadView('fcprenatalpostpartos.pdf', compact('fcprenatalpostpartos'));
         $date = Carbon::now();
         //$pdf->loadHTML('<h1>Prueba</h1>');
-        return $pdf->stream('Ficha_Clinia.pdf');
+        return $pdf->stream('Ficha clinica .pdf');
         //return $pdf->download('Ficha_Clinia.pdf');
 
     }

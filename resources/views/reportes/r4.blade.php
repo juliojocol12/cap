@@ -11,21 +11,22 @@
         <div class="section-body">
             <div class="row row-responsive">
                 <div class="col-lg-12 col-responsive">
-                    <div class="card">
-                    <a href="{{ route('reportes.index') }}" class="btn btn-success mr-3">Volver</a>
-                        <div class="card-body">
+                <a href="{{ route('reportes.index') }}" class="btn btn-success mr-3">Volver</a>
 
+                    <div class="card">                    
+                        <div class="card-body">
                             <h3>Mujeres embarazadas</h3>
                             <div class="row">
                                 <div class="col-xl-12">
                                     <form action="{{ route('reportes.r4') }}" method="GET">
                                         <div class="form-row">
+                                            
                                             <div class="col-sm-2 my-1">
-                                                <label for="">Filtrar por Nombres</label>
+                                                <label for="">Filtrar por nombres</label>
                                                 <input type="text" class="form-control" name="filtroNombre" autocomplete="off" value="{{$busquedaNombre}}" placeholder="Ingrese el nombre de la paciente a buscar">
                                             </div>
                                             <div class="col-sm-2 my-1">
-                                                <label for="">Filtrar por Apellidos</label>
+                                                <label for="">Filtrar por apellidos</label>
                                                 <input type="text" class="form-control" name="filtroApellido" autocomplete="off" value="{{$busquedaApellido}}" placeholder="Ingrese el apellido de la paciente a buscar">
                                             </div>
                                             <div class="col-sm-2 my-1">
@@ -79,7 +80,7 @@
 
 
                                             <div class="col-sm-2 my-1">                                            
-                                                <input type="text" class="form-control" name="filtro" autocomplete="off" value="{{$busqueda}}" placeholder="Ingrese la fecha para buscar">
+                                                <input type="date" class="form-control" name="filtro" autocomplete="off" value="{{$busqueda}}" placeholder="Ingrese la fecha para buscar">
                                             </div>
                                             <div class="col-sm-2 my-1">
                                                 <input type="text" class="form-control" name="filtroDPI" autocomplete="off" value="{{$busquedaDPI}}" placeholder="Ingrese el DPI para buscar">

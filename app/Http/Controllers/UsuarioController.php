@@ -30,12 +30,14 @@ class UsuarioController extends Controller
     {
         //paginacion
         $texto = trim($request->get('texto'));
+        $Nombre = trim($request->get('Nombre'));
 
         $usuarios = User::select('id','name','email','Estado')
         ->where('name','LIKE','%'.$texto.'%')
+        ->where('email','LIKE','%'.$Nombre.'%')
         ->where('Estado','Si')
         ->paginate(10); 
-        return view('usuarios.index', compact('usuarios','texto'));
+        return view('usuarios.index', compact('usuarios','texto','Nombre'));
 
 
     }
@@ -62,8 +64,8 @@ class UsuarioController extends Controller
     {
         //
         $this->validate($request, [
-            'name' => 'required|UsuarioRule1|unique:users,name',
-            'email' => 'required|email|unique:users,email|CorreoRule1',
+            'name' => 'required|UsuarioRule1|unique:users,name|min:3|max:20',
+            'email' => 'required|email|unique:users,email|CorreoRule1|min:7|max:191',
             'password' => 'required|same:confirm-password|ContraseñaRule',
             'Estado',
             'roles' => 'required',

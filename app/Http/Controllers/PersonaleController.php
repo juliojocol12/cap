@@ -25,14 +25,19 @@ class PersonaleController extends Controller
     public function index(Request $request)
     {
         $texto = trim($request->get('texto'));
+        $CUI = trim($request->get('CUI'));
+        $Cargo = trim($request->get('Cargo'));
+        $Celular = trim($request->get('Celular'));
+        $Sangre = trim($request->get('Sangre'));
 
-        $personales = personale::select('idPersonal','Nombre','CUI','Celular','Telefono','Direccion','Cargo','FechaNacimiento','NivelAcademico','Usuario_id','EstadoCivil','TipoSanguineo')->where('Nombre','LIKE','%'.$texto.'%')
+        $personales = personale::select('idPersonal','Nombre','CUI','Celular','Telefono','Direccion','Cargo','FechaNacimiento','NivelAcademico','Usuario_id','EstadoCivil','TipoSanguineo')
         ->where('Nombre','LIKE','%'.$texto.'%')
-        ->orwhere('CUI','LIKE','%'.$texto.'%')
-        ->orwhere('Cargo','LIKE','%'.$texto.'%')
-        ->orwhere('Celular','LIKE','%'.$texto.'%')
+        ->where('CUI','LIKE','%'.$CUI.'%')
+        ->where('Cargo','LIKE','%'.$Cargo.'%')
+        ->where('Celular','LIKE','%'.$Celular.'%')
+        ->where('TipoSanguineo','LIKE','%'.$Sangre.'%')
         ->paginate(10);
-        return view('personal.index',compact('personales','texto'));
+        return view('personal.index',compact('personales','texto','CUI','Cargo','Celular','Sangre'));
     }
 
     /**
@@ -56,16 +61,16 @@ class PersonaleController extends Controller
     {
         $this->validate($request,[
             'Nombre' => 'required|TextoRule1',
-            'CUI' => 'required|NumeroRule|Unique:personales',
-            'Celular',
-            'Telefono',
-            'Direccion' => 'required',
-            'Cargo' => 'required|TextoRule1',
-            'FechaNacimiento' => 'required',
-            'NivelAcademico' => 'TextoRule2',
-            'Usuario_id',
-            'EstadoCivil' => 'required|TextoRule1',
-            'TipoSanguineo' => 'required',
+                'CUI' => 'required|NumeroRule',
+                'Celular' => 'required',
+                'Telefono' => 'required',
+                'Direccion' => 'required',
+                'Cargo' => 'required|TextoRule1',
+                'FechaNacimiento' => 'required',
+                'NivelAcademico' => 'TextoRule2',
+                'Usuario_id' => 'required',
+                'EstadoCivil' => 'required|TextoRule1',
+                'TipoSanguineo' => 'required',
         ]);
     
         personale::create($request->all());
@@ -77,11 +82,15 @@ class PersonaleController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\personale  $personale
+     * @param  int  $idPersonal
      * @return \Illuminate\Http\Response
      */
-    public function show(personale $personale)
+    public function show($idPersonal)
     {
         //
+        $usuarios = User::all();
+        $personal = personale::find($idPersonal);
+        return view('personal.show', compact('personal'))->with('usuarios',$usuarios);
     }
 
     /**
@@ -113,13 +122,13 @@ class PersonaleController extends Controller
                 request()->validate([
                 'Nombre' => 'required|TextoRule1',
                 'CUI' => 'required|NumeroRule',
-                'Celular',
-                'Telefono',
+                'Celular' => 'required',
+                'Telefono' => 'required',
                 'Direccion' => 'required',
                 'Cargo' => 'required|TextoRule1',
                 'FechaNacimiento' => 'required',
                 'NivelAcademico' => 'TextoRule2',
-                'Usuario_id',
+                'Usuario_id' => 'required',
                 'EstadoCivil' => 'required|TextoRule1',
                 'TipoSanguineo' => 'required',
                 ]);
@@ -134,14 +143,14 @@ class PersonaleController extends Controller
             Log::debug($th -> getMessage());
             return request()->validate([
                 'Nombre' => 'required|TextoRule1',
-                'CUI' => 'required|NumeroRule|Unique:personales',
-                'Celular',
-                'Telefono',
+                'CUI' => 'required|NumeroRule',
+                'Celular' => 'required',
+                'Telefono' => 'required',
                 'Direccion' => 'required',
                 'Cargo' => 'required|TextoRule1',
                 'FechaNacimiento' => 'required',
                 'NivelAcademico' => 'TextoRule2',
-                'Usuario_id',
+                'Usuario_id' => 'required',
                 'EstadoCivil' => 'required|TextoRule1',
                 'TipoSanguineo' => 'required',
             ]);

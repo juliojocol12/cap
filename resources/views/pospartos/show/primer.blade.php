@@ -1,6 +1,6 @@
 <div class="card">
                         <div class="card-body">
-                            <h4 class="page__heading">Datos de primer control</h4>
+                            <h3 class="page__heading">Datos de primer control</h3>
                             <div class="row ">
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
@@ -26,8 +26,8 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Quien Atendio Parto</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=" Dr. {{$fcevaluacionposparto->personaless->Nombre}}" disabled>
+                                        <label for="">Persona que atendió el parto</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->Medico}}" disabled>
                                     </div>                                       
                                 </div>
 

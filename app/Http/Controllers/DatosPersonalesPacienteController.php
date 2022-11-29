@@ -92,15 +92,15 @@ class DatospersonalespacienteController extends Controller
             'MedicamentosActualmente',
             'Migrante' => 'required',
             'pueblo_id'=> 'required',
-            'idDatosFamiliares' => 'required',
-            'Parentesco' => 'required|TextoRule1',
+            'idDatosFamiliares',
+            'Parentesco',
             'Descripciondireccion' => 'required|TextoRule3',
             'Grupodireccion' => 'TextoRule4',
             'Numerodireccion' => 'required',
             'Zonadireccion' => 'required|NumeroRule',
             'Municipiodep' => 'required',
             'Usuario_id',
-			'Estado',
+			'Stado',
         ]);
         
         datospersonalespaciente::create($request->all());
@@ -158,7 +158,7 @@ class DatospersonalespacienteController extends Controller
                     'NombresPaciente' => 'required|TextoRule1',
                     'ApellidosPaciente' => 'required|TextoRule1',
                     'FechaNaciemientoPaciente' => 'required',
-                    'CUI' => 'required|NumeroRule',
+                    'CUI' => 'required|NumeroRule|Unique:datospersonalespacientes',
                     'ProfesionOficio' => 'required|TextoRule1',
                     'Telefono|NumeroRule',
                     'Celular|NumeroRule',
@@ -168,15 +168,15 @@ class DatospersonalespacienteController extends Controller
                     'MedicamentosActualmente',
                     'Migrante' => 'required',
                     'pueblo_id'=> 'required',
-                    'idDatosFamiliares' => 'required',
-                    'Parentesco' => 'required|TextoRule1',
+                    'idDatosFamiliares',
+                    'Parentesco',
                     'Descripciondireccion' => 'required|TextoRule3',
                     'Grupodireccion' => 'TextoRule4',
                     'Numerodireccion' => 'required',
                     'Zonadireccion' => 'required|NumeroRule',
                     'Municipiodep' => 'required',
                     'Usuario_id',
-			        'Stado',
+                    'Stado',
                 ]);  
                 $datos = $request->all();
                 $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);
@@ -202,15 +202,15 @@ class DatospersonalespacienteController extends Controller
                 'MedicamentosActualmente',
                 'Migrante' => 'required',
                 'pueblo_id'=> 'required',
-                'idDatosFamiliares' => 'required',
-                'Parentesco' => 'required|TextoRule1',
+                'idDatosFamiliares',
+                'Parentesco',
                 'Descripciondireccion' => 'required|TextoRule3',
                 'Grupodireccion' => 'TextoRule4',
                 'Numerodireccion' => 'required',
                 'Zonadireccion' => 'required|NumeroRule',
                 'Municipiodep' => 'required',
                 'Usuario_id',
-			    'Stado',
+                'Stado',
             ]);
             $datos = $request->all();
             $paciente = datospersonalespaciente::find($idDatosPersonalesPacientes);

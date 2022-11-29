@@ -7,7 +7,7 @@ Ingreso de ficha clinica Posparto
     <section class="section">
         
         <div class="section-header">
-            <h3 class="page__heading">INGRESO DE FICHA CLINICA POST PARTO</h3>
+            <h3 class="page__heading">INGRESO DE FICHA CLINICA POSPARTO</h3>
         </div>
         <div class="section-body">
         <div class="row row-responsive">
