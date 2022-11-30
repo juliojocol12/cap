@@ -2,17 +2,17 @@
                         <div class="card-body">
                             <h3 class="page__heading">Suplementación, medicamentos y consejería en el posparto</h3>
                             <div class="row ">                               
-
+ 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Sulfato Ferroso</label>
+                                        <label for="">Sulfato ferroso</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->SulfatoFerroso}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Ácido Fólico</label>
+                                        <label for="">Ácido fólico</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->AcidoFolico}}" disabled>
                                     </div>                                       
                                 </div>
@@ -54,7 +54,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">Consejería en lactancia materna exclusiva y alimentación de la mujer lactante</label>
+                                        <label for="">Consejería en MELA de la mujer lactante</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->ConsejeriaLactanciaAlimentacion}}" disabled>
                                     </div>                                       
                                 </div>

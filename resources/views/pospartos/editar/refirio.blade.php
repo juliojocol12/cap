@@ -6,11 +6,11 @@
                             
                                     <div class="form-group">
                                         <div class="form-outline w-100 mb-4">
-                                            <textarea class="form-control" id="RegistroReferencia" name="RegistroReferencia" style="height:60px; width: 100%; " maxlength="300" placeholder="Ingrese información si refirio al paciente es un campo obligatorio">{{$fcevaluacionposparto->RegistroReferencia}}</textarea>
+                                            <textarea class="form-control" id="RegistroReferencia" name="RegistroReferencia" style="height:60px; width: 100%; " maxlength="300" placeholder="Ingrese información si refirió a la paciente de lo contrario ingrese: 'La paciente no fue referida'">{{$fcevaluacionposparto->RegistroReferencia}}</textarea>
                                         </div>
                                     </div>
                                 </div>
 
                                 </div>
                         </div>
-                    </div>
+                    </div> 

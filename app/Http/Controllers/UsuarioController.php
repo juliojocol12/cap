@@ -61,10 +61,10 @@ class UsuarioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    { 
         //
         $this->validate($request, [
-            'name' => 'required|UsuarioRule1|unique:users,name|min:3|max:20',
+            'name' => 'required|TextoRule1|unique:users,name|min:3|max:20',
             'email' => 'required|email|unique:users,email|CorreoRule1|min:7|max:191',
             'password' => 'required|same:confirm-password|ContraseñaRule',
             'Estado',
@@ -119,8 +119,8 @@ class UsuarioController extends Controller
             if ('name' === 'name')
             {
                 $this->validate($request, [
-                    'name' => 'required|UsuarioRule1',
-                    'email' => 'email|CorreoRule1'.$id,
+                    'name' => 'required|TextoRule1|max:45',
+                    'email' => 'email|CorreoRule1|max:191'.$id,
                     'password' => 'max:12|ContraseñaRule',
                     'Estado',
                     'roles' => 'required',
@@ -147,8 +147,8 @@ class UsuarioController extends Controller
     catch (\Throwable $th) {
         Log::debug($th -> getMessage());
         return $this->validate($request, [
-            'name' => 'required|UsuarioRule1|unique:users,name',
-            'email' => 'email|CorreoRule1'.$id,
+            'name' => 'required|TextoRule1|max:45|unique:users,name',
+            'email' => 'email|CorreoRule1|max:191'.$id,
             'password' => 'max:12|ContraseñaRule',
             'Estado',
             'roles' => 'required',

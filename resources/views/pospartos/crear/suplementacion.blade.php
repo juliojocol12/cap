@@ -4,9 +4,9 @@
                         <div class="row ">
 
 
-                            <div class="col-xs-1 col-sm-6 col-md-2">
+                            <div class="col-xs-1 col-sm-6 col-md-3">
                                 <div class="form-group">
-                                    <label for="SulfatoFerroso">Sulfato Ferroso (*)</label>
+                                    <label for="SulfatoFerroso">Sulfato ferroso (*)</label>
                                     <select class="form-control" name="SulfatoFerroso">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -14,9 +14,9 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-1 col-sm-6 col-md-2">
+                            <div class="col-xs-1 col-sm-6 col-md-3">
                                 <div class="form-group">
-                                    <label for="AcidoFolico">Ácido Fólico (*)</label>
+                                    <label for="AcidoFolico">Ácido fólico (*)</label>
                                     <select class="form-control" name="AcidoFolico">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -24,7 +24,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-1 col-sm-6 col-md-2">
+                            <div class="col-xs-1 col-sm-6 col-md-3">
                                 <div class="form-group">
                                     <label for="OtroMedicamento">Otro medicamento (*)</label>
                                     <select class="form-control" name="OtroMedicamento">
@@ -34,7 +34,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-1 col-sm-6 col-md-2">
+                            <div class="col-xs-1 col-sm-6 col-md-3">
                                 <div class="form-group">
                                     <label for="Tdap">Tdap (*)</label>
                                     <select class="form-control" name="Tdap">
@@ -44,7 +44,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-1 col-sm-6 col-md-2">
+                            <div class="col-xs-1 col-sm-6 col-md-3">
                                 <div class="form-group">
                                     <label for="ConsejeriaPF_Posparto">Consejería en PF posparto (*)</label>
                                     <select class="form-control" name="ConsejeriaPF_Posparto">
@@ -55,7 +55,7 @@
                             </div>
 
                             
-                            <div class="col-xs-1 col-sm-6 col-md-2">
+                            <div class="col-xs-1 col-sm-6 col-md-3">
                                 <div class="form-group">
                                     <label for="ConsejeriaMujerVIH">Consejería en mujer VIH+ (*)</label>
                                     <select class="form-control" name="ConsejeriaMujerVIH">
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-1 col-sm-6 col-md-4">
+                            <div class="col-xs-1 col-sm-6 col-md-3">
                                 <div class="form-group">
                                     <label for="SulfatoFeConsejeriaLactanciaMujerVIHrroso">Consejería en lactancia materna a mujer VIH+ (*)</label>
                                     <select class="form-control" name="ConsejeriaLactanciaMujerVIH">
@@ -75,9 +75,9 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-1 col-sm-6 col-md-4">
+                            <div class="col-xs-1 col-sm-6 col-md-3">
                                 <div class="form-group">
-                                    <label for="ConsejeriaLactanciaAlimentacion">Consejería en lactancia materna exclusiva y alimentación de la mujer lactante (*)</label>
+                                    <label for="ConsejeriaLactanciaAlimentacion">Consejería en MELA de la mujer lactante (*)</label>
                                     <select class="form-control" name="ConsejeriaLactanciaAlimentacion">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-1 col-sm-6 col-md-4">
+                            <div class="col-xs-1 col-sm-6 col-md-3">
                                 <div class="form-group">
                                     <label for="AtencionPsicologica">Atención psicológica (*)</label>
                                     <select class="form-control" name="AtencionPsicologica">
@@ -95,17 +95,17 @@
                                 </div>
                             </div>
 
-
-                            <div class="col-xs-6 col-sm-6 col-md-4">                            
+ 
+                            <div class="col-xs-6 col-sm-6 col-md-3">                            
                                 <div class="form-group">
+                                <label for="ConsejeriaLactanciaAlimentacion">Observaciones de la atención</label>
                                     <div class="form-outline w-100 mb-4">
-                                        <label for="ConsejeriaLactanciaAlimentacion">Observaciones de la atención</label>
                                         <textarea class="form-control" id="ObservacionAtencion" name="ObservacionAtencion" style="height:120px; width: 100%; " maxlength="150" placeholder="Ingrese la observación de la atención psicológica"></textarea>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-xs-1 col-sm-6 col-md-4">
+                            <div class="col-xs-1 col-sm-6 col-md-3">
                                 <div class="form-group">
                                     <label for="Seguimiento">Seguimiento de trabajo social (*)</label>
                                     <select class="form-control" name="Seguimiento">
@@ -116,10 +116,10 @@
                             </div>
 
 
-                            <div class="col-xs-6 col-sm-6 col-md-4">                            
+                            <div class="col-xs-6 col-sm-6 col-md-3">                            
                                 <div class="form-group">
-                                    <div class="form-outline w-100 mb-4">
-                                        <label for="ConsejeriaLactanciaAlimentacion">Observaciones del seguimiento</label>
+                                <label for="ConsejeriaLactanciaAlimentacion">Observaciones del seguimiento</label>
+                                    <div class="form-outline w-100 mb-4">                                        
                                         <textarea class="form-control" id="ObservacionSeguimiento" name="ObservacionSeguimiento" style="height:120px; width: 100%; " maxlength="150" placeholder="Ingrese la observación del seguimiento del trabajo social"></textarea>
                                     </div>
                                 </div>

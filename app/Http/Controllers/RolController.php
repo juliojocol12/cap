@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class RolController extends Controller
 {
@@ -147,7 +148,7 @@ class RolController extends Controller
     {
         //
         $this->validate($request, [
-            'name' => 'required | TextoRule3', 
+            'name' => 'required | TextoRule3 | Unique:roles' , 
             'permission'=>'required',
             'Estado',
         ]);
@@ -289,21 +290,16 @@ class RolController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request, [
-            'name' => 'required', 
-            'permission' => 'required',
-            'Estado',
-        ]);
+        $this->validate($request, ['name' => 'required', 'permission' => 'required',]);
     
         $role = Role::find($id);
         $role->name = $request->input('name');
-        $role->Estado = $request->input('Estado');
         $role->save();
     
         $role->syncPermissions($request->input('permission'));
     
         return redirect()->route('roles.index');  
-    }
+}
 
     /**
      * Remove the specified resource from storage.

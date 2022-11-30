@@ -271,12 +271,8 @@
         <div class="navbar-bg"></div>
         <nav class="navbar navbar-expand-lg main-navbar">
             @include('layouts.header')
-
         </nav>
 
-        <div class="main-sidebar main-sidebar-postion">
-            @include('layouts.sidebar')
-        </div>
         <!-- Main Content -->
         <div class="main-content">
             @yield('content')

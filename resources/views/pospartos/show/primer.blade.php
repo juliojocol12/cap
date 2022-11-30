@@ -5,63 +5,63 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Nombre Servicio</label>
+                                        <label for="">Nombre de servicio</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->NombreServicio}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Días Despues Parto</label>
+                                        <label for="">Días despúes del parto</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->DiasDespuesParto}}" disabled>
                                     </div>                                       
                                 </div>  
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Donde Atendio Parto</label>
+                                        <label for="">¿Dónde atendió el parto?</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->establecimientosaludos->Nombre}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Persona que atendió el parto</label>
+                                        <label for="">Especialista que atendió el parto</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->Medico}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Herida Operatoria</label>
+                                        <label for="">Herida operatoria</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->HeridaOperatoria}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Involucion Uterina</label>
+                                        <label for="">Involución uterina</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->InvolucionUterina}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Presión Arterial</label>
+                                        <label for="">Presión arterial</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->PresionArterial}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Frecuencia Cardiaca</label>
+                                        <label for="">Frecuencia cardíaca</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->FrecuenciaCardiaca}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Nombre Temperatura</label>
+                                        <label for="">Temperatura</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->Temperatura}}" disabled>
                                     </div>                                       
                                 </div>
@@ -75,21 +75,21 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Lactancia Materna</label>
+                                        <label for="">Lactancia materna</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->LactanciaMaterna}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Porque No Lactancia Materna</label>
+                                        <label for="">¿Por qué no lactancia materna?</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->PorqueNoLactanciaMaterna}}" disabled>
                                     </div>                                       
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Examen Ginecologico</label>
+                                        <label for="">Examen ginecológico</label>
                                         <div class="form-outline w-100 mb-4">
                                             <textarea class="form-control" id="ExamenGinecologico" name="ExamenGinecologico" style="height:60px; width: 100%; " placeholder="{{$fcevaluacionposparto->ExamenGinecologico}}" disabled></textarea>
                                         </div>
@@ -98,7 +98,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Diagnostico</label>
+                                        <label for="">Diagnóstico</label>
                                         <div class="form-outline w-100 mb-4">
                                             <textarea class="form-control" id="Diagnostico" name="Diagnostico" style="height:60px; width: 100%; " placeholder="{{$fcevaluacionposparto->Diagnostico}}" disabled></textarea>
                                         </div>
@@ -107,7 +107,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Conducta Tratamiento</label>
+                                        <label for="">Conducta tratamiento</label>
                                         <div class="form-outline w-100 mb-4">
                                             <textarea class="form-control" id="ConductaTratamiento" name="ConductaTratamiento" style="height:60px; width: 100%; " placeholder="{{$fcevaluacionposparto->ConductaTratamiento}}" disabled></textarea>
                                         </div>

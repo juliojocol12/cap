@@ -1,7 +1,7 @@
 <form class="form-inline mr-auto" action="#">
     <ul class="navbar-nav mr-2" >
         <a href="{{ url('/home') }}" class="small-sidebar-text">
-            <img class="navbar-brand-full" src="{{ asset('img/images.png') }}" width="45px" alt=""/>
+            <img class="navbar-brand-full" src="{{ asset('img/inicio.png') }}" width="45px" alt=""/>
         </a>
     </ul>
 </form>
@@ -22,12 +22,12 @@
                     Hola, {{\Illuminate\Support\Facades\Auth::user()->first_name}}
                     </div>
                 <a class="dropdown-item has-icon edit-profile" href="#" data-id="{{ \Auth::id() }}">
-                    <i class="fa fa-user"></i>Edit Profile</a>
+                    <i class="fa fa-user"></i>Editar perfil</a>
                 <a class="dropdown-item has-icon" data-toggle="modal" data-target="#changePasswordModal" href="#" data-id="{{ \Auth::id() }}"><i
-                            class="fa fa-lock"> </i>Change Password</a>
+                            class="fa fa-lock"> </i>Cambiar contraseña</a>
                 <a href="{{ url('logout') }}" class="dropdown-item has-icon text-danger"
                    onclick="event.preventDefault(); localStorage.clear();  document.getElementById('logout-form').submit();">
-                    <i class="fas fa-sign-out-alt"></i> Logout
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
                 </a>
                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" class="d-none">
                     {{ csrf_field() }}

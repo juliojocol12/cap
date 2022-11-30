@@ -287,7 +287,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Fecha</label>
+                                        <label for="">Última fecha de suministro</label>
                                         {!! Form::date('FechaVacunaTdAp', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
@@ -318,7 +318,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Fecha</label>
+                                        <label for="">Última fecha de suministro</label>
                                         {!! Form::date('FechaVacunaTd', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
@@ -349,7 +349,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Fecha</label>
+                                        <label for="">Última fecha de suministro</label>
                                         {!! Form::date('FechaVacunaInfluenza', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
@@ -358,7 +358,7 @@
                             <div class="row ">
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="VacunaCovid">¿Vacuna Covid-19?</label>
+                                        <label for="VacunaCovid">¿Vacuna COVID-19?</label>
                                         <select class="form-control" name="VacunaCovid">
                                         <option select">{{$fcprenatalpostparto->VacunaCovid}}</option>
                                         <option value="No">No</option>
@@ -380,10 +380,10 @@
                                         </select>
                                     </div>                                       
                                 </div>
-
+ 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Fecha</label>
+                                        <label for="">Última fecha de suministro</label>
                                         {!! Form::date('FechaVacunaCovid', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
@@ -416,7 +416,7 @@
                                     </div>                                       
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
                                         <label for="">Otros antecedentes</label>
                                         <div class="form-outline w-100 mb-4">

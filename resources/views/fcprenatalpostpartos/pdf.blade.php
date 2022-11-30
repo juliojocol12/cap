@@ -14,20 +14,20 @@
 </head>
 <body>
     <center>
-        <h2>Ficha Clinica Prenatal</h2>
-        <h3>Datos de la paciente: {{$fcprenatalpostpartos->NombresPaciente}} {{$fcprenatalpostpartos->ApellidosPaciente}}</h3>
+        <h3>Ficha clínica prenatal</h3>
+        <h4>Datos de la paciente: {{$fcprenatalpostpartos->NombresPaciente}} {{$fcprenatalpostpartos->ApellidosPaciente}}</h4>
     </center>
 
-    <div id="mostrarFecha"><h5>Fecha de emisión:</h5><script type="text/javascript">mostrarFecha();</script></div>
+    <div id="mostrarFecha"><h5>Fecha de emisión: {{ date('d-m-Y') }}</h5></div>
     
      <!--Tabla 1-->
     <table >
         <div class="container">
-            <h3 class="page__heading">Datos generales</h3> <p></p>
+            <h4 class="page__heading">Datos generales</h4> <p></p>
         </div> 
         <tbody >
             <tr>
-                <th scope="row" align="left">No. Expediente</th>
+                <th scope="row" align="left">Número de expediente</th>
                 <td width="350" height="10">{{$fcprenatalpostpartos->Numerodireccion}}</td>
             </tr>
             <tr>
@@ -36,7 +36,7 @@
             </tr>
 
             <tr>
-                <th scope="row" align="left">Establecimiento Salud</th>
+                <th scope="row" align="left">Establecimiento salud</th>
                 <td>{{$fcprenatalpostpartos->establecimientosaludos->Nombre}}</td>
             </tr>    
 
@@ -56,7 +56,7 @@
             </tr>
 
             <tr>
-                <th scope="row" align="left">Direccion</th>
+                <th scope="row" align="left">Dirección</th>
                 <td>{{$fcprenatalpostpartos->Descripciondireccion}}</td>
             </tr>
 
@@ -74,7 +74,7 @@
 
     <!--Tabla 2 -->
     <table>
-            <h3 class="page__heading">Evaluación de signos y sintomas de peligro</h3> <p></p> 
+            <h4 class="page__heading">Evaluación de signos y síntomas de peligro</h4> <p></p> 
         
         <tbody >
             <tr>
@@ -87,12 +87,12 @@
             </tr>
 
             <tr>
-                <th scope="row" ">Vision borrosa</th>
+                <th scope="row" ">Visión borrosa</th>
                 <td>{{$fcprenatalpostpartos->VisionBorrosa}}</td>
             </tr>    
 
             <tr>
-                <th scope="row" ">Convulsion</th>
+                <th scope="row" ">Convulsión</th>
                 <td>{{$fcprenatalpostpartos->Convulsion}}</td>
             </tr>    
 
@@ -102,7 +102,7 @@
             </tr>
 
             <tr>
-                <th scope="row" ">Presion arterial alta</th>
+                <th scope="row" ">Presión arterial alta</th>
                 <td>{{$fcprenatalpostpartos->PresionArterial}}</td>
             </tr>
 
@@ -117,12 +117,12 @@
             </tr>
 
             <tr>
-                <th scope="row" ">Si refirio a la paciente</th>
+                <th scope="row" ">Paciente referida</th>
                 <td>{{$fcprenatalpostpartos->RegistrodeReferencia}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Motivo consulta</th>
+                <th scope="row" ">Motivo de consulta</th>
                 <td>{{$fcprenatalpostpartos->MotivoConsulta}}</td>
             </tr>
 
@@ -138,11 +138,11 @@
 
     <table >
         <div class="container">
-            <h3 class="page__heading">Antrecedentes: Gineco/Obstétricos</h3> <p></p> 
+            <h4 class="page__heading">Antrecedentes: Gineco/Obstétricos</h4> <p></p> 
         </div>
         <tbody >
             <tr>
-                <th scope="row" ">Fecha ultima regla</th>
+                <th scope="row" ">Fecha última regla</th>
                 <td width="300" height="10">{{$fcprenatalpostpartos->FechaUltimaRegla}}</td>
             </tr>
             <tr>
@@ -191,27 +191,27 @@
             </tr>
 
             <tr>
-                <th scope="row" ">Número de No. cesareas</th>
+                <th scope="row" ">Número de no. cesáreas</th>
                 <td>{{$fcprenatalpostpartos->NoCesareas}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Embarazo multiple</th>
+                <th scope="row" ">Embarazo múltiple</th>
                 <td>{{$fcprenatalpostpartos->EmbarazoMultiples}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Fecha de ultimo parto</th>
+                <th scope="row" ">Fecha de último parto</th>
                 <td>{{$fcprenatalpostpartos->FechaUltimoParto}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Número de nacidos antes de 8 meses</th>
+                <th scope="row" ">No. de nacidos antes de 8 meses</th>
                 <td>{{$fcprenatalpostpartos->NacidosAntesOchoMeses}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Pre eclampsia</th>
+                <th scope="row" ">Preeclampsia</th>
                 <td>{{$fcprenatalpostpartos->PreEclampsia}}</td>
             </tr>
 
@@ -231,7 +231,7 @@
             </tr>
 
             <tr>
-                <th scope="row" ">Fecha de deteccion de cancer</th>
+                <th scope="row" ">Fecha de detección de cáncer</th>
                 <td>{{$fcprenatalpostpartos->FechaDeteccionCancer}}</td>
             </tr>
 
@@ -246,7 +246,7 @@
             </tr>
 
             <tr>
-                <th scope="row" ">Cuál fue el método que utilizo</th>
+                <th scope="row" ">¿Cuál fue el método que utilizó?</th>
                 <td>{{$fcprenatalpostpartos->CualMetodoPlanificacionF}}</td>
             </tr>
         </tbody>
@@ -256,15 +256,15 @@
     <!--tabla 4 -->
     <table >
         <div class="container">
-            <h3 class="page__heading">Antrecedentes: Médicos</h3> <p></p> 
+            <h4 class="page__heading">Antrecedentes: Médicos</h4> <p></p> 
         </div>
         <tbody >
             <tr>
-                <th scope="row" ">Asma Bronquial</th>
+                <th scope="row" ">Asma bronquial</th>
                 <td width="300" height="10">{{$fcprenatalpostpartos->AsmaBronquial}}</td>
             </tr>
             <tr>
-                <th scope="row" ">Hipertensión Arterial</th>
+                <th scope="row" ">Hipertensión arterial</th>
                 <td>{{$fcprenatalpostpartos->HipertensionArterial}}</td>
             </tr>
 
@@ -284,12 +284,12 @@
             </tr>
 
             <tr>
-                <th scope="row" ">Toma Medicamentos</th>
+                <th scope="row" ">Toma medicamentos</th>
                 <td>{{$fcprenatalpostpartos->TomaMedicamentos}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Trastorno PsicoSocial</th>
+                <th scope="row" ">Trastorno psicosocial</th>
                 <td>{{$fcprenatalpostpartos->TrastornoPiscoSocial}}</td>
             </tr>
 
@@ -304,7 +304,7 @@
             </tr>
 
             <tr>
-                <th scope="row" ">Cardiopatia</th>
+                <th scope="row" ">Cardiopatía</th>
                 <td>{{$fcprenatalpostpartos->Cardiopatia}}</td>
             </tr>
 
@@ -314,22 +314,22 @@
             </tr>
 
             <tr>
-                <th scope="row" ">Neuropatia</th>
+                <th scope="row" ">Neuropatía</th>
                 <td>{{$fcprenatalpostpartos->Neuropatia}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Infecciones Urinarias</th>
+                <th scope="row" ">Infecciones urinarias</th>
                 <td>{{$fcprenatalpostpartos->InfeccionesUrinarias}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Violencia InrtraFamiliar</th>
+                <th scope="row" ">Violencia inrtrafamiliar</th>
                 <td>{{$fcprenatalpostpartos->ViolenciaInrtraFamiliar}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Tipo de Sangre</th>
+                <th scope="row" ">Tipo sanguíneo</th>
                 <td>{{$fcprenatalpostpartos->TipoSangre}}</td>
             </tr>
 
@@ -349,18 +349,63 @@
             </tr>
 
             <tr>
-                <th scope="row" ">Antecedentes de vacuna Td</th>
-                <td>{{$fcprenatalpostpartos->AntecedentesVacunas}}</td>
+                <th scope="row" ">Vacuna TdAp</th>
+                <td>{{$fcprenatalpostpartos->VacunaTdAp}}</td>
             </tr>
 
             <tr>
                 <th scope="row" ">Dosis de Vacuna</th>
-                <td>{{$fcprenatalpostpartos->DosisVacuna}}</td>
+                <td>{{$fcprenatalpostpartos->DosisVacunaTdAp}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Fecha de Ultima Dosis</th>
-                <td>{{$fcprenatalpostpartos->FechaUltimaDosis}}</td>
+                <th scope="row" ">Fecha de última dosis TdAp</th>
+                <td>{{$fcprenatalpostpartos->FechaVacunaTdAp}}</td>
+            </tr>
+
+            <tr>
+                <th scope="row" ">Vacuna Td</th>
+                <td>{{$fcprenatalpostpartos->VacunaTd}}</td>
+            </tr>
+
+            <tr>
+                <th scope="row" ">Dosis de vacuna</th>
+                <td>{{$fcprenatalpostpartos->DosisVacunaTd}}</td>
+            </tr>
+
+            <tr>
+                <th scope="row" ">Fecha de última dosis Td</th>
+                <td>{{$fcprenatalpostpartos->FechaVacunaTd}}</td>
+            </tr>
+
+            <tr>
+                <th scope="row" ">Vacuna influenza</th>
+                <td>{{$fcprenatalpostpartos->VacunaInfluenza}}</td>
+            </tr>
+
+            <tr>
+                <th scope="row" ">Dosis de vacuna</th>
+                <td>{{$fcprenatalpostpartos->DosisVacunaInfluenza}}</td>
+            </tr>
+
+            <tr>
+                <th scope="row" ">Fecha de última dosis influenza</th>
+                <td>{{$fcprenatalpostpartos->FechaVacunaInfluenza}}</td>
+            </tr>
+            
+            <tr>
+                <th scope="row" ">Vacuna COVID-19</th>
+                <td>{{$fcprenatalpostpartos->VacunaInfluenza}}</td>
+            </tr>
+
+            <tr>
+                <th scope="row" ">Dosis de Vacuna</th>
+                <td>{{$fcprenatalpostpartos->DosisVacunaInfluenza}}</td>
+            </tr>
+
+            <tr>
+                <th scope="row" ">Fecha de última dosis COVID-19</th>
+                <td>{{$fcprenatalpostpartos->FechaVacunaInfluenza}}</td>
             </tr>
 
             <tr>
@@ -369,12 +414,12 @@
             </tr>
 
             <tr>
-                <th scope="row" ">Quirurgicos</th>
+                <th scope="row" ">Quirúrgicos</th>
                 <td>{{$fcprenatalpostpartos->Quirurgicos}}</td>
             </tr>
 
             <tr>
-                <th scope="row" ">Otros Antecedentes</th>
+                <th scope="row" ">Otros antecedentes</th>
                 <td>{{$fcprenatalpostpartos->OtrosAntecedentes}}</td>
             </tr>
         </tbody>

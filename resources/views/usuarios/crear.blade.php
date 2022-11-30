@@ -49,8 +49,8 @@
                                 <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="name">Contraseña (*)</label>
-                                        {!! Form::password('password', array('class'=>'form-control', 'minlength'=>'8', 'maxlength'=>'12','placeholder'=>'Debe contener al menos una mayúscula y números','autocomplete'=>'off')) !!}
-                                    </div>
+                                        {!! Form::password('password', array('class'=>'form-control', 'minlength'=>'8', 'maxlength'=>'12','placeholder'=>'Debe contener al menos una mayúscula y números (min. 8 y max. 12 carácteres) ','autocomplete'=>'off')) !!}
+                                    </div> 
                                 </div>
                             </div>
 

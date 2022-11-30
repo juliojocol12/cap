@@ -104,7 +104,7 @@
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Número de niños(as) nacidos de 8 meses</label>
-                                        {!! Form::text('NacidosAntesOchoMeses', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Ingrese número de niños(as) nacidos de 8 meses', 'autocomplete'=>'off')) !!}
+                                        {!! Form::text('NacidosAntesOchoMeses', null, array('class'=>'form-control', 'maxlength'=>'2', 'placeholder'=>'Ingrese número de nacidos de 8 meses', 'autocomplete'=>'off')) !!}
                                     </div>                                       
                                 </div>
 

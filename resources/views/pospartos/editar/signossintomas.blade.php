@@ -3,9 +3,9 @@
                                 <h3 class="page__heading">Evalúe signos y síntomas de peligro en el posparto</h3>
                                     <div class="row ">
 
-                                        <div class="col-xs-1 col-sm-6 col-md-2">
+                                        <div class="col-xs-1 col-sm-6 col-md-3">
                                             <div class="form-group">
-                                                <label for="HemorragiaVaginal">Hemorragia vaginal (*)</label>
+                                                <label for="HemorragiaVaginal">Hemorragia vaginal</label>
                                                 <select class="form-control" name="HemorragiaVaginal">
                                                 <option select">{{$fcevaluacionposparto->HemorragiaVaginal}}</option>
                                                 @if ($fcevaluacionposparto->HemorragiaVaginal === 'Si')
@@ -17,9 +17,9 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-xs-1 col-sm-6 col-md-2">
+                                        <div class="col-xs-1 col-sm-6 col-md-3">
                                             <div class="form-group">
-                                                <label for="DolordeCabeza">Dolor de cabeza severo (*)</label>
+                                                <label for="DolordeCabeza">Dolor de cabeza severo </label>
                                                 <select class="form-control" name="DolordeCabeza">
                                                 <option select">{{$fcevaluacionposparto->DolordeCabeza}}</option>
                                                 @if ($fcevaluacionposparto->DolordeCabeza === 'Si')
@@ -31,9 +31,9 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-xs-1 col-sm-6 col-md-2">
+                                        <div class="col-xs-1 col-sm-6 col-md-3">
                                             <div class="form-group">
-                                                <label for="VisionBorrosa">Vision borrosa (*)</label>
+                                                <label for="VisionBorrosa">Visión borrosa</label>
                                                 <select class="form-control" name="VisionBorrosa">
                                                     <option select">{{$fcevaluacionposparto->VisionBorrosa}}</option>
                                                     @if ($fcevaluacionposparto->VisionBorrosa === 'Si')
@@ -45,9 +45,9 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-xs-1 col-sm-6 col-md-2">
+                                        <div class="col-xs-1 col-sm-6 col-md-3">
                                             <div class="form-group">
-                                                <label for="Convulsion">Convulsión (*)</label>
+                                                <label for="Convulsion">Convulsión</label>
                                                 <select class="form-control" name="Convulsion">
                                                     <option select">{{$fcevaluacionposparto->Convulsion}}</option>
                                                     @if ($fcevaluacionposparto->Convulsion === 'Si')
@@ -60,9 +60,9 @@
                                         </div>
 
                                         
-                                        <div class="col-xs-1 col-sm-6 col-md-2">
+                                        <div class="col-xs-1 col-sm-6 col-md-3">
                                             <div class="form-group">
-                                                <label for="PresionArterialSignos">Presión arterial alta (140/190) (*)</label>
+                                                <label for="PresionArterialSignos">Presión arterial alta (140/190)</label>
                                                 <select class="form-control" name="PresionArterialSignos">
                                                     <option select">{{$fcevaluacionposparto->PresionArterialSignos}}</option>
                                                     @if ($fcevaluacionposparto->PresionArterialSignos === 'Si')
@@ -74,9 +74,9 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-xs-1 col-sm-6 col-md-2">
+                                        <div class="col-xs-1 col-sm-6 col-md-3">
                                             <div class="form-group">
-                                                <label for="Fiebre">Fiebre (*)</label>
+                                                <label for="Fiebre">Fiebre</label>
                                                 <select class="form-control" name="Fiebre">
                                                     <option select">{{$fcevaluacionposparto->Fiebre}}</option>
                                                     @if ($fcevaluacionposparto->Fiebre === 'Si')
@@ -90,7 +90,7 @@
 
                                         <div class="col-xs-1 col-sm-6 col-md-3">
                                             <div class="form-group">
-                                                <label for="Coagulos">Coágulos con mal olor (Loquios) (*)</label>
+                                                <label for="Coagulos">Coágulos con mal olor (Loquios)</label>
                                                 <select class="form-control" name="Coagulos">
                                                     <option select">{{$fcevaluacionposparto->Coagulos}}</option>
                                                     @if ($fcevaluacionposparto->Coagulos === 'Si')
@@ -104,7 +104,7 @@
 
                                         <div class="col-xs-1 col-sm-6 col-md-3">
                                             <div class="form-group">
-                                                <label for="DolorAbdominal">Dolor abdominal (epigastralgia) (*)</label>
+                                                <label for="DolorAbdominal">Dolor abdominal (epigastralgia)</label>
                                                 <select class="form-control" name="DolorAbdominal">
                                                     <option select">{{$fcevaluacionposparto->DolorAbdominal}}</option>
                                                     @if ($fcevaluacionposparto->DolorAbdominal === 'Si')

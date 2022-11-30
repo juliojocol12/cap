@@ -3,7 +3,7 @@
                                 <h3 class="page__heading">Evalúe signos y síntomas de peligro en el posparto</h3>
                                     <div class="row ">
 
-                                        <div class="col-xs-1 col-sm-6 col-md-2">
+                                        <div class="col-xs-1 col-sm-6 col-md-3">
                                             <div class="form-group">
                                                 <label for="HemorragiaVaginal">Hemorragia vaginal (*)</label>
                                                 <select class="form-control" name="HemorragiaVaginal">
@@ -13,7 +13,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-xs-1 col-sm-6 col-md-2">
+                                        <div class="col-xs-1 col-sm-6 col-md-3">
                                             <div class="form-group">
                                                 <label for="DolordeCabeza">Dolor de cabeza severo (*)</label>
                                                 <select class="form-control" name="DolordeCabeza">
@@ -23,9 +23,9 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-xs-1 col-sm-6 col-md-2">
+                                        <div class="col-xs-1 col-sm-6 col-md-3">
                                             <div class="form-group">
-                                                <label for="VisionBorrosa">Vision borrosa (*)</label>
+                                                <label for="VisionBorrosa">Visión borrosa (*)</label>
                                                 <select class="form-control" name="VisionBorrosa">
                                                     <option value="No">No</option>
                                                     <option value="Si">Si</option>
@@ -33,7 +33,7 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-xs-1 col-sm-6 col-md-2">
+                                        <div class="col-xs-1 col-sm-6 col-md-3">
                                             <div class="form-group">
                                                 <label for="Convulsion">Convulsión (*)</label>
                                                 <select class="form-control" name="Convulsion">
@@ -44,7 +44,7 @@
                                         </div>
 
                                         
-                                        <div class="col-xs-1 col-sm-6 col-md-2">
+                                        <div class="col-xs-1 col-sm-6 col-md-3">
                                             <div class="form-group">
                                                 <label for="PresionArterialSignos">Presión arterial alta (140/190) (*)</label>
                                                 <select class="form-control" name="PresionArterialSignos">
@@ -54,7 +54,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-xs-1 col-sm-6 col-md-2">
+                                        <div class="col-xs-1 col-sm-6 col-md-3">
                                             <div class="form-group">
                                                 <label for="Fiebre">Fiebre (*)</label>
                                                 <select class="form-control" name="Fiebre">

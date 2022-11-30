@@ -31,7 +31,7 @@
                                         </select>
                                     </div>
                                 </div>
-
+ 
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="ITS">ITS (*)</label>
@@ -192,7 +192,7 @@
                             <div class="row ">
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="VacunaTdAp">¿Vacuna TdAp?</label>
+                                        <label for="VacunaTdAp">¿Vacuna TdAp? (*)</label>
                                         <select class="form-control" name="VacunaTdAp">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -215,7 +215,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Fecha</label>
+                                        <label for="">Última fecha de suministro</label>
                                         {!! Form::date('FechaVacunaTdAp', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
@@ -224,7 +224,7 @@
                             <div class="row ">
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="VacunaTd">¿Vacuna Td?</label>
+                                        <label for="VacunaTd">¿Vacuna Td? (*)</label>
                                         <select class="form-control" name="VacunaTd">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -244,7 +244,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Fecha</label>
+                                        <label for="">Última fecha de suministro</label>
                                         {!! Form::date('FechaVacunaTd', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
@@ -253,7 +253,7 @@
                             <div class="row ">
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="VacunaInfluenza">¿Vacuna influenza?</label>
+                                        <label for="VacunaInfluenza">¿Vacuna influenza? (*)</label>
                                         <select class="form-control" name="VacunaInfluenza">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -273,7 +273,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Fecha</label>
+                                        <label for="">Última fecha de suministro</label>
                                         {!! Form::date('FechaVacunaInfluenza', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
@@ -282,7 +282,7 @@
                             <div class="row ">
                                 <div class="col-xs-1 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="VacunaCovid">¿Vacuna Covid-19?</label>
+                                        <label for="VacunaCovid">¿Vacuna COVID-19? (*)</label>
                                         <select class="form-control" name="VacunaCovid">
                                         <option value="No">No</option>
                                         <option value="Si">Si</option>
@@ -305,7 +305,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="">Fecha</label>
+                                        <label for="">Última fecha de suministro</label>
                                         {!! Form::date('FechaVacunaCovid', null, array('class'=>'form-control','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
