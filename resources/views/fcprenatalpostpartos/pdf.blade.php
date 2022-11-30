@@ -47,7 +47,7 @@
 
             <tr>
                 <th scope="row" align="left">Fecha de nacimiento</th>
-                <td data-order="DD/MM/YYYY">{{$fcprenatalpostpartos->Fecha}}</td>
+                <td data-order="DD/MM/YYYY">{{$fcprenatalpostpartos->FechaNaciemientoPaciente}}</td>
             </tr>
 
             <tr>
@@ -57,7 +57,7 @@
 
             <tr>
                 <th scope="row" align="left">Direccion</th>
-                <td>{{$fcprenatalpostpartos->Descripciondireccion}}</td>
+                <td>{{$fcprenatalpostpartos->Descripciondireccion}} {{$fcprenatalpostpartos->Grupodireccion}} {{$fcprenatalpostpartos->Numerodireccion}}</td>
             </tr>
 
             <tr>

@@ -6,7 +6,7 @@ Ficha clinica posparto
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">FICHA CLINICA POSTPARTO</h3>
+            <h3 class="page__heading">FICHA CLINICA POSPARTO</h3>
         </div>
         <div class="section-body">
             <div class="row row-responsive">
@@ -53,6 +53,8 @@ Ficha clinica posparto
                                     <th style="color:#fff;">Datos de paciente</th>
                                     <th style="color:#fff;">DPI</th>
                                     <th style="color:#fff;">Establecimiento Salud</th>
+                                    <th style="color:#fff;">Descargar</th>
+
                                 </thead>
 
                                 <tbody>
@@ -83,8 +85,6 @@ Ficha clinica posparto
 
                                             
                                             <td>{{$fcevaluacionposparto->establecimientosaludos->Nombre}} </td>
-
-                                          
                                             
               
                                         </tr>

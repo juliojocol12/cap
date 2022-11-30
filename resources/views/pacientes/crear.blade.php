@@ -43,18 +43,24 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="">Fecha de nacimiento (*)</label>
-                                        {!! Form::date('', null, array('class'=>'form-control', 'min'=>'{{date("2022-11-01")}}', 'max'=>'{{date("2022-11-24")}}' )) !!}
-                                        <input type="date" id="datePickerId" class="form-control" name="FechaNaciemientoPaciente" /> 
-                                        <input type="date" name="arrival_date" id="arrival_date" class="form-control" aria-label="...">
+                                        <input type="date"  onchange="calcularEdad(this.value)" id="datePickerId" class="form-control" name="FechaNaciemientoPaciente" /> 
+                                    </div>
+                                </div>
+
+
+                                <div class="col-xs-12 col-sm-12 col-md-1">
+                                    <div class="form-group">
+                                        <label for="">Edad</label>                                     
+                                            <input type="text" name="Edad" id="Edad" class="form-control" readonly="true">
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="">DPI (*)</label>
+                                        <label for="">DPI/Certificado de nacimiento (*)</label>
                                         {!! Form::text('CUI', null, array('class'=>'form-control', 'maxlength'=>'13','placeholder'=>'Ingrese el DPI en números y sin espacios','autocomplete'=>'off')) !!}
                                     </div>
                                 </div>   
@@ -173,16 +179,17 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-4">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
-                                        <label for="" value="idDatosFamiliares">Nombre del familiar</label>
-                                        <input class="form-control" list="filtroIdFamiliares" id="filtroIdFamiliare" placeholder="Ingrese el nombre del familiar" autocomplete="off">
-                                        <datalist id="filtroIdFamiliares" name="idDatosFamiliares">
-                                            @foreach($datosfamiliares as $idfamliar)
-                                                <option > {{$idfamliar->CUI}}, {{$idfamliar->NombresFamiliar}} </option>
+                                        <label for="" value="idDatosFamiliares">Nombre de un familiar (*)</label>
+                                        <input class="form-control" list="filtroCUIFamiliares" id="filtroCUIFamiliar" name="idDatosFamiliares" placeholder="Ingrese el CUI del familiar" autocomplete="off">
+
+                                        <datalist id="filtroCUIFamiliares" name="idDatosFamiliares">
+                                            @foreach($datosfamiliares as $cuifamiliar)
+                                            <option value="{{$cuifamiliar->idDatosFamiliares}}"> {{$cuifamiliar->CUI}}, {{$cuifamiliar->NombresFamiliar}} {{$cuifamiliar->ApellidosFamiliar}} </option>
+                                            
                                             @endforeach
                                         </datalist>
-                                        <input class="form-control" list="filtroIdFamiliare" name="idDatosFamiliares" placeholder="Ingrese el nombre del familiar" autocomplete="off">
                                     </div>
                                 </div>
 
@@ -213,13 +220,31 @@
                                         </div>
                                     </div>
                                 </div>
-
+                            <!--Checked-->        
                                                                
                             </div>
+                            
+                            <div class="row ">
+                            <div class="col-xs-12 col-sm-12 col-md-1">
+                                <input type="checkbox" name="test" id="test" class="form-group" style="visibility:hidden">
+                            </div>
+                            </div>
+
+                        
+                            <div class="row " id="boton" readonly style="display:none">
+                                    <div class="col-xs-6 col-sm-6 col-md-2">
+                                        <div class="form-group">
+                                            <label for="">Ingrese número de denuncia</label> <br> 
+                                            <div>
+                                                <input type="text" class="form-control" autocomplete="off" name="Denuncia" id="Denuncia">
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">Guardar</button>
                                 <a href="{{ route('pacientes.index') }}" class="btn btn-danger mr-3">Volver</a>
-                                <a href="{{ route('pacientes.edad') }}">Edad</a>
                                 </div>
                             @include('modal.guardar')
                             {!! Form::close() !!}                    

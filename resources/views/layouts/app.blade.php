@@ -16,6 +16,8 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6da8e80d51.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     
     
     
@@ -383,5 +385,57 @@ $('#arrival_date').attr('min', new Date().toISOString().split('T')[0])
 
 var date = $('#datepicker').datepicker({ dateFormat: 'd-m-Y' }).val();
     
+
+function calcularEdad(fecha) {
+    var hoy = new Date();
+    var cumpleanos = new Date(fecha);
+    var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+    var m = hoy.getMonth() - cumpleanos.getMonth();
+    var checkbox = document.getElementById('test');
+
+    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+        edad--;
+    }
+    //document.edad.value = edad;
+    document.getElementById("Edad").value=edad;
+
+    if(edad < 18)
+    {
+        var checked = checkbox.checked;
+        document.getElementById('boton').style.display = "";
+        swal("Paciente menor de edad!","Si cuenta con número de denuncia ingréselo");
+    }
+    else{
+        document.getElementById('boton').style.display = "none";
+    }
+                        
+}
+
+function calcularEdadInfante(fecha) {
+    var hoy = new Date();
+    var cumpleanos = new Date(fecha);
+    var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+    var m = hoy.getMonth() - cumpleanos.getMonth();
+    var checkbox = document.getElementById('test');
+
+    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+        edad--;
+    }
+    //document.edad.value = edad;
+    document.getElementById("edad").value=edad;
+
+    if(edad < 5)
+    {
+        var checked = checkbox.checked;
+        document.getElementById('botonInfante').style.display = "";
+    }
+    else{
+        document.getElementById('botonInfante').style.display = "none";
+        swal("Error", "Ingrese infante menor a 5 años!", "error");
+    }
+                        
+}
+
+
 </script>
 </html>

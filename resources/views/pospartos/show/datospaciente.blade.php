@@ -47,7 +47,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">ProfesionOficio</label>
+                                        <label for="">Profesión/oficio</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->datospersonalespacientes->ProfesionOficio}}" disabled>
                                     </div>                                       
                                 </div>

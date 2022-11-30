@@ -1,15 +1,16 @@
                         <div class="row ">
-                        <div class="col-xs-12 col-sm-12 col-md-3">
-                            <label for="chec">Active si nació en algún establecimiento del CAP </label>
+                            <div class="col-xs-12 col-sm-12 col-md-3">
+                                <label for="chec">Active si nació en algún establecimiento del CAP </label>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-5">
+                                <input class="form-group" name="chec" type="checkbox" id="chec" onChange="comprobar(this);"/>
+                            </div>
                         </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-5">
-                        <input class="form-group" name="chec" type="checkbox" id="chec" onChange="comprobar(this);"/>
-                        </div>
-                        </div>
                         <div class="row " id="boton" readonly style="display:none">
 
-                                 <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="col-xs-12 col-sm-12 col-md-5">
                                     <div class="form-group">
                                         <label for="" value="EstablecimientoSalud_id">¿En qué establecimiento? (*)</label>
                                         <select class="form-control" name="EstablecimientoSalud_id">
@@ -46,12 +47,5 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
-                                    
-                                                   
 
-
-
-
-                                </div>
+                        </div>

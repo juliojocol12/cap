@@ -13,6 +13,46 @@
 
 </head>
 <body>
-    
+    <center>
+        <h2>Reporte de pacientes por rango de edad</h2>
+    </center> <br>
+    <h4>Fecha de emision:</h4>
+    <table class="table  table-striped mt-2 table-responsive">
+        <thead style="background-color: #6777ef;">
+            <th style="color:#fff;">Nombres</th>
+            <th style="color:#fff;">Apellidos</th>
+            <th style="color:#fff;">Fecha nacimiento</th>
+            <th style="color:#fff;">DPI</th>
+            <th style="color:#fff;">Profesión</th>
+            <th style="color:#fff;">Dirección</th>
+            <th style="color:#fff;">Municipio</th>
+            <th style="color:#fff;">Celular</th>
+            <th style="color:#fff;">Pueblo</th>
+            <th style="color:#fff;">Estado civil</th>
+            <th style="color:#fff;">Peso</th>
+            <th style="color:#fff;">Edad</th>
+        </thead>
+
+        <tbody>
+            @foreach($datospersonalespacientes as $paciente)
+                <tr "table-active">
+              
+                    <td>{{$paciente->NombresPaciente}}</td>
+                    <td>{{$paciente->ApellidosPaciente}}</td> 
+                    <td>{{$paciente->FechaNaciemientoPaciente}}</td> 
+                    <td>{{$paciente->CUI}}</td> 
+                    <td>{{$paciente->ProfesionOficio}}</td> 
+                    <td>{{$paciente->Descripciondireccion}}</td> 
+                    <td>{{$paciente->Municipiodep}}</td>                                    
+                    <td>{{$paciente->Celular}}</td>
+                    <td>{{$paciente->Nombre}}</td>
+                    <td>{{$paciente->EstadoCivil}}</td>
+                    <td>{{$paciente->Peso}}</td>
+                    <td>{{$paciente->Edad}}</td>
+ 
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </body>
 </html>

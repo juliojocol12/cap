@@ -58,16 +58,18 @@ class FcprenatalpostpartoController extends Controller
     
     public function pdf( $idFCPrenatalPostpartos)
     {
-        $fcprenatalpostpartos = fcprenatalpostparto::select('Fecha','NombresPaciente','ApellidosPaciente','CUI','Numerodireccion','idDatosPersonalesPacientes','EstablecimientoSalud_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterial','Fiebre','PresentacionesFetales','RegistrodeReferencia','MotivoConsulta','HistoriaEnfermedadActual','FechaUltimaRegla','NoGestas','Partos','Aborto','AbortoConsecutivo','NoLIU','NacidosVivos','NacidosMuertos','HijosVivos','HijosMuertos','NoCesareas','EmbarazoMultiples','FechaUltimoParto','NacidosAntesOchoMeses','PreEclampsia','UltimoRNPesoCincolb','UltimoRNPesoSietelb','DeteccionCancerCervix','FechaDeteccionCancer','ResultadoNormal','MetodoPlanificacionFamiliar','CualMetodoPlanificacionF','AsmaBronquial','HipertensionArterial','Cancer','ITS','Chagas','TomaMedicamentos','TrastornoPiscoSocial','ViolenciaGenero','Diabetes','Cardiopatia','Tuberculosis','Neuropatia','InfeccionesUrinarias','ViolenciaInrtraFamiliar','TipoSangre','Quirurgicos','Fuma','BebidasAlcoholicas','ConsumoDrogas','SR','OtrosAntecedentes', 'Estado','VacunaTdAp','DosisVacunaTdAp','FechaVacunaTdAp','VacunaTd','DosisVacunaTd','FechaVacunaTd','VacunaInfluenza','DosisVacunaInfluenza','FechaVacunaInfluenza','VacunaCovid','DosisVacunaCovid','FechaVacunaCovid')
+        $fcprenatalpostpartos = fcprenatalpostparto::select('Fecha','NombresPaciente','ApellidosPaciente','CUI','Descripciondireccion','Grupodireccion','Numerodireccion','FechaNaciemientoPaciente','Telefono','Celular','idDatosPersonalesPacientes','EstablecimientoSalud_id','HemorragiaVaginal','DolordeCabeza','VisionBorrosa','Convulsion','DolorAbdominal','PresionArterial','Fiebre','PresentacionesFetales','RegistrodeReferencia','MotivoConsulta','HistoriaEnfermedadActual','FechaUltimaRegla','NoGestas','Partos','Aborto','AbortoConsecutivo','NoLIU','NacidosVivos','NacidosMuertos','HijosVivos','HijosMuertos','NoCesareas','EmbarazoMultiples','FechaUltimoParto','NacidosAntesOchoMeses','PreEclampsia','UltimoRNPesoCincolb','UltimoRNPesoSietelb','DeteccionCancerCervix','FechaDeteccionCancer','ResultadoNormal','MetodoPlanificacionFamiliar','CualMetodoPlanificacionF','AsmaBronquial','HipertensionArterial','Cancer','ITS','Chagas','TomaMedicamentos','TrastornoPiscoSocial','ViolenciaGenero','Diabetes','Cardiopatia','Tuberculosis','Neuropatia','InfeccionesUrinarias','ViolenciaInrtraFamiliar','TipoSangre','Quirurgicos','Fuma','BebidasAlcoholicas','ConsumoDrogas','SR','OtrosAntecedentes', 'Estado','VacunaTdAp','DosisVacunaTdAp','FechaVacunaTdAp','VacunaTd','DosisVacunaTd','FechaVacunaTd','VacunaInfluenza','DosisVacunaInfluenza','FechaVacunaInfluenza','VacunaCovid','DosisVacunaCovid','FechaVacunaCovid')
         ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','fcprenatalpostpartos.DatosPersonalesPacientes_id')->find($idFCPrenatalPostpartos);
 
         //$datospacientes = datospersonalespaciente::all()->where('Stado','Si');
         //$establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');
+        //$nombrePrenatal = datospersonalespaciente::select('NombresPaciente')->find($idFCPrenatalPostpartos);
+        //$nombrepdf = 'Ficha_Clinia_Prenatal' / $nombrePrenatal \'.pdf ';
 
         $pdf = PDF::loadView('fcprenatalpostpartos.pdf', compact('fcprenatalpostpartos'));
         $date = Carbon::now();
         //$pdf->loadHTML('<h1>Prueba</h1>');
-        return $pdf->stream('Ficha_Clinia.pdf');
+        return $pdf->stream('Ficha_Clinia_Prenatal');
         //return $pdf->download('Ficha_Clinia.pdf');
 
     }

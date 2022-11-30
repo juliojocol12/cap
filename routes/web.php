@@ -82,10 +82,6 @@ Route::group(['middleware' => ['auth']], function(){
     //Route::resource('evento', EventoController::class);
     Route::resource('eventos', EventosController::class);
     Route::resource('abortos', AbortoController::class);
-
-    
-
-    Route::get('edad/pacientes', [App\Http\Controllers\DatospersonalespacienteController::class, 'edad'])->name('pacientes.edad');
     
     //rutas para vistas de reportes
     Route::get('r1/reportes', [App\Http\Controllers\ReportesController::class, 'r1'])->name('reportes.r1');
@@ -103,7 +99,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('r13/reportes', [App\Http\Controllers\ReportesController::class, 'r13'])->name('reportes.r13');
 
     //rutas para generar reportes
+    Route::get('pdf1/reportes', [App\Http\Controllers\ReportesController::class, 'pdf1'])->name('datospersonalespacientes.pdf1');
     Route::get('pdf4/reportes', [App\Http\Controllers\ReportesController::class, 'pdf4'])->name('datospersonalespacientes.pdf4');
+    
 
 
 });
