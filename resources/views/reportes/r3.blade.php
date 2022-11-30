@@ -15,7 +15,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h3>Mujeres en estado de alto riesgo</h3>
+                            <h3>Mujeres embarazadas en estado de alto riesgo</h3>
                             <div class="row">
                                 <div class="col-xl-12">
                                     <form action="{{ route('reportes.r3') }}" method="GET">
@@ -62,7 +62,11 @@
                                                 <input type="text" class="form-control" name="filtroApellido" autocomplete="off" value="{{$busquedaApellido}}" placeholder="Ingrese el apellido de la paciente a buscar">
                                             </div>    
                                             <div class="col-sm-2 my-1">                                            
-                                                <input type="text" class="form-control" name="filtro" autocomplete="off" value="{{$busqueda}}" placeholder="Ingrese la fecha del aborto">
+                                                <input type="text" class="form-control" name="filtro" autocomplete="off" value="{{$busqueda}}" placeholder="Ingrese la fecha inicial">
+                                            </div>
+                                            <div class="col-sm-2 my-1">    
+                                                <label for="">Fecha final</label>                                        
+                                                <input type="date" class="form-control" name="filtrofinal" autocomplete="off" value="{{$busquedaFinal}}" placeholder="Ingrese la fecha final">
                                             </div>
                                             <div class="col-sm-2 my-1">
                                                 <input type="text" class="form-control" name="filtroDPI" autocomplete="off" value="{{$busquedaDPI}}" placeholder="Ingrese el DPI para buscar">
