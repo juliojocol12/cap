@@ -17,7 +17,7 @@ use App\Models\Pueblo;
 use App\Models\establecimientosaludo;
 use App\Models\vacuna;
 use App\Models\vacunainfante;
-
+use App\Models\Muertematerna;
 use App\Models\evento; 
 use App\Models\Aborto;
 use App\Models\fichamspasriego;
@@ -50,6 +50,7 @@ class HomeController extends Controller
         $this->middleware('permission:home-establecimientosaludo', ['only'=>['establecimientohome']]);
         $this->middleware('permission:home-vacunas', ['only'=>['vacunashome']]);
         $this->middleware('permission:home-vacunainfante', ['only'=>['vacunainfantehome']]);
+        $this->middleware('permission:home-MuerteMaterna', ['only'=>['muertematernahome']]);
     }
 
     /**
@@ -76,8 +77,9 @@ class HomeController extends Controller
         $cant_vacunainfante = vacunainfante::where('Tado','Si')->count();
         $cant_agenda = evento::count();
         $cant_aborto = Aborto::count();
+        $cant_muertematerna = Muertematerna::count();
         $cant_fichamspasriego = fichamspasriego::where('Estado','Si')->count();
-        return view('home', compact('cant_infantes','cant_personales','cant_roles','cantusuarios','cant_familiares','cant_pacientes','cant_prenatal','cant_controlprenatal','cant_posparto','cant_controlposparto','cant_pueblo','cant_establecimiento','cant_vacunas','cant_vacunainfante','cant_agenda','cant_aborto','cant_fichamspasriego'));
+        return view('home', compact('cant_infantes','cant_personales','cant_roles','cantusuarios','cant_familiares','cant_pacientes','cant_prenatal','cant_controlprenatal','cant_posparto','cant_controlposparto','cant_pueblo','cant_establecimiento','cant_vacunas','cant_vacunainfante','cant_agenda','cant_aborto','cant_fichamspasriego','cant_muertematerna'));
     }
     public function fichamspasriegohome()
     {
@@ -86,6 +88,10 @@ class HomeController extends Controller
     public function abortohome()
     {
         return view('home.aborto');
+    }
+    public function muertematernahome()
+    {
+        return view('home.muertematerna');
     }
     public function agendahome()
     {

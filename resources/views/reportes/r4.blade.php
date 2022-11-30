@@ -54,7 +54,7 @@
                                             </div>
                                             
                                         </div>
-                                        
+                                         
                                         <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
                                                 <a href="{{ route('reportes.r4') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
@@ -101,12 +101,12 @@
                                                 <input type="text" class="form-control" name="filtroSangre" autocomplete="off" value="{{$busquedaSangre}}" placeholder="Ingrese por tipo de sangre a buscar">
                                             </div>
                                     </div>
-                                    <div class="col-sm-4 my-1">
-                                        <input formtarget="_blank" type="submit"  class="btn btn-warning" value="Descargar reporte">
-                                    </div>
+                                    
                                 </form>
                             </div>
-
+                            <div class="col-sm-4 my-1">
+                                <input formtarget="_blank" type="submit"  class="btn btn-warning" value="Descargar reporte">
+                            </div>
                             <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="color:#fff;">Nombres</th>
