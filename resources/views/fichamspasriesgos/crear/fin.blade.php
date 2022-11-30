@@ -11,7 +11,7 @@
                                 </div>   
                                 
                                     
-                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                <div class="col-xs-6 col-sm-6 col-md-4">
                                     <div class="form-group">
                                         <label for="">Nombre de la persona responsable (*)</label>
                                         

@@ -36,7 +36,7 @@ Usuarios
                                             
                                             <div class="col-sm-4 my-1">
                                                 <label for=""><b>Filtrar por correo</b> </label>
-                                                <input type="text" class="form-control" name="Nombre" autocomplete="off" value="{{$Nombre}}" placeholder="Ingrese el nombre del usuario a buscar">
+                                                <input type="text" class="form-control" name="Nombre" autocomplete="off" value="{{$Nombre}}" placeholder="Ingrese el correo del usuario a buscar">
                                             </div>                                            
                                         </div>
                                         <div class="form-row">

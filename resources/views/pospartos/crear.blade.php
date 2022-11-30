@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('title')
-Ingreso de ficha clinica Posparto
+Ingreso de ficha clínica posparto
 @endsection
 
 @section('content')
     <section class="section">
         
         <div class="section-header">
-            <h3 class="page__heading">INGRESO DE FICHA CLINICA POSPARTO</h3>
+            <h3 class="page__heading">Ingreso de ficha clínica posparto</h3>
         </div>
         <div class="section-body">
         <div class="row row-responsive">
@@ -28,17 +28,13 @@ Ingreso de ficha clinica Posparto
 
                     {!! Form::open(array('route'=>'pospartos.store', 'method'=>'POST')) !!}
                         @include('pospartos.crear.datospaciente')
-
                         @include('pospartos.crear.signossintomas')
-
                         @include('pospartos.crear.refirio')
-
                         @include('pospartos.crear.primer')
-
                         @include('pospartos.crear.suplementacion')
 
                         <div class="d-none">	
-                            <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="" value="Usuario_id">Encargado de llenado</label>
                                     <select id="Usuario_id" class="form-control" name="Usuario_id" maxlength="35">

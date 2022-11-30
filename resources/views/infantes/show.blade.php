@@ -66,8 +66,8 @@
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Lugar de nacimiento</label>
-                                        {!! Form::text('LugarNacimiento', null, array('class'=>'form-control', 'maxlength'=>'30', 'placeholder'=>'Ingrese el municipio y el departamento', 'autocomplete'=>'off')) !!}
-                                    </div>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infant->LugarNacimiento}}" disabled>
+                                     </div>
                                 </div>
 
                                 <div class="col-xs-6 col-sm-6 col-md-3">
@@ -132,15 +132,15 @@
                                 <div class="row ">
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="" value="EstablecimientoSalud_id">¿En qué establecimiento?</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infantbc}}" disabled>
+                                        <label for="" value="Establecimientoid">¿En qué establecimiento?</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infantbc->Nombre}}" disabled>
                                     </div>
                                 </div>     
-
+ 
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="" value="Personal_idD">¿Qué médico atendió?</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$infantxx->Nombre}}" disabled>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$nombres->Nombre}}" disabled>
                                     </div>
                                 </div>     
                                 

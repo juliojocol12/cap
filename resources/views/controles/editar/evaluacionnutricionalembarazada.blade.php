@@ -64,7 +64,7 @@
                 <div class="form-group responsive" >
                     <label for="">Acciones de peso</label>
                     <div class="form-outline w-100 mb-4">
-                        <textarea class="form-control" id="Accionesganancia" name="Accionesganancia" style="height:90px" maxlength="150"  placeholder="Ingrese acciones de peso"></textarea>
+                        <textarea class="form-control" id="Accionesganancia" name="Accionesganancia" style="height:90px; width: 100%; " maxlength="150" placeholder="Ingrese acciones de peso">{{$controle->Accionesganancia}}</textarea>
                     </div>       
                 </div>                                       
             </div>

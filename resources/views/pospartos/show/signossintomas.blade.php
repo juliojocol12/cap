@@ -9,7 +9,7 @@
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->HemorragiaVaginal}}" disabled>
                                     </div>                                       
                                 </div>
-
+ 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                         <label for="">Dolor de cabeza severo</label>
@@ -19,7 +19,7 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
-                                        <label for="">Vision borrosa</label>
+                                        <label for="">Visión borrosa</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcevaluacionposparto->VisionBorrosa}}" disabled>
                                     </div>                                       
                                 </div>

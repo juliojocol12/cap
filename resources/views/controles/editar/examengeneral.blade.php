@@ -25,8 +25,8 @@
             <div class="form-group responsive" >
                 <label for="">Descripción de anemia</label>
                 <div class="form-outline w-100 mb-4">
-                    <textarea class="form-control" id="DescripcionAnemia" name="DescripcionAnemia" style="height:90px" maxlength="100"  placeholder="Ingrese descripción sobre la anemia"></textarea>
-                </div>       
+                 <textarea class="form-control" id="DescripcionAnemia" name="DescripcionAnemia" style="height:90px; width: 100%; " maxlength="100" placeholder="Ingrese descripción sobre la anemia">{{$controle->DescripcionAnemia}}</textarea>
+                </div>    
             </div>                                       
         </div>
 

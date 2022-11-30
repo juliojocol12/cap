@@ -33,6 +33,6 @@ class infante extends Model
         
     public function establecimientosaludos()
     {
-        return $this->belongsTo('App\Models\establecimientosaludo', 'EstablecimientoSalud_id', 'idEstablecimientoSaludos');
+        return $this->belongsTo('App\Models\establecimientosaludo', 'Establecimientoid', 'idEstablecimientoSaludos');
     }
 }

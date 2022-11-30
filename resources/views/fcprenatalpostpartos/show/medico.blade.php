@@ -4,7 +4,7 @@
 
                             <h5 class="page__heading"></h5>
                             <div class="row ">
-
+ 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                     <label for="">Asma bronquial</label>
@@ -123,28 +123,7 @@
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->ConsumoDrogas}}" disabled>
                                     </div>                                       
                                 </div>
-
-                                <div class="col-xs-6 col-sm-6 col-md-2">
-                                    <div class="form-group">
-                                    <label for="">Antecedentes de vacuna Td</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->AntecedentesVacunas}}" disabled>
-                                    </div>                                       
-                                </div>
-
-                                <div class="col-xs-6 col-sm-6 col-md-2">
-                                    <div class="form-group">
-                                    <label for="">Dosis de vacuna</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->DosisVacuna}}" disabled>
-                                    </div>                                       
-                                </div>
-
-                                <div class="col-xs-6 col-sm-6 col-md-2">
-                                    <div class="form-group">
-                                    <label for="">Fecha de última dosis</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->FechaUltimaDosis}}" disabled>
-                                    </div>                                       
-                                </div>
-
+ 
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                     <label for="">SR</label>
@@ -152,8 +131,95 @@
                                     </div>                                       
                                 </div>
 
-                                
+                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="VacunaTdAp">Vacuna TdAp</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->VacunaTdAp}}" disabled>
+                                    </div>
+                                </div>
 
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Dosis de vacuna</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->DosisVacunaTdAp}}" disabled>
+                                    </div>                                       
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Última fecha de suministro</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->FechaVacunaTdAp}}" disabled>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="VacunaTd">Vacuna Td</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->VacunaTd}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Dosis de vacuna</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->DosisVacunaTd}}" disabled>
+                                   </div>                                       
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Última fecha de suministro</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->FechaVacunaTd}}" disabled>
+                                    </div>
+                                </div>
+                      
+
+                    
+                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="VacunaInfluenza">Vacuna influenza</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->VacunaInfluenza}}" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Dosis de vacuna</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->DosisVacunaInfluenza}}" disabled>
+                                    </div>                                       
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Última fecha de suministro</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->FechaVacunaInfluenza}}" disabled>
+                                    </div>
+                                </div>
+                           
+
+                                <div class="col-xs-1 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="VacunaCovid">Vacuna COVID-19</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->VacunaCovid}}" disabled>
+                                    
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Dosis de vacuna</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->DosisVacunaCovid}}" disabled>
+                                    </div>                                       
+                                </div>
+ 
+                                <div class="col-xs-6 col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="">Última fecha de suministro</label>
+                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{$fcprenatalpostparto->FechaVacunaCovid}}" disabled>
+                                    </div>
+                                </div>
+                          
+                          
                                 <div class="col-xs-6 col-sm-6 col-md-2">
                                     <div class="form-group">
                                     <label for="">Quirúrgicos</label>

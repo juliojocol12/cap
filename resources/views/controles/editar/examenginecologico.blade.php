@@ -21,7 +21,7 @@
                 <div class="form-group responsive" >
                     <label for="">Descripción de trazas de sangre o manchado</label>
                     <div class="form-outline w-100 mb-4">
-                        <textarea class="form-control" id="DescripcionTrazasSangreManchado" name="DescripcionTrazasSangreManchado" style="height:90px" maxlength="45"></textarea>
+                        <textarea class="form-control" id="DescripcionTrazasSangreManchado" name="DescripcionTrazasSangreManchado" style="height:90px; width: 100%; " maxlength="45" placeholder="Ingrese descripción sobre trazas de manchado de sangre">{{$controle->DescripcionTrazasSangreManchado}}</textarea>
                     </div>       
                 </div>                                       
             </div>
@@ -47,7 +47,8 @@
                 <div class="form-group responsive" >
                     <label for="">Descripción de enfermedades ginecológicos</label>
                     <div class="form-outline w-100 mb-4">
-                        <textarea class="form-control" id="DescripcionEnfermedadesGinecologicos" name="DescripcionEnfermedadesGinecologicos" style="height:90px" maxlength="45"></textarea>
+                        <textarea class="form-control" id="DescripcionEnfermedadesGinecologicos" name="DescripcionEnfermedadesGinecologicos" style="height:90px; width: 100%; " maxlength="45" placeholder="Ingrese descripción sobre enfermedades ginecológicos">{{$controle->DescripcionEnfermedadesGinecologicos}}</textarea>
+                  
                     </div>       
                 </div>                                       
             </div>

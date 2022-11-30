@@ -27,7 +27,7 @@
                 <div class="form-group responsive" >
                     <label for="">Descripción de evaluación</label>
                     <div class="form-outline w-100 mb-4">
-                        <textarea class="form-control" id="DescripcionEvaluacion" name="DescripcionEvaluacion" style="height:90px" maxlength="150"></textarea>
+                       <textarea class="form-control" id="DescripcionEvaluacion" name="DescripcionEvaluacion" style="height:90px; width: 100%; " maxlength="150" placeholder="Ingrese descripción sobre la evaluación inicial">{{$controle->DescripcionEvaluacion}}</textarea>
                     </div>       
                 </div>                                       
             </div>

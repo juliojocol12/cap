@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('title')
-    Datos de 
+    Datos de {{$infant->Nombres}} {{$infant->Apellidos}} 
 @endsection
 
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Editar datos de vacunación </h3>
+            <h3 class="page__heading">Editar datos de vacunación de {{$infant->Nombres}} {{$infant->Apellidos}}</h3>
         </div>
         <div class="section-body">
             <div class="row">

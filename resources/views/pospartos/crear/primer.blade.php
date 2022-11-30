@@ -2,23 +2,23 @@
                         <div class="card-body">
                         <h3 class="page__heading">Primer control</h3>
                         <div class="row ">
-                        <div class="col-xs-12 col-sm-12 col-md-2">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="name">Nombre Servicio (*)</label>
+                                    <label for="name">Nombre de servicio (*)</label>
                                     {!! Form::text('NombreServicio', null, array('class'=>'form-control','maxlength'=>'45','placeholder'=>'Ingrese el nombre del servicio', 'autocomplete'=>'off')) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="name">Días Despues Parto (*)</label>
-                                    {!! Form::text('DiasDespuesParto', null, array('class'=>'form-control','maxlength'=>'6','placeholder'=>'Ingrese números', 'autocomplete'=>'off')) !!}
+                                    <label for="name">Días despúes del parto (*)</label>
+                                    {!! Form::text('DiasDespuesParto', null, array('class'=>'form-control','maxlength'=>'6','placeholder'=>'Ingrese en números', 'autocomplete'=>'off')) !!}
                                 </div>
                             </div>
-
-                            <div class="col-xs-12 col-sm-12 col-md-2">
+ 
+                            <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="" value="EstablecimientoSalud_id">Donde Atendio Parto</label>
+                                    <label for="" value="EstablecimientoSalud_id">¿Dónde atendió el parto? (*)</label>
                                     
                                     <select class="form-control" name="EstablecimientoSalud_id" maxlength="35">
                                         @foreach($establecimientosaludos as $est)
@@ -28,10 +28,10 @@
                                 </div>
                             </div> 
 
-                            <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="" value="Medico">Persona que atendió el parto (*)</label>                  
-                                    <input type="text" class="form-control" list="filtroMedicos" id="filtroMedico" name="Medico" placeholder="Ingrese el tipo de persona" autocomplete="off">                                        
+                                    <label for="" value="Medico">Especialista que atendió el parto (*)</label>                  
+                                    <input type="text" class="form-control" list="filtroMedicos" id="filtroMedico" name="Medico" placeholder="Ingrese el encargado del parto" autocomplete="off">                                        
                                     <datalist id="filtroMedicos" name="Medico">
                                         <option value="Médico"> Médico</option>       
                                         <option value="Comadrona"> Comadrona</option>      
@@ -43,9 +43,9 @@
 
                             {{--
 
-                            <div class="col-xs-6 col-sm-6 col-md-2">
+                            <div class="col-xs-6 col-sm-6 col-md-3">
                                 <div class="form-group">
-                                    <label for="" value="Personal_idD">Quien Atendio Parto (*)</label>
+                                    <label for="" value="Personal_idD">¿Quién atendio el parto? (*)</label>
                                     <input class="form-control" list="filtroIdPersonales" id="filtroIdPersonale" name="Personal_idD" placeholder="ingrese en número de expediente"  autocomplete="off">                                        
                                     <datalist id="filtroIdPersonales" name="Personal_idD">
                                         @foreach($personaless as $per)
@@ -57,87 +57,87 @@
 
                             --}}
 
-                            <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="name">Herida Operatoria (*)</label>
-                                    {!! Form::text('HeridaOperatoria', null, array('class'=>'form-control','maxlength'=>'45','placeholder'=>'Describa','autocomplete'=>'off')) !!}
+                                    <label for="name">Herida operatoria (*)</label>
+                                    {!! Form::text('HeridaOperatoria', null, array('class'=>'form-control','maxlength'=>'45','placeholder'=>'Describa la herida','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="name">Involucion Uterina (*)</label>
-                                    {!! Form::text('InvolucionUterina', null, array('class'=>'form-control','maxlength'=>'25','placeholder'=>'Describa','autocomplete'=>'off')) !!}
+                                    <label for="name">Involución uterina (*)</label>
+                                    {!! Form::text('InvolucionUterina', null, array('class'=>'form-control','maxlength'=>'25','placeholder'=>'Describa involución uterina','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="name">Presión Arterial (*)</label>
+                                    <label for="name">Presión arterial (*)</label>
                                     {!! Form::text('PresionArterial', null, array('class'=>'form-control','maxlength'=>'20','placeholder'=>'Ingrese números','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="name">Frecuencia Cardiaca (*)</label>
+                                    <label for="name">Frecuencia cardíaca (*)</label>
                                     {!! Form::text('FrecuenciaCardiaca', null, array('class'=>'form-control','placeholder'=>'Ingrese números','maxlength'=>'20','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="name">Temperatura (*)</label>
                                     {!! Form::text('Temperatura', null, array('class'=>'form-control','maxlength'=>'10','placeholder'=>'Ingrese números','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="name">Examen de mamas (*)</label>
-                                    {!! Form::text('ExamenMamas', null, array('class'=>'form-control','maxlength'=>'75','placeholder'=>'Describa','autocomplete'=>'off')) !!}
+                                    {!! Form::text('ExamenMamas', null, array('class'=>'form-control','maxlength'=>'75','placeholder'=>'Describa el examen','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="name">Lactancia Materna (*)</label>
-                                    {!! Form::text('LactanciaMaterna', null, array('class'=>'form-control','maxlength'=>'2','placeholder'=>'Describa','autocomplete'=>'off')) !!}
+                                    <label for="name">Lactancia materna (*)</label>
+                                    {!! Form::text('LactanciaMaterna', null, array('class'=>'form-control','maxlength'=>'2','placeholder'=>'Describa lactancia materna','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-2">
+                            <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="name">Porque No Lactancia Materna</label>
+                                    <label for="name">¿Por qué no lactancia materna?</label>
                                     {!! Form::text('PorqueNoLactanciaMaterna', null, array('class'=>'form-control', 'placeholder'=>'Describa', 'maxlength'=>'45','autocomplete'=>'off')) !!}
                                 </div>
                             </div>
 
-                            <div class="col-xs-6 col-sm-6 col-md-4">                            
+                            <div class="col-xs-6 col-sm-6 col-md-3">                            
                                 <div class="form-group">
-                                    <label for="">Examen Ginecologico (*)</label>
+                                    <label for="">Examen ginecológico (*)</label>
                                     <div class="form-outline w-100 mb-4">
-                                        <textarea class="form-control" id="ExamenGinecologico" name="ExamenGinecologico" placeholder="Ingrese la información del examen ginecologico" style="height:60px; width: 100%; " maxlength="200"></textarea>
+                                        <textarea class="form-control" id="ExamenGinecologico" name="ExamenGinecologico" placeholder="Ingrese la información del examen ginecológico" style="height:90px; width: 100%; " maxlength="200"></textarea>
                                      </div>
                                 </div>
                             </div>
 
-
-                            <div class="col-xs-6 col-sm-6 col-md-4">                            
+ 
+                            <div class="col-xs-6 col-sm-6 col-md-3">                            
                                 <div class="form-group">
-                                    <label for="">Diagnostico (*)</label>
+                                    <label for="">Diagnóstico (*)</label>
                                     <div class="form-outline w-100 mb-4">
-                                        <textarea class="form-control" id="Diagnostico" name="Diagnostico"  placeholder="Ingrese la información del diagnostico" style="height:60px; width: 100%; " maxlength="200"></textarea>
+                                        <textarea class="form-control" id="Diagnostico" name="Diagnostico"  placeholder="Ingrese la información del diagnóstico" style="height:90px; width: 100%; " maxlength="200"></textarea>
                                      </div>
                                 </div>
                             </div>
                                 
                             
-                            <div class="col-xs-6 col-sm-6 col-md-4">                            
+                            <div class="col-xs-6 col-sm-6 col-md-3">                            
                                 <div class="form-group">
-                                    <label for="">Conducta Tratamiento (*)</label>
+                                    <label for="">Conducta tratamiento (*)</label>
                                     <div class="form-outline w-100 mb-4">
-                                        <textarea class="form-control" id="ConductaTratamiento" name="ConductaTratamiento" placeholder="Ingrese la información de la conducta de tratamiento" style="height:60px; width: 100%; " maxlength="200"></textarea>
+                                        <textarea class="form-control" id="ConductaTratamiento" name="ConductaTratamiento" placeholder="Ingrese la información de la conducta de tratamiento" style="height:90px; width: 100%; " maxlength="200"></textarea>
                                      </div>
                                 </div>
                             </div>

@@ -127,7 +127,7 @@ class ControleController extends Controller
             'DescripcionHepatitisB',
             'OtrosEstudios' => 'required|TextoRule3',
             'SemanasEmbarazoFURAU' => 'required|TextoRule3',
-            'ProblemasDetectados' => 'required|TextoRule3',
+            'ProblemasDetectados' => 'required|ComaRule',
             'SulfatoFerroso' => 'required|TextoRule3',
             'AcidoFolico' => 'required|TextoRule3',
             'VacunacionTdTdap' => 'required|TextoRule3',

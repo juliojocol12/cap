@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="row ">
-                            <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="col-xs-12 col-sm-12 col-md-4">
                                 <label for="chec">Active si el aborto se atendió en algún establecimiento del CAP </label>
                              </div>
                         <div class="col-xs-12 col-sm-12 col-md-5">

@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Ingreso de Primer Control Postparto</h3>
+            <h3 class="page__heading">Ingreso de primer control posparto</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -28,14 +28,14 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="name">Nombre Servicio</label>
+                                    <label for="name">Nombre de servicio</label>
                                     {!! Form::text('NombreServicio', null, array('class'=>'form-control','maxlength'=>'45')) !!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-2">
                                 <div class="form-group">
-                                    <label for="name">Dias Despues Parto</label>
+                                    <label for="name">Días despúes del parto</label>
                                     {!! Form::text('DiasDespuesParto', null, array('class'=>'form-control','maxlength'=>'6')) !!}
                                 </div>
                             </div>

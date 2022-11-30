@@ -6,7 +6,7 @@ Ficha clinica posparto
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">FICHA CLINICA POSTPARTO</h3>
+            <h3 class="page__heading">Ficha clínica posparto </h3>
         </div>
         <div class="section-body">
             <div class="row row-responsive">
@@ -26,11 +26,11 @@ Ficha clinica posparto
                                     <form action="{{ route('pospartos.index') }}" method="GET">
                                         <div class="form-row">
                                             <div class="col-sm-4 my-1">
-                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el Nombre para buscar">
+                                                <input type="text" class="form-control" name="texto" autocomplete="off" value="{{$texto}}" placeholder="Ingrese el nombre para buscar">
                                             </div>
                                             <div class="col-sm-4 my-1">
                                                 <input type="submit" class="btn btn-primary" value="Buscar">
-                                                <a href="{{ route('pospartos.index') }}" class="btn btn-danger mr-3">Borrar busqueda</a>
+                                                <a href="{{ route('pospartos.index') }}" class="btn btn-danger mr-3">Borrar búsqueda</a>
                                             </div>
                                         </div>
                                     </form>
@@ -52,7 +52,7 @@ Ficha clinica posparto
                                     <th style="color:#fff;">Fecha</th>
                                     <th style="color:#fff;">Datos de paciente</th>
                                     <th style="color:#fff;">DPI</th>
-                                    <th style="color:#fff;">Establecimiento Salud</th>
+                                    <th style="color:#fff;">Establecimiento salud</th>
                                 </thead>
 
                                 <tbody>

@@ -53,7 +53,7 @@ class EstablecimientosaludoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    { 
         $this->validate($request,[
             'Nombre' => 'required|TextoRule1|Unique:establecimientosaludos',
             'Direccion' => 'required',

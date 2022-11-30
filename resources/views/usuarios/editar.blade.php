@@ -29,7 +29,7 @@
 
                             {!! Form::model($user, ['method' => 'PATCH', 'route'=> ['usuarios.update', $user->id]]) !!}
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="name">Nombre</label>
                                         {!! Form::text('name', null, array('class'=>'form-control', 'minlength'=>'3','maxlength'=>'45')) !!}
@@ -38,7 +38,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="name">Correo electrónico</label>
                                         {!! Form::text('email', null, array('class'=>'form-control', 'minlength'=>'8','maxlength'=>'191')) !!}
@@ -47,16 +47,16 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="name">Contraseña</label>
-                                        {!! Form::password('password', array('class'=>'form-control', 'minlength'=>'8','maxlength'=>'12')) !!}
+                                        {!! Form::password('password', array('class'=>'form-control', 'minlength'=>'8','maxlength'=>'12','placeholder'=>'Debe contener al menos una mayúscula y números (min. 8 y max. 12 carácteres)')) !!}
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="name">Confirmar contraseña</label>
                                         {!! Form::password('confirm-password', array('class'=>'form-control', 'minlength'=>'8', 'maxlength'=>'12', 'placeholder'=>'Asegurese las contraseñas coincidan')) !!}
@@ -65,7 +65,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="name">Rol a desempeñar</label>
                                         <select class="form-control" name="roles[]" id="$roles" value="{{$user->roles}}">

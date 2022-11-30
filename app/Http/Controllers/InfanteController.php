@@ -91,7 +91,7 @@ class InfanteController extends Controller
             'Estado',
             'Personal_idD',
             'Establecimientoid',
-            'LugarNacimiento'=> 'required|TextoRule3',
+            'LugarNacimiento'=> 'required|ComaRule',
         ]);
         
         infante::create($request->all());
@@ -112,7 +112,7 @@ class InfanteController extends Controller
         //
         $infant = infante::find($idInfantes);
 
-        $infantxx = infante::select('Nombre')
+        $nombres = infante::select('Nombre')
         ->join('personales', 'personales.idPersonal', '=','infantes.Personal_idD')
         ->find($idInfantes);
 
@@ -130,12 +130,12 @@ class InfanteController extends Controller
         $restaInfluenza = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','Influenza')->where('Infante_id',$idInfantes)->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
 
         $restaTdAp = vacunainfante::join('vacunas','vacunas.idVacunas','=','vacunainfantes.Vacunas_id')->where('vacunas.NombreVacuna','TdAp')->where('Infante_id',$idInfantes)->where('Tado','Si')->count('vacunainfantes.Vacunas_id');
-
+ 
         $personaless = personale::all()->where('Cargo','=','Doctor')->where('Estado','Si');
         $establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');
         $datospersonalespacientes = datospersonalespaciente::all()->where('Stado','Si');
         $datosfamiliares = datosfamiliare::all()->where('Estado','Si');
-        return view ('infantes.show', compact('infant','infantsss','restacovid','restaTd','restaInfluenza','restaTdAp','infantxx','infantbc'))->with('datospersonalespacientes',$datospersonalespacientes)->with('datosfamiliares',$datosfamiliares)->with('personaless',$personaless)->with('establecimientosaludos',$establecimientosaludos);
+        return view ('infantes.show', compact('infant','infantsss','restacovid','restaTd','restaInfluenza','restaTdAp','nombres','infantbc'))->with('datospersonalespacientes',$datospersonalespacientes)->with('datosfamiliares',$datosfamiliares)->with('personaless',$personaless)->with('establecimientosaludos',$establecimientosaludos);
     }
 
     /**
@@ -187,7 +187,7 @@ class InfanteController extends Controller
             'Estado',
             'Personal_idD',
             'Establecimientoid',
-            'LugarNacimiento'=> 'required|TextoRule3',
+            'LugarNacimiento'=> 'required|ComaRule',
 
         ]);
         $input = $request->all();

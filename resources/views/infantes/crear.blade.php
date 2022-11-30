@@ -73,7 +73,7 @@
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Lugar de nacimiento (*)</label>
-                                        {!! Form::text('LugarNacimiento', null, array('class'=>'form-control', 'maxlength'=>'30', 'placeholder'=>'Ingrese el municipio y el departamento', 'autocomplete'=>'off')) !!}
+                                        {!! Form::text('LugarNacimiento', null, array('class'=>'form-control', 'maxlength'=>'30', 'placeholder'=>'Ingrese municipio, departamento', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 

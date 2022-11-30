@@ -74,7 +74,7 @@
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Lugar de nacimiento</label>
-                                        {!! Form::text('LugarNacimiento', null, array('class'=>'form-control', 'maxlength'=>'30', 'placeholder'=>'Ingrese el municipio y el departamento', 'autocomplete'=>'off')) !!}
+                                        {!! Form::text('LugarNacimiento', null, array('class'=>'form-control', 'maxlength'=>'30', 'placeholder'=>'Ingrese municipio, departamento', 'autocomplete'=>'off')) !!}
                                     </div>
                                 </div>
 
@@ -149,16 +149,6 @@
                                     <div class="form-group">
                                         <label for="">Fecha de egreso</label>
                                         {!! Form::date('FechaEgreso', null, array('class'=>'form-control')) !!}
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-6 col-md-4">
-                                    <div class="form-group">
-                                        <label for="">Observaciones</label> <br> 
-                                        
-                                        <div class="form-outline w-100 mb-4">
-                                            <textarea class="form-control" id="Observaciones" name="Observaciones" style="height:90px; width: 100%; " maxlength="200" placeholder="Observaciones durante el nacimiento">{{$infant->Observaciones}}</textarea>
-                                        </div>
                                     </div>
                                 </div>
 

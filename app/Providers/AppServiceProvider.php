@@ -99,6 +99,10 @@ class AppServiceProvider extends ServiceProvider
             return preg_match('/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}+$/',$value);
         });
 
+        Validator::extend('ComaRule', function ($attribute, $value, $parameters) {
+            return preg_match('/^[ a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+[^,]/',$value);
+        });
+       
 
         Schema::defaultStringlength(191);
         Paginator::useBootstrap();
