@@ -3,11 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-<<<<<<< HEAD
-        'reference' => '041aa2a1cd2732f6329e37f57f89a5a1c90c7e07',
-=======
-        'reference' => '2d1e91d06ea361d37523d6573aee34e2137efe84',
->>>>>>> Reportes
+        'reference' => '9ebce704f3282696384a23fa873d1fb884acf6a9',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -437,11 +433,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-<<<<<<< HEAD
-            'reference' => '041aa2a1cd2732f6329e37f57f89a5a1c90c7e07',
-=======
-            'reference' => '2d1e91d06ea361d37523d6573aee34e2137efe84',
->>>>>>> Reportes
+            'reference' => '9ebce704f3282696384a23fa873d1fb884acf6a9',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -543,6 +535,15 @@
             'reference' => 'ff6248ea87a9f116e78edd6002e39e5128a0d4dd',
             'type' => 'library',
             'install_path' => __DIR__ . '/../league/mime-type-detection',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'luecano/numero-a-letras' => array(
+            'pretty_version' => 'v3.0.0',
+            'version' => '3.0.0.0',
+            'reference' => 'bab51e3e81545e38d6a11efccb3e6d568765ba7c',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../luecano/numero-a-letras',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

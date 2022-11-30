@@ -15,12 +15,8 @@
                         <div class="card-body">
                             @can('crear-vacuna')
                             <a class="btn btn-warning" href="{{ route('vacunas.create') }}">Ingresar vacunas</a>
-                            <a class="btn btn-warning" href="{{ route('vacunas.registro') }}">Ingresar vacunas</a>
+                            <a class="btn btn-success" href="{{ route('vacunas.total') }}">Ver registro</a>
                             @endcan          
-                            
-                            
-                           
-
                             <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>
@@ -50,33 +46,34 @@
                             </table>
 
                             <table class="table  table-striped mt-2 table-responsive">
-                <thead style="background-color: #6777ef;">
-                    <th style="display: none;">ID</th>
-                    <th style="color:#fff;">Nombre de la vacuna</th>
-                    <th style="color:#fff;">Tipo de vacuna</th>
-                    <th style="color:#fff;">Cantidad</th>
-                    <th style="color:#fff;">Estado de la vacuna</th>
-                    <th style="color:#fff;">Fecha de ingreso</th>
-                    <th style="color:#fff;">Fecha de vencimiento</th>
-                </thead>
-                                
-                <tbody>
-                        @foreach($vacunas as $vacuna)
-                            <tr>
-                                <td style="display: none;">{{ $vacuna->idVacunas }}</td>
-                                <td>{{$vacuna->NombreVacuna}}</td>
-                                <td>{{$vacuna->TipoVacuna}}</td>
-                                <td>{{$vacuna->Cantidad}}</td>
-                                <td>{{$vacuna->EstadoVacuna}}</td>
-                                <td>{{ date('d-m-Y', strtotime($vacuna->Fechaingreso))}}</td>
-                                <td>{{ date('d-m-Y', strtotime($vacuna->FechaVencimiento))}}</td>
-                        @endforeach
-                </tbody>
-            </table>
+                                <thead style="background-color: #6777ef;">
+                                    <th style="display: none;">ID</th>
+                                    <th style="color:#fff;">Nombre de la vacuna</th>
+                                    <th style="color:#fff;">Tipo de vacuna</th>
+                                    <th style="color:#fff;">Cantidad</th>
+                                    <th style="color:#fff;">Estado de la vacuna</th>
+                                    <th style="color:#fff;">Fecha de ingreso</th>
+                                    <th style="color:#fff;">Fecha de vencimiento</th>
+                                </thead>
+                                                
+                                <tbody>
+                                        @foreach($vacunas as $vacuna)
+                                            <tr>
+                                                <td style="display: none;">{{ $vacuna->idVacunas }}</td>
+                                                <td>{{$vacuna->NombreVacuna}}</td>
+                                                <td>{{$vacuna->TipoVacuna}}</td>
+                                                <td>{{$vacuna->Cantidad}}</td>
+                                                <td>{{$vacuna->EstadoVacuna}}</td>
+                                                <td>{{ date('d-m-Y', strtotime($vacuna->Fechaingreso))}}</td>
+                                                <td>{{ date('d-m-Y', strtotime($vacuna->FechaVencimiento))}}</td>
+                                            </tr>
+                                        @endforeach
+                                        <tr>
+                                            <td>{{$vacunainfanteid}}</td>
+                                        </tr>
+                                </tbody>
+                            </table>
                             
-                            <div class="pagination justify-content-end">
-                                {!! $vacunas->links() !!}
-                            </div>
                             
                             
                         </div>

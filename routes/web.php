@@ -72,7 +72,7 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::resource('fichamspasriesgos', FichamspasriegoController::class);
     Route::resource('vacunas', VacunaController::class);
-    Route::get('vacunas/registro', [App\Http\Controllers\VacunaController::class, 'vacunas'])->name('vacunas.registro');
+    Route::get('total/vacunas', [App\Http\Controllers\VacunaController::class, 'total'])->name('vacunas.total');
     Route::resource('vacunainfantes', VacunainfanteController::class);
 
     Route::get('/evento', [App\Http\Controllers\EventoController::class, 'index']);

@@ -19,7 +19,7 @@ use App\Models\establecimientosaludo;
 use App\Models\personale;
 use App\Models\Infante;
 
-
+use Luecano\NumeroALetras\NumeroALetras;
 use Carbon\Carbon;
 
 class ReportesController extends Controller
@@ -1361,7 +1361,26 @@ class ReportesController extends Controller
     //Alerta de insumos que se estén agotando y que se prontos a la fecha de caducidad.
     public function r12()
     {
-        return view('reportes.r12');
+        $vacunainfanteid = vacunainfante::where('Vacunas_id','1')->count('idVacunasInfantes');
+
+        for($i= 1; $i <= 100000; $i++)
+        {
+            $vacunas = vacuna::select('NombreVacuna','TipoVacuna','EstadoVacuna','Fechaingreso','FechaVencimiento','Cantidad')->where('Estado','Si')->where('idVacunas',$i)->paginate(1);
+
+            return view('reportes.r12', compact('vacunas'));
+            
+        }
+
+        /*
+        $vacunas = vacuna::select('NombreVacuna','TipoVacuna','EstadoVacuna','Fechaingreso','FechaVencimiento','Cantidad')->where('Estado','Si')->where('idVacunas','1')->paginate(1);
+        
+        $vacunas2 = vacuna::select('NombreVacuna','TipoVacuna','EstadoVacuna','Fechaingreso','FechaVencimiento','Cantidad')->where('Estado','Si')->where('idVacunas','2')->paginate(1);
+
+        $vacunas3 = vacuna::select('NombreVacuna','TipoVacuna','EstadoVacuna','Fechaingreso','FechaVencimiento','Cantidad')->where('Estado','Si')->where('idVacunas','3')->paginate(1);
+
+        $vacunas4 = vacuna::select('NombreVacuna','TipoVacuna','EstadoVacuna','Fechaingreso','FechaVencimiento','Cantidad')->where('Estado','Si')->where('idVacunas','4')->paginate(1);*/
+
+        //return view('reportes.r12', compact('vacunas','vacunas2','vacunas3','vacunas4'));
     }
 
     //Inventario de insumos médicos

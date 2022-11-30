@@ -41,7 +41,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="name">Correo electrónico</label>
-                                        {!! Form::text('email', null, array('class'=>'form-control', 'minlength'=>'8','maxlength'=>'20')) !!}
+                                        {!! Form::text('email', null, array('class'=>'form-control', 'minlength'=>'8','maxlength'=>'191')) !!}
                                     </div>
                                 </div>
                             </div>
