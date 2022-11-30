@@ -11,7 +11,8 @@ use App\Models\personale;
 use App\Models\Pueblo;
 use App\Models\Infante;
 use Illuminate\Http\Request;
-
+use PDF;
+use Carbon\Carbon;
 class FcevaluacionpospartoController extends Controller
 {
     function __construct()
@@ -142,10 +143,12 @@ class FcevaluacionpospartoController extends Controller
 
         $datospacientes = datospersonalespaciente::all()->where('Estado','Si');
         $establecimientosaludos = establecimientosaludo::all()->where('Estado','Si');   
+        //$fcprenatalpostpartos = fcprenatalpostparto::all()->where('Estado','Si');
         $usuarios = User::all()->where('Estado','Si');
         $pueblos = Pueblo::all()->where('Estado','Si');
         $personaless = personale::all()->where('Cargo','=','Doctor')->where('Estado','Si');
         return view ('pospartos.show', compact('fcevaluacionposparto'))->with('establecimientosaludos',$establecimientosaludos)->with('datospacientes',$datospacientes)->with('usuarios',$usuarios)->with('personaless',$personaless)->with('pueblos',$pueblos);
+        //->with('fcprenatalpostpartos',$fcprenatalpostpartos);
     }
 
     /**

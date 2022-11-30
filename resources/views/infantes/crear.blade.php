@@ -7,7 +7,7 @@
     <section class="section">
         
         <div class="section-header">
-            <h6 class="page__heading">Ingreso de infantes</h6>
+            <h3 class="page__heading">Ingreso de infantes</h3>
         </div>
         <div class="section-body">
         <div class="row row-responsive">
@@ -28,7 +28,31 @@
                             @endif
 
                             {!! Form::open(array('route'=>'infantes.store', 'method'=>'POST')) !!}
-                            <div class="row ">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">Fecha de nacimiento (*)</label>
+                                        <input type="date"  onchange="calcularEdadInfante(this.value)" id="datePickerId" class="form-control" name="FechaNacimiento" id="Fecha"/> 
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-1">
+                                    <div class="form-group">
+                                        <label for="">Edad</label>                                     
+                                            <input type="text" name="edad" id="edad" class="form-control" readonly="true">
+                                    </div>
+                                </div>
+
+                                <div class="row ">
+                                    <div class="col-xs-12 col-sm-12 col-md-1">
+                                        <input type="checkbox" name="test" id="test" class="form-group" style="visibility:hidden">
+                                    </div>
+                                </div>
+                            
+                            </div>
+    
+                            
+                            <div class="row" id="botonInfante" readonly style="display:none">
                                 <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="">Nombres (*)</label>
@@ -52,13 +76,6 @@
                                         <option value="Masculino">Masculino</option>
                                         <option value="Femenino">Femenino</option>
                                         </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-6 col-md-3">
-                                    <div class="form-group">
-                                        <label for="">Fecha de nacimiento (*)</label>
-                                        {!! Form::date('FechaNacimiento', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
 
@@ -163,12 +180,56 @@
                                             <input type="text" name="Estado" value="Si">
                                         </div>
                                     </div>
-                                </div>
+                                </div>  
 
+                                <!--Checked 2 -->
                                 
-                                                               
+                                        <div class="col-xs-12 col-sm-12 col-md-3">
+                                            <label for="chec">Active si nació en algún establecimiento del CAP </label>
+                                            <input class="form-group" name="chec" type="checkbox" id="chec" onChange="comprobar(this);"/>
+                                        </div>
+
+                                    <div class="col" id="boton" readonly style="display:none">
+
+                                        <div class="col-xs-12 col-sm-4 row-md-5">
+                                            <div class="form-group">
+                                                <label for="" value="EstablecimientoSalud_id">¿En qué establecimiento? (*)</label>
+                                                <select class="form-control" name="EstablecimientoSalud_id">
+                                                    @foreach($establecimientosaludos as $establecimiento)
+                                                    <option value="{{$establecimiento->idEstablecimientoSaludos}}" >{{ $establecimiento->Nombre}}, {{ $establecimiento->PuestoSalud}} </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>     
+        
+                                        <div class="col-xs-12 col-sm-4 row-md-5">
+                                            <div class="form-group">
+                                                <label for="" value="Personal_idD">¿Qué médico atendió? (*)</label>
+                                                <select class="form-control" name="Personal_idD">
+                                                    @foreach($personaless as $personal)
+                                                    <option value="{{$personal->idPersonal}}" >{{ $personal->Nombre}} </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>     
+        
+                                        <div class="col-xs-12 col-sm-4 row-md-5">
+                                            <div class="form-group">
+                                                <label for="">Fecha de egreso</label>
+                                                {!! Form::date('FechaEgreso', null, array('class'=>'form-control')) !!}
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-xs-12 col-sm-4 row-md-5">
+                                            <div class="form-group">
+                                                <label for="">Observaciones</label> <br> 
+                                                <div class="form-outline w-100 mb-4">
+                                                    <textarea class="form-control" id="Observaciones" name="Observaciones" style="height:90px; width: 100%; " maxlength="200" placeholder="Observaciones durante el nacimiento"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                             
                             </div>
-                            @include('infantes.crear.nacimientocap')
 
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                     <button type="button" class="btn btn-primary" data-toggle="modal" id="guardarmodal" data-target="#modal-crear">Guardar</button>

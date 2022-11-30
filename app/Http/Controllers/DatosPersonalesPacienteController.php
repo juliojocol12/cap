@@ -30,7 +30,7 @@ class DatospersonalespacienteController extends Controller
         if($cant_pacientes === 0)
         {
             $texto = trim($request->get('texto'));
-            $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente','CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion','Municipiodep','Telefono','Celular','Peso','TipoSanguineo','MedicamentosActualmente','Migrante','Nombre','Stado')
+            $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente','Edad','Denuncia','CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion','Municipiodep','Telefono','Celular','Peso','TipoSanguineo','MedicamentosActualmente','Migrante','Nombre','Stado')
             ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
             ->where('CUI','LIKE','%'.$texto.'%')
             ->paginate(10);
@@ -38,7 +38,7 @@ class DatospersonalespacienteController extends Controller
         }
         else{
             $texto = trim($request->get('texto'));
-            $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente','CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion','Municipiodep','Telefono','Celular','Peso','TipoSanguineo','MedicamentosActualmente','Migrante','Nombre','Stado')
+            $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente','Edad','Denuncia','CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion','Municipiodep','Telefono','Celular','Peso','TipoSanguineo','MedicamentosActualmente','Migrante','Nombre','Stado')
             ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
             ->where('CUI','LIKE','%'.$texto.'%')
             ->where('Stado','Si')
@@ -61,13 +61,6 @@ class DatospersonalespacienteController extends Controller
         return view ('pacientes.crear')->with('pueblos',$pueblos)->with('datosfamiliares',$datosfamiliares)->with('pacientes',$pacientes);
     }
 
-    public function edad()
-    {
-        $nacimiento = "1996-07-05";
-        $actual = Carbon::parse($nacimiento)->age;
-        dump($actual);
-    }
-
 
     /**
      * Store a newly created resource in storage.
@@ -82,6 +75,8 @@ class DatospersonalespacienteController extends Controller
             'NombresPaciente' => 'required|TextoRule1',
             'ApellidosPaciente' => 'required|TextoRule1',
             'FechaNaciemientoPaciente' => 'required',
+            'Edad' => 'required|NumeroRule',
+            'Denuncia' ,
             'CUI' => 'required|NumeroRule|Unique:datospersonalespacientes',
             'ProfesionOficio' => 'required|TextoRule1',
             'Telefono|NumeroRule',
@@ -102,6 +97,10 @@ class DatospersonalespacienteController extends Controller
             'Usuario_id',
 			'Stado',
         ]);
+
+        //$nacimiento = $this->validate($request,['FechaNaciemientoPaciente']);
+        //$actual = Carbon::parse($nacimiento)->age;
+        //dump($actual);
         
         datospersonalespaciente::create($request->all());
         return redirect()->route('pacientes.index');
@@ -158,7 +157,9 @@ class DatospersonalespacienteController extends Controller
                     'NombresPaciente' => 'required|TextoRule1',
                     'ApellidosPaciente' => 'required|TextoRule1',
                     'FechaNaciemientoPaciente' => 'required',
-                    'CUI' => 'required|NumeroRule|Unique:datospersonalespacientes',
+                    'Edad' => 'required|NumeroRule',
+                    'Denuncia',
+                    'CUI' => 'required|NumeroRule',
                     'ProfesionOficio' => 'required|TextoRule1',
                     'Telefono|NumeroRule',
                     'Celular|NumeroRule',
@@ -192,6 +193,8 @@ class DatospersonalespacienteController extends Controller
                 'NombresPaciente' => 'required|TextoRule1',
                 'ApellidosPaciente' => 'required|TextoRule1',
                 'FechaNaciemientoPaciente' => 'required',
+                'Edad' => 'required|NumeroRule',
+                'Denuncia' ,
                 'CUI' => 'required|NumeroRule|Unique:datospersonalespacientes',
                 'ProfesionOficio' => 'required|TextoRule1',
                 'Telefono|NumeroRule',

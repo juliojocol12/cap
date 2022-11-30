@@ -52,7 +52,9 @@ Ficha clinica posparto
                                     <th style="color:#fff;">Fecha</th>
                                     <th style="color:#fff;">Datos de paciente</th>
                                     <th style="color:#fff;">DPI</th>
-                                    <th style="color:#fff;">Establecimiento salud</th>
+                                    <th style="color:#fff;">Establecimiento Salud</th>
+                                    <th style="color:#fff;">Descargar</th>
+
                                 </thead>
 
                                 <tbody>
@@ -83,8 +85,6 @@ Ficha clinica posparto
 
                                             
                                             <td>{{$fcevaluacionposparto->establecimientosaludos->Nombre}} </td>
-
-                                          
                                             
               
                                         </tr>

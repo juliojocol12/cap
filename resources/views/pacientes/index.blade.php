@@ -53,6 +53,7 @@
                                     <th style="color:#fff;">Teléfono</th>
                                     <th style="color:#fff;">Celular</th>
                                     <th style="color:#fff;">Pueblo</th>
+                                    <th style="color:#fff;">Edad</th>
                                 </thead>
                             
                                 
@@ -84,6 +85,7 @@
                                             <td>{{$paciente->Telefono}}</td> 
                                             <td>{{$paciente->Celular}}</td> 
                                             <td>{{$paciente->Nombre}}</td> 
+                                            <td>{{$paciente->Edad}}</td>
                                                                                
                                         </tr>
                                     @include('pacientes.delete')

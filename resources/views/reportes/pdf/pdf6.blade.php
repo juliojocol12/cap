@@ -27,8 +27,6 @@
                 <label for="">Total de registros: {{$infantescount}}</label>
                 <br>
                 <label for="">Fecha de inicio: {{ date('d-m-Y', strtotime($busquedar6FechaI))}}</label>
-                <br>
-                <label for="">Fecha de inicio: {{ date('d-m-Y', strtotime($busquedar6FechaF))}}</label>
             </div>
 
         </div>

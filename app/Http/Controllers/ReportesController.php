@@ -37,10 +37,123 @@ class ReportesController extends Controller
     }
 
     //Mujeres embarazadas por rango edad
-    public function r1()
+    public function r1(Request $request)
     {
-        return view('reportes.r1');
+        $busquedaInicio = trim($request->get('filtroInicio'));
+        $busquedaFinal = trim($request->get('filtroFinal'));
+        
+        if($busquedaInicio==='' && $busquedaFinal==='')
+        {
+            $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente',
+            'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
+            'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Edad',
+            'Migrante','Nombre')
+            ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+            ->where('Stado','Si')
+            ->paginate(10);
+            return view('reportes.r1', compact('datospersonalespacientes','busquedaInicio','busquedaFinal'));
+        }
+        elseif($busquedaInicio===$busquedaInicio && $busquedaFinal==='')
+        {
+            $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente',
+            'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
+            'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Edad',
+            'Migrante','Nombre')
+            ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+            ->where('Edad','>=',$busquedaInicio)
+            ->where('Stado','Si')
+            ->paginate(10);
+            return view('reportes.r1', compact('datospersonalespacientes','busquedaInicio','busquedaFinal'));
+        }
+        elseif($busquedaInicio==='' && $busquedaFinal===$busquedaFinal)
+        {
+            $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente',
+            'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
+            'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Edad',
+            'Migrante','Nombre')
+            ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+            ->where('Edad','<=',$busquedaFinal)
+            ->where('Stado','Si')
+            ->paginate(10);
+            return view('reportes.r1', compact('datospersonalespacientes','busquedaInicio','busquedaFinal'));
+        }
+        elseif($busquedaInicio===$busquedaInicio && $busquedaFinal===$busquedaFinal)
+        {
+            $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente',
+            'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
+            'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Edad',
+            'Migrante','Nombre')
+            ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+            ->where('Edad','>=',$busquedaInicio)
+            ->where('Edad','<=',$busquedaFinal)
+            ->where('Stado','Si')
+            ->paginate(10);
+            return view('reportes.r1', compact('datospersonalespacientes','busquedaInicio','busquedaFinal'));
+        }
+        
+        
     }
+     public function pdf1(Request $request)
+     {
+        $busquedaInicio = trim($request->get('filtroInicio'));
+        $busquedaFinal = trim($request->get('filtroFinal'));
+        
+        if($busquedaInicio==='' && $busquedaFinal==='')
+        {
+            $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente',
+            'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
+            'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Edad',
+            'Migrante','Nombre')
+            ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+            ->where('Stado','Si')
+            ->paginate(10);
+            $pdf = PDF::loadView('reportes/pdf/pdf1', compact('datospersonalespacientes','busquedaInicio','busquedaFinal'));
+            $pdf->setPaper('A4', 'landscape');
+            return $pdf->stream('Reporte_edad.pdf');
+        }
+        elseif($busquedaInicio===$busquedaInicio && $busquedaFinal==='')
+        {
+            $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente',
+            'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
+            'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Edad',
+            'Migrante','Nombre')
+            ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+            ->where('Edad','>=',$busquedaInicio)
+            ->where('Stado','Si')
+            ->paginate(10);
+            $pdf = PDF::loadView('reportes/pdf/pdf1', compact('datospersonalespacientes','busquedaInicio','busquedaFinal'));
+            $pdf->setPaper('A4', 'landscape');
+            return $pdf->stream('Reporte_edad.pdf');
+        }
+        elseif($busquedaInicio==='' && $busquedaFinal===$busquedaFinal)
+        {
+            $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente',
+            'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
+            'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Edad',
+            'Migrante','Nombre')
+            ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+            ->where('Edad','<=',$busquedaFinal)
+            ->where('Stado','Si')
+            ->paginate(10);
+            $pdf = PDF::loadView('reportes/pdf/pdf1', compact('datospersonalespacientes','busquedaInicio','busquedaFinal'));
+            $pdf->setPaper('A4', 'landscape');
+            return $pdf->stream('Reporte_edad.pdf');
+        }
+        else{
+            $datospersonalespacientes = datospersonalespaciente::select('idDatosPersonalesPacientes','NombresPaciente','ApellidosPaciente','FechaNaciemientoPaciente',
+            'CUI','ProfesionOficio','Descripciondireccion','Grupodireccion','Numerodireccion','Zonadireccion',
+            'Municipiodep','Telefono','Celular','EstadoCivil','Peso','TipoSanguineo','MedicamentosActualmente','Edad',
+            'Migrante','Nombre')
+            ->join('pueblos', 'pueblos.idPueblo', '=','datospersonalespacientes.pueblo_id')
+            ->where('Edad','>=',$busquedaInicio)
+            ->where('Edad','<=',$busquedaFinal)
+            ->where('Stado','Si')
+            ->paginate(10);
+            $pdf = PDF::loadView('reportes/pdf/pdf1', compact('datospersonalespacientes','busquedaInicio','busquedaFinal'));
+            $pdf->setPaper('A4', 'landscape');
+            return $pdf->stream('Reporte_edad.pdf');
+        }
+     }
 
     //Mujeres embarazadas por trimestre (primero, segundo o tercero)
     public function r2(Request $request)
@@ -1408,7 +1521,7 @@ class ReportesController extends Controller
     //Índice de abortos
     public function r10(Request $request)
     {
-        request->get('filtro'));
+        $busquedafiltro = trim($request->get('filtro'));
         $busquedaFinal = trim($request->get('filtrofinal'));
         $busquedaDPI = trim($request->get('filtroDPI'));
         $busquedaNombre = trim($request->get('filtroNombre'));
@@ -1422,7 +1535,7 @@ class ReportesController extends Controller
         ->where('Estado','Si')
         ->paginate(10);
 
-        $union = compact('datospersonalespacientes','busqueda','busquedaFinal','busquedaDPI','busquedaNombre','busquedaApellido');
+        $union = compact('datospersonalespacientes','busquedaFinal','busquedaDPI','busquedaNombre','busquedaApellido');
         return view('reportes.r10', $union );
         }elseif($busqueda==='' && $busquedaFinal=== $busquedaFinal){
             $datospersonalespacientes = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Estado')
@@ -1434,7 +1547,7 @@ class ReportesController extends Controller
             ->where('Estado','Si')
             ->paginate(10);
     
-            $union = compact('datospersonalespacientes','busqueda','busquedaFinal','busquedaDPI','busquedaNombre','busquedaApellido');
+            $union = compact('datospersonalespacientes','busquedaFinal','busquedaDPI','busquedaNombre','busquedaApellido');
             return view('reportes.r10', $union );
         }elseif($busqueda===$busqueda && $busquedaFinal===''){
             $datospersonalespacientes = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Estado')
@@ -1446,7 +1559,7 @@ class ReportesController extends Controller
             ->where('Estado','Si')
             ->paginate(10);
     
-            $union = compact('datospersonalespacientes','busqueda','busquedaFinal','busquedaDPI','busquedaNombre','busquedaApellido');
+            $union = compact('datospersonalespacientes','busquedaFinal','busquedaDPI','busquedaNombre','busquedaApellido');
             return view('reportes.r10', $union );
         }
         else{
@@ -1460,115 +1573,10 @@ class ReportesController extends Controller
         ->where('Estado','Si')
         ->paginate(10);
 
-        $union = compact('datospersonalespacientes','busqueda','busquedaFinal','busquedaDPI','busquedaNombre','busquedaApellido');
+        $union = compact('datospersonalespacientes','busquedaFinal','busquedaDPI','busquedaNombre','busquedaApellido');
         return view('reportes.r10', $union );
         }   
     }
-
-    public function pdf10(Request $request)
-    {
-        $busqueda = trim($request->get('filtro'));
-        $busquedaFinal = trim($request->get('filtrofinal'));
-        $busquedaDPI = trim($request->get('filtroDPI'));
-        $busquedaNombre = trim($request->get('filtroNombre'));
-        $busquedaApellido = trim($request->get('filtroApellido'));
-        if($busqueda==='' && $busquedaFinal==='' ){
-            $datospersonalespacientes = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Estado')
-        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','abortos.DatosPersonalesPacientes_id')       
-        ->where('NombresPaciente','LIKE','%'.$busquedaNombre.'%')
-        ->where('ApellidosPaciente','LIKE','%'.$busquedaApellido.'%')
-        ->where('CUI','LIKE','%'.$busquedaDPI.'%')
-        ->where('Estado','Si')
-        ->paginate(10);
-
-        $datospersonalespacientescount = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Estado')
-        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','abortos.DatosPersonalesPacientes_id')       
-        ->where('NombresPaciente','LIKE','%'.$busquedaNombre.'%')
-        ->where('ApellidosPaciente','LIKE','%'.$busquedaApellido.'%')
-        ->where('CUI','LIKE','%'.$busquedaDPI.'%')
-        ->where('Estado','Si')
-        ->count('idAbortos');
-
-        $union = compact('datospersonalespacientes','busqueda','busquedaFinal','busquedaDPI','busquedaNombre','busquedaApellido','datospersonalespacientescount');
-        $pdf = PDF::loadView('reportes/pdf/pdf10', $union);
-        return $pdf->stream('Reporte de abortos.pdf');
-        }
-        elseif($busqueda==='' && $busquedaFinal=== $busquedaFinal){
-            $datospersonalespacientes = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Estado')
-            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','abortos.DatosPersonalesPacientes_id')       
-            ->where('NombresPaciente','LIKE','%'.$busquedaNombre.'%')
-            ->where('ApellidosPaciente','LIKE','%'.$busquedaApellido.'%')
-            ->where('FechaAborto','<=', $busquedaFinal)
-            ->where('CUI','LIKE','%'.$busquedaDPI.'%')
-            ->where('Estado','Si')
-            ->paginate(10);
-
-            $datospersonalespacientescount = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Estado')
-            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','abortos.DatosPersonalesPacientes_id')       
-            ->where('NombresPaciente','LIKE','%'.$busquedaNombre.'%')
-            ->where('ApellidosPaciente','LIKE','%'.$busquedaApellido.'%')
-            ->where('FechaAborto','<=', $busquedaFinal)
-            ->where('CUI','LIKE','%'.$busquedaDPI.'%')
-            ->where('Estado','Si')
-            ->count('idAbortos');
-    
-            $union = compact('datospersonalespacientes','busqueda','busquedaFinal','busquedaDPI','busquedaNombre','busquedaApellido','datospersonalespacientescount');
-        $pdf = PDF::loadView('reportes/pdf/pdf10', $union);
-        return $pdf->stream('Reporte de abortos.pdf');
-        }
-        elseif($busqueda===$busqueda && $busquedaFinal===''){
-            $datospersonalespacientes = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Estado')
-            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','abortos.DatosPersonalesPacientes_id')       
-            ->where('NombresPaciente','LIKE','%'.$busquedaNombre.'%')
-            ->where('ApellidosPaciente','LIKE','%'.$busquedaApellido.'%')
-            ->where('FechaAborto','>=',$busqueda)
-            ->where('CUI','LIKE','%'.$busquedaDPI.'%')
-            ->where('Estado','Si')
-            ->paginate(10);
-
-            $datospersonalespacientescount = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Estado')
-            ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','abortos.DatosPersonalesPacientes_id')       
-            ->where('NombresPaciente','LIKE','%'.$busquedaNombre.'%')
-            ->where('ApellidosPaciente','LIKE','%'.$busquedaApellido.'%')
-            ->where('FechaAborto','>=',$busqueda)
-            ->where('CUI','LIKE','%'.$busquedaDPI.'%')
-            ->where('Estado','Si')
-            ->count('idAbortos');
-    
-            $union = compact('datospersonalespacientes','busqueda','busquedaFinal','busquedaDPI','busquedaNombre','busquedaApellido','datospersonalespacientescount');
-        $pdf = PDF::loadView('reportes/pdf/pdf10', $union);
-        return $pdf->stream('Reporte de abortos.pdf');
-        }
-        
-        else{
-        $datospersonalespacientes = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Estado')
-        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','abortos.DatosPersonalesPacientes_id')       
-        ->where('NombresPaciente','LIKE','%'.$busquedaNombre.'%')
-        ->where('ApellidosPaciente','LIKE','%'.$busquedaApellido.'%')
-        ->where('FechaAborto','>=',$busqueda)
-        ->where('FechaAborto','<=', $busquedaFinal)
-        ->where('CUI','LIKE','%'.$busquedaDPI.'%')
-        ->where('Estado','Si')
-        ->paginate(10);
-
-        $datospersonalespacientescount = Aborto::select('idAbortos','DatosPersonalesPacientes_id', 'Antecedente','Descripcion', 'FechaAborto', 'NombresPaciente','ApellidosPaciente','CUI','Estado')
-        ->join('datospersonalespacientes', 'datospersonalespacientes.idDatosPersonalesPacientes', '=','abortos.DatosPersonalesPacientes_id')       
-        ->where('NombresPaciente','LIKE','%'.$busquedaNombre.'%')
-        ->where('ApellidosPaciente','LIKE','%'.$busquedaApellido.'%')
-        ->where('FechaAborto','>=',$busqueda)
-        ->where('FechaAborto','<=', $busquedaFinal)
-        ->where('CUI','LIKE','%'.$busquedaDPI.'%')
-        ->where('Estado','Si')
-        ->count('idAbortos');
-
-        $union = compact('datospersonalespacientes','busqueda','busquedaFinal','busquedaDPI','busquedaNombre','busquedaApellido','datospersonalespacientescount');
-        $pdf = PDF::loadView('reportes/pdf/pdf10', $union);
-        return $pdf->stream('Reporte de abortos.pdf');}
-     
-    }
- 
-    }
-
     public function pdf10(Request $request)
     {
         $busqueda = trim($request->get('filtro'));

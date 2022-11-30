@@ -20,10 +20,7 @@
         <div>
             <div align="right">
                 <label align="right" for="">Fecha de emisión: {{ date('d-m-Y') }}</label>
-                <br>
-                <label for="">Hora de emisión: {{ date('h:m:s A') }}</label>
             </div>
-
         </div>
         <br>
 

@@ -16,7 +16,7 @@
                         <div class="card-body">
 
                             <h3>Abortos</h3>
-                            <div class="row">
+                            <div class="row"> 
                                 <div class="col-xl-12">
                                     <form action="{{ route('reportes.r10') }}" method="GET">
                                         

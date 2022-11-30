@@ -14,6 +14,9 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
+
+                            
+                                
                                 @include('home.usuarios') 
                                 @include('home.roles')
                                 @include('home.personal')
@@ -28,11 +31,12 @@
                                 @include('home.establecimiento')
                                 @include('home.vacunas')
                                 @include('home.vacunainfantes')
+                                @include('home.muertematerna')
                                 @include('home.aborto')
                                 @include('home.fichamspasriego')
                                 @include('home.agenda')
                                 @include('home.reportes')
-                                @include('home.muertematerna')
+                                
                              </div>
                         </div>
                     </div>

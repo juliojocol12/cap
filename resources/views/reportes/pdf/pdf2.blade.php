@@ -17,6 +17,13 @@
         <h2>Reporte de pacientes del trimestre: </h2>
         <h2>Total de registros: {{$totalpacientes}}</h2>
     </center>
+    <br>
+        <div>
+            <div align="right">
+                <label align="right" for="">Fecha de emisión: {{ date('d-m-Y') }}</label>
+            </div>
+        </div>
+        <br>
 
     <table class="table  table-striped mt-2 table-responsive">
                                 <thead style="background-color: #6777ef;">

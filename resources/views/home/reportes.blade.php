@@ -1,4 +1,4 @@
-@can('')
+
     <div class="col-md-4 col-xl-4">
         <div class="card bg-c-pink order-card">
             <div class="card-block">
@@ -8,4 +8,3 @@
             </div>
         </div>
     </div>
-@endcan

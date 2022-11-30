@@ -19,6 +19,8 @@ class CreateDatospersonalespacientesTable extends Migration
             $table->string('NombresPaciente',25);
             $table->string('ApellidosPaciente',25);
             $table->date('FechaNaciemientoPaciente');
+            $table->string('Edad',2);
+            $table->string('Denuncia',40)->nullable();
             $table->string('CUI',15)->unique();
             $table->string('ProfesionOficio',25);
             

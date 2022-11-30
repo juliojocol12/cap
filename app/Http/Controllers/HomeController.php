@@ -77,9 +77,9 @@ class HomeController extends Controller
         $cant_vacunainfante = vacunainfante::where('Tado','Si')->count();
         $cant_agenda = evento::count();
         $cant_aborto = Aborto::count();
-        $cant_muertematerna = Muertematerna::count();
+        //$cant_muertematerna = Muertematerna::count();
         $cant_fichamspasriego = fichamspasriego::where('Estado','Si')->count();
-        return view('home', compact('cant_infantes','cant_personales','cant_roles','cantusuarios','cant_familiares','cant_pacientes','cant_prenatal','cant_controlprenatal','cant_posparto','cant_controlposparto','cant_pueblo','cant_establecimiento','cant_vacunas','cant_vacunainfante','cant_agenda','cant_aborto','cant_fichamspasriego','cant_muertematerna'));
+        return view('home', compact('cant_infantes','cant_personales','cant_roles','cantusuarios','cant_familiares','cant_pacientes','cant_prenatal','cant_controlprenatal','cant_posparto','cant_controlposparto','cant_pueblo','cant_establecimiento','cant_vacunas','cant_vacunainfante','cant_agenda','cant_aborto','cant_fichamspasriego'));
     }
     public function fichamspasriegohome()
     {

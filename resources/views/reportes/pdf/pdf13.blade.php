@@ -20,8 +20,6 @@
     <br>
     <div align="right">
         <label for="">Fecha de reporte: {{ date('d-m-Y') }}</label>
-        <br>
-        <label for="">Hora de reporte: {{ date('h:m:s A') }}</label>
     </div>
 
     <br>

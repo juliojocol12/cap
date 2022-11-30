@@ -89,6 +89,10 @@ class VacunainfanteController extends Controller
     public function show($idVacunasInfantes)
     {
         //
+        $vacunainfantes = vacunainfante::find($idVacunasInfantes);
+        $vacunas = vacuna::all()->where('Estado','Si');
+        $infantes = Infante::all()->where('Estado','Si');
+        return view ('vacunainfantes.show', compact('vacunainfantes'))->with('vacunas',$vacunas)->with('infantes',$infantes);
     }
 
     /**
