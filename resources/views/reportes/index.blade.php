@@ -38,7 +38,7 @@
                                 <div class="col-md-4 col-xl-3">
                                     <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
                                         <div class="card-block">
-                                            <h5>Mujeres embarazadas en alto riego</h5> 
+                                            <h5>Mujeres embarazadas en alto riesgo</h5> 
                                             <h2 class="text-right"><i class="fa fa-users f-left"></i></h2>
                                             <p class="m-b-0 text-right"><a href="{{ route('reportes.r3') }}" class="text-white">Generar</a></p>
                                         </div>                                            

@@ -32,6 +32,7 @@
                                 @include('home.fichamspasriego')
                                 @include('home.agenda')
                                 @include('home.reportes')
+                                @include('home.muertematerna')
                              </div>
                         </div>
                     </div>

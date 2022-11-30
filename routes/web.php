@@ -29,6 +29,8 @@ use App\Http\Controllers\VacunainfanteController;
 
 use App\Http\Controllers\AbortoController;
 use App\Http\Controllers\ReportesController;
+
+use App\Http\Controllers\MuertematernaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -83,9 +85,8 @@ Route::group(['middleware' => ['auth']], function(){
     //Route::resource('evento', EventoController::class);
     Route::resource('eventos', EventosController::class);
     Route::resource('abortos', AbortoController::class);
-
+    Route::resource('muertematernas', MuertematernaController::class);
     
-
     Route::get('edad/pacientes', [App\Http\Controllers\DatospersonalespacienteController::class, 'edad'])->name('pacientes.edad');
     
     //rutas para vistas de reportes
@@ -104,6 +105,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('r13/reportes', [App\Http\Controllers\ReportesController::class, 'r13'])->name('reportes.r13');
 
     //rutas para generar reportes
+    Route::get('pdf3/reportes', [App\Http\Controllers\ReportesController::class, 'pdf3'])->name('altoriesgo.pdf3');
     Route::get('pdf4/reportes', [App\Http\Controllers\ReportesController::class, 'pdf4'])->name('datospersonalespacientes.pdf4');
     Route::get('pdf13/reportes', [App\Http\Controllers\ReportesController::class, 'pdf13'])->name('vacunas.pdf13');
     Route::get('pdf2/reportes', [App\Http\Controllers\ReportesController::class, 'pdf2'])->name('pacientes.pdf2');
@@ -112,4 +114,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('pdf8/reportes', [App\Http\Controllers\ReportesController::class, 'pdf8'])->name('vacunainfante.pdf8');
 
 
+    Route::get('pdf10/reportes', [App\Http\Controllers\ReportesController::class, 'pdf10'])->name('abortos.pdf10');
+ 
 });
